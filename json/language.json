@@ -1,0 +1,26 @@
+[
+    {
+      "languageName": "SPANISH",
+      "pointsEarned": 300,
+      "totalPoints": 1000,
+      "progress": 0.3,
+      "placementScore": 85,
+      "sections": ["Section1", "Section2"],
+      "dictionary": {
+        "fromEnglish": {
+          
+        },
+        "toEnglish": {
+          
+        }
+      },
+      "answerStreak": 7,
+      "sectionsComplete": ["Section1"],
+      "sectionAccess": {
+        "Section1": true,
+        "Section2": false
+      }
+    }
+]
+    
+  
