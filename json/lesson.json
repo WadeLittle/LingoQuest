@@ -5,8 +5,7 @@
       "coinValue": 5,
       "lessonProgress": 0.2,
       "topicDictionary": {
-        "greeting": ["hello", "hi"],
-        "farewell": ["goodbye", "see you later"]
+        
       },
       "questions": ["Question1", "Question2"]
     },
@@ -16,8 +15,7 @@
       "coinValue": 15,
       "lessonProgress": 0.6,
       "topicDictionary": {
-        "colors": ["red", "blue"],
-        "numbers": ["one", "two"]
+        
       },
       "questions": ["Question3", "Question4"]
     }
