@@ -1,0 +1,21 @@
+[
+    {
+      "questionType": "MultipleChoice",
+      "question": "What is the Spanish word for 'hello'?",
+      "answerChoices": ["hola", "adios", "gracias"],
+      "correctAnswer": "hola",
+      "userAnswer": "",
+      "pointValue": 10,
+      "coinValue": 2
+    },
+    {
+      "questionType": "FillInTheBlank",
+      "question": "The Spanish word for 'apple' is __________.",
+      "answerChoices": ["manzana"],
+      "correctAnswer": "manzana",
+      "userAnswer": "",
+      "pointValue": 5,
+      "coinValue": 1
+    }
+  ]
+  

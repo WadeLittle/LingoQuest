@@ -1,0 +1,21 @@
+[
+    {
+      "lessons": ["Lesson1", "Lesson2"],
+      "userAccess": true,
+      "sectionProgress": 0.5,
+      "pointsEarned": 100,
+      "totalPoints": 200,
+      "coinValue": 20,
+      "sectionComplete": false
+    },
+    {
+      "lessons": ["Lesson3", "Lesson4"],
+      "userAccess": false,
+      "sectionProgress": 0.3,
+      "pointsEarned": 50,
+      "totalPoints": 150,
+      "coinValue": 15,
+      "sectionComplete": false
+    }
+  ]
+  
