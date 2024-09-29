@@ -1,12 +1,12 @@
 [
     {
       "questionType": "MultipleChoice",
-      "question": "What is the Spanish word for 'hello'?",
-      "answerChoices": ["hola", "adios", "gracias"],
+      "question": "What is the Spanish word for 'cheese'?",
+      "answerChoices": ["queso", "pastel", "naranja"],
       "correctAnswer": "hola",
       "userAnswer": "",
       "pointValue": 10,
-      "coinValue": 2
+      "coinValue": 1
     },
     {
       "questionType": "FillInTheBlank",
@@ -14,7 +14,26 @@
       "answerChoices": ["manzana"],
       "correctAnswer": "manzana",
       "userAnswer": "",
-      "pointValue": 5,
+      "pointValue": 20,
+      "coinValue": 2
+    },
+    {
+      "questionType": "Matching",
+      "question": "",
+      "answers":{"Hello":"Hola","Goodbye":"Adios","Good Afternoon":"Buenos Tardes"},
+      "answerChoices": ["buenos tardes"],
+      "correctAnswer": "manzana",
+      "userAnswer": "",
+      "pointValue": 20,
+      "coinValue": 2
+    },
+    {
+      "questionType": "MultipleChoice",
+      "question": "The Spanish word for 'bread' is __________.",
+      "answerChoices": ["pan","queso","jamon"],
+      "correctAnswer": "pan",
+      "userAnswer": "",
+      "pointValue": 10,
       "coinValue": 1
     }
   ]

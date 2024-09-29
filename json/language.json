@@ -1,6 +1,57 @@
 [
     {
-      "languageName": "SPANISH",
+      "user": [
+      {
+          "userID": "12345",
+      "username": "john",
+      "password": "password123",
+      "coinsEarned": 100,
+      "coinBalance": 50,
+      "friendsList": ["67890", "24680"], 
+      "items": [
+        {
+          "name": "Red Hat",
+          "description": "red hat",
+          "price": 10,
+          "owned": true
+        }
+      ],
+      "bookmarkedLessons": ["Lesson1", "Lesson2"],
+      "userProgress": {
+        "language": "SPANISH",
+        "points": 200,
+        "answerStreak": 5
+      },
+      "wordOfTheDay": "palabra",
+      "languages": ["SPANISH"],
+      "currentLanguage": "SPANISH"
+    },
+    {
+      "userID": "67890",
+      "username": "jane",
+      "password": "securePassword",
+      "coinsEarned": 200,
+      "coinBalance": 150,
+      "friendsList": ["12345"],
+      "items": [
+        {
+          "name": "Blue Hat",
+          "description": "blue hat",
+          "price": 15,
+          "owned": true
+        }
+      ],
+      "bookmarkedLessons": ["Lesson3"],
+      "userProgress": {
+        "language": "SPANISH",
+        "points": 300,
+        "answerStreak": 10
+      },
+      "wordOfTheDay": "hola",
+      "languages": ["SPANISH"],
+      "currentLanguage": "SPANISH"
+      } 
+    ],
       "pointsEarned": 300,
       "totalPoints": 1000,
       "progress": 0.3,
@@ -15,6 +66,7 @@
         }
       },
       "answerStreak": 7,
+      "languageName": "SPANISH",
       "sectionsComplete": ["Section1"],
       "sectionAccess": {
         "Section1": true,

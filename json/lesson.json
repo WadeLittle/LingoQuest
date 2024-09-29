@@ -1,23 +1,64 @@
 [
-    {
-      "pointsEarned": 10,
-      "totalPoints": 50,
-      "coinValue": 5,
-      "lessonProgress": 0.2,
-      "topicDictionary": {
-        
-      },
-      "questions": ["Question1", "Question2"]
+  {
+    "pointsEarned": 10,
+    "totalPoints": 50,
+    "coinValue": 5,
+    "lessonProgress": 0.2,
+    "topicDictionary": {
+      
     },
-    {
-      "pointsEarned": 30,
-      "totalPoints": 50,
-      "coinValue": 15,
-      "lessonProgress": 0.6,
-      "topicDictionary": {
-        
+    "questions": [
+      {
+        "questionType": "MultipleChoice",
+        "question": "What is the Spanish word for 'cheese'?",
+        "answerChoices": ["queso", "pastel", "naranja"],
+        "correctAnswer": "hola",
+        "userAnswer": "",
+        "pointValue": 10,
+        "coinValue": 1
       },
-      "questions": ["Question3", "Question4"]
-    }
-  ]
+      {
+        "questionType": "FillInTheBlank",
+        "question": "The Spanish word for 'apple' is __________.",
+        "answerChoices": ["manzana"],
+        "correctAnswer": "manzana",
+        "userAnswer": "",
+        "pointValue": 20,
+        "coinValue": 2
+      }
+    ]
+},
+
+{
+    "pointsEarned": 30,
+    "totalPoints": 50,
+    "coinValue": 15,
+    "lessonProgress": 0.6,
+    "topicDictionary": {
+      
+    },
+    "questions": [
+      {
+        "questionType": "Matching",
+        "question": "",
+        "answers":{"Hello":"Hola","Goodbye":"Adios","Good Afternoon":"Buenos Tardes"},
+        "answerChoices": ["buenos tardes"],
+        "correctAnswer": "manzana",
+        "userAnswer": "",
+        "pointValue": 20,
+        "coinValue": 2
+      },
+
+      {
+        "questionType": "MultipleChoice",
+        "question": "The Spanish word for 'bread' is __________.",
+        "answerChoices": ["pan","queso","jamon"],
+        "correctAnswer": "pan",
+        "userAnswer": "",
+        "pointValue": 10,
+        "coinValue": 1
+      }
+    ]
+  }
+]
   
