@@ -4,8 +4,11 @@
           {
             "name": "Red Hat",
             "description": "red hat",
-            "price": 10,
-            "owned": true
+            "price": 10
+          }, {
+            "name": "Blue Hat",
+            "description": "Blue hat",
+            "price": 15
           }
         ]
     }

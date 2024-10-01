@@ -1,63 +1,17 @@
-[
+{
+  "Spanish": [
     {
-      "user": [
-      {
-          "userID": "12345",
-      "username": "john",
-      "password": "password123",
-      "coinsEarned": 100,
-      "coinBalance": 50,
-      "friendsList": ["67890", "24680"], 
-      "items": [
-        {
-          "name": "Red Hat",
-          "description": "red hat",
-          "price": 10,
-          "owned": true
-        }
-      ],
-      "bookmarkedLessons": ["Lesson1", "Lesson2"],
-      "userProgress": {
-        "language": "SPANISH",
-        "points": 200,
-        "answerStreak": 5
+      "User": {
+        "userID": "550e8400-e29b-41d4-a716-446655440000"
       },
-      "wordOfTheDay": "palabra",
-      "languages": ["SPANISH"],
-      "currentLanguage": "SPANISH"
-    },
-    {
-      "userID": "67890",
-      "username": "jane",
-      "password": "securePassword",
-      "coinsEarned": 200,
-      "coinBalance": 150,
-      "friendsList": ["12345"],
-      "items": [
-        {
-          "name": "Blue Hat",
-          "description": "blue hat",
-          "price": 15,
-          "owned": true
-        }
-      ],
-      "bookmarkedLessons": ["Lesson3"],
-      "userProgress": {
-        "language": "SPANISH",
-        "points": 300,
-        "answerStreak": 10
-      },
-      "wordOfTheDay": "hola",
-      "languages": ["SPANISH"],
-      "currentLanguage": "SPANISH"
-      } 
-    ],
+      "PlacementTest": "spanishPlacementTest",
       "pointsEarned": 300,
       "totalPoints": 1000,
       "progress": 0.3,
       "placementScore": 85,
       "sections": [
         {
+          "sectionName": "Food",
           "lessons": [
             {
               "pointsEarned": 30,
@@ -65,30 +19,96 @@
               "coinValue": 15,
               "lessonProgress": 0.6,
               "topicDictionary": {
-                "fromEnglish":{"watermelon":"sandia","grape":"uva","orange":"naranja","strawberry":"fresa"},
-                  "toEnglish":{"sandia":"watermelon","uva":"grape","naranja":"orange","fresa":"strawberry"},
-                  "numberOfWords":4
+                "fromEnglish": {
+                  "watermelon": "sandia",
+                  "grape": "uva",
+                  "orange": "naranja",
+                  "strawberry": "fresa",
+                  "bread": "pan",
+                  "cheese": "queso",
+                  "ham": "jamon"
+                },
+                "toEnglish": {
+                  "sandia": "watermelon",
+                  "uva": "grape",
+                  "naranja": "orange",
+                  "fresa": "strawberry",
+                  "pan": "bread",
+                  "queso": "cheese",
+                  "jamon": "ham"
+                },
+                "numberOfWords": 7
               },
               "questions": [
                 {
                   "questionType": "Matching",
-                  "question": "",
-                  "answers":{"Hello":"Hola","Goodbye":"Adios","Good Afternoon":"Buenos Tardes"},
-                  "answerChoices": ["buenos tardes"],
-                  "correctAnswer": "manzana",
+                  "question": "Match the following words with their translations:",
+                  "answers": [
+                    "watermelon",
+                    "grape",
+                    "orange",
+                    "strawberry"
+                  ],
+                  "answerChoices": ["naranja", "uva", "sandia", "fresa"],
+                  "correctAnswer": {
+                    "watermelon": "sandia",
+                    "grape": "uva",
+                    "orange": "naranja",
+                    "strawberry": "fresa"
+                  },
                   "userAnswer": "",
                   "pointValue": 20,
                   "coinValue": 2
                 },
-          
                 {
                   "questionType": "MultipleChoice",
                   "question": "The Spanish word for 'bread' is __________.",
-                  "answerChoices": ["pan","queso","jamon"],
+                  "answerChoices": ["pan", "queso", "jamon"],
                   "correctAnswer": "pan",
                   "userAnswer": "",
                   "pointValue": 10,
                   "coinValue": 1
+                }
+              ]
+            },
+            {
+              "pointsEarned": 20,
+              "totalPoints": 50,
+              "coinValue": 10,
+              "lessonProgress": 0.4,
+              "topicDictionary": {
+                "fromEnglish": {
+                  "cat": "gato",
+                  "dog": "perro",
+                  "bird": "pajaro",
+                  "fish": "pez"
+                },
+                "toEnglish": {
+                  "gato": "cat",
+                  "perro": "dog",
+                  "pajaro": "bird",
+                  "pez": "fish"
+                },
+                "numberOfWords": 4
+              },
+              "questions": [
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'dog' is __________.",
+                  "answerChoices": ["gato", "perro", "pajaro"],
+                  "correctAnswer": "perro",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1
+                },
+                {
+                  "questionType": "FillInTheBlank",
+                  "question": "The Spanish word for 'cat' is __________.",
+                  "answerChoices": ["gato"],
+                  "correctAnswer": "gato",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 2
                 }
               ]
             }
@@ -101,7 +121,98 @@
           "sectionComplete": false
         },
         {
-          "lessons": ["Lesson1", "Lesson2"],
+          "sectionName": "House",
+          "lessons": [
+            {
+              "pointsEarned": 25,
+              "totalPoints": 40,
+              "coinValue": 12,
+              "lessonProgress": 0.5,
+              "topicDictionary": {
+                "fromEnglish": {
+                  "house": "casa",
+                  "window": "ventana",
+                  "door": "puerta",
+                  "roof": "techo"
+                },
+                "toEnglish": {
+                  "casa": "house",
+                  "ventana": "window",
+                  "puerta": "door",
+                  "techo": "roof"
+                },
+                "numberOfWords": 4
+              },
+              "questions": [
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'house' is __________.",
+                  "answerChoices": ["ventana", "casa", "puerta"],
+                  "correctAnswer": "casa",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1
+                },
+                {
+                  "questionType": "FillInTheBlank",
+                  "question": "The Spanish word for 'roof' is __________.",
+                  "answerChoices": ["techo"],
+                  "correctAnswer": "techo",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 2
+                }
+              ]
+            },
+            {
+              "pointsEarned": 15,
+              "totalPoints": 30,
+              "coinValue": 8,
+              "lessonProgress": 0.3,
+              "topicDictionary": {
+                "fromEnglish": {
+                  "table": "mesa",
+                  "chair": "silla",
+                  "lamp": "lampara",
+                  "bed": "cama"
+                },
+                "toEnglish": {
+                  "mesa": "table",
+                  "silla": "chair",
+                  "lampara": "lamp",
+                  "cama": "bed"
+                },
+                "numberOfWords": 4
+              },
+              "questions": [
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'chair' is __________.",
+                  "answerChoices": ["mesa", "silla", "cama"],
+                  "correctAnswer": "silla",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1
+                },
+                {
+                  "questionType": "Matching",
+                  "question": "Match the following furniture items:",
+                  "answers": [
+                    "table",
+                    "lamp"
+                  ],
+                  "answerChoices": ["mesa", "lampara"],
+                  "correctAnswer": {
+                    "table": "mesa",
+                    "lamp": "lampara"
+                  },
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1
+                }
+              ]
+            }
+          ],
           "userAccess": true,
           "sectionProgress": 0.5,
           "pointsEarned": 100,
@@ -112,10 +223,54 @@
       ],
       "dictionary": {
         "fromEnglish": {
-          "fromEnglish":{"hello":"hola","goodbye":"adios","good afternoon":"buenos tardes"},
-        "toEnglish":{"hola":"hello","adios":"goodbye","buenos tardes":"good afternoon"},
-        "numberOfWords":3
-        }
+          "hello": "hola",
+          "goodbye": "adios",
+          "good afternoon": "buenos tardes",
+          "watermelon": "sandia",
+          "grape": "uva",
+          "orange": "naranja",
+          "strawberry": "fresa",
+          "bread": "pan",
+          "cheese": "queso",
+          "ham": "jamon",
+          "cat": "gato",
+          "dog": "perro",
+          "bird": "pajaro",
+          "fish": "pez",
+          "house": "casa",
+          "window": "ventana",
+          "door": "puerta",
+          "roof": "techo",
+          "table": "mesa",
+          "chair": "silla",
+          "lamp": "lampara",
+          "bed": "cama"
+        },
+        "toEnglish": {
+          "hola": "hello",
+          "adios": "goodbye",
+          "buenos tardes": "good afternoon",
+          "sandia": "watermelon",
+          "uva": "grape",
+          "naranja": "orange",
+          "fresa": "strawberry",
+          "pan": "bread",
+          "queso": "cheese",
+          "jamon": "ham",
+          "gato": "cat",
+          "perro": "dog",
+          "pajaro": "bird",
+          "pez": "fish",
+          "casa": "house",
+          "ventana": "window",
+          "puerta": "door",
+          "techo": "roof",
+          "mesa": "table",
+          "silla": "chair",
+          "lampara": "lamp",
+          "cama": "bed"
+        },
+        "numberOfWords": 26
       },
       "answerStreak": 7,
       "languageName": "SPANISH",
@@ -125,6 +280,5 @@
         "Section2": false
       }
     }
-]
-    
-  
+  ]
+}
