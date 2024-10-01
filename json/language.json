@@ -1,5 +1,5 @@
 {
-  "Spanish": [
+  "Spanish": 
     {
       "User": {
         "userID": "550e8400-e29b-41d4-a716-446655440000"
@@ -58,7 +58,8 @@
                   },
                   "userAnswer": "",
                   "pointValue": 20,
-                  "coinValue": 2
+                  "coinValue": 2,
+                  "media": ""
                 },
                 {
                   "questionType": "MultipleChoice",
@@ -67,7 +68,8 @@
                   "correctAnswer": "pan",
                   "userAnswer": "",
                   "pointValue": 10,
-                  "coinValue": 1
+                  "coinValue": 1,
+                  "media": "bread.mp3"
                 }
               ]
             },
@@ -99,7 +101,12 @@
                   "correctAnswer": "perro",
                   "userAnswer": "",
                   "pointValue": 10,
-                  "coinValue": 1
+                  "coinValue": 1,
+                  "media": {
+                    "name": "picturebook1",
+                    "description": "book about a dog who loves to eat cheese",
+                    "pictureBook": "TheCheesyDog.pdf"
+                  }
                 },
                 {
                   "questionType": "FillInTheBlank",
@@ -108,7 +115,12 @@
                   "correctAnswer": "gato",
                   "userAnswer": "",
                   "pointValue": 10,
-                  "coinValue": 2
+                  "coinValue": 2,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "pictureBook": ""
+                  }
                 }
               ]
             }
@@ -151,7 +163,12 @@
                   "correctAnswer": "casa",
                   "userAnswer": "",
                   "pointValue": 10,
-                  "coinValue": 1
+                  "coinValue": 1,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "pictureBook": ""
+                  }
                 },
                 {
                   "questionType": "FillInTheBlank",
@@ -160,7 +177,12 @@
                   "correctAnswer": "techo",
                   "userAnswer": "",
                   "pointValue": 10,
-                  "coinValue": 2
+                  "coinValue": 2,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "pictureBook": ""
+                  }
                 }
               ]
             },
@@ -192,7 +214,12 @@
                   "correctAnswer": "silla",
                   "userAnswer": "",
                   "pointValue": 10,
-                  "coinValue": 1
+                  "coinValue": 1,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "pictureBook": ""
+                  }
                 },
                 {
                   "questionType": "Matching",
@@ -208,7 +235,12 @@
                   },
                   "userAnswer": "",
                   "pointValue": 10,
-                  "coinValue": 1
+                  "coinValue": 1,
+                  "media": {
+                    "name": "Evil Llama",
+                    "description": "book about an evil llama that speaks spanish",
+                    "pictureBook": "evilLlama.pdf"
+                  }
                 }
               ]
             }
@@ -280,5 +312,5 @@
         "Section2": false
       }
     }
-  ]
+  
 }
