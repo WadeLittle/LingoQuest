@@ -56,7 +56,60 @@
       "totalPoints": 1000,
       "progress": 0.3,
       "placementScore": 85,
-      "sections": ["Section1", "Section2"],
+      "sections": [
+        {
+          "lessons": [
+            {
+              "pointsEarned": 30,
+              "totalPoints": 50,
+              "coinValue": 15,
+              "lessonProgress": 0.6,
+              "topicDictionary": {
+                "fromEnglish":{"watermelon":"sandia","grape":"uva","orange":"naranja","strawberry":"fresa"},
+                  "toEnglish":{"sandia":"watermelon","uva":"grape","naranja":"orange","fresa":"strawberry"},
+                  "numberOfWords":4
+              },
+              "questions": [
+                {
+                  "questionType": "Matching",
+                  "question": "",
+                  "answers":{"Hello":"Hola","Goodbye":"Adios","Good Afternoon":"Buenos Tardes"},
+                  "answerChoices": ["buenos tardes"],
+                  "correctAnswer": "manzana",
+                  "userAnswer": "",
+                  "pointValue": 20,
+                  "coinValue": 2
+                },
+          
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'bread' is __________.",
+                  "answerChoices": ["pan","queso","jamon"],
+                  "correctAnswer": "pan",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1
+                }
+              ]
+            }
+          ],
+          "userAccess": false,
+          "sectionProgress": 0.3,
+          "pointsEarned": 50,
+          "totalPoints": 150,
+          "coinValue": 15,
+          "sectionComplete": false
+        },
+        {
+          "lessons": ["Lesson1", "Lesson2"],
+          "userAccess": true,
+          "sectionProgress": 0.5,
+          "pointsEarned": 100,
+          "totalPoints": 200,
+          "coinValue": 20,
+          "sectionComplete": false
+        }
+      ],
       "dictionary": {
         "fromEnglish": {
           "fromEnglish":{"hello":"hola","goodbye":"adios","good afternoon":"buenos tardes"},

@@ -1,0 +1,12 @@
+[
+    {
+        "items": [
+          {
+            "name": "Red Hat",
+            "description": "red hat",
+            "price": 10,
+            "owned": true
+          }
+        ]
+    }
+]
