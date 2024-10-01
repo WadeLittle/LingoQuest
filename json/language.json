@@ -59,10 +59,9 @@
       "sections": ["Section1", "Section2"],
       "dictionary": {
         "fromEnglish": {
-          
-        },
-        "toEnglish": {
-          
+          "fromEnglish":{"hello":"hola","goodbye":"adios","good afternoon":"buenos tardes"},
+        "toEnglish":{"hola":"hello","adios":"goodbye","buenos tardes":"good afternoon"},
+        "numberOfWords":3
         }
       },
       "answerStreak": 7,

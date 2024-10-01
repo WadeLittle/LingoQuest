@@ -5,7 +5,11 @@
     "coinValue": 5,
     "lessonProgress": 0.2,
     "topicDictionary": {
-      
+      "fromEnglish":{"watermelon":"sandia","grape":"uva","orange":"naranja","strawberry":"fresa",
+    "cheese":"queso","cake":"pastel","apple":"manzana","bread":"pan","ham":"jamon"},
+        "toEnglish":{"sandia":"watermelon","uva":"grape","naranja":"orange","fresa":"strawberry",
+      "queso":"cheese","pastel":"cake","manzana":"apple","pan":"bread","jamon":"ham"},
+        "numberOfWords":9
     },
     "questions": [
       {
@@ -35,7 +39,9 @@
     "coinValue": 15,
     "lessonProgress": 0.6,
     "topicDictionary": {
-      
+      "fromEnglish":{"watermelon":"sandia","grape":"uva","orange":"naranja","strawberry":"fresa"},
+        "toEnglish":{"sandia":"watermelon","uva":"grape","naranja":"orange","fresa":"strawberry"},
+        "numberOfWords":4
     },
     "questions": [
       {

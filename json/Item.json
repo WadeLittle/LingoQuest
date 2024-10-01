@@ -1,0 +1,15 @@
+[
+    {
+        "name": "Cowboy Hat",
+        "description": "A western cowboy hat for a cowpoke",
+        "price": 100,
+        "owned": false
+    },
+
+    {
+        "name": "Astronaut Helmet",
+        "description": "A helmet for space-dwellers",
+        "price": 200,
+        "owned": true
+    }
+]

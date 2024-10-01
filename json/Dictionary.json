@@ -1,0 +1,13 @@
+[
+    {
+        "fromEnglish":{"hello":"hola","goodbye":"adios","good afternoon":"buenos tardes"},
+        "toEnglish":{"hola":"hello","adios":"goodbye","buenos tardes":"good afternoon"},
+        "numberOfWords":3
+    },
+
+    {
+        "fromEnglish":{"watermelon":"sandia","grape":"uva","orange":"naranja","strawberry":"fresa"},
+        "toEnglish":{"sandia":"watermelon","uva":"grape","naranja":"orange","fresa":"strawberry"},
+        "numberOfWords":4
+    }
+]

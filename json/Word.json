@@ -1,0 +1,14 @@
+[
+    {
+        "timesPresented":4,
+        "word":"perro",
+        "timesCorrect":3,
+        "userUnderstanding":0.75
+    },
+    {
+        "timesPresented":8,
+        "word":"manzana",
+        "timesCorrect":4,
+        "userUnderstanding":0.5
+    }
+]
