@@ -1,5 +1,7 @@
 package code;
 
+import java.util.ArrayList;
+
 public class Lesson {
     private int pointsEarned;
     private int totalPoints;
@@ -22,6 +24,7 @@ public class Lesson {
 
     public Question getQuestion() {
 
+        return questions.get(0);
     }
 
     public void halfwayCompleteReward() {
