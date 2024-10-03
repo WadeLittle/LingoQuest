@@ -6,7 +6,7 @@ public class Word {
    private int timesCorrect;
    private double userUnderstanding;
    
-   pubilc Word() {
+   public Word() {
 
    }
 
