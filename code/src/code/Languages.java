@@ -1,5 +1,9 @@
 package code;
 
-public class Languages {
-    
+public enum Languages {
+    SPANISH,
+    FRENCH,
+    GERMAN,
+    JAPANESE,
+    KOREAN
 }
