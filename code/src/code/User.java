@@ -67,12 +67,26 @@ public class User {
 
         return 0;
     }
-
-    public User searchFriends(User target) {
-
-        return target;
+    /**
+     * Searches the users friends list and returns the friend if they are on the list or null if the user can't be found
+     * @param username The user you are searching for's username
+     * @return The user with the username if they are on the list or null if the username can't be found
+     */
+    public User searchFriends(String username) {
+        for(int i = 0; i < friendsList.size();i++) {
+            if(friendsList.get(i).getUsername().equals(username)) {
+            return friendsList.get(i);
+            }
+        }
+        return null;
     }
-
+    /**
+     * Gets the User ID
+     * @return the User ID
+     */
+    public UUID getUUID() {
+        return userID;
+    }
     public void setCoins(int coins) {
 
     }
