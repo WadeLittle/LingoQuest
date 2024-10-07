@@ -106,8 +106,13 @@ public class User {
         coinBalance +=coins;
         coinsEarned += coins;
     }
+    /**
+     * @author Wade Little
+     * This spends coins from the coin balance
+     * @param coins the amount of coins you are spending
+     */
     public void spendCoins(int coins) {
-
+        coinBalance -= coins;
     }
 
     public String getUsername() {
