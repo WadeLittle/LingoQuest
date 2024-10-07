@@ -54,9 +54,12 @@ public class User {
             bookmarkedLessons.add(lesson);
         }
     }
-
+    /**
+     * @author Wade Little
+     * Gets the Word of the day
+     * @return Word of the Day
+     */
     public Word getWordOfTheDay() {
-
         return wordOfTheDay;
     }
 
