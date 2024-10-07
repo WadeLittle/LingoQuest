@@ -90,6 +90,7 @@ public class User {
         return userID;
     }
     /**
+     * @author Wade Little
      * Sets the coin balance to the paramater entered;
      * @param coins The coin balance you want to set the users coin balance to
      */
@@ -97,11 +98,13 @@ public class User {
         this.coinBalance = coins;
     }
     /**
-     * 
-     * @param coins
+     * @author Wade Little
+     * This adds the parameters coins to the coin balance and coins earned user variables
+     * @param coins The amount of coins you are adding
      */
     public void addCoins(int coins) {
-
+        coinBalance +=coins;
+        coinsEarned += coins;
     }
     public void spendCoins(int coins) {
 
