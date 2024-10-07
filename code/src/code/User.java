@@ -68,6 +68,7 @@ public class User {
         return 0;
     }
     /**
+     * @author Wade Little
      * Searches the users friends list and returns the friend if they are on the list or null if the user can't be found
      * @param username The user you are searching for's username
      * @return The user with the username if they are on the list or null if the username can't be found
@@ -81,13 +82,28 @@ public class User {
         return null;
     }
     /**
+     * @author Wade Little
      * Gets the User ID
      * @return the User ID
      */
     public UUID getUUID() {
         return userID;
     }
-    public void setCoins(int coins) {
+    /**
+     * Sets the coin balance to the paramater entered;
+     * @param coins The coin balance you want to set the users coin balance to
+     */
+    public void setCoinBalance(int coins) {
+        this.coinBalance = coins;
+    }
+    /**
+     * 
+     * @param coins
+     */
+    public void addCoins(int coins) {
+
+    }
+    public void spendCoins(int coins) {
 
     }
 
