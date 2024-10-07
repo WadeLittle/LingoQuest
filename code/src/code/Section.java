@@ -13,7 +13,13 @@ public class Section {
 
     // Constructors
     public Section() {
-       
+        lessons = new ArrayList<Lesson>();
+        userAccess = false;
+        sectionProgress = 0;
+        pointsEarned = 0;
+        totalPoints = 1000;
+        coinValue = 1000;
+        sectionComplete = false;
     }
 
     public Section(ArrayList<Lesson> lessons, int coinValue) {
@@ -22,11 +28,11 @@ public class Section {
         
     }
 
-    // Public Methods
+ 
     public double getSectionProgress() {
         return this.sectionProgress;
     }
-
+   
     public int getPointsEarned() {
         return this.pointsEarned;
     }
@@ -48,9 +54,8 @@ public class Section {
         return this.sectionComplete;
     }
 
-    public Lesson getLesson(Lesson lesson) {
-        
-        return null;
+    public Lesson getLesson(Lesson lesson) {        
+        return lesson;
     }
 
     public ArrayList<Lesson> getAllLessons() {

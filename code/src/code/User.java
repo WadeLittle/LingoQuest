@@ -14,9 +14,9 @@ public class User {
     private String password;
     private ArrayList<Item> items;
     private ArrayList<Lesson> bookmarkedLessons;
-    public HashMap<Language , Integer> userProgress;
+    public HashMap<Language, Integer> userProgress;
     private Word wordOfTheDay;
-    private ArrayList<Language> languages; 
+    private ArrayList<Language> languages;
     public Language currentLanguage;
 
     public User() {
@@ -32,10 +32,29 @@ public class User {
         return "";
     }
 
+    /**
+     * @author Wade Little
+     *         Adds the bookmarked lesson to the bookmarked lessons array list if it
+     *         isn't there. Removes the lesson if it's already added. This creates a
+     *         toggle feature to easily add and remove bookmarked lessons.
+     * @param lesson The lesson you want to add/remove from the bookmarked lessons
+     *               list
+     */
     public void addBookmarkedLesson(Lesson lesson) {
-        
+        boolean contains = false;
+        for (int i = 0; i < bookmarkedLessons.size(); i++) {
+            if (bookmarkedLessons.get(i).equals(lesson)) {
+                contains = true;
+                break;
+            }
+        }
+        if (contains) {
+            bookmarkedLessons.remove(lesson);
+        } else {
+            bookmarkedLessons.add(lesson);
+        }
     }
-    
+
     public Word getWordOfTheDay() {
 
         return wordOfTheDay;
@@ -106,9 +125,7 @@ public class User {
     }
 
     public void saveUser() {
-        
+
     }
-
-
 
 }
