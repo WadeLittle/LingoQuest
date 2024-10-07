@@ -114,9 +114,12 @@ public class User {
     public void spendCoins(int coins) {
         coinBalance -= coins;
     }
-
+    /**
+     * @author Wade Little
+     * Gets the Users username
+     * @return The username as a string
+     */
     public String getUsername() {
-
         return username;
     }
 
