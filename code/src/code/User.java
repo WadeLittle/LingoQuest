@@ -145,9 +145,12 @@ public class User {
             return true;
         }
     }
-
+    /**
+     * @author Wade Little
+     * Gets the users password 
+     * @return The users password as a string
+     */
     public String getPassword() {
-
         return password;
     }
 
