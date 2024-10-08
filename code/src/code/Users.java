@@ -11,9 +11,12 @@ public class Users {
     private Users() {
 
     }
-
+/**
+ * @author Wade Little
+ * Returns the single instance of the Users class (Singleton)
+ * @return the Users class
+ */
     public static Users getInstance() {
-
         return usersObject;
     }
 
