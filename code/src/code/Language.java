@@ -54,7 +54,7 @@ public class Language {
     /**
      * @author Cade Stocker
      * @return String of the Language's UUID
-     * UUID is used to access the user in the Users class
+     * UUID is the unique identifier of this object of language
      */
     public String getUUID() {
         return this.UUID;
