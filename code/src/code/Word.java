@@ -55,7 +55,7 @@ public class Word {
    }
 
    /**
-    * @author Cade Stocker
+    * @author Cade Stocker 
     * @return the string of the word
     */
    public String getWord() {
@@ -66,7 +66,7 @@ public class Word {
     * @author Cade Stocker
     * @param word
     * @return boolean of whether or not the two words are the same
-    * Method is needed because the '==' operator will just compare the addresses of two words
+    * Method is needed because the '==' operator will just compare the addresses of two words regardless of uppercase or lowercase
     */
    public boolean isEqualTo(Word word) {
       return word.getWord().equalsIgnoreCase(this.word);
