@@ -34,7 +34,8 @@ public class Language {
     }
 
     public void setTotalPoints(int points) {
-        
+        if(points >= 0)
+            this.totalPoints = points;
     }
 
     public int getTotalPoints() {
