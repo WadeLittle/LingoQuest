@@ -44,6 +44,15 @@ public class Language {
         this.UUID = UUID;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return String of the Language's UUID
+     * UUID is used to access the user in the Users class
+     */
+    public String getUUID() {
+        return this.UUID;
+    }
+
     public void setTotalPoints(int points) {
         if(points >= 0)
             this.totalPoints = points;
