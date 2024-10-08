@@ -154,9 +154,23 @@ public class User {
         return password;
     }
 
+    /**
+     * @author Wade Little
+     * Sets the password if it is longer than 8 characters
+     * @param password The desired user password
+     * @return Whether or not the password is set
+     */
     public boolean setPassword(String password) {
-
-        return true;
+        if(password == null || password.trim().isEmpty()) {
+            System.out.println("* Password can't have spaces");
+            return false;
+        }else if(password.length() < 8) {
+            System.out.println("* Your password must be 8 characters long *");
+            return false;
+        }else {
+            this.password = password;
+            return true;
+        }
     }
 
     public void sendFriendRequest(User friend) {
