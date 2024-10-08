@@ -22,11 +22,11 @@ public class DataLoader {
              BufferedReader bufferedReader = new BufferedReader(reader)) {
             
             // Debugging: Print content of the file before deserialization
-            System.out.println("JSON content being read from file:");
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);  // Print each line from the file
-            }
+            //System.out.println("JSON content being read from file:");
+            //String line;
+            //while ((line = bufferedReader.readLine()) != null) {
+                //System.out.println(line);  // Print each line from the file
+            //}
             
             // Re-open the reader to avoid having to re-read the file (reset)
             try (FileReader newReader = new FileReader(filePath)) {
