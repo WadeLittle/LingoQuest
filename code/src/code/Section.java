@@ -10,6 +10,7 @@ public class Section {
     private int totalPoints;
     private int coinValue;
     private boolean sectionComplete;
+    private String ID;
 
     // Constructors
     public Section() {

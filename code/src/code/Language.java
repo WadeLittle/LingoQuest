@@ -18,11 +18,18 @@ public class Language {
     private ArrayList<Section> sectionsComplete;
     private HashMap<Section, Boolean> sectionAccess;
 
-    // Constructors
+    /**
+     * Default constructor for language
+     */
     public Language() {
         
     }
 
+    /**
+     * Parameterized constructor for language
+     * each language needs a user so that the user can make progress as they complete questions
+     * @param user The user who is learning this language
+     */
     public Language(User user) {
         this.user = user;
         
@@ -53,6 +60,10 @@ public class Language {
         return this.UUID;
     }
 
+    /**
+     * 
+     * @param points (total number of points possible in the language)
+     */
     public void setTotalPoints(int points) {
         if(points >= 0)
             this.totalPoints = points;
@@ -75,14 +86,26 @@ public class Language {
         return this.progress;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the enumeration of language (the type of language being learned)
+     */
     public Languages getLanguageName() {
         return this.languageName;
     }
 
+    /**
+     * @author Cade Stocker
+     * increase the user's answer streak if they get a problem correct.
+     */
     public void increaseAnswerStreak() {
         this.answerStreak++;
     }
 
+    /**
+     * @author Cade Stocker
+     * Set the answer streak to 0 if the user gets a problem wrong.
+     */
     public void resetAnswerStreak() {
         this.answerStreak = 0;
     }
@@ -104,6 +127,10 @@ public class Language {
         this.progress = this.pointsEarned/this.totalPoints;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the arraylist of sections that have been completed
+     */
     public ArrayList<Section> getSectionsComplete() {
         return this.sectionsComplete;
     }
