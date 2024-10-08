@@ -122,20 +122,55 @@ public class User {
     public String getUsername() {
         return username;
     }
-
+    /**
+     * @author Wade Little
+     * The desired username is checked against the userList to ensure there isn't 2 people with the same username. If the username is valid then the Users username is changed.
+     * @param username The desired username
+     * @return Whether or not the username goes through/is set
+     */
     public boolean setUsername(String username) {
+        Users userList = Users.getInstance();
 
-        return true;
+        if(username == null || username.trim().isEmpty()) {
+            System.out.println("Username cannot be empty or null");
+            return false;
+        }else if(userList.containsUsername(username)) {
+            System.out.println("* Username already Taken *");
+            return false;
+        } else if (username.length() < 4) {
+            System.out.println("* Your username must be at least 4 characters *");
+            return false;
+        }else {
+            this.username = username;
+            return true;
+        }
     }
-
+    /**
+     * @author Wade Little
+     * Gets the users password 
+     * @return The users password as a string
+     */
     public String getPassword() {
-
         return password;
     }
 
+    /**
+     * @author Wade Little
+     * Sets the password if it is longer than 8 characters
+     * @param password The desired user password
+     * @return Whether or not the password is set
+     */
     public boolean setPassword(String password) {
-
-        return true;
+        if(password == null || password.trim().isEmpty()) {
+            System.out.println("* Password can't have spaces");
+            return false;
+        }else if(password.length() < 8) {
+            System.out.println("* Your password must be 8 characters long *");
+            return false;
+        }else {
+            this.password = password;
+            return true;
+        }
     }
 
     public void sendFriendRequest(User friend) {

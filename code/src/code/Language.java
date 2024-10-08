@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class Language {
     private User user;
+    private String UUID;
     private PlacementTest placementTest;
     private int pointsEarned;
     private int totalPoints;
@@ -33,40 +34,74 @@ public class Language {
         return false;
     }
 
+    /**
+     * @author Cade Stocker
+     * @param UUID that will be added to the language
+     * UUID will be used to access the user who owns this object of language
+     * UUID should be used to find the user in the Users class
+     */
+    public void setUUID(String UUID) {
+        this.UUID = UUID;
+    }
+
+    /**
+     * @author Cade Stocker
+     * @return String of the Language's UUID
+     * UUID is used to access the user in the Users class
+     */
+    public String getUUID() {
+        return this.UUID;
+    }
+
     public void setTotalPoints(int points) {
-        
+        if(points >= 0)
+            this.totalPoints = points;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the total points held within the language
+     */
     public int getTotalPoints() {
-        
-        return 0;
+        return this.totalPoints;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the progress the user has made in the language
+     */
     public double getProgress() {
-        
-        return 0.0;
+        this.updateProgress();
+        return this.progress;
     }
 
     public Languages getLanguageName() {
-        
-        return null;
+        return this.languageName;
     }
 
     public void increaseAnswerStreak() {
-        
+        this.answerStreak++;
     }
 
     public void resetAnswerStreak() {
-        
+        this.answerStreak = 0;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the current answer streak of the user
+     */
     public int getAnswerStreak() {
-        
-        return 0;
+        return this.answerStreak;
     }
 
-    public void updateProgress(int pointsEarned) {
-    
+    /**
+     * @author Cade Stocker
+     * finds the current progress by dividing the points earned
+     * by the total amount of points of the language
+     */
+    private void updateProgress() {
+        this.progress = this.pointsEarned/this.totalPoints;
     }
 
     public ArrayList<Section> getSectionsComplete() {
