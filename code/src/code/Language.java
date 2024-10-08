@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class Language {
     private User user;
+    private String UUID;
     private PlacementTest placementTest;
     private int pointsEarned;
     private int totalPoints;
@@ -33,6 +34,16 @@ public class Language {
         return false;
     }
 
+    /**
+     * @author Cade Stocker
+     * @param UUID that will be added to the language
+     * UUID will be used to access the user who owns this object of language
+     * UUID should be used to find the user in the Users class
+     */
+    public void setUUID(String UUID) {
+        this.UUID = UUID;
+    }
+
     public void setTotalPoints(int points) {
         if(points >= 0)
             this.totalPoints = points;
@@ -58,9 +69,12 @@ public class Language {
         this.answerStreak = 0;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the current answer streak of the user
+     */
     public int getAnswerStreak() {
-        
-        return 0;
+        return this.answerStreak;
     }
 
     public void updateProgress(int pointsEarned) {
