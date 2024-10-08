@@ -39,8 +39,7 @@ public class Language {
     }
 
     public int getTotalPoints() {
-        
-        return 0;
+        return this.totalPoints;
     }
 
     public double getProgress() {
