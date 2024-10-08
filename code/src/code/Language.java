@@ -44,8 +44,7 @@ public class Language {
     }
 
     public double getProgress() {
-        
-        return 0.0;
+        return this.progress;
     }
 
     public Languages getLanguageName() {
