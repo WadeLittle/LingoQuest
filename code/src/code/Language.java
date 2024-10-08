@@ -70,8 +70,7 @@ public class Language {
     }
 
     public ArrayList<Section> getSectionsComplete() {
-        
-        return null;
+        return this.sectionsComplete;
     }
 
     // Private method??
