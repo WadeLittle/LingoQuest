@@ -51,7 +51,7 @@ public class Language {
     }
 
     public void increaseAnswerStreak() {
-        
+        this.answerStreak++;
     }
 
     public void resetAnswerStreak() {
