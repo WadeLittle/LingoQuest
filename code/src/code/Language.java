@@ -58,11 +58,20 @@ public class Language {
             this.totalPoints = points;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the total points held within the language
+     */
     public int getTotalPoints() {
         return this.totalPoints;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the progress the user has made in the language
+     */
     public double getProgress() {
+        this.updateProgress();
         return this.progress;
     }
 
@@ -86,8 +95,13 @@ public class Language {
         return this.answerStreak;
     }
 
-    public void updateProgress(int pointsEarned) {
-    
+    /**
+     * @author Cade Stocker
+     * finds the current progress by dividing the points earned
+     * by the total amount of points of the language
+     */
+    private void updateProgress() {
+        this.progress = this.pointsEarned/this.totalPoints;
     }
 
     public ArrayList<Section> getSectionsComplete() {
