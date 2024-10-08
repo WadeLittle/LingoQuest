@@ -48,8 +48,7 @@ public class Language {
     }
 
     public Languages getLanguageName() {
-        
-        return null;
+        return this.languageName;
     }
 
     public void increaseAnswerStreak() {
