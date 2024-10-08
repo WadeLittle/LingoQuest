@@ -34,22 +34,20 @@ public class Language {
     }
 
     public void setTotalPoints(int points) {
-        
+        if(points >= 0)
+            this.totalPoints = points;
     }
 
     public int getTotalPoints() {
-        
-        return 0;
+        return this.totalPoints;
     }
 
     public double getProgress() {
-        
-        return 0.0;
+        return this.progress;
     }
 
     public Languages getLanguageName() {
-        
-        return null;
+        return this.languageName;
     }
 
     public void increaseAnswerStreak() {
@@ -57,7 +55,7 @@ public class Language {
     }
 
     public void resetAnswerStreak() {
-        
+        this.answerStreak = 0;
     }
 
     public int getAnswerStreak() {
