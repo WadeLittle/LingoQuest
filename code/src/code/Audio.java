@@ -61,20 +61,7 @@ public class Audio {
             System.out.println("Audio line unavailable.");
         }
     }
-
-    // Method to stop the audio
-    public void stop() {
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
-        }
-    }
-
-    // Method to loop the audio
-    public void loop() {
-        if (clip != null) {
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-        }
-    }
+    
 
     // Getter and setter for name
     public String getName() {
