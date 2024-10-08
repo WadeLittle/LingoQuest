@@ -54,7 +54,23 @@ public class Word {
 
    }
 
+   /**
+    * @author Cade Stocker
+    * @return the string of the word
+    */
+   public String getWord() {
+      return this.word;
+   }
 
+   /**
+    * @author Cade Stocker
+    * @param word
+    * @return boolean of whether or not the two words are the same
+    * Method is needed because the '==' operator will just compare the addresses of two words
+    */
+   public boolean isEqualTo(Word word) {
+      return word.getWord().equalsIgnoreCase(this.word);
+   }
 
 
 }
