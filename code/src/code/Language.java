@@ -19,7 +19,9 @@ public class Language {
     private HashMap<Section, Boolean> sectionAccess;
 
     /**
+     * @author Cade Stocker
      * Default constructor for language
+     * initializes all of the ArrayLists and HashMaps
      */
     public Language() {
         this.sections = new ArrayList<Section>();
@@ -35,7 +37,9 @@ public class Language {
     public Language(User user) {
         // We need to decide how the language will be constructed when the user logs in
         // How will we recreate a language object with the JSON Data?
-        
+        this.sections = new ArrayList<Section>();
+        this.sectionsComplete = new ArrayList<Section>();
+        this.sectionAccess = new HashMap<Section, Boolean>();
         this.user = user;
     }
 
