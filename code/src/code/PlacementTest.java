@@ -6,6 +6,7 @@ public class PlacementTest {
     private ArrayList<Question> questions;
     private int correctAnswers;
     private int score;
+    private boolean taken;
 
     public PlacementTest() {
 
@@ -17,6 +18,14 @@ public class PlacementTest {
      */
     public int getScore() {
         return this.score;
+    }
+
+    /**
+     * @author CADE STOCKER
+     * @return whether or not the placement test has been taken
+     */
+    public boolean getTaken() {
+        return this.taken;
     }
 
     /**
