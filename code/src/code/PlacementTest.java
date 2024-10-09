@@ -8,8 +8,14 @@ public class PlacementTest {
     private int score;
     private boolean taken;
 
+    /**
+     * @author CADE STOCKER
+     * default constructor for PlacementTest
+     */
     public PlacementTest() {
-
+        this.questions = new ArrayList<Question>();
+        this.taken = false;
+        // If the test was just created, then it has not been taken yet.
     }
 
     /**
