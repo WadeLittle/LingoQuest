@@ -34,4 +34,12 @@ public class Item {
     public String getName() {
         return this.name;
     }
+
+    /**
+     * @author Cade Stocker
+     * @return price of the item
+     */
+    public int getPrice() {
+        return this.price;
+    }
 }
