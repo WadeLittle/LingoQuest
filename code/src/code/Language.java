@@ -161,9 +161,12 @@ public class Language {
         }
     }
 
+    /**
+     * @author CADE STOCKER
+     * @return whether or not the placement test has been taken.
+     */
     public boolean takenPlacementTest() {
-        
-        return false;
+        return this.placementTest.getTaken();
     }
 
     public ArrayList<Lesson> getAvailableLessons() {
