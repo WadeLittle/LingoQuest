@@ -50,4 +50,8 @@ public class Item {
     public boolean getOwned() {
         return this.owned;
     }
+
+    public String toString() {
+        
+    }
 }
