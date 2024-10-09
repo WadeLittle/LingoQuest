@@ -70,6 +70,16 @@ public class Section {
         return null;
     }
 
+    /**
+     * @author Cade Stocker
+     * @param id the UUID to be set
+     * if the id needs to be a new UUID, the new UUID will be
+     * created in another class and then sent here to be set.
+     */
+    public void setID(UUID id) {
+        this.ID = id;
+    }
+
     // Private Methods
     // Do these need to be private? (are they called from within the class?) - cade
     private void setSectionProgress(double progress) {
