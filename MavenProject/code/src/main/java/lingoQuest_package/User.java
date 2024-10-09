@@ -218,4 +218,24 @@ public class User {
         return items.contains(item);
     }
 
+    /**
+     * @author CADE STOCKER
+     * created this method to test my dataloader for users
+     * @return String of all the user's variables
+     */
+    public String toString() {
+        return "User{" + "\n" +
+                "userID=" + userID + "\n" +
+                "username='" + username + '\'' + "\n" +
+                "coinBalance=" + coinBalance + "\n" +
+                "coinsEarned=" + coinsEarned + "\n" +
+                "currentLanguage=" + currentLanguage + "\n" +
+                "numberOfFriends=" + (friendsList != null ? friendsList.size() : 0) + "\n" +
+                "numberOfItems=" + (items != null ? items.size() : 0) + "\n" +
+                "numberOfBookmarkedLessons=" + (bookmarkedLessons != null ? bookmarkedLessons.size() : 0) + "\n" +
+                "wordOfTheDay=" + (wordOfTheDay != null ? wordOfTheDay.toString() : "None") + "\n" +
+                "languages=" + (languages != null ? languages.toString() : "None") + "\n" +
+                '}';
+    }
+
 }
