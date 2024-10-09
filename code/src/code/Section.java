@@ -12,6 +12,7 @@ public class Section {
     private int coinValue;
     private boolean sectionComplete;
     private UUID ID;
+    private int pointRequirement;
 
     // Constructors
     public Section() {

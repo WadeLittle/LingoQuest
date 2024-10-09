@@ -44,8 +44,16 @@ public class Language {
     }
 
     // Methods
+
+    /**
+     * @author CADE STOCKER
+     * @param section
+     * @return whether or not the user has access to a specific section
+     * sections should be locked based on points (a user must have accumulated a certain amount 
+     * of points to gain access to a section)
+     */
     public boolean hasAccessToSection(Section section) {
-        return false;
+        return section.getUserAccess();
     }
 
     /**
