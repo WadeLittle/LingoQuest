@@ -37,6 +37,14 @@ public class Item {
 
     /**
      * @author Cade Stocker
+     * @return the description of the item
+     */
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * @author Cade Stocker
      * @return price of the item
      */
     public int getPrice() {
@@ -51,7 +59,11 @@ public class Item {
         return this.owned;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return a string containing the name, description, and price of the item
+     */
     public String toString() {
-        
+        return "Name: " + name + " Description: " + description + " Price: " + price;
     }
 }
