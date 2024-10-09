@@ -1,3 +1,5 @@
+package code;
+
 import java.util.ArrayList;
 
 public class ItemShop {
@@ -7,11 +9,18 @@ public class ItemShop {
 
     // Constructor
     private ItemShop() {
-        
+        items = new ArrayList<Item>;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the instance of itemShop
+     */
     public static ItemShop getInstance() {
-        return null;
+        if(itemShop == null) {
+            itemShop = new ItemShop();
+        }
+        return itemShop;
     }
 
     public boolean purchaseItem(Item item) {
