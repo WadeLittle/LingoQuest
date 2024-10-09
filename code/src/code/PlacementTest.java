@@ -11,9 +11,12 @@ public class PlacementTest {
 
     }
 
+    /**
+     * @author CADE STOCKER
+     * @return the score of the placement test
+     */
     public int getScore() {
-
-        return score;
+        return this.score;
     }
 
     public ArrayList<Question> getQuestions() {
