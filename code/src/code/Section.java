@@ -80,6 +80,14 @@ public class Section {
         this.ID = id;
     }
 
+    /**
+     * @author Cade Stocker
+     * @return the UUID of the section
+     */
+    public UUID getID() {
+        return this.ID;
+    }
+
     // Private Methods
     // Do these need to be private? (are they called from within the class?) - cade
     private void setSectionProgress(double progress) {
