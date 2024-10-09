@@ -26,4 +26,12 @@ public class Item {
         this.description = description;
         this.price = price;
     }
+
+    /**
+     * @author Cade Stocker
+     * @return name
+     */
+    public String getName() {
+        return this.name;
+    }
 }
