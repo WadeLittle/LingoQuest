@@ -4,7 +4,8 @@ public class Item {
     private String name;
     private String description;
     private int price;
-    private boolean owned;
+    //private boolean owned;
+    // REFER TO REMOVED getOwned() method below
 
     /**
      * @author Cade Stocker
@@ -51,13 +52,14 @@ public class Item {
         return this.price;
     }
 
-    /**
-     * @author Cade Stocker
-     * @return whether or not the item is owned
-     */
-    public boolean getOwned() {
-        return this.owned;
-    }
+
+    //public boolean getOwned() {
+    //    return this.owned;
+    //}
+    // CADE STOCKER got rid of this method after
+    // adding User: ownsItem(Item):boolean
+    // we should check to see if the user has the item
+    // rather than seeing if the item is owned
 
     /**
      * @author Cade Stocker
