@@ -7,7 +7,11 @@ public class ItemShop {
     private ArrayList<Item> items;
     private static ItemShop itemShop;
 
-    // Constructor
+    /**
+     * @author Cade Stocker
+     * private because ItemShop is a singleton
+     * creates the arraylist of type item
+     */
     private ItemShop() {
         items = new ArrayList<Item>;
     }
