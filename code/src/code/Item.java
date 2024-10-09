@@ -42,4 +42,12 @@ public class Item {
     public int getPrice() {
         return this.price;
     }
+
+    /**
+     * @author Cade Stocker
+     * @return whether or not the item is owned
+     */
+    public boolean getOwned() {
+        return this.owned;
+    }
 }
