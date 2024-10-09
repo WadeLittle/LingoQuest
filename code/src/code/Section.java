@@ -1,6 +1,7 @@
 package code;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Section {
     private ArrayList<Lesson> lessons;
@@ -10,7 +11,7 @@ public class Section {
     private int totalPoints;
     private int coinValue;
     private boolean sectionComplete;
-    private String ID;
+    private UUID ID;
 
     // Constructors
     public Section() {
@@ -70,6 +71,7 @@ public class Section {
     }
 
     // Private Methods
+    // Do these need to be private? (are they called from within the class?) - cade
     private void setSectionProgress(double progress) {
         this.sectionProgress = progress;
     }
@@ -93,4 +95,6 @@ public class Section {
     private void setSectionComplete() {
         this.sectionComplete = true;
     }
+
+
 }
