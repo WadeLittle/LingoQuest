@@ -9,7 +9,7 @@ public class Users {
     private static Users usersObject;
 
     private Users() {
-
+        users = new ArrayList<User>();
     }
 /**
  * @author Wade Little
@@ -17,6 +17,9 @@ public class Users {
  * @return the Users class
  */
     public static Users getInstance() {
+        if(usersObject == null) {
+            usersObject = new Users();
+        }
         return usersObject;
     }
 /**
@@ -58,11 +61,14 @@ public class Users {
 
     }
 
+    /**
+     * @author Cade Stocker
+     * @return a UUID
+     * Originally debated between turning the UUID into a string,
+     * but decided that the UUID class offers a lot of methods that may
+     * be useful.
+     */
     public UUID generateUUID() {
-        
-        return users.get(0).userID;
+        return UUID.randomUUID();
     }
-
-
-
 }

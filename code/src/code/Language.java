@@ -31,13 +31,14 @@ public class Language {
      * @param user The user who is learning this language
      */
     public Language(User user) {
-        this.user = user;
+        // We need to decide how the language will be constructed when the user logs in
+        // How will we recreate a language object with the JSON Data?
         
+        this.user = user;
     }
 
     // Methods
     public boolean hasAccessToSection(Section section) {
-        
         return false;
     }
 
