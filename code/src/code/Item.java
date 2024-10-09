@@ -15,6 +15,7 @@ public class Item {
     }
 
     /**
+     * parameterized constructor
      * @author Cade Stocker
      * @param name of the item
      * @param description of the item
