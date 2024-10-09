@@ -22,7 +22,9 @@ public class Language {
      * Default constructor for language
      */
     public Language() {
-        
+        this.sections = new ArrayList<Section>();
+        this.sectionsComplete = new ArrayList<Section>();
+        this.sectionAccess = new HashMap<Section, Boolean>();
     }
 
     /**
@@ -136,9 +138,23 @@ public class Language {
         return this.sectionsComplete;
     }
 
-    // Private method??
-    private void setSectionsComplete() {
+    /**
+     * @author CADE STOCKER
+     * goes through sections and adds them to completed if they need to be
+     * Also returns if either of the lists hasn't been initialized.
+     */
+    public void setSectionsComplete() {
+        if (this.sections == null || this.sectionsComplete == null) {
+            return;
+            //throw new IllegalStateException("Sections or sectionsComplete is not initialized.");
+        }
         
+        for (Section section : this.sections) {
+            // If the section is complete and isnt in the completed list, add it to completed list
+            if (section.getSectionComplete() && !this.sectionsComplete.contains(section)) {
+                this.sectionsComplete.add(section);
+            }
+        }
     }
 
     public boolean takenPlacementTest() {
