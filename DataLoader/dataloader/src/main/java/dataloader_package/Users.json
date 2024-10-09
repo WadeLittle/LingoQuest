@@ -1,12 +1,58 @@
-[
-  {
-    "userID": "550e8400-e29b-41d4-a716-446655440000",
-    "username": "john",
-    "password": "password123"
-  },
-  {
-    "userID": "123e4567-e89b-12d3-a456-426614174000",
-    "username": "jane",
-    "password": "securePassword"
+{
+    "users": [
+      {
+        "userID": "550e8400-e29b-41d4-a716-446655440000",
+        "username": "john",
+        "password": "password123",
+        "coinsEarned": 100,
+        "coinBalance": 50,
+        "friendsList": [
+          "123e4567-e89b-12d3-a456-426614174000", 
+          "9f3e5667-b10e-47ea-9f94-71bdb501f777"
+        ],
+        "items": [
+          {
+            "name": "Red Hat",
+            "description": "red hat",
+            "price": 10,
+            "owned": true
+          }
+        ],
+        "bookmarkedLessons": ["Lesson1", "Lesson2"],
+        "userProgress": {
+          "language": "SPANISH",
+          "points": 200,
+          "answerStreak": 5
+        },
+        "wordOfTheDay": "palabra",
+        "languages": ["SPANISH"],
+        "currentLanguage": "SPANISH"
+      },
+      {
+        "userID": "123e4567-e89b-12d3-a456-426614174000",
+        "username": "jane",
+        "password": "securePassword",
+        "coinsEarned": 200,
+        "coinBalance": 150,
+        "friendsList": ["550e8400-e29b-41d4-a716-446655440000"],
+        "items": [
+          {
+            "name": "Blue Hat",
+            "description": "blue hat",
+            "price": 15,
+            "owned": true
+          }
+        ],
+        "bookmarkedLessons": ["Lesson3"],
+        "userProgress": {
+          "language": "SPANISH",
+          "points": 300,
+          "answerStreak": 10
+        },
+        "wordOfTheDay": "hola",
+        "languages": ["SPANISH"],
+        "currentLanguage": "SPANISH"
+      }
+    ]
   }
-]
+  
