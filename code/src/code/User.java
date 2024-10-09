@@ -207,4 +207,15 @@ public class User {
 
     }
 
+    /**
+     * @author Cade Stocker
+     * @param item
+     * @return whether the user has the item
+     * This method allows us to see if a user has already purchased an item, and removes
+     * the need for the "owned" variable inside of class Item
+     */
+    public boolean ownsItem(Item item) {
+        return items.contains(item);
+    }
+
 }
