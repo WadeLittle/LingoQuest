@@ -20,7 +20,7 @@ public class User {
     public Language currentLanguage;
 
     public User() {
-
+        
     }
 
     public User(String username, String password, UUID userID) {

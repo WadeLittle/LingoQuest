@@ -57,10 +57,20 @@ public class Users {
         System.out.println("User not found");
         return null;
     }
-
+    /**
+     * Creates a user if they provide a valid username and password
+     * @param username The users desired username
+     * @param password The users desired password
+     * @return True if the user is created and added to userlist. False if the user has invalid credentials.
+     */
     public boolean createUser(String username, String password) {
-
-        return true;
+        User user = new User();
+        if(user.setUsername(username) && user.setPassword(password)) {
+            users.add(user);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean containsUsername(String username) {
