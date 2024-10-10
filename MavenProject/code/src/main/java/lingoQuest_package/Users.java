@@ -42,7 +42,21 @@ public class Users {
         }
         return user;
     }
-    //Add getUserbyUUID TO THIS AND UML
+   /**
+    * @author Wade Little
+    * Searches through the userlist for the specified UUID
+    * @param userId the userid you are looking for
+    * @return Null if the user isn't found, or the user with the matching UUID
+    */
+    public User getUserByUUID(UUID userId) {
+        for(User user : users) {
+            if(user.getUUID().equals(userId)) {
+                return user;
+            }
+        }       
+        System.out.println("User not found");
+        return null;
+    }
 
     public boolean createUser(String username, String password) {
 
