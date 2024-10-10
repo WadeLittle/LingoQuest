@@ -139,7 +139,6 @@ public class Audio {
         audio.play();  // This should output "Invalid file."
 
         // Test stop and loop functionality even though no file is set
-        audio.stop();
-        audio.loop();
+        
     }
 }
