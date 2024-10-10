@@ -58,7 +58,8 @@ public class Users {
         return null;
     }
     /**
-     * Creates a user if they provide a valid username and password
+     * @author Wade Little
+     * Creates a user if they provide a valid username and password and adds it to the user list
      * @param username The users desired username
      * @param password The users desired password
      * @return True if the user is created and added to userlist. False if the user has invalid credentials.
@@ -72,10 +73,20 @@ public class Users {
             return false;
         }
     }
-
+    /**
+     * @author Wade Little
+     * Checks the userlist and returns true if the username is contained, false if the username isn't there.
+     * @param username The username you are checking for
+     * @return True if the username is found, false if not found
+     */
     public boolean containsUsername(String username) {
-
-        return true;
+        for(User user : users) {
+            String currentUsername = user.getUsername();
+            if (currentUsername != null && currentUsername.trim().equalsIgnoreCase(username.trim())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void editUser(User user) {
