@@ -39,6 +39,7 @@ public class Users {
         }
         return user;
     }
+    //Add getUserbyUUID TO THIS AND UML
 
     public boolean createUser(String username, String password) {
 

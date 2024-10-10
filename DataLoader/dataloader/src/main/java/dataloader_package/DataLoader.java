@@ -54,7 +54,7 @@ public class DataLoader {
 
     public static void main(String[] args) {
         // Example usage
-        String filePath = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/DataLoader/dataloader/src/main/java/dataloader_package/Users.json"; // JSON file containing User2 objects
+        String filePath = "C:\\Users\\wdlit\\OneDrive\\Desktop\\CSCE247\\LingoQuest\\LingoQuest\\DataLoader\\dataloader\\src\\main\\java\\dataloader_package\\Users.json"; // JSON file containing User2 objects
         ArrayList<User2> users = loadData(filePath);
 
         // Print loaded data
