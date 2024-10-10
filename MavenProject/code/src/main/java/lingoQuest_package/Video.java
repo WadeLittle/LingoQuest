@@ -10,36 +10,62 @@ import javafx.stage.Stage;
 import javafx.scene.layout.StackPane;
 import javafx.application.Platform;
 
+/**
+ * The {@code Video} class represents a video file and provides methods to set, get, and play the video using JavaFX.
+ * <p>
+ * The class includes constructors to initialize the video with a name, description, and file, along with methods to manage and play the video.
+ * </p>
+ * 
+ * @author Alok Patel
+ */
 public class Video {
     private File video;
     private String description;
     private String name;
 
-    // Default constructor
+    /**
+     * Default constructor that initializes the video fields to default values.
+     */
     public Video() {
         this.name = "";
         this.description = "";
         this.video = null;
     }
 
-    // Parameterized constructor
+    /**
+     * Parameterized constructor that initializes the video with a name, description, and file.
+     * 
+     * @param name        the name of the video
+     * @param description a brief description of the video
+     * @param video       the video file to be played
+     */
     public Video(String name, String description, File video) {
         this.name = name;
         this.description = description;
         this.video = video;
     }
 
-    // Getter for the video file
+    /**
+     * Gets the video file.
+     * 
+     * @return the {@code File} object representing the video
+     */
     public File getVideo() {
         return video;
     }
 
-    // Setter for the video file
+    /**
+     * Sets the video file.
+     * 
+     * @param video the {@code File} object representing the video
+     */
     public void setVideo(File video) {
         this.video = video;
     }
 
-    // Method to play the video using JavaFX
+    /**
+     * Plays the video file using JavaFX. The method checks if the video file is valid before starting the JavaFX application to play the video.
+     */
     public void play() {
         if (video == null || !video.exists()) {
             System.out.println("Invalid video file.");
