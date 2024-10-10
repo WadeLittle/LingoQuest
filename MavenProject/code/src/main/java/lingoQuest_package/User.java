@@ -45,9 +45,29 @@ public class User {
         languages = new ArrayList<Language>();
         currentLanguage = null;
     }
+/**
+ * @author Wade Little
+ * Pararamaterized constructor that throws an error if there isn't a valid username or password
+ * @param username Desired users username
+ * @param password Desired users password
+ */
+    public User(String username, String password) {
+        if (!setUsername(username) || !setPassword(password)) {
+            throw new IllegalArgumentException("Failed to create user: invalid username or password");
+        }
 
-    public User(String username, String password, UUID userID) {
-
+        // If validation passes, initialize remaining fields
+        this.userID = Users.getInstance().generateUUID();
+        this.userDictionary = new HashMap<>();
+        this.coinsEarned = 0;
+        this.coinBalance = 0;
+        this.friendsList = new ArrayList<>();
+        this.items = new ArrayList<>();
+        this.bookmarkedLessons = new ArrayList<>();
+        this.userProgress = new HashMap<>();
+        this.wordOfTheDay = null;
+        this.languages = new ArrayList<>();
+        this.currentLanguage = null;
     }
 
     public String sendReferralLink() {
