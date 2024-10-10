@@ -19,8 +19,31 @@ public class User {
     private ArrayList<Language> languages;
     public Language currentLanguage;
 
+    /**
+     * @author Wade Little
+     *         Default constructor for the User class.
+     *         Initializes a new User object with default values:
+     *         - Generates a new UUID for the user.
+     *         - Initializes the user's dictionary, friends list, items, bookmarked
+     *         lessons, and language progress.
+     *         - Sets coins earned and balance to 0.
+     *         - Sets username and password to empty strings.
+     *         - Sets currentLanguage and wordOfTheDay to null.
+     */
     public User() {
-
+        userID = Users.getInstance().generateUUID();
+        userDictionary = new Dictionary();
+        coinsEarned = 0;
+        coinBalance = 0;
+        friendsList = new ArrayList<User>();
+        username = null;
+        password = null;
+        items = new ArrayList<Item>();
+        bookmarkedLessons = new ArrayList<Lesson>();
+        userProgress = new HashMap<Language, Integer>();
+        wordOfTheDay = null;
+        languages = new ArrayList<Language>();
+        currentLanguage = null;
     }
 
     public User(String username, String password, UUID userID) {
@@ -54,9 +77,10 @@ public class User {
             bookmarkedLessons.add(lesson);
         }
     }
+
     /**
      * @author Wade Little
-     * Gets the Word of the day
+     *         Gets the Word of the day
      * @return Word of the Day
      */
     public Word getWordOfTheDay() {
@@ -67,87 +91,100 @@ public class User {
 
         return 0;
     }
+
     /**
      * @author Wade Little
-     * Searches the users friends list and returns the friend if they are on the list or null if the user can't be found
+     *         Searches the users friends list and returns the friend if they are on
+     *         the list or null if the user can't be found
      * @param username The user you are searching for's username
-     * @return The user with the username if they are on the list or null if the username can't be found
+     * @return The user with the username if they are on the list or null if the
+     *         username can't be found
      */
     public User searchFriends(String username) {
-        for(int i = 0; i < friendsList.size();i++) {
-            if(friendsList.get(i).getUsername().equals(username)) {
-            return friendsList.get(i);
+        for (int i = 0; i < friendsList.size(); i++) {
+            if (friendsList.get(i).getUsername().equals(username)) {
+                return friendsList.get(i);
             }
         }
         return null;
     }
+
     /**
      * @author Wade Little
-     * Gets the User ID
+     *         Gets the User ID
      * @return the User ID
      */
     public UUID getUUID() {
         return userID;
     }
+
     /**
      * @author Wade Little
-     * Sets the coin balance to the paramater entered;
+     *         Sets the coin balance to the paramater entered;
      * @param coins The coin balance you want to set the users coin balance to
      */
     public void setCoinBalance(int coins) {
         this.coinBalance = coins;
     }
+
     /**
      * @author Wade Little
-     * This adds the parameters coins to the coin balance and coins earned user variables
+     *         This adds the parameters coins to the coin balance and coins earned
+     *         user variables
      * @param coins The amount of coins you are adding
      */
     public void addCoins(int coins) {
-        coinBalance +=coins;
+        coinBalance += coins;
         coinsEarned += coins;
     }
+
     /**
      * @author Wade Little
-     * This spends coins from the coin balance
+     *         This spends coins from the coin balance
      * @param coins the amount of coins you are spending
      */
     public void spendCoins(int coins) {
         coinBalance -= coins;
     }
+
     /**
      * @author Wade Little
-     * Gets the Users username
+     *         Gets the Users username
      * @return The username as a string
      */
     public String getUsername() {
         return username;
     }
+
     /**
      * @author Wade Little
-     * The desired username is checked against the userList to ensure there isn't 2 people with the same username. If the username is valid then the Users username is changed.
+     *         The desired username is checked against the userList to ensure there
+     *         isn't 2 people with the same username. If the username is valid then
+     *         the Users username is changed.
      * @param username The desired username
      * @return Whether or not the username goes through/is set
      */
     public boolean setUsername(String username) {
         Users userList = Users.getInstance();
 
-        if(username == null || username.trim().isEmpty()) {
+        if (username == null || username.trim().isEmpty()) {
             System.out.println("Username cannot be empty or null");
             return false;
-        }else if(userList.containsUsername(username)) {
+        } else if (userList.containsUsername(username)) {
             System.out.println("* Username already Taken *");
             return false;
         } else if (username.length() < 4) {
             System.out.println("* Your username must be at least 4 characters *");
             return false;
-        }else {
+        } else {
             this.username = username;
             return true;
         }
     }
+
     /**
      * @author Wade Little
-     * Gets the users password 
+     *         Gets the users password
      * @return The users password as a string
      */
     public String getPassword() {
@@ -156,18 +193,18 @@ public class User {
 
     /**
      * @author Wade Little
-     * Sets the password if it is longer than 8 characters
+     *         Sets the password if it is longer than 8 characters
      * @param password The desired user password
      * @return Whether or not the password is set
      */
     public boolean setPassword(String password) {
-        if(password == null || password.trim().isEmpty()) {
+        if (password == null || password.trim().isEmpty()) {
             System.out.println("* Password can't have spaces");
             return false;
-        }else if(password.length() < 8) {
+        } else if (password.length() < 8) {
             System.out.println("* Your password must be 8 characters long *");
             return false;
-        }else {
+        } else {
             this.password = password;
             return true;
         }
@@ -211,8 +248,9 @@ public class User {
      * @author Cade Stocker
      * @param item
      * @return whether the user has the item
-     * This method allows us to see if a user has already purchased an item, and removes
-     * the need for the "owned" variable inside of class Item
+     *         This method allows us to see if a user has already purchased an item,
+     *         and removes
+     *         the need for the "owned" variable inside of class Item
      */
     public boolean ownsItem(Item item) {
         return items.contains(item);
@@ -220,7 +258,7 @@ public class User {
 
     /**
      * @author CADE STOCKER
-     * created this method to test my dataloader for users
+     *         created this method to test my dataloader for users
      * @return String of all the user's variables
      */
     public String toString() {
