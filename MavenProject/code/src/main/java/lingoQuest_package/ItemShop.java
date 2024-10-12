@@ -47,8 +47,14 @@ public class ItemShop {
         return item.toString();
     }
 
-    public ArrayList<Item> getItems() {
-        return null;
+    /**
+     * @author Wade Little
+     * Iterates over all of the items and prints them
+     */
+    public void getItems() {
+        for(Item item : items) {
+            System.out.println(item.toString());
+        }
     }
 
     private void removeItem(Item item) {
