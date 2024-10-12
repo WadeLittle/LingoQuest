@@ -276,6 +276,7 @@ public class User {
         return items.contains(item);
     }
     /**
+     * @author Wade Little
      * Allows the user to buy an item if they don't already own it and they have enough coins to buy it
      * @param item The item the user wants to purchase
      * @return true if the user successfully buys the item, false if they already own it or they don't have enough coins to purchase it

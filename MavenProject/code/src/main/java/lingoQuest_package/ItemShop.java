@@ -27,13 +27,15 @@ public class ItemShop {
         return itemShop;
     }
 
-    
+    /**
+     * @author Wade Little
+     * Calls on the user.buyItem(Item item) method/
+     * @param user The user that is attempting to buy the item
+     * @param item The item the user wants to buy
+     * @return True if the user successfully purchases the item. False if they already own it or don't have enough coins.
+     */
     public boolean purchaseItem(User user, Item item) {
-       if(user.ownsItem(item)) {
-        return true;
-       }
-       else if(user)
-        return false;
+       return user.buyItem(item);
     }
 
     private void addItem(Item item) {
