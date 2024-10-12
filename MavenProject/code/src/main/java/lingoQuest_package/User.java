@@ -262,9 +262,13 @@ public class User {
     public void equipItem(Item item) {
 
     }
-
+    /**
+     * @author Wade Little
+     * Sets the current language to a new language
+     * @param language The current language the user wants to switch to
+     */
     public void setCurrentLanguage(Language language) {
-
+        this.currentLanguage = language;
     }
 
     public Language getCurrentLanguage() {
