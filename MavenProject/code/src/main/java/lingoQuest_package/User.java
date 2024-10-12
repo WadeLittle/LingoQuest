@@ -271,8 +271,12 @@ public class User {
         this.currentLanguage = language;
     }
 
+    /**
+     * @author Wade Little
+     * Gets the users current langauge
+     * @return The users current language
+     */
     public Language getCurrentLanguage() {
-
         return currentLanguage;
     }
 
