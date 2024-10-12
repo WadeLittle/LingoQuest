@@ -21,10 +21,15 @@ public class Lesson {
     public void awardForCompletion(User user) {
 
     }
+    /**
+     * @author Wade Little
+     * Gets the question at the specified question number from the questions list
+     * @param questionNum The question number you want to get
+     * @return A question
+     */
+    public Question getQuestion(int questionNum) {
 
-    public Question getQuestion() {
-
-        return questions.get(0);
+        return questions.get(questionNum);
     }
 
     public void halfwayCompleteReward() {
