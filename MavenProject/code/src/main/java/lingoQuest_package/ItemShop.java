@@ -37,13 +37,14 @@ public class ItemShop {
     public boolean purchaseItem(User user, Item item) {
        return user.buyItem(item);
     }
-
-    private void addItem(Item item) {
-
-    }
-
-    public Item getItem() {
-        return null;
+    /**
+     * @author Wade Little
+     * Gets the selected items information in a String
+     * @param item The item the user wants to view.
+     * @return The items properties in a String
+     */
+    public String getItem(Item item) {
+        return item.toString();
     }
 
     public ArrayList<Item> getItems() {
