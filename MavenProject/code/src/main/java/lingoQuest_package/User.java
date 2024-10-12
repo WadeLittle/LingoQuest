@@ -106,7 +106,7 @@ public class User {
     public Word getWordOfTheDay() {
         return wordOfTheDay;
     }
-
+    
     public int getCoins() {
 
         return 0;
@@ -274,6 +274,26 @@ public class User {
      */
     public boolean ownsItem(Item item) {
         return items.contains(item);
+    }
+    /**
+     * Allows the user to buy an item if they don't already own it and they have enough coins to buy it
+     * @param item The item the user wants to purchase
+     * @return true if the user successfully buys the item, false if they already own it or they don't have enough coins to purchase it
+     */
+    public boolean buyItem(Item item) {
+        synchronized(this) {
+            if(this.ownsItem(item)) {
+                System.out.println("User already owns this item");
+                return false;
+            } else if(item.getPrice() > this.coinBalance) {
+                System.out.println("You don't have enough coins to purchase this item.");
+                return false;
+            }else {
+                this.coinBalance -= item.getPrice();
+                this.items.add(item);
+                return true;
+            }
+        }
     }
 
     /**

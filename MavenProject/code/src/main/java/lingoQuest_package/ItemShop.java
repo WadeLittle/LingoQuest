@@ -13,7 +13,7 @@ public class ItemShop {
      * creates the arraylist of type item
      */
     private ItemShop() {
-        items = new ArrayList<Item>;
+        items = new ArrayList<Item>();
     }
 
     /**
@@ -28,11 +28,16 @@ public class ItemShop {
     }
 
     
-    public boolean purchaseItem(Item item) {
+    public boolean purchaseItem(User user, Item item) {
+       if(user.ownsItem(item)) {
+        return true;
+       }
+       else if(user)
         return false;
     }
 
     private void addItem(Item item) {
+
     }
 
     public Item getItem() {
