@@ -109,10 +109,19 @@ public class User {
     
 /**
  * @author Wade Little
+ * Gets the amount of coins earned
  * @return The users amount of coins earned
  */
     public int getCoinsEarned() {
         return coinsEarned;
+    }
+/**
+ * @author Wade Little
+ * Gets the users coin balance
+ * @return The users coin balance
+ */
+    public int getCoinBalance() {
+        return coinBalance;
     }
 
     /**
