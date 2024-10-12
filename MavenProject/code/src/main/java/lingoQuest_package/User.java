@@ -58,7 +58,7 @@ public class User {
 
         // If validation passes, initialize remaining fields
         this.userID = Users.getInstance().generateUUID();
-        this.userDictionary = new HashMap<>();
+        this.userDictionary = new Dictionary();
         this.coinsEarned = 0;
         this.coinBalance = 0;
         this.friendsList = new ArrayList<>();
@@ -107,9 +107,12 @@ public class User {
         return wordOfTheDay;
     }
     
-    public int getCoins() {
-
-        return 0;
+/**
+ * @author Wade Little
+ * @return The users amount of coins earned
+ */
+    public int getCoinsEarned() {
+        return coinsEarned;
     }
 
     /**
