@@ -49,18 +49,23 @@ public class ItemShop {
 
     /**
      * @author Wade Little
-     * Iterates over all of the items and prints them
+     * Gives the items in the item shop
+     * @return The array list of items in the itemshop
      */
-    public void getItems() {
-        for(Item item : items) {
-            System.out.println(item.toString());
-        }
+    public ArrayList<Item> getItems() {
+       return items;
     }
 
     private void removeItem(Item item) {
     }
-
+    /**
+     * @author Wade Little
+     * Iterates over the item shop and displays all of the items into the console.
+     */
     public void displayItemShop() {
+        for(Item item : items) {
+            System.out.println(item.toString());
+        }
     }
 
     public void loadItems() {
