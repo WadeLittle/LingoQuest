@@ -364,5 +364,11 @@ public class User {
         }
     }
 
+    public void setCoinsEarned(int coins) {
+        this.coinsEarned = coins;
+    }
+
+    
+
 }
 

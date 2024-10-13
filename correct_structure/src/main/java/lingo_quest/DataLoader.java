@@ -109,7 +109,8 @@ public class DataLoader {
             User user = new User(username,password);
             UUID id = UUID.fromString(userID);
             user.setID(id);
-            //user.setCoins
+            user.setCoinsEarned((int)coinsEarned);
+            user.setCoinBalance((int)coinBalance);
 
             //users.add(user);
         }
