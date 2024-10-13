@@ -196,5 +196,14 @@ public class Language {
     public UUID getID() {
         return this.languageID;
     }
+
+    /**
+     * @author CADE STOCKER
+     * @param id
+     * sets the language's id
+     */
+    public void setID(UUID id) {
+        this.languageID = id;
+    }
 }
 
