@@ -181,5 +181,10 @@ public class Word {
     public void setLanguage(Languages language) {
         this.language = language;
     }
+
+    public void toString() {
+        System.out.println(this.word+ " "+this.timesCorrect+ " "+
+        this.timesPresented+ " "+ this.userUnderstanding);
+    }
 }
 

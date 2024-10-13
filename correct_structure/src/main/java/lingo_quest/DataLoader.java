@@ -385,7 +385,7 @@ private static User createUser(String userID, String username, String password,
             JSONObject wordJson = (JSONObject) obj;
 
             // Extract basic user data
-            String language = (String) wordJson.get("name");
+            String language = (String) wordJson.get("language");
             Languages lang = mapLanguage(language);
             long timesPresented = (long) wordJson.get("timesPresented");
             long timesCorrect = (long) wordJson.get("timesCorrect");
@@ -393,12 +393,18 @@ private static User createUser(String userID, String username, String password,
             double userUnderstanding = (double) wordJson.get("userUnderstanding");
 
             // Create and configure User object
-            Item item = new Item(name, description, (int)price);
+            Word createdWord = new Word(word);
+            createdWord.setTimesCorrect((int)timesCorrect);
+            createdWord.setTimesPresented((int)timesPresented);
+            createdWord.setUserUnderstanding(userUnderstanding);
+            createdWord.setLanguage(lang);
 
-            items.add(item); // Add the fully created user to the list
+
+            words.add(createdWord); // Add the fully created user to the list
+            //System.out.println(createdWord.toString());
         }
 
-        return items;
+        return words;
     }
 
     /**
@@ -410,8 +416,10 @@ private static User createUser(String userID, String username, String password,
         try {
             userList.loadUsers(loadUsers("LingoQuest/correct_structure/src/json/Users.json"));
             itemShop.loadItems(loadItemShop("LingoQuest/correct_structure/src/json/ItemShop.json"));
-            //userList.printUserList();
-            //working
+            
+            //not yet sure where words will go once loaded in
+            loadWords("LingoQuest/correct_structure/src/json/Word.json");
+            
         } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
