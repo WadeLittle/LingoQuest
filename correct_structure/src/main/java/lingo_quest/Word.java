@@ -153,5 +153,9 @@ public class Word {
     public Languages getLanguage() {
         return this.language;
     }
+
+    public void setLanguage(Languages language) {
+        this.language = language;
+    }
 }
 
