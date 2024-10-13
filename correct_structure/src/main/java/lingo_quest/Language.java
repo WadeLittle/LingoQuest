@@ -63,8 +63,8 @@ public class Language {
      * UUID will be used to access the user who owns this object of language
      * UUID should be used to find the user in the Users class
      */
-    public void setUUID(String UUID) {
-        this.UUID = UUID;
+    public void setUUID(UUID id) {
+        this.languageID = id;
     }
 
     /**
@@ -72,7 +72,7 @@ public class Language {
      * @return String of the Language's UUID
      * UUID is the unique identifier of this object of language
      */
-    public String getUUID() {
+    public UUID getUUID() {
         return this.UUID;
     }
 
@@ -186,24 +186,6 @@ public class Language {
     public ArrayList<Section> getAvailableSections() {
         
         return null;
-    }
-
-    /**
-     * @author CADE STOCKER
-     * language needs to hold a UUID so that it can be found in
-     * language manager
-     */
-    public UUID getID() {
-        return this.languageID;
-    }
-
-    /**
-     * @author CADE STOCKER
-     * @param id
-     * sets the language's id
-     */
-    public void setID(UUID id) {
-        this.languageID = id;
     }
 }
 
