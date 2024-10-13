@@ -93,8 +93,9 @@ public class Users {
 
     }
 
-    public void loadUsers() {
-
+    public void loadUsers(ArrayList<User> userList) {
+        if(userList != null)
+            this.users = userList;
     }
 
     /**

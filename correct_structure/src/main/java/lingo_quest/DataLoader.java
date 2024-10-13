@@ -13,9 +13,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader {
-    public ItemShop itemShop = ItemShop.getInstance();
-    public Users userList = Users.getInstance();
-    public LanguageManager languageManager = LanguageManager.getInstance();
+    public static ItemShop itemShop = ItemShop.getInstance();
+    public static Users userList = Users.getInstance();
+    public static LanguageManager languageManager = LanguageManager.getInstance();
 
     /*public static ArrayList<User> loadUsers(String file) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
         
@@ -338,9 +338,18 @@ private static User createUser(String userID, String username, String password,
         loadData();
     }
 
+    private static void loadItemShop(String file) {
+
+    }
+
+    /**
+     * @author CADE STOCKER
+     * This method will call all of the methods that actually
+     * do the work.
+     */
     public static void loadData() {
         try {
-            loadUsers("LingoQuest/correct_structure/src/json/Users.json");
+            userList.loadUsers(loadUsers("LingoQuest/correct_structure/src/json/Users.json"));
         } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
