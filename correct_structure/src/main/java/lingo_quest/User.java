@@ -377,8 +377,13 @@ public class User {
      * @param list
      * used for dataloader purposes
      */
-    public void setFriendsList(ArrayList<User> list) {
-        this.friendsList = list;
+    public void setFriendsList(ArrayList<String> list) {
+        ArrayList<User> friends = new ArrayList<User>();
+        for (String friend : list) {
+            UUID friendID = UUID.fromString(friend);
+            User u = Users.getInstance().getUserByUUID(friendID);
+            friends.add(u);
+        }
     }
 
 }
