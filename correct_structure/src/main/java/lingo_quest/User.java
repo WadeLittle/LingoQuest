@@ -396,4 +396,23 @@ public class User {
             this.items = items;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param HashMap<Languages,int>
+     * used for dataloader
+     * Had to do some parsing to get this method right.
+     */
+    public void setUserProgress(HashMap<Languages,Long> progress) {
+        if(progress != null) {
+            HashMap<Languages,Integer> map = new HashMap();
+            for (Languages key : progress.keySet()) {
+                Long value = progress.get(key);
+                Integer Ivalue = Math.toIntExact(value);
+                //System.out.println(Ivalue);
+                map.put(key, Ivalue);
+            }
+            this.userProgress = map;
+        }
+    }
+
 }

@@ -113,6 +113,8 @@ public class DataLoader {
             user.setCoinBalance((int)coinBalance);
             user.setFriendsList(friendsList);
             user.setItems(items);
+            user.setUserProgress(userProgress);
+
             //users.add(user);
         }
         
