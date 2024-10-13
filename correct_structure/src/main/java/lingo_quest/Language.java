@@ -73,7 +73,7 @@ public class Language {
      * UUID is the unique identifier of this object of language
      */
     public UUID getUUID() {
-        return this.UUID;
+        return this.languageID;
     }
 
     /**

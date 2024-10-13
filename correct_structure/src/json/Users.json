@@ -24,7 +24,7 @@
         },
         "answerStreak": 5,
         "wordOfTheDay": "palabra",
-        "languages": ["SPANISH"],
+        "languages": ["34b98bb6-2a32-4d3a-af62-4f2d50673b24"],
         "currentLanguage": "SPANISH"
       },
       {
@@ -48,7 +48,7 @@
         },
         "answerStreak": 10,
         "wordOfTheDay": "hola",
-        "languages": ["SPANISH"],
+        "languages": ["0a5f916b-fe3c-4d71-8774-51c773345b6d"],
         "currentLanguage": "SPANISH"
       }
     ]

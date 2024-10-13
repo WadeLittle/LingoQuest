@@ -1,6 +1,7 @@
 package lingo_quest;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class LanguageManager {
     private ArrayList<Language> languages;  // Corrected to match UML
@@ -42,6 +43,20 @@ public class LanguageManager {
     // Method to save languages
     public void saveLanguages() {
         // Stub implementation
+    }
+
+    public Language getLanguageByID(UUID id) {
+        if(this.languages != null) {
+            for(Language l : languages) {
+                if(l.getUUID().equals(id))
+                    return l;
+            }
+            System.out.println("Language not found.");
+            return null;
+        }
+        System.out.println("List of languages is empty in LanguageManager");
+        this.languages = new ArrayList<Language>();
+        return null;
     }
 }
 

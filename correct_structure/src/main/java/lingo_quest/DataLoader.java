@@ -110,7 +110,7 @@ public class DataLoader {
 
             UUID id = UUID.fromString(userID);
             user.setID(id);
-            
+
             user.setCoinsEarned((int)coinsEarned);
             user.setCoinBalance((int)coinBalance);
             user.setFriendsList(friendsList);
@@ -119,6 +119,14 @@ public class DataLoader {
 
             Word wordOfDay = new Word(wordOfTheDay);
             user.setWordOfTheDay(wordOfDay);
+
+            // turns the list of strings into list of UUIDs
+            ArrayList<UUID> languagesU = new ArrayList();
+            for(String s : languages) {
+                languagesU.add(UUID.fromString(s));
+            }
+            // sends the list of UUIDs to the User class to be handled
+            user.setLanguages(languagesU);
 
             //users.add(user);
         }

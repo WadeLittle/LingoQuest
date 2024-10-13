@@ -424,5 +424,14 @@ public class User {
         this.wordOfTheDay = word;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param list
+     * used for dataloader
+     */
+    public void setLanguages(ArrayList<UUID> list) {
+        for(UUID id : list)
+            this.languages.add(LanguageManager.getInstance().getLanguageByID(id));
+    }
 
 }
