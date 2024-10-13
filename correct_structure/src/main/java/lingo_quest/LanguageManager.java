@@ -45,6 +45,11 @@ public class LanguageManager {
         // Stub implementation
     }
 
+    /**
+     * @author cade
+     * @param id
+     * @return
+     */
     public Language getLanguageByID(UUID id) {
         if(this.languages != null) {
             for(Language l : languages) {

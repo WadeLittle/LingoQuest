@@ -49,6 +49,30 @@ public class Word {
     }
 
     /**
+     * @author cade
+     * @param times
+     */
+    public void setTimesPresented(int times) {
+        this.timesPresented = times;
+    }
+
+    /**
+     * @author cade
+     * @param times
+     */
+    public void setTimesCorrect(int times) {
+        this.timesCorrect = times;
+    }
+
+    /**
+     * @author cade
+     * @param understanding
+     */
+    public void setUserUnderstanding(double understanding) {
+        this.userUnderstanding = understanding;
+    }
+
+    /**
      * Gets the number of times the word has been presented to the user.
      * 
      * @return the number of times the word has been presented

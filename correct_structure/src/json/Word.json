@@ -1,16 +1,18 @@
-[
-    {
-        "language": "SPANISH",
-        "timesPresented":4,
-        "word":"perro",
-        "timesCorrect":3,
-        "userUnderstanding":0.75
-    },
-    {
-        "language": "SPANISH",
-        "timesPresented":8,
-        "word":"manzana",
-        "timesCorrect":4,
-        "userUnderstanding":0.5
-    }
-]
+{
+    "words":[
+        {
+            "language": "SPANISH",
+            "timesPresented":4,
+            "word":"perro",
+            "timesCorrect":3,
+            "userUnderstanding":0.75
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented":8,
+            "word":"manzana",
+            "timesCorrect":4,
+            "userUnderstanding":0.5
+        }
+    ]
+}

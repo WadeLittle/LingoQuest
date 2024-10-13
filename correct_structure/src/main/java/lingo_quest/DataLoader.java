@@ -345,30 +345,61 @@ private static User createUser(String userID, String username, String password,
     public static ArrayList<Item> loadItemShop(String file) 
         throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
-    ArrayList<Item> items = new ArrayList<>();
-    JSONParser jsonParser = new JSONParser();
+        ArrayList<Item> items = new ArrayList<>();
+        JSONParser jsonParser = new JSONParser();
 
-    // Parse the JSON file
-    JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
-    JSONArray itemsArray = (JSONArray) jsonObject.get("items");
+        // Parse the JSON file
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+        JSONArray itemsArray = (JSONArray) jsonObject.get("items");
 
-    // Iterate through each user object in the JSON array
-    for (Object obj : itemsArray) {
-        JSONObject userJson = (JSONObject) obj;
+        // Iterate through each user object in the JSON array
+        for (Object obj : itemsArray) {
+            JSONObject userJson = (JSONObject) obj;
 
-        // Extract basic user data
-        String name = (String) userJson.get("name");
-        String description = (String) userJson.get("description");
-        long price = (long) userJson.get("price");
+            // Extract basic user data
+            String name = (String) userJson.get("name");
+            String description = (String) userJson.get("description");
+            long price = (long) userJson.get("price");
 
-        // Create and configure User object
-        Item item = new Item(name, description, (int)price);
+            // Create and configure User object
+            Item item = new Item(name, description, (int)price);
 
-        items.add(item); // Add the fully created user to the list
+            items.add(item); // Add the fully created user to the list
+        }
+
+        return items;
     }
 
-    return items;
-}
+    public static ArrayList<Word> loadWords(String file) 
+        throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+
+        ArrayList<Word> words = new ArrayList<>();
+        JSONParser jsonParser = new JSONParser();
+
+        // Parse the JSON file
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+        JSONArray wordsArray = (JSONArray) jsonObject.get("words");
+
+        // Iterate through each user object in the JSON array
+        for (Object obj : wordsArray) {
+            JSONObject wordJson = (JSONObject) obj;
+
+            // Extract basic user data
+            String language = (String) wordJson.get("name");
+            Languages lang = mapLanguage(language);
+            long timesPresented = (long) wordJson.get("timesPresented");
+            long timesCorrect = (long) wordJson.get("timesCorrect");
+            String word = (String) wordJson.get("word");
+            double userUnderstanding = (double) wordJson.get("userUnderstanding");
+
+            // Create and configure User object
+            Item item = new Item(name, description, (int)price);
+
+            items.add(item); // Add the fully created user to the list
+        }
+
+        return items;
+    }
 
     /**
      * @author CADE STOCKER
