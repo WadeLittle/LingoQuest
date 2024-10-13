@@ -108,6 +108,31 @@ public class Question {
                 "User Answer: " + (userAnswer != null ? userAnswer : "Not answered yet") + "\n" +
                 "Media: " + (media != null ? media.getName() : "No media") + "\n";
     }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public Word getUserAnswer() {
+        return this.userAnswer;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public int getPointValue() {
+        return this.pointValue;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public int getCoinValue() {
+        return this.coinValue;
+    }
+
 }
 
 

@@ -154,16 +154,21 @@ class DataWriter {
         JSONObject questionJson = new JSONObject();
         //questionJson.put("questionType", question.getQuestionType());
         questionJson.put("question", question.getQuestion());
-        questionJson.put("answerChoices", new JSONArray(question.getAnswerChoices()));
+        ArrayList<Word> answerChoices = question.getAnswerChoices();
+        ArrayList<String> stringAnswerChoices = new ArrayList();
+        for(Word w : answerChoices) {
+            stringAnswerChoices.add(w.getWord());
+        }
+        questionJson.put("answerChoices", stringAnswerChoices);
         questionJson.put("correctAnswer", question.getCorrectAnswer());
         questionJson.put("userAnswer", question.getUserAnswer());
         questionJson.put("pointValue", question.getPointValue());
         questionJson.put("coinValue", question.getCoinValue());
 
-        if (question.getQuestionType().equals("Matching")) {
+        /*if (question.getQuestionType().equals("Matching")) {
             questionJson.put("answers", new JSONObject(question.getAnswers()));
             questionJson.put("userAnswer", new JSONObject(question.getUserAnswer()));
-        }
+        }*/
 
         return questionJson;
     }
