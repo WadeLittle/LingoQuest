@@ -107,13 +107,18 @@ public class DataLoader {
             //User user = new User(userID, username, password, coinsEarned, coinBalance, friendsList,
             //                    items, userProgress, wordOfTheDay, languages, currentLanguage);
             User user = new User(username,password);
+
             UUID id = UUID.fromString(userID);
             user.setID(id);
+            
             user.setCoinsEarned((int)coinsEarned);
             user.setCoinBalance((int)coinBalance);
             user.setFriendsList(friendsList);
             user.setItems(items);
             user.setUserProgress(userProgress);
+
+            Word wordOfDay = new Word(wordOfTheDay);
+            user.setWordOfTheDay(wordOfDay);
 
             //users.add(user);
         }

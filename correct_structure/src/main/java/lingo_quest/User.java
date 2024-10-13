@@ -415,4 +415,14 @@ public class User {
         }
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param word
+     * used for dataloader
+     */
+    public void setWordOfTheDay(Word word) {
+        this.wordOfTheDay = word;
+    }
+
+
 }
