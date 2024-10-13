@@ -2,10 +2,11 @@ package lingo_quest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class Language {
     private User user;
-    private String UUID;
+    private UUID languageID;
     private PlacementTest placementTest;
     private int pointsEarned;
     private int totalPoints;
@@ -185,6 +186,15 @@ public class Language {
     public ArrayList<Section> getAvailableSections() {
         
         return null;
+    }
+
+    /**
+     * @author CADE STOCKER
+     * language needs to hold a UUID so that it can be found in
+     * language manager
+     */
+    public UUID getID() {
+        return this.languageID;
     }
 }
 
