@@ -198,7 +198,7 @@ public class DataLoader {
         // Extract lists from JSON
         ArrayList<String> friendsList = extractStringList((JSONArray) userJson.get("friendsList"));
         ArrayList<Item> items = extractItems((JSONArray) userJson.get("items"));
-        HashMap<Languages, Long> userProgress = extractUserProgress((JSONObject) userJson.get("userProgress"));
+        //HashMap<Languages, Double> userProgress = extractUserProgress((JSONObject) userJson.get("userProgress"));
 
         // Extract remaining user fields
         String wordOfTheDay = (String) userJson.get("wordOfTheDay");
@@ -207,7 +207,7 @@ public class DataLoader {
 
         // Create and configure User object
         User user = createUser(userID, username, password, coinsEarned, coinBalance, friendsList, 
-                               items, userProgress, wordOfTheDay, languages, currentLanguage);
+                               items, null, wordOfTheDay, languages, currentLanguage);
 
         users.add(user); // Add the fully created user to the list
     }
@@ -254,7 +254,7 @@ private static ArrayList<Item> extractItems(JSONArray itemsJson) {
  * @return
  * helper method for user progress
  */
-private static HashMap<Languages, Long> extractUserProgress(JSONObject progressJson) {
+/*private static HashMap<Languages, Long> extractUserProgress(JSONObject progressJson) {
     HashMap<Languages, Long> userProgress = new HashMap<>();
     String language = ((String) progressJson.get("language")).toLowerCase();
 
@@ -263,7 +263,7 @@ private static HashMap<Languages, Long> extractUserProgress(JSONObject progressJ
     userProgress.put(keyLang, points);
 
     return userProgress;
-}
+}*/
 
 /**
  * @author CADE STOCKER
@@ -303,7 +303,7 @@ private static Languages mapLanguage(String language) {
  */
 private static User createUser(String userID, String username, String password, 
                                long coinsEarned, long coinBalance, ArrayList<String> friendsList,
-                               ArrayList<Item> items, HashMap<Languages, Long> userProgress,
+                               ArrayList<Item> items, HashMap<Languages, Double> userProgress,
                                String wordOfTheDay, ArrayList<String> languages, 
                                String currentLanguage) {
 
@@ -440,8 +440,20 @@ private static User createUser(String userID, String username, String password,
         ArrayList<String> sectionsComplete = new ArrayList<>((JSONArray) languageJson.get("sectionsComplete"));
         HashMap<String, Boolean> sectionAccess = parseSectionAccess((JSONObject) languageJson.get("sectionAccess"));
 
-        return new Language(userID, placementTest, pointsEarned, totalPoints, progress, placementScore,
-                sections, dictionary, answerStreak, langName, sectionsComplete, sectionAccess);
+        Language lang = new Language(userList.getUserByUUID(userID));
+
+        //System.out.println(lang.toString());
+
+        PlacementTest pt = new PlacementTest();
+        pt.setID(UUID.fromString(placementTest));
+        lang.setPlacementTest(pt);
+
+        lang.setPointsEarned(pointsEarned);
+        lang.setTotalPoints(totalPoints);
+        lang.setUserProgress(progress);
+        lang.setPlacementScore(placementScore);
+
+        return lang;
     }
 
     private static ArrayList<Section> parseSections(JSONArray sectionsJson) {
@@ -586,6 +598,12 @@ private static User createUser(String userID, String username, String password,
             
             //not yet sure where words will go once loaded in
             loadWords("LingoQuest/correct_structure/src/json/Word.json");
+            try {
+                loadLanguages("LingoQuest/correct_structure/src/json/language.json");
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
             
         } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
             // TODO Auto-generated catch block

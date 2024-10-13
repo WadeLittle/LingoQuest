@@ -20,6 +20,18 @@ public class PlacementTest {
         // If the test was just created, then it has not been taken yet.
     }
 
+    /**
+     * @author cade
+     * @return
+     */
+    public UUID getID() {
+        return this.testID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
     public void setID(UUID id) {
         this.testID = id;
     }

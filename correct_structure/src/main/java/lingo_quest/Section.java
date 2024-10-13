@@ -115,8 +115,8 @@ public class Section {
         
     }
 
-    public void setSectionComplete() {
-        this.sectionComplete = true;
+    public void setSectionComplete(boolean complete) {
+        this.sectionComplete = complete;
     }
 
 

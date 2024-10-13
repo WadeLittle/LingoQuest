@@ -9,16 +9,18 @@ public class User {
     private Dictionary userDictionary;
     private int coinsEarned;
     private int coinBalance;
-    private ArrayList<User> friendsList;
+
+    // changed to UUID because you can access friend by their uuid
+    private ArrayList<UUID> friendsList;
     private String username;
     private String password;
     private ArrayList<Item> items;
     private ArrayList<Lesson> bookmarkedLessons;
 
     // Changed userProgress key to Languages (enum) - cade
-    public HashMap<Languages, Integer> userProgress;
+    public HashMap<Languages, Double> userProgress;
     private Word wordOfTheDay;
-    private ArrayList<Language> languages;
+    private ArrayList<UUID> languages;
 
     // Changed this to Languages so that we can just use the enum we made - cade
     public Languages currentLanguage;
@@ -44,14 +46,14 @@ public class User {
         userDictionary = new Dictionary();
         coinsEarned = 0;
         coinBalance = 0;
-        friendsList = new ArrayList<User>();
+        friendsList = new ArrayList<UUID>();
         username = null;
         password = null;
         items = new ArrayList<Item>();
         bookmarkedLessons = new ArrayList<Lesson>();
-        userProgress = new HashMap<Languages, Integer>();
+        userProgress = new HashMap<Languages, Double>();
         wordOfTheDay = null;
-        languages = new ArrayList<Language>();
+        languages = new ArrayList<UUID>();
         currentLanguage = null;
     }
 /**
@@ -137,6 +139,14 @@ public class User {
         return coinBalance;
     }
 
+    public ArrayList<Item> getItems() {
+        return this.items;
+    }
+
+    public ArrayList<UUID> getLanguages() {
+        return this.languages;
+    }
+
     /**
      * @author Wade Little
      *         Searches the users friends list and returns the friend if they are on
@@ -145,13 +155,17 @@ public class User {
      * @return The user with the username if they are on the list or null if the
      *         username can't be found
      */
-    public User searchFriends(String username) {
+    public User searchFriends(UUID id) {
         for (int i = 0; i < friendsList.size(); i++) {
-            if (friendsList.get(i).getUsername().equals(username)) {
-                return friendsList.get(i);
+            if (friendsList.get(i).equals(id)) {
+                return Users.getInstance().getUserByUUID(friendsList.get(i));
             }
         }
         return null;
+    }
+
+    public HashMap<Languages,Double> getUserProgress() {
+        return this.userProgress;
     }
 
     /**
@@ -388,6 +402,10 @@ public class User {
         }
     }
 
+    public ArrayList<UUID> getFriendsList() {
+        return this.friendsList;
+    }
+
     /**
      * @author CADE STOCKER
      * @param ArrayList<Item>
@@ -404,17 +422,15 @@ public class User {
      * used for dataloader
      * Had to do some parsing to get this method right.
      */
-    public void setUserProgress(HashMap<Languages,Long> progress) {
-        if(progress != null) {
-            HashMap<Languages,Integer> map = new HashMap();
+    public void setUserProgress(HashMap<Languages,Double> progress) {
+        /*if(progress != null) {
+            HashMap<Languages,Double> map = new HashMap();
             for (Languages key : progress.keySet()) {
-                Long value = progress.get(key);
-                Integer Ivalue = Math.toIntExact(value);
-                //System.out.println(Ivalue);
-                map.put(key, Ivalue);
+                map.put(key, map.get(key));
             }
             this.userProgress = map;
-        }
+        }*/
+        this.userProgress = progress;
     }
 
     /**
@@ -430,10 +446,11 @@ public class User {
      * @author CADE STOCKER
      * @param list
      * used for dataloader
+     * changed languages to be stored as uuid
      */
     public void setLanguages(ArrayList<UUID> list) {
         for(UUID id : list)
-            this.languages.add(LanguageManager.getInstance().getLanguageByID(id));
+            this.languages.add(id);
     }
 
 }

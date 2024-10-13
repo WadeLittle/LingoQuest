@@ -55,7 +55,8 @@ public class Question {
     }
 
     // Retrieves the question text based on the type (e.g., formatted or plain text)
-    public String getQuestion(String questionType) {
+    // removed param because it didnt do anything - cade
+    public String getQuestion() {
         return this.question;
     }
 

@@ -68,6 +68,18 @@ public class Language {
     }
 
     /**
+     * @author cade
+     * @param progress
+     */
+    public void setUserProgress(double progress) {
+        this.progress = progress;
+    }
+
+    public void setPlacementScore(int score) {
+        this.placementScore = score;
+    }
+
+    /**
      * @author Cade
      * @param points
      */
