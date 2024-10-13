@@ -31,6 +31,9 @@ public class Section {
         
     }
 
+    public void setSectionProgress(double progress) {
+        this.sectionProgress = progress;
+    }
  
     public double getSectionProgress() {
         return this.sectionProgress;
@@ -46,6 +49,14 @@ public class Section {
 
     public boolean getUserAccess() {
         return this.userAccess;
+    }
+
+    /**
+     * @author cade
+     * @param access
+     */
+    public void setUserAccess(boolean access) {
+        this.userAccess = access;
     }
 
     public boolean userAccessRequirements(ArrayList<Section> sections) {
@@ -91,27 +102,20 @@ public class Section {
 
     // Private Methods
     // Do these need to be private? (are they called from within the class?) - cade
-    private void setSectionProgress(double progress) {
-        this.sectionProgress = progress;
-    }
 
-    private void setPointsEarned(int pointsEarned) {
+    public void setPointsEarned(int pointsEarned) {
         this.pointsEarned = pointsEarned;
     }
 
-    private void setTotalPoints(int totalPoints) {
+    public void setTotalPoints(int totalPoints) {
         this.totalPoints = totalPoints;
-    }
-
-    private void setUserAccess(boolean userAccess) {
-        this.userAccess = userAccess;
     }
 
     private void awardForCompletion(User user) {
         
     }
 
-    private void setSectionComplete() {
+    public void setSectionComplete() {
         this.sectionComplete = true;
     }
 

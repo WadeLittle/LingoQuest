@@ -4,7 +4,7 @@
       "User": {
         "userID": "550e8400-e29b-41d4-a716-446655440000"
       },
-      "PlacementTest": "spanishPlacementTest",
+      "PlacementTest": "95de287a-d432-4c4f-baba-edfac664f74c",
       "pointsEarned": 300,
       "totalPoints": 1000,
       "progress": 0.3,
@@ -59,7 +59,11 @@
                   "userAnswer": "",
                   "pointValue": 20,
                   "coinValue": 2,
-                  "media": ""
+                  "media": {
+                    "name": "",
+                    "description":"",
+                    "fileName":""
+                  }
                 },
                 {
                   "questionType": "MultipleChoice",
@@ -69,7 +73,11 @@
                   "userAnswer": "",
                   "pointValue": 10,
                   "coinValue": 1,
-                  "media": "bread.mp3"
+                  "media": {
+                    "name": "bread song",
+                    "description":"song about bread",
+                    "fileName":"bread.mp3"
+                  }
                 }
               ]
             },
@@ -105,7 +113,7 @@
                   "media": {
                     "name": "picturebook1",
                     "description": "book about a dog who loves to eat cheese",
-                    "pictureBook": "TheCheesyDog.pdf"
+                    "fileName": "TheCheesyDog.pdf"
                   }
                 },
                 {
@@ -119,7 +127,7 @@
                   "media": {
                     "name": "",
                     "description": "",
-                    "pictureBook": ""
+                    "fileName": ""
                   }
                 }
               ]
@@ -167,7 +175,7 @@
                   "media": {
                     "name": "",
                     "description": "",
-                    "pictureBook": ""
+                    "fileName": ""
                   }
                 },
                 {
@@ -181,7 +189,7 @@
                   "media": {
                     "name": "",
                     "description": "",
-                    "pictureBook": ""
+                    "fileName": ""
                   }
                 }
               ]
@@ -218,7 +226,7 @@
                   "media": {
                     "name": "",
                     "description": "",
-                    "pictureBook": ""
+                    "fileName": ""
                   }
                 },
                 {
@@ -239,7 +247,7 @@
                   "media": {
                     "name": "Evil Llama",
                     "description": "book about an evil llama that speaks spanish",
-                    "pictureBook": "evilLlama.pdf"
+                    "fileName": "evilLlama.pdf"
                   }
                 }
               ]

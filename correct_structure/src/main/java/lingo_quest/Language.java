@@ -68,6 +68,14 @@ public class Language {
     }
 
     /**
+     * @author Cade
+     * @param points
+     */
+    public void setPointsEarned(int points) {
+        this.pointsEarned = points;
+    }
+
+    /**
      * @author Cade Stocker
      * @return String of the Language's UUID
      * UUID is the unique identifier of this object of language
@@ -108,6 +116,11 @@ public class Language {
      */
     public Languages getLanguageName() {
         return this.languageName;
+    }
+
+    public void setPlacementTest(PlacementTest pt) {
+        if(pt != null)
+            this.placementTest = pt;
     }
 
     /**

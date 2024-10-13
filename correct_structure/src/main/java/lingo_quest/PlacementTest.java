@@ -1,8 +1,10 @@
 package lingo_quest;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class PlacementTest {
+    private UUID testID;
     private ArrayList<Question> questions;
     private int correctAnswers;
     private int score;
@@ -16,6 +18,10 @@ public class PlacementTest {
         this.questions = new ArrayList<Question>();
         this.taken = false;
         // If the test was just created, then it has not been taken yet.
+    }
+
+    public void setID(UUID id) {
+        this.testID = id;
     }
 
     /**

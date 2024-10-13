@@ -13,6 +13,12 @@ class Dictionary {
         numberOfWords = 0;
     }
 
+    public Dictionary(HashMap<Word,Word> word1,HashMap<Word,Word> word2, int numberOfWords) {
+        this.fromEnglish = word1;
+        this.toEnglish = word2;
+        this.numberOfWords = numberOfWords;
+    }
+
     public void addWord(Word english, Word otherLanguage) {
         fromEnglish.put(english, otherLanguage);
         toEnglish.put(otherLanguage, english);

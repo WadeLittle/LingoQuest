@@ -35,5 +35,17 @@ public class Lesson {
     public void halfwayCompleteReward() {
 
     }
+
+    /**
+     * @author cade
+     * @param points
+     */
+    public void setPointsEarned(int points) {
+        this.pointsEarned = points;
+    }
+
+    public void setLessonProgress(double progress) {
+        this.lessonProgress = progress;
+    }
 }
 

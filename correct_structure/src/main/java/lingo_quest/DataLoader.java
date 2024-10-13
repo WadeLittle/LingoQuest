@@ -407,6 +407,173 @@ private static User createUser(String userID, String username, String password,
         return words;
     }
 
+    public static HashMap<String, Language> loadLanguages(String file) throws Exception {
+        HashMap<String, Language> languages = new HashMap<>();
+        JSONParser parser = new JSONParser();
+        JSONObject root = (JSONObject) parser.parse(new FileReader(file));
+
+        for (Object key : root.keySet()) {
+            String languageName = (String) key;
+            JSONObject languageJson = (JSONObject) root.get(languageName);
+
+            Language language = parseLanguage(languageJson, languageName);
+            languages.put(languageName, language);
+        }
+
+        return languages;
+    }
+
+    private static Language parseLanguage(JSONObject languageJson, String languageName) {
+        UUID userID = UUID.fromString((String) ((JSONObject) languageJson.get("User")).get("userID"));
+        String placementTest = (String) languageJson.get("PlacementTest");
+        int pointsEarned = ((Long) languageJson.get("pointsEarned")).intValue();
+        int totalPoints = ((Long) languageJson.get("totalPoints")).intValue();
+        double progress = (double) languageJson.get("progress");
+        int placementScore = ((Long) languageJson.get("placementScore")).intValue();
+
+        ArrayList<Section> sections = parseSections((JSONArray) languageJson.get("sections"));
+        Dictionary dictionary = parseDictionary((JSONObject) languageJson.get("dictionary"));
+
+        int answerStreak = ((Long) languageJson.get("answerStreak")).intValue();
+        String langName = (String) languageJson.get("languageName");
+
+        ArrayList<String> sectionsComplete = new ArrayList<>((JSONArray) languageJson.get("sectionsComplete"));
+        HashMap<String, Boolean> sectionAccess = parseSectionAccess((JSONObject) languageJson.get("sectionAccess"));
+
+        return new Language(userID, placementTest, pointsEarned, totalPoints, progress, placementScore,
+                sections, dictionary, answerStreak, langName, sectionsComplete, sectionAccess);
+    }
+
+    private static ArrayList<Section> parseSections(JSONArray sectionsJson) {
+        ArrayList<Section> sections = new ArrayList<>();
+
+        for (Object obj : sectionsJson) {
+            JSONObject sectionJson = (JSONObject) obj;
+            String sectionName = (String) sectionJson.get("sectionName");
+            boolean userAccess = (boolean) sectionJson.get("userAccess");
+            double sectionProgress = (double) sectionJson.get("sectionProgress");
+            int pointsEarned = ((Long) sectionJson.get("pointsEarned")).intValue();
+            int totalPoints = ((Long) sectionJson.get("totalPoints")).intValue();
+            int coinValue = ((Long) sectionJson.get("coinValue")).intValue();
+            boolean sectionComplete = (boolean) sectionJson.get("sectionComplete");
+
+            ArrayList<Lesson> lessons = parseLessons((JSONArray) sectionJson.get("lessons"));
+
+            Section sec = new Section(lessons,coinValue);
+            sec.setSectionProgress(sectionProgress);
+            sec.setUserAccess(userAccess);
+            sec.setPointsEarned((int)pointsEarned);
+            sec.setTotalPoints(totalPoints);
+            sec.setSectionComplete(sectionComplete);
+        }
+
+        return sections;
+    }
+
+    private static ArrayList<Lesson> parseLessons(JSONArray lessonsJson) {
+        ArrayList<Lesson> lessons = new ArrayList<>();
+
+        for (Object obj : lessonsJson) {
+            JSONObject lessonJson = (JSONObject) obj;
+            int pointsEarned = ((Long) lessonJson.get("pointsEarned")).intValue();
+            int totalPoints = ((Long) lessonJson.get("totalPoints")).intValue();
+            int coinValue = ((Long) lessonJson.get("coinValue")).intValue();
+            double lessonProgress = (double) lessonJson.get("lessonProgress");
+
+            Dictionary topicDictionary = parseDictionary((JSONObject) lessonJson.get("topicDictionary"));
+            ArrayList<Question> questions = parseQuestions((JSONArray) lessonJson.get("questions"));
+
+            Lesson les = new Lesson(coinValue,totalPoints);
+            les.setPointsEarned((int)pointsEarned);
+            les.setLessonProgress(lessonProgress);
+        }
+
+        return lessons;
+    }
+
+    private static Dictionary parseDictionary(JSONObject dictionaryJson) {
+        HashMap<Word, Word> fromEnglish = new HashMap<>();
+        HashMap<Word, Word> toEnglish = new HashMap<>();
+
+        JSONObject fromEnglishJson = (JSONObject) dictionaryJson.get("fromEnglish");
+        for (Object key : fromEnglishJson.keySet()) {
+            Word keyWord = new Word();
+            keyWord.setWord((String)key);
+            Word valueWord = new Word();
+            valueWord.setWord((String)fromEnglishJson.get(key));
+            fromEnglish.put(keyWord, valueWord);
+        }
+
+        JSONObject toEnglishJson = (JSONObject) dictionaryJson.get("toEnglish");
+        for (Object key : toEnglishJson.keySet()) {
+            Word valueWord = new Word();
+            valueWord.setWord((String)key);
+            Word keyWord = new Word();
+            keyWord.setWord((String)fromEnglishJson.get(key));
+            toEnglish.put(keyWord, valueWord);
+        }
+
+        int numberOfWords = ((Long) dictionaryJson.get("numberOfWords")).intValue();
+        return new Dictionary(fromEnglish, toEnglish, numberOfWords);
+    }
+
+    private static ArrayList<Question> parseQuestions(JSONArray questionsJson) {
+        ArrayList<Question> questions = new ArrayList<>();
+
+        for (Object obj : questionsJson) {
+            JSONObject questionJson = (JSONObject) obj;
+            String questionType = (String) questionJson.get("questionType");
+            String question = (String) questionJson.get("question");
+            ArrayList<String> answerChoices = new ArrayList<>((JSONArray) questionJson.get("answerChoices"));
+            String userAnswer = (String) questionJson.get("userAnswer");
+            int pointValue = ((Long) questionJson.get("pointValue")).intValue();
+            int coinValue = ((Long) questionJson.get("coinValue")).intValue();
+            questionType = questionType.toLowerCase();
+            String correctAnswer;
+            switch(questionType){
+                case("matching"):
+                    //HashMap<Word,Word> correctMatches = new HashMap();
+                    //correctMatches.put(key, value)
+                    break;
+                case("multiplechoice"):
+                    //Do these strings need to be words?
+                    correctAnswer = (String) questionJson.get("correctAnswer");
+                    break;
+                case("fillintheblank"):
+                    correctAnswer = (String) questionJson.get("correctAnswer");
+                    break;
+            }
+            Media media = parseMedia((JSONObject) questionJson.get("media"));
+            Question quest = new Question();
+            //quest.setAnswerChoices(questionsJson);
+
+        }
+
+        return questions;
+    }
+
+    // Need to talk about this with team to get it sorted before reading
+    private static Media parseMedia(JSONObject media) {
+        String name = (String) media.get("name");
+        String description = (String) media.get("description");
+        String fileName = (String) media.get("fileName");
+        //Media med = new Media();
+        //return med;
+        return null;
+    }
+
+
+
+    private static HashMap<String, Boolean> parseSectionAccess(JSONObject sectionAccessJson) {
+        HashMap<String, Boolean> sectionAccess = new HashMap<>();
+
+        for (Object key : sectionAccessJson.keySet()) {
+            sectionAccess.put((String) key, (boolean) sectionAccessJson.get(key));
+        }
+
+        return sectionAccess;
+    }
+
     /**
      * @author CADE STOCKER
      * This method will call all of the methods that actually
