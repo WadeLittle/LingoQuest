@@ -386,5 +386,14 @@ public class User {
         }
     }
 
-}
+    /**
+     * @author CADE STOCKER
+     * @param ArrayList<Item>
+     * used for dataloader
+     */
+    public void setItems(ArrayList<Item> items) {
+        if(items != null)
+            this.items = items;
+    }
 
+}
