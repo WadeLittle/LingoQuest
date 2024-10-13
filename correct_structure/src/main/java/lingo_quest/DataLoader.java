@@ -13,8 +13,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class DataLoader {
+    public ItemShop itemShop = ItemShop.getInstance();
+    public Users userList = Users.getInstance();
+    public LanguageManager languageManager = LanguageManager.getInstance();
 
-    public static ArrayList<User> loadUsers(String file) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+    /*public static ArrayList<User> loadUsers(String file) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
         
         ArrayList<User> users = new ArrayList<User>();
         
@@ -64,6 +67,7 @@ public class DataLoader {
                 //System.out.println("language at top of switch" + language);
                 Languages keyLang = Languages.DEFAULT;
                 language = language.toLowerCase();
+                
                 switch(language) {
                     case "spanish":
                         keyLang = Languages.SPANISH;
@@ -128,12 +132,213 @@ public class DataLoader {
             // sends the list of UUIDs to the User class to be handled
             user.setLanguages(languagesU);
 
-            //users.add(user);
+            // Determine the enum type of current language
+            // reused the switch i made above, will refactor later.
+            Languages currentLang = Languages.DEFAULT;
+            switch(currentLanguage) {
+                case "spanish":
+                    currentLang = Languages.SPANISH;
+                    break;
+                case "french":
+                    currentLang = Languages.FRENCH;
+                    break;
+                case "german":
+                    currentLang = Languages.GERMAN;
+                    break;
+                case "japanese":
+                    currentLang = Languages.JAPANESE;
+                    break;
+                case "korean":
+                    currentLang = Languages.KOREAN;
+                    break;
+                default:
+                    System.out.println("error reading language");
+                    break;
+            }
+            user.setCurrentLanguage(currentLang);
+            
+            // user has been fully created, add to list
+            users.add(user);
         }
         
         return users;
+    }*/
+
+    /**
+     * @author CADE STOCKER
+     * @param file
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws org.json.simple.parser.ParseException
+     * REFACTORED VERSION OF COMMENTED CODE ABOVE
+     */
+    public static ArrayList<User> loadUsers(String file) 
+        throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+
+    ArrayList<User> users = new ArrayList<>();
+    JSONParser jsonParser = new JSONParser();
+
+    // Parse the JSON file
+    JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+    JSONArray usersArray = (JSONArray) jsonObject.get("users");
+
+    // Iterate through each user object in the JSON array
+    for (Object obj : usersArray) {
+        JSONObject userJson = (JSONObject) obj;
+
+        // Extract basic user data
+        String userID = (String) userJson.get("userID");
+        String username = (String) userJson.get("username");
+        String password = (String) userJson.get("password");
+        long coinsEarned = (long) userJson.get("coinsEarned");
+        long coinBalance = (long) userJson.get("coinBalance");
+
+        // Extract lists from JSON
+        ArrayList<String> friendsList = extractStringList((JSONArray) userJson.get("friendsList"));
+        ArrayList<Item> items = extractItems((JSONArray) userJson.get("items"));
+        HashMap<Languages, Long> userProgress = extractUserProgress((JSONObject) userJson.get("userProgress"));
+
+        // Extract remaining user fields
+        String wordOfTheDay = (String) userJson.get("wordOfTheDay");
+        ArrayList<String> languages = extractStringList((JSONArray) userJson.get("languages"));
+        String currentLanguage = (String) userJson.get("currentLanguage");
+
+        // Create and configure User object
+        User user = createUser(userID, username, password, coinsEarned, coinBalance, friendsList, 
+                               items, userProgress, wordOfTheDay, languages, currentLanguage);
+
+        users.add(user); // Add the fully created user to the list
     }
+
+    return users;
+}
+
+/**
+ * @author CADE STOCKER
+ * @param jsonArray
+ * @return
+ * helper method
+ */
+private static ArrayList<String> extractStringList(JSONArray jsonArray) {
+    ArrayList<String> list = new ArrayList<>();
+    for (Object obj : jsonArray) {
+        list.add((String) obj);
+    }
+    return list;
+}
+
+/**
+ * @author CADE STOCKER
+ * @param itemsJson
+ * @return
+ * helper method
+ */
+private static ArrayList<Item> extractItems(JSONArray itemsJson) {
+    ArrayList<Item> items = new ArrayList<>();
+    for (Object itemObj : itemsJson) {
+        JSONObject itemJson = (JSONObject) itemObj;
+        String name = (String) itemJson.get("name");
+        String description = (String) itemJson.get("description");
+        long price = (long) itemJson.get("price");
+
+        items.add(new Item(name, description, (int) price));
+    }
+    return items;
+}
+
+/**
+ * @author CADE STOCKER
+ * @param progressJson
+ * @return
+ * helper method for user progress
+ */
+private static HashMap<Languages, Long> extractUserProgress(JSONObject progressJson) {
+    HashMap<Languages, Long> userProgress = new HashMap<>();
+    String language = ((String) progressJson.get("language")).toLowerCase();
+
+    Languages keyLang = mapLanguage(language);
+    long points = ((Number) progressJson.get("points")).longValue();
+    userProgress.put(keyLang, points);
+
+    return userProgress;
+}
+
+/**
+ * @author CADE STOCKER
+ * @param language
+ * @return
+ * helper method
+ */
+private static Languages mapLanguage(String language) {
+    language = language.toLowerCase();
+    switch (language) {
+        case "spanish": return Languages.SPANISH;
+        case "french": return Languages.FRENCH;
+        case "german": return Languages.GERMAN;
+        case "japanese": return Languages.JAPANESE;
+        case "korean": return Languages.KOREAN;
+        default:
+            System.out.println("Error reading language: " + language);
+            return Languages.DEFAULT;
+    }
+}
+
+/**
+ * @author CADE STOCKER
+ * @param userID
+ * @param username
+ * @param password
+ * @param coinsEarned
+ * @param coinBalance
+ * @param friendsList
+ * @param items
+ * @param userProgress
+ * @param wordOfTheDay
+ * @param languages
+ * @param currentLanguage
+ * @return
+ * helper method for creating the user once you've found all of their data
+ */
+private static User createUser(String userID, String username, String password, 
+                               long coinsEarned, long coinBalance, ArrayList<String> friendsList,
+                               ArrayList<Item> items, HashMap<Languages, Long> userProgress,
+                               String wordOfTheDay, ArrayList<String> languages, 
+                               String currentLanguage) {
+
+    User user = new User(username, password);
+    user.setID(UUID.fromString(userID));
+    user.setCoinsEarned((int) coinsEarned);
+    user.setCoinBalance((int) coinBalance);
+    user.setFriendsList(friendsList);
+    user.setItems(items);
+    user.setUserProgress(userProgress);
+    user.setWordOfTheDay(new Word(wordOfTheDay));
+
+    ArrayList<UUID> languagesUUID = new ArrayList<>();
+    for (String lang : languages) {
+        languagesUUID.add(UUID.fromString(lang));
+    }
+    user.setLanguages(languagesUUID);
+
+    user.setCurrentLanguage(mapLanguage(currentLanguage));
+    return user;
+}
+
+
+// CURRENTLY THE TRY/CATCH IS IN THE MAIN MEHTOD, WILL NEED TO RECONFIGURE WHEN MAIN METHOD IS GONE
     public static void main(String[] args) {
+        /*try {
+            loadUsers("LingoQuest/correct_structure/src/json/Users.json");
+        } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }*/
+        loadData();
+    }
+
+    public static void loadData() {
         try {
             loadUsers("LingoQuest/correct_structure/src/json/Users.json");
         } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
