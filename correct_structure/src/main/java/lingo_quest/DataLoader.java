@@ -338,9 +338,37 @@ private static User createUser(String userID, String username, String password,
         loadData();
     }
 
-    private static void loadItemShop(String file) {
+    /**
+     * @author CADE STOCKER
+     * loads all items into the item shop
+     */
+    public static ArrayList<Item> loadItemShop(String file) 
+        throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
+    ArrayList<Item> items = new ArrayList<>();
+    JSONParser jsonParser = new JSONParser();
+
+    // Parse the JSON file
+    JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+    JSONArray itemsArray = (JSONArray) jsonObject.get("items");
+
+    // Iterate through each user object in the JSON array
+    for (Object obj : itemsArray) {
+        JSONObject userJson = (JSONObject) obj;
+
+        // Extract basic user data
+        String name = (String) userJson.get("name");
+        String description = (String) userJson.get("description");
+        long price = (long) userJson.get("price");
+
+        // Create and configure User object
+        Item item = new Item(name, description, (int)price);
+
+        items.add(item); // Add the fully created user to the list
     }
+
+    return items;
+}
 
     /**
      * @author CADE STOCKER
@@ -350,6 +378,7 @@ private static User createUser(String userID, String username, String password,
     public static void loadData() {
         try {
             userList.loadUsers(loadUsers("LingoQuest/correct_structure/src/json/Users.json"));
+            itemShop.loadItems(loadItemShop("LingoQuest/correct_structure/src/json/ItemShop.json"));
             //userList.printUserList();
             //working
         } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {

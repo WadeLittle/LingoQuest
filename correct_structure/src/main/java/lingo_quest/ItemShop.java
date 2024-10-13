@@ -68,7 +68,9 @@ public class ItemShop {
         }
     }
 
-    public void loadItems() {
+    public void loadItems(ArrayList<Item> list) {
+        if(list != null)
+            this.items = list;
     }
 
     public void saveItems() {

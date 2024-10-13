@@ -12,6 +12,7 @@ public class Word {
     private String word;
     private int timesCorrect;
     private double userUnderstanding;
+    private Languages language;
 
     /**
      * Default constructor that initializes the word and other fields to default
@@ -22,6 +23,7 @@ public class Word {
         this.timesPresented = 0;
         this.timesCorrect = 0;
         this.userUnderstanding = 0.0;
+        this.language = Languages.DEFAULT;
     }
 
     /**
@@ -142,6 +144,14 @@ public class Word {
      */
     public boolean isEqualTo(Word otherWord) {
         return this.word.equalsIgnoreCase(otherWord.getWord());
+    }
+
+    /**
+     * @author CADE STOCKER
+     * @return the language the word belongs to
+     */
+    public Languages getLanguage() {
+        return this.language;
     }
 }
 
