@@ -19,7 +19,9 @@ public class User {
     public HashMap<Languages, Integer> userProgress;
     private Word wordOfTheDay;
     private ArrayList<Language> languages;
-    public Language currentLanguage;
+
+    // Changed this to Languages so that we can just use the enum we made - cade
+    public Languages currentLanguage;
 
     /**
      * @author Wade Little
@@ -278,7 +280,7 @@ public class User {
      * Sets the current language to a new language
      * @param language The current language the user wants to switch to
      */
-    public void setCurrentLanguage(Language language) {
+    public void setCurrentLanguage(Languages language) {
         this.currentLanguage = language;
     }
 
@@ -287,7 +289,7 @@ public class User {
      * Gets the users current langauge
      * @return The users current language
      */
-    public Language getCurrentLanguage() {
+    public Languages getCurrentLanguage() {
         return currentLanguage;
     }
 
