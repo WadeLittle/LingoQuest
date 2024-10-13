@@ -108,5 +108,11 @@ public class Users {
     public UUID generateUUID() {
         return UUID.randomUUID();
     }
+
+    public void printUserList() {
+        for(User u : users) {
+            System.out.println(u.toString());
+        }
+    }
 }
 

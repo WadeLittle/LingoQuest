@@ -350,6 +350,8 @@ private static User createUser(String userID, String username, String password,
     public static void loadData() {
         try {
             userList.loadUsers(loadUsers("LingoQuest/correct_structure/src/json/Users.json"));
+            //userList.printUserList();
+            //working
         } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
