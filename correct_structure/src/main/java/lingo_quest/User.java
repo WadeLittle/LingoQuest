@@ -14,7 +14,9 @@ public class User {
     private String password;
     private ArrayList<Item> items;
     private ArrayList<Lesson> bookmarkedLessons;
-    public HashMap<Language, Integer> userProgress;
+
+    // Changed userProgress key to Languages (enum) - cade
+    public HashMap<Languages, Integer> userProgress;
     private Word wordOfTheDay;
     private ArrayList<Language> languages;
     public Language currentLanguage;
@@ -31,7 +33,12 @@ public class User {
      *         - Sets currentLanguage and wordOfTheDay to null.
      */
     public User() {
-        userID = Users.getInstance().generateUUID();
+
+        // I'VE COMMENTED THIS OUT BECAUSE WE NEED TO BE ABLE TO SET THE UUID WHEN WE READ THE FILE
+        // IF THE USER GETS A UUID WHEN THEY'RE CONSTRUCTED, THEN WE WONT KNOW IF WE NEED TO READ IN THEIR EXISTING UUID
+        //userID = Users.getInstance().generateUUID();
+
+
         userDictionary = new Dictionary();
         coinsEarned = 0;
         coinBalance = 0;
@@ -40,7 +47,7 @@ public class User {
         password = null;
         items = new ArrayList<Item>();
         bookmarkedLessons = new ArrayList<Lesson>();
-        userProgress = new HashMap<Language, Integer>();
+        userProgress = new HashMap<Languages, Integer>();
         wordOfTheDay = null;
         languages = new ArrayList<Language>();
         currentLanguage = null;
@@ -57,7 +64,11 @@ public class User {
         }
 
         // If validation passes, initialize remaining fields
-        this.userID = Users.getInstance().generateUUID();
+        
+        // I'VE COMMENTED THIS OUT BECAUSE WE NEED TO BE ABLE TO SET THE UUID WHEN WE READ THE FILE
+        // IF THE USER GETS A UUID WHEN THEY'RE CONSTRUCTED, THEN WE WONT KNOW IF WE NEED TO READ IN THEIR EXISTING UUID
+        //this.userID = Users.getInstance().generateUUID();
+
         this.userDictionary = new Dictionary();
         this.coinsEarned = 0;
         this.coinBalance = 0;
@@ -335,6 +346,22 @@ public class User {
                 "wordOfTheDay=" + (wordOfTheDay != null ? wordOfTheDay.toString() : "None") + "\n" +
                 "languages=" + (languages != null ? languages.toString() : "None") + "\n" +
                 '}';
+    }
+
+    /**
+     * @author Cade Stocker
+     * setID method will take in a string, turn it into a UUID,
+     * then will set it if there isn't already a UUID.
+     * @param UUID
+     */
+    public void setID(UUID id) {
+        if(this.userID == null) {
+            this.userID = id;
+        }
+        else {
+            System.out.println("Attempting to add ID in user when Id "
+            + "already exists.");
+        }
     }
 
 }

@@ -5,5 +5,6 @@ public enum Languages {
     FRENCH,
     GERMAN,
     JAPANESE,
-    KOREAN
+    KOREAN,
+    DEFAULT
 }

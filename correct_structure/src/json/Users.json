@@ -14,16 +14,15 @@
           {
             "name": "Red Hat",
             "description": "red hat",
-            "price": 10,
-            "owned": true
+            "price": 10
           }
         ],
         "bookmarkedLessons": ["Lesson1", "Lesson2"],
         "userProgress": {
           "language": "SPANISH",
-          "points": 200,
-          "answerStreak": 5
+          "points": 200
         },
+        "answerStreak": 5,
         "wordOfTheDay": "palabra",
         "languages": ["SPANISH"],
         "currentLanguage": "SPANISH"
@@ -39,16 +38,15 @@
           {
             "name": "Blue Hat",
             "description": "blue hat",
-            "price": 15,
-            "owned": true
+            "price": 15
           }
         ],
         "bookmarkedLessons": ["Lesson3"],
         "userProgress": {
           "language": "SPANISH",
-          "points": 300,
-          "answerStreak": 10
+          "points": 300
         },
+        "answerStreak": 10,
         "wordOfTheDay": "hola",
         "languages": ["SPANISH"],
         "currentLanguage": "SPANISH"
