@@ -364,11 +364,22 @@ public class User {
         }
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param coins
+     */
     public void setCoinsEarned(int coins) {
         this.coinsEarned = coins;
     }
 
-    
+    /**
+     * @author CADE STOCKER
+     * @param list
+     * used for dataloader purposes
+     */
+    public void setFriendsList(ArrayList<User> list) {
+        this.friendsList = list;
+    }
 
 }
 
