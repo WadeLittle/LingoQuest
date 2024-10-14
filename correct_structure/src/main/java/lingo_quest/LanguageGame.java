@@ -69,8 +69,11 @@ class LanguageGame {
     public boolean answerQuestion() {
         return false;
     }
-
-    public ArrayList<String> checkItemShop() {
-        return null;
+/**
+ * @author Wade Little
+ * This class runs itemshop.displayItemShop() to view the item shop.
+ */
+    public void checkItemShop() {
+        itemShop.displayItemShop();;
     }
 }
