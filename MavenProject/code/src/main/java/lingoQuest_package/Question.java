@@ -8,7 +8,7 @@ public class Question {
     private int pointValue;
     private int coinValue;
     private String question;
-    private ArrayList<Word> answerChoices;
+    protected ArrayList<Word> answerChoices;
     private Word correctAnswer;
     private Word userAnswer;
     private File media;
