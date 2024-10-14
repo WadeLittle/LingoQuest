@@ -19,8 +19,15 @@ class LanguageGame {
 
     public void setCurrentLanguage(Language language) {
     }
-
-    public void login(String username, String password) {
+    /**
+     * @author Wade Little
+     * Checks the userlist for the entered username and password and returns a valid user or null user
+     * @param username The username that the user is trying to login with
+     * @param password The password the user is trying to login with
+     * @return A valid User or null if it isn't a valid user
+     */
+    public User login(String username, String password) {
+        return userList.getUser(username, password);
     }
 
     public void logout() {
