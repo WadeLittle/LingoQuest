@@ -593,13 +593,13 @@ private static User createUser(String userID, String username, String password,
      */
     public static void loadData() {
         try {
-            userList.loadUsers(loadUsers("LingoQuest/correct_structure/src/json/Users.json"));
-            itemShop.loadItems(loadItemShop("LingoQuest/correct_structure/src/json/ItemShop.json"));
+            userList.loadUsers(loadUsers("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json"));
+            itemShop.loadItems(loadItemShop("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json"));
             
             //not yet sure where words will go once loaded in
-            loadWords("LingoQuest/correct_structure/src/json/Word.json");
+            loadWords("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json");
             try {
-                loadLanguages("LingoQuest/correct_structure/src/json/language.json");
+                loadLanguages("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/language.json");
             } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
