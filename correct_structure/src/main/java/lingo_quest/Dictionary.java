@@ -106,22 +106,33 @@ class Dictionary {
         this.numberOfWords = fromEnglish.size();  // Update the number of words
     }
 
+
+    /*
     /**
      * Saves the current fromEnglish map.
      * 
      * @return A new HashMap containing the translations from English to another language.
      */
+    /*
     public HashMap<Word, Word> saveFromEnglishDictionary() {
         return new HashMap<>(fromEnglish);
     }
-
+    */
+     
     /**
      * Saves the current toEnglish map.
      * 
      * @return A new HashMap containing the translations from another language to English.
      */
+    /* 
     public HashMap<Word, Word> saveToEnglishDictionary() {
         return new HashMap<>(toEnglish);
+    }
+    */
+
+    // will call on datawriter
+    public void saveDictionary() {
+        //DataWriter.
     }
 }
 

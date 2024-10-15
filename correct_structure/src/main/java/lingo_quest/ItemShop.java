@@ -80,9 +80,15 @@ public class ItemShop {
         }
     }
 
+    /**
+     * @author cade stocker
+     * @param list
+     * the list should be sent from the dataloader
+     */
     public void loadItems(ArrayList<Item> list) {
-        if(list != null)
-            this.items = list;
+        for(Item item : list) {
+            items.add(item);
+        }
     }
 
     public void saveItems() {
