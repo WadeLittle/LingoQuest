@@ -56,7 +56,19 @@ public class ItemShop {
        return items;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param item
+     * once the item gets removed, return so that multiple
+     * aren't accidentally removed
+     */
     private void removeItem(Item item) {
+        for(Item it : this.items) {
+            if(it.equals(item)) {
+                items.remove(it);
+                return;
+            }
+        }
     }
     /**
      * @author Wade Little
