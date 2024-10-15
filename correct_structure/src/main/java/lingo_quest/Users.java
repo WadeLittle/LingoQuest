@@ -39,6 +39,8 @@ public class Users {
         }
         if(user == null) {
             System.out.println("Username or password invalid");
+        } else {
+            System.out.println("Successfully Logged in");
         }
         return user;
     }
