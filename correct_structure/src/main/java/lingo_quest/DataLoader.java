@@ -340,6 +340,8 @@ private static User createUser(String userID, String username, String password,
 
     /**
      * @author CADE STOCKER
+     * @return arraylist of items
+     * @param String of the file's name
      * loads all items into the item shop
      */
     public static ArrayList<Item> loadItemShop(String file) 
@@ -370,6 +372,16 @@ private static User createUser(String userID, String username, String password,
         return items;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param file
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ParseException
+     * @throws org.json.simple.parser.ParseException
+     * read multiple words and turn them into an arraylist
+     */
     public static ArrayList<Word> loadWords(String file) 
         throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
@@ -407,6 +419,12 @@ private static User createUser(String userID, String username, String password,
         return words;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param file
+     * @return a hashmap of languages
+     * @throws Exception
+     */
     public static HashMap<String, Language> loadLanguages(String file) throws Exception {
         HashMap<String, Language> languages = new HashMap<>();
         JSONParser parser = new JSONParser();
@@ -423,6 +441,13 @@ private static User createUser(String userID, String username, String password,
         return languages;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param languageJson
+     * @param languageName
+     * @return language object
+     * read a single language object
+     */
     private static Language parseLanguage(JSONObject languageJson, String languageName) {
         UUID userID = UUID.fromString((String) ((JSONObject) languageJson.get("User")).get("userID"));
         String placementTest = (String) languageJson.get("PlacementTest");
@@ -456,6 +481,12 @@ private static User createUser(String userID, String username, String password,
         return lang;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param sectionsJson
+     * @return arraylist of sections
+     * make an arraylist of section objects
+     */
     private static ArrayList<Section> parseSections(JSONArray sectionsJson) {
         ArrayList<Section> sections = new ArrayList<>();
 
@@ -482,6 +513,12 @@ private static User createUser(String userID, String username, String password,
         return sections;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param lessonsJson
+     * @return arraylist of lessons
+     * make a list of lesson objects
+     */
     private static ArrayList<Lesson> parseLessons(JSONArray lessonsJson) {
         ArrayList<Lesson> lessons = new ArrayList<>();
 
@@ -503,6 +540,12 @@ private static User createUser(String userID, String username, String password,
         return lessons;
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param dictionaryJson
+     * @return dictionary
+     * read a dictionary object
+     */
     private static Dictionary parseDictionary(JSONObject dictionaryJson) {
         HashMap<Word, Word> fromEnglish = new HashMap<>();
         HashMap<Word, Word> toEnglish = new HashMap<>();
@@ -529,6 +572,12 @@ private static User createUser(String userID, String username, String password,
         return new Dictionary(fromEnglish, toEnglish, numberOfWords);
     }
 
+    /**
+     * @author CADE STOCKER
+     * @param questionsJson
+     * @return ArrayList of questions
+     * make an arraylist of question objects
+     */
     private static ArrayList<Question> parseQuestions(JSONArray questionsJson) {
         ArrayList<Question> questions = new ArrayList<>();
 
@@ -565,6 +614,12 @@ private static User createUser(String userID, String username, String password,
     }
 
     // Need to talk about this with team to get it sorted before reading
+    /**
+     * @author CADE STOCKER
+     * @param media
+     * @return Media
+     * read an individual media object
+     */
     private static Media parseMedia(JSONObject media) {
         String name = (String) media.get("name");
         String description = (String) media.get("description");
@@ -574,11 +629,15 @@ private static User createUser(String userID, String username, String password,
         return null;
     }
 
-
-
+    /**
+     * @author CADE STOCKER
+     * @param sectionAccessJson
+     * @return
+     * Read whether the user has access to each section in the json
+     */
     private static HashMap<String, Boolean> parseSectionAccess(JSONObject sectionAccessJson) {
         HashMap<String, Boolean> sectionAccess = new HashMap<>();
-
+        // iterate through the sections and determine the access boolean
         for (Object key : sectionAccessJson.keySet()) {
             sectionAccess.put((String) key, (boolean) sectionAccessJson.get(key));
         }
@@ -594,6 +653,7 @@ private static User createUser(String userID, String username, String password,
     public static void loadData() {
         try {
             userList.loadUsers(loadUsers("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json"));
+            
             itemShop.loadItems(loadItemShop("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json"));
             
             //not yet sure where words will go once loaded in
