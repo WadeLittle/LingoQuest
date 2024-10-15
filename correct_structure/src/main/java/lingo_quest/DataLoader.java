@@ -210,6 +210,7 @@ public class DataLoader {
                                items, null, wordOfTheDay, languages, currentLanguage);
 
         users.add(user); // Add the fully created user to the list
+        //System.out.println(user.toString());
     }
 
     return users;
@@ -225,6 +226,7 @@ private static ArrayList<String> extractStringList(JSONArray jsonArray) {
     ArrayList<String> list = new ArrayList<>();
     for (Object obj : jsonArray) {
         list.add((String) obj);
+        //System.out.println((String) obj);
     }
     return list;
 }
@@ -242,7 +244,7 @@ private static ArrayList<Item> extractItems(JSONArray itemsJson) {
         String name = (String) itemJson.get("name");
         String description = (String) itemJson.get("description");
         long price = (long) itemJson.get("price");
-
+        //System.out.println(new Item(name,description,(int)price).toString());
         items.add(new Item(name, description, (int) price));
     }
     return items;
@@ -323,6 +325,7 @@ private static User createUser(String userID, String username, String password,
     user.setLanguages(languagesUUID);
 
     user.setCurrentLanguage(mapLanguage(currentLanguage));
+    //System.out.println(user.toString());
     return user;
 }
 
@@ -365,7 +368,7 @@ private static User createUser(String userID, String username, String password,
 
             // Create and configure User object
             Item item = new Item(name, description, (int)price);
-
+            //System.out.println(item.toString());
             items.add(item); // Add the fully created user to the list
         }
 
@@ -411,11 +414,9 @@ private static User createUser(String userID, String username, String password,
             createdWord.setUserUnderstanding(userUnderstanding);
             createdWord.setLanguage(lang);
 
-
             words.add(createdWord); // Add the fully created user to the list
             //System.out.println(createdWord.toString());
         }
-
         return words;
     }
 
@@ -436,6 +437,7 @@ private static User createUser(String userID, String username, String password,
 
             Language language = parseLanguage(languageJson, languageName);
             languages.put(languageName, language);
+            //System.out.println(language.toString());
         }
 
         return languages;

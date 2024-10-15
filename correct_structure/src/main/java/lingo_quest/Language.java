@@ -54,7 +54,7 @@ public class Language {
      * of points to gain access to a section)
      */
     public boolean hasAccessToSection(Section section) {
-        return section.getUserAccess();
+        return sectionAccess.get(section);
     }
 
     /**

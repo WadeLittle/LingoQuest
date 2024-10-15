@@ -89,7 +89,7 @@ class DataWriter {
         }
         userJson.put("languages", languagesArray);
 
-        userJson.put("currentLanguage", user.getCurrentLanguage());
+        userJson.put("currentLanguage", user.getCurrentLanguage().toString());
 
         return userJson;
     }
@@ -114,7 +114,7 @@ class DataWriter {
 
     private static JSONObject serializeWord(Word word) {
         JSONObject wordJson = new JSONObject();
-        wordJson.put("language", word.getLanguage());
+        wordJson.put("language", word.getLanguage().toString());
         wordJson.put("timesPresented", word.getTimesPresented());
         wordJson.put("word", word.getWord());
         wordJson.put("timesCorrect", word.getTimesCorrect());
@@ -171,5 +171,47 @@ class DataWriter {
         }*/
 
         return questionJson;
+    }
+
+    public static void main(String[] args) {
+        Word word = new Word("doctor");
+        Word word2 = new Word("professor");
+        word.setLanguage(Languages.SPANISH);
+        word.setTimesCorrect(4);
+        word.setTimesPresented(3);
+        word.setUserUnderstanding(.3);
+
+        word2.setLanguage(Languages.SPANISH);
+        word2.setTimesCorrect(5);
+        word2.setTimesPresented(1);
+        word2.setUserUnderstanding(.9);
+
+        ArrayList<Word> list = new ArrayList<>();
+        list.add(word);
+        list.add(word2);
+        writeWords(list,"/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/wordtest.json");
+
+        PlacementTest pt = new PlacementTest();
+        pt.setID(UUID.randomUUID());
+        writePlacementTest(pt, "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/placementtestfile.json");
+
+
+        User u1 = new User("joeshmasdfasdoe","a;lskjhjhjfjfJJJ*(8)");
+        u1.setCoinBalance(5);
+        u1.setCoinsEarned(2);
+        u1.setCurrentLanguage(Languages.FRENCH);
+        u1.setID(UUID.randomUUID());
+
+        User u2 = new User("dodskfjasdfg","Abdfs134kjkj@");
+        u2.setCoinBalance(5);
+        u2.setCoinsEarned(3);
+        u2.setCurrentLanguage(Languages.SPANISH);
+        u2.setID(UUID.randomUUID());
+
+        ArrayList<User> users = new ArrayList();
+        users.add(u1);
+        users.add(u2);
+        writeUsers(users,"/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/usertest.json");
+        
     }
 }
