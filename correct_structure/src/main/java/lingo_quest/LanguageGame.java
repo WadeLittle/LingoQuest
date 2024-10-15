@@ -27,6 +27,7 @@ class LanguageGame {
      * @return A valid User or null if it isn't a valid user
      */
     public void login(String username, String password) {
+        userList.loadUsers();
         this.user = userList.getUser(username, password);
     }
 
