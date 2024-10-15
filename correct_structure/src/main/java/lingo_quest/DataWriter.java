@@ -212,6 +212,30 @@ class DataWriter {
         users.add(u1);
         users.add(u2);
         writeUsers(users,"/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/usertest.json");
-        
+
+        Item item1 = new Item("hat","bluehat",2);
+        Item item2 = new Item("shoe","big shoe",5);
+        ArrayList<Item> itemList = new ArrayList();
+        itemList.add(item1);
+        itemList.add(item2);
+        writeItems(itemList,"/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/itemTest.json");
+    }
+
+    public static void writeItems(ArrayList<Item> items,String file) {
+        JSONArray itemsArray = new JSONArray();
+        for (Item item : items) {
+            JSONObject itemJson = new JSONObject();
+            itemJson.put("name", item.getName());
+            itemJson.put("description", item.getDescription());
+            itemJson.put("price", item.getPrice());
+            itemsArray.add(itemJson);
+
+            try (FileWriter writer = new FileWriter(file)) {
+                writer.write(itemsArray.toJSONString());
+                writer.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

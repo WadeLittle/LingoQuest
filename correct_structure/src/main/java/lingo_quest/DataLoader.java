@@ -16,6 +16,43 @@ public class DataLoader {
     public static ItemShop itemShop = ItemShop.getInstance();
     public static Users userList = Users.getInstance();
     public static LanguageManager languageManager = LanguageManager.getInstance();
+    public static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json";
+    public static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
+    public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
+    public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
+
+    /**
+     * @author cade
+     * @return file path
+     */
+    public static String getUserFile() {
+        return userFile;
+    }
+
+    /**
+     * @author cade
+     * @return file path
+     */
+    public static String getWordFile() {
+        return wordFile;
+    }
+
+    /**
+     * @author cade
+     * @return string of file path
+     */
+    public static String getItemFile() {
+        return itemFile;
+    }
+
+    /**
+     * @author cade
+     * @return string of file path
+     */
+    public static String getPlacementFile() {
+        return placementFile;
+    }
+
 
     /*public static ArrayList<User> loadUsers(String file) throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
         
@@ -654,7 +691,7 @@ private static User createUser(String userID, String username, String password,
      */
     public static void loadData() {
         try {
-            userList.loadUsers(loadUsers("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json"));
+            userList.loadUsers();
             
             itemShop.loadItems(loadItemShop("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json"));
             

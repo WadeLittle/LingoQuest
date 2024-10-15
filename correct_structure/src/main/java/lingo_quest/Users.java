@@ -1,5 +1,7 @@
 package lingo_quest;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -95,9 +97,14 @@ public class Users {
 
     }
 
-    public void loadUsers(ArrayList<User> userList) {
-        if(userList != null)
-            this.users = userList;
+    public void loadUsers() {
+        if(this.users != null)
+            try {
+                this.users = DataLoader.loadUsers(DataLoader.getUserFile());
+            } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
     }
 
     /**
