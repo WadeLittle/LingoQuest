@@ -14,6 +14,13 @@ class LanguageGame {
     private Lesson currentLesson;
     private Word userAnswer;
 
+    public LanguageGame() {
+        this.userList = Users.getInstance();
+        this.itemShop = ItemShop.getInstance();
+        // work on other variables for constructor
+    }
+
+
     public void getItemInformation() {
     }
 
