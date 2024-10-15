@@ -19,8 +19,15 @@ class LanguageGame {
 
     public void setCurrentLanguage(Language language) {
     }
-
+    /**
+     * @author Wade Little
+     * Checks the userlist for the entered username and password and returns a valid user or null user
+     * @param username The username that the user is trying to login with
+     * @param password The password the user is trying to login with
+     * @return A valid User or null if it isn't a valid user
+     */
     public void login(String username, String password) {
+        this.user = userList.getUser(username, password);
     }
 
     public void logout() {
@@ -69,8 +76,11 @@ class LanguageGame {
     public boolean answerQuestion() {
         return false;
     }
-
-    public ArrayList<String> checkItemShop() {
-        return null;
+/**
+ * @author Wade Little
+ * This class runs itemshop.displayItemShop() to view the item shop.
+ */
+    public void checkItemShop() {
+        itemShop.displayItemShop();;
     }
 }
