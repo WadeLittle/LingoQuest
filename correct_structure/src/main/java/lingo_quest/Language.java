@@ -203,9 +203,23 @@ public class Language {
         return this.placementTest.getTaken();
     }
 
+    /**
+     * @author CADE STOCKER
+     * @return arraylist of lessons
+     * goes through to see available sections
+     *  goest through each available section and adds each available lesson
+     */
     public ArrayList<Lesson> getAvailableLessons() {
+        ArrayList<Lesson> lessons = new ArrayList();
+        for (Section sec : this.sections) {
+            if(this.sectionAccess.get(sec)) {
+                for(Lesson lesson : sec.getAvailableLessons()) {
+                    lessons.add(lesson);
+                }
+            }
+        }
+        return lessons;
         
-        return null;
     }
 
     public ArrayList<Section> getAvailableSections() {
