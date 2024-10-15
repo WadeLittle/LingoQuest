@@ -211,20 +211,26 @@ public class Language {
      */
     public ArrayList<Lesson> getAvailableLessons() {
         ArrayList<Lesson> lessons = new ArrayList();
-        for (Section sec : this.sections) {
-            if(this.sectionAccess.get(sec)) {
-                for(Lesson lesson : sec.getAvailableLessons()) {
-                    lessons.add(lesson);
-                }
-            }
+
+        for(Section sec : this.getAvailableSections()) {
+            for(Lesson lesson : sec.getAvailableLessons())
+            lessons.add(lesson);
         }
         return lessons;
-        
     }
 
+    /**
+     * @author CADE STOCKER
+     * @return arraylist of sections that are available
+     */
     public ArrayList<Section> getAvailableSections() {
-        
-        return null;
+        ArrayList<Section> sections = new ArrayList();
+        for(Section sec : this.sections) {
+            if(this.sectionAccess.get(sec)) {
+                sections.add(sec);
+            }
+        }
+        return sections;
     }
 }
 
