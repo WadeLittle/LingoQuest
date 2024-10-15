@@ -7,6 +7,7 @@ public class PictureBook {
 
     // Constructor
     public PictureBook(String name, String description, File pictureBook) {
+        super();
         this.pictureBook = pictureBook;
         // Stub implementation
     }
