@@ -9,11 +9,15 @@ public class UI {
         String username = keyboard.nextLine();
         System.out.println("Enter Password: ");
         String password = keyboard.nextLine();
-        Users users = Users.getInstance();
+        //Users users = Users.getInstance();
         lg.login(username,password);
+        lg.getUser().setCoinsEarned(1000);
+        lg.logout();
+
     }
 
     public static void main(String[] args) {
         login();
+
     }
 }

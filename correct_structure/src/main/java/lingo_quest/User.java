@@ -40,7 +40,10 @@ public class User {
 
         // I'VE COMMENTED THIS OUT BECAUSE WE NEED TO BE ABLE TO SET THE UUID WHEN WE READ THE FILE
         // IF THE USER GETS A UUID WHEN THEY'RE CONSTRUCTED, THEN WE WONT KNOW IF WE NEED TO READ IN THEIR EXISTING UUID
-        //userID = Users.getInstance().generateUUID();
+        
+        
+        // ADDED BACK IN
+        userID = Users.getInstance().generateUUID();
 
 
         userDictionary = new Dictionary();

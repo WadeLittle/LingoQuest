@@ -93,8 +93,21 @@ public class Users {
         return false;
     }
 
-    public void editUser(User user) {
-
+    /**
+     * @author Cade
+     * @param user
+     * gets the user from the users list, replaces them with an updated
+     * version of themselves
+     */
+    public void saveUser(User user) {
+        for(User u : users) {
+            if(u.getUUID().equals(user.getUUID())){
+                users.remove(u);
+                users.add(user);
+                DataWriter.writeUsers(users,DataWriter.getUserFile());
+                return;
+            }
+        }
     }
 
     public void loadUsers() {

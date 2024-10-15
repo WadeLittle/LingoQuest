@@ -14,12 +14,51 @@ class DataWriter {
     private ItemShop itemShop;
     private Users users;
     private LanguageManager languageManager;
+    public static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json";
+    public static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
+    public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
+    public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
+
+/**
+     * @author cade
+     * @return file path
+     */
+    public static String getUserFile() {
+        return userFile;
+    }
+
+    /**
+     * @author cade
+     * @return file path
+     */
+    public static String getWordFile() {
+        return wordFile;
+    }
+
+    /**
+     * @author cade
+     * @return string of file path
+     */
+    public static String getItemFile() {
+        return itemFile;
+    }
+
+    /**
+     * @author cade
+     * @return string of file path
+     */
+    public static String getPlacementFile() {
+        return placementFile;
+    }
+
+
 
     public void writeData(File fileName) {
     }
 
-    public void userLogout() {
-    }
+    /*public void userLogout() {
+        
+    }*/
 
     public static void writeUsers(ArrayList<User> users, String file) {
         JSONObject root = new JSONObject();
@@ -80,7 +119,7 @@ class DataWriter {
         //userJson.put("userProgress", progressJson);
 
         //userJson.put("answerStreak", user.getAnswerStreak());
-        userJson.put("wordOfTheDay", user.getWordOfTheDay());
+        userJson.put("wordOfTheDay", serializeWord(user.getWordOfTheDay()));
 
         // Languages
         JSONArray languagesArray = new JSONArray();
@@ -125,7 +164,7 @@ class DataWriter {
 
     public static void writePlacementTest(PlacementTest test, String file) {
         JSONObject root = new JSONObject();
-        root.put("spanishPlacementTest", serializePlacementTest(test));
+        root.put("PlacementTest", serializePlacementTest(test));
 
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(root.toJSONString());

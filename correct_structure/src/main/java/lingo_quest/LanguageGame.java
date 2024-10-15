@@ -39,6 +39,9 @@ class LanguageGame {
     }
 
     public void logout() {
+        userList.saveUser(user);
+        // they are logged out
+        this.user = null;
     }
 
     public Dictionary getLanguageDictionary(String language) {
@@ -83,6 +86,10 @@ class LanguageGame {
 
     public boolean answerQuestion() {
         return false;
+    }
+
+    public User getUser() {
+        return this.user;
     }
 /**
  * @author Wade Little
