@@ -33,19 +33,29 @@ public class Users {
  */
     public User getUser(String username, String password) {
         // change to for each loop
-        User user = null;
+        /*User user = null;
         for(int i=0;i < users.size();i++) {
             if(users.get(i).getUsername().equals(username) && users.get(i).getPassword().equals(password)) {
                 user = users.get(i);
                 break;
             }
-        }
-        if(user == null) {
+        }*/
+        /*if(user == null) {
             System.out.println("Username or password invalid");
         } else {
             System.out.println("Successfully Logged in");
         }
-        return user;
+        return user;*/
+
+        // changed to a for-each loop - CADE
+        for(User user : users) {
+            if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                System.out.println("Successfully Logged In");
+                return user;
+            }
+        }
+        System.out.println("Invalid Username or Password");
+        return null;
     }
    /**
     * @author Wade Little
