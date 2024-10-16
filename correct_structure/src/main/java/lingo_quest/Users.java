@@ -32,6 +32,7 @@ public class Users {
  * @return The user with the matching username and password. Or null if the user can't be found
  */
     public User getUser(String username, String password) {
+        // change to for each loop
         User user = null;
         for(int i=0;i < users.size();i++) {
             if(users.get(i).getUsername().equals(username) && users.get(i).getPassword().equals(password)) {
