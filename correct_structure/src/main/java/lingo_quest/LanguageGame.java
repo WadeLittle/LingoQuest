@@ -21,6 +21,24 @@ class LanguageGame {
         // work on other variables for constructor
     }
 
+    public void createUser(String username, String password) {
+        if(this.user != null) {
+            System.out.println("Someone is already logged in");
+            return;
+        }
+        User createdUser = new User(username,password);
+        this.user = createdUser;
+        userList.createUser(username, password);
+        System.out.println("Successfully Created Account");
+    }
+
+    /**
+     * @author cade stocker
+     * @return whether there is a user stored in this.user
+     */
+    public boolean hasCurrentUser() {
+        return (this.user != null);
+    }
 
     public void getItemInformation() {
     }
@@ -41,9 +59,10 @@ class LanguageGame {
     }
 
     public void logout() {
-        userList.saveUser(user);
-        // they are logged out
+        this.userList.saveUsers();
+        // set current user to null
         this.user = null;
+        System.out.println("Successfully logged out");
     }
 
     public Dictionary getLanguageDictionary(String language) {

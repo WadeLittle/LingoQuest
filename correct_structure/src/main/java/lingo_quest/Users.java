@@ -92,33 +92,30 @@ public class Users {
      * @author Wade Little
      * Checks the userlist and returns true if the username is contained, false if the username isn't there.
      * @param username The username you are checking for
-     * @return True if the username is found, false if not found
+     * @param password Added this too - cade
+     * @return User
+     * changed return type from boolean to User for create account purposes - CADE
      */
-    public boolean containsUsername(String username) {
+    public User containsUsername(String username, String password) {
         for(User user : users) {
-            String currentUsername = user.getUsername();
-            if (currentUsername != null && currentUsername.trim().equalsIgnoreCase(username.trim())) {
-                return true;
+            if (user.getUsername() != null && user.getUsername().trim().equalsIgnoreCase(username.trim())) {
+                System.out.println("Username already exists");
             }
         }
-        return false;
+        User createdUser = new User(username, password);
+        this.users.add(createdUser);
+        return createdUser;
     }
 
     /**
      * @author Cade
      * @param user
-     * gets the user from the users list, replaces them with an updated
-     * version of themselves
+     * save all users
      */
-    public void saveUser(User user) {
+    public void saveUsers() {
         for(User u : users) {
-            if(u.getUUID().equals(user.getUUID())){
-                // dont need to remove them in order to update
-                //users.remove(u);
-                //users.add(user);
-                DataWriter.writeUsers(users,DataWriter.getUserFile());
-                return;
-            }
+            DataWriter.writeUsers(users,DataWriter.getUserFile());
+            return;
         }
     }
 

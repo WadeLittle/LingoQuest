@@ -140,7 +140,8 @@ class DataWriter {
         }
         userJson.put("languages", languagesArray);
 
-        userJson.put("currentLanguage", user.getCurrentLanguage().toString());
+        if(user.getCurrentLanguage() != null)
+            userJson.put("currentLanguage", user.getCurrentLanguage().toString());
 
         return userJson;
     }
@@ -244,7 +245,7 @@ class DataWriter {
         questionJson.put("userAnswer", question.getUserAnswer());
         questionJson.put("pointValue", question.getPointValue());
         questionJson.put("coinValue", question.getCoinValue());
-        
+
         return questionJson;
     }
 
