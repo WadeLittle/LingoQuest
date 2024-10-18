@@ -66,8 +66,13 @@ class LanguageGame {
         return false;
     }
 
+    /**
+     * @author cade stocker
+     * @param lesson
+     * @return
+     */
     public double getLessonProgress(Lesson lesson) {
-        return 0.0;
+        return lesson.getLessonProgress();
     }
 
     public ArrayList<Lesson> getBookMarkedLessons(User user) {

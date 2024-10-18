@@ -14,6 +14,10 @@ public class Lesson {
 
     }
 
+    public void updateProgress() {
+        this.lessonProgress = this.pointsEarned/this.totalPoints;
+    }
+
     public Lesson(int coinValue, int totalPoints) {
 
     }
@@ -37,15 +41,54 @@ public class Lesson {
     }
 
     /**
+     * @author cade stocker
+     * @return lesson's coin value
+     */
+    public int getCoinValue() {
+        return this.coinValue;
+    }
+
+    /**
      * @author cade
      * @param points
      */
     public void setPointsEarned(int points) {
         this.pointsEarned = points;
+        this.updateProgress();
     }
 
+    /**
+     * @author cade stocker
+     * @param points
+     */
+    public void setTotalPoints(int points) {
+        this.totalPoints = points;
+        this.updateProgress();
+    }
+
+    /**
+     * @author cade stocker
+     * @return the total points you can earn in the lesson
+     */
+    public int getTotalPoints() {
+        return this.totalPoints;
+    }
+
+    /**
+     * set the lesson's progress
+     * @param progress
+     */
     public void setLessonProgress(double progress) {
         this.lessonProgress = progress;
+    }
+
+    /**
+     * @author cade stocker
+     * @return the lesson progress
+     */
+    public double getLessonProgress(){
+        this.updateProgress();
+        return this.lessonProgress;
     }
 }
 
