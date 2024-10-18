@@ -16,6 +16,7 @@ class LanguageGame {
 
     public LanguageGame() {
         this.userList = Users.getInstance();
+        userList.loadUsers();
         this.itemShop = ItemShop.getInstance();
         // work on other variables for constructor
     }
@@ -34,7 +35,8 @@ class LanguageGame {
      * @return A valid User or null if it isn't a valid user
      */
     public void login(String username, String password) {
-        userList.loadUsers();
+        // will load users in constructor
+        //userList.loadUsers();
         this.user = userList.getUser(username, password);
     }
 

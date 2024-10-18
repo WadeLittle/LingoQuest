@@ -11,7 +11,7 @@ public class UI {
         String password = keyboard.nextLine();
         //Users users = Users.getInstance();
         lg.login(username,password);
-        lg.getUser().setCoinsEarned(1000);
+        lg.getUser().setCoinsEarned(40);
         lg.logout();
 
     }

@@ -37,15 +37,7 @@ public class User {
      *         - Sets currentLanguage and wordOfTheDay to null.
      */
     public User() {
-
-        // I'VE COMMENTED THIS OUT BECAUSE WE NEED TO BE ABLE TO SET THE UUID WHEN WE READ THE FILE
-        // IF THE USER GETS A UUID WHEN THEY'RE CONSTRUCTED, THEN WE WONT KNOW IF WE NEED TO READ IN THEIR EXISTING UUID
-        
-        
-        // ADDED BACK IN
         userID = Users.getInstance().generateUUID();
-
-
         userDictionary = new Dictionary();
         coinsEarned = 0;
         coinBalance = 0;
@@ -71,11 +63,7 @@ public class User {
         }
 
         // If validation passes, initialize remaining fields
-        
-        // I'VE COMMENTED THIS OUT BECAUSE WE NEED TO BE ABLE TO SET THE UUID WHEN WE READ THE FILE
-        // IF THE USER GETS A UUID WHEN THEY'RE CONSTRUCTED, THEN WE WONT KNOW IF WE NEED TO READ IN THEIR EXISTING UUID
-        //this.userID = Users.getInstance().generateUUID();
-
+        this.userID = Users.getInstance().generateUUID();
         this.userDictionary = new Dictionary();
         this.coinsEarned = 0;
         this.coinBalance = 0;
@@ -232,10 +220,11 @@ public class User {
         if (username == null || username.trim().isEmpty()) {
             System.out.println("Username cannot be empty or null");
             return false;
-        } else if (userList.containsUsername(username)) {
-            System.out.println("* Username already Taken *");
-            return false;
-        } else if (username.length() < 4) {
+        } //else if (userList.containsUsername(username)) {
+            //System.out.println("* Username already Taken *");
+            //return false;
+        //} 
+        else if (username.length() < 4) {
             System.out.println("* Your username must be at least 4 characters *");
             return false;
         } else {
@@ -355,6 +344,7 @@ public class User {
     public String toString() {
         return "User{" + "\n" +
                 "userID=" + userID + "\n" +
+                "password=" + password + "\n" +
                 "username='" + username + '\'' + "\n" +
                 "coinBalance=" + coinBalance + "\n" +
                 "coinsEarned=" + coinsEarned + "\n" +

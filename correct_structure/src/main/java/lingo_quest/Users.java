@@ -113,8 +113,9 @@ public class Users {
     public void saveUser(User user) {
         for(User u : users) {
             if(u.getUUID().equals(user.getUUID())){
-                users.remove(u);
-                users.add(user);
+                // dont need to remove them in order to update
+                //users.remove(u);
+                //users.add(user);
                 DataWriter.writeUsers(users,DataWriter.getUserFile());
                 return;
             }

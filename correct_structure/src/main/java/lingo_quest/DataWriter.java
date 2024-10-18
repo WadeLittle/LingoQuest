@@ -14,7 +14,7 @@ class DataWriter {
     private ItemShop itemShop;
     private Users users;
     private LanguageManager languageManager;
-    public static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json";
+    public static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/usertest.json";
     public static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
     public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
     public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
@@ -61,15 +61,20 @@ class DataWriter {
     }*/
 
     public static void writeUsers(ArrayList<User> users, String file) {
+        // Object that holds everything
         JSONObject root = new JSONObject();
+        // the array of users
         JSONArray usersArray = new JSONArray();
 
+        // serialize each user in users class
         for (User user : users) {
             usersArray.add(serializeUser(user));
         }
 
+        // put all of the serialized users into the array
         root.put("users", usersArray);
 
+        // write the whole user json file
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(root.toJSONString());
             writer.flush();
@@ -77,8 +82,12 @@ class DataWriter {
             e.printStackTrace();
         }
     }
+
+    // turns the user into a jsonObject
     private static JSONObject serializeUser(User user) {
+        // make new json object
         JSONObject userJson = new JSONObject();
+        // this should put these variables in order but isn't
         userJson.put("userID", user.getUUID().toString());
         userJson.put("username", user.getUsername());
         userJson.put("password", user.getPassword());
@@ -87,6 +96,7 @@ class DataWriter {
 
         // Friends List
         JSONArray friendsArray = new JSONArray();
+        // turns the list of UUIDs into a list of strings to be stored in the json
         for (UUID friendID : user.getFriendsList()) {
             friendsArray.add(friendID.toString());
         }
@@ -119,7 +129,9 @@ class DataWriter {
         //userJson.put("userProgress", progressJson);
 
         //userJson.put("answerStreak", user.getAnswerStreak());
-        userJson.put("wordOfTheDay", serializeWord(user.getWordOfTheDay()));
+
+        if(user.getWordOfTheDay() != null)
+            userJson.put("wordOfTheDay", serializeWord(user.getWordOfTheDay()));
 
         // Languages
         JSONArray languagesArray = new JSONArray();
@@ -151,17 +163,29 @@ class DataWriter {
         }
     }
 
+    /**
+     * @author Cade Stocker
+     * @param word
+     * @return a jsonObject created from the word
+     */
     private static JSONObject serializeWord(Word word) {
         JSONObject wordJson = new JSONObject();
-        wordJson.put("language", word.getLanguage().toString());
-        wordJson.put("timesPresented", word.getTimesPresented());
-        wordJson.put("word", word.getWord());
-        wordJson.put("timesCorrect", word.getTimesCorrect());
-        wordJson.put("userUnderstanding", word.getUserUnderstanding());
-
+        if(word.getLanguage() != null) {
+            wordJson.put("language", word.getLanguage().toString());
+            wordJson.put("timesPresented", word.getTimesPresented());
+            wordJson.put("word", word.getWord());
+            wordJson.put("timesCorrect", word.getTimesCorrect());
+            wordJson.put("userUnderstanding", word.getUserUnderstanding());
+        }
         return wordJson;
     }
 
+    /**
+     * @author Cade
+     * @param test
+     * @param file
+     * turn a placement test object into json object
+     */
     public static void writePlacementTest(PlacementTest test, String file) {
         JSONObject root = new JSONObject();
         root.put("PlacementTest", serializePlacementTest(test));
@@ -174,45 +198,57 @@ class DataWriter {
         }
     }
 
+    /**
+     * @author Cade
+     * @param test
+     * @return jsonObject created from a placement test
+     */
     private static JSONObject serializePlacementTest(PlacementTest test) {
         JSONObject testJson = new JSONObject();
         JSONArray questionsArray = new JSONArray();
 
+        // serialize each question in the test
         for (Question question : test.getQuestions()) {
             questionsArray.add(serializeQuestion(question));
         }
 
+        // other data to be stored
         testJson.put("questions", questionsArray);
         testJson.put("correctAnswers", test.getCorrectAnswers());
         testJson.put("score", test.getScore());
 
+        // return the json object
         return testJson;
     }
 
+    /**
+     * @author cade
+     * @param question
+     * @return jsonObject created from question object
+     */
     private static JSONObject serializeQuestion(Question question) {
         JSONObject questionJson = new JSONObject();
+        // NEED HELP FIGURING OUT QUESTIONTYPE TODO
         //questionJson.put("questionType", question.getQuestionType());
         questionJson.put("question", question.getQuestion());
         ArrayList<Word> answerChoices = question.getAnswerChoices();
-        ArrayList<String> stringAnswerChoices = new ArrayList();
+        // ArrayList<String> stringAnswerChoices = new ArrayList();
+        JSONArray answerChoicesArray = new JSONArray();
+        // serialize each answer choice so that we can track their data
         for(Word w : answerChoices) {
-            stringAnswerChoices.add(w.getWord());
+            if(w != null)
+                answerChoicesArray.add(serializeWord(w));
         }
-        questionJson.put("answerChoices", stringAnswerChoices);
+        questionJson.put("answerChoices", answerChoicesArray);
         questionJson.put("correctAnswer", question.getCorrectAnswer());
         questionJson.put("userAnswer", question.getUserAnswer());
         questionJson.put("pointValue", question.getPointValue());
         questionJson.put("coinValue", question.getCoinValue());
-
-        /*if (question.getQuestionType().equals("Matching")) {
-            questionJson.put("answers", new JSONObject(question.getAnswers()));
-            questionJson.put("userAnswer", new JSONObject(question.getUserAnswer()));
-        }*/
-
+        
         return questionJson;
     }
 
-    public static void main(String[] args) {
+/*   public static void main(String[] args) {
         Word word = new Word("doctor");
         Word word2 = new Word("professor");
         word.setLanguage(Languages.SPANISH);
@@ -259,6 +295,7 @@ class DataWriter {
         itemList.add(item2);
         writeItems(itemList,"/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/itemTest.json");
     }
+        */
 
     public static void writeItems(ArrayList<Item> items,String file) {
         JSONArray itemsArray = new JSONArray();
