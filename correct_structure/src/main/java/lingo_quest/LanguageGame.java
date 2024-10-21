@@ -16,10 +16,29 @@ class LanguageGame {
 
     public LanguageGame() {
         this.userList = Users.getInstance();
+        userList.loadUsers();
         this.itemShop = ItemShop.getInstance();
         // work on other variables for constructor
     }
 
+    public void createUser(String username, String password) {
+        if(this.user != null) {
+            System.out.println("Someone is already logged in");
+            return;
+        }
+        User createdUser = new User(username,password);
+        this.user = createdUser;
+        userList.createUser(username, password);
+        System.out.println("Successfully Created Account");
+    }
+
+    /**
+     * @author cade stocker
+     * @return whether there is a user stored in this.user
+     */
+    public boolean hasCurrentUser() {
+        return (this.user != null);
+    }
 
     public void getItemInformation() {
     }
@@ -34,14 +53,16 @@ class LanguageGame {
      * @return A valid User or null if it isn't a valid user
      */
     public void login(String username, String password) {
-        userList.loadUsers();
+        // will load users in constructor
+        //userList.loadUsers();
         this.user = userList.getUser(username, password);
     }
 
     public void logout() {
-        userList.saveUser(user);
-        // they are logged out
+        this.userList.saveUsers();
+        // set current user to null
         this.user = null;
+        System.out.println("Successfully logged out");
     }
 
     public Dictionary getLanguageDictionary(String language) {
@@ -64,8 +85,13 @@ class LanguageGame {
         return false;
     }
 
+    /**
+     * @author cade stocker
+     * @param lesson
+     * @return
+     */
     public double getLessonProgress(Lesson lesson) {
-        return 0.0;
+        return lesson.getLessonProgress();
     }
 
     public ArrayList<Lesson> getBookMarkedLessons(User user) {

@@ -23,7 +23,13 @@
         "points": 200
       },
       "answerStreak": 5,
-      "wordOfTheDay": "palabra",
+      "wordOfTheDay": {
+        "language": "SPANISH",
+        "timesPresented":8,
+        "word":"manzana",
+        "timesCorrect":4,
+        "userUnderstanding":0.5
+      },
       "languages": ["34b98bb6-2a32-4d3a-af62-4f2d50673b24"],
       "currentLanguage": "SPANISH"
     },
@@ -47,7 +53,13 @@
         "points": 300
       },
       "answerStreak": 10,
-      "wordOfTheDay": "hola",
+      "wordOfTheDay": {
+        "language": "SPANISH",
+        "timesPresented":8,
+        "word":"manzana",
+        "timesCorrect":4,
+        "userUnderstanding":0.5
+      },
       "languages": ["0a5f916b-fe3c-4d71-8774-51c773345b6d"],
       "currentLanguage": "SPANISH"
     }

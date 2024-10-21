@@ -32,19 +32,30 @@ public class Users {
  * @return The user with the matching username and password. Or null if the user can't be found
  */
     public User getUser(String username, String password) {
-        User user = null;
+        // change to for each loop
+        /*User user = null;
         for(int i=0;i < users.size();i++) {
             if(users.get(i).getUsername().equals(username) && users.get(i).getPassword().equals(password)) {
                 user = users.get(i);
                 break;
             }
-        }
-        if(user == null) {
+        }*/
+        /*if(user == null) {
             System.out.println("Username or password invalid");
         } else {
             System.out.println("Successfully Logged in");
         }
-        return user;
+        return user;*/
+
+        // changed to a for-each loop - CADE
+        for(User user : users) {
+            if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                System.out.println("Successfully Logged In");
+                return user;
+            }
+        }
+        System.out.println("Invalid Username or Password");
+        return null;
     }
    /**
     * @author Wade Little
@@ -81,32 +92,30 @@ public class Users {
      * @author Wade Little
      * Checks the userlist and returns true if the username is contained, false if the username isn't there.
      * @param username The username you are checking for
-     * @return True if the username is found, false if not found
+     * @param password Added this too - cade
+     * @return User
+     * changed return type from boolean to User for create account purposes - CADE
      */
-    public boolean containsUsername(String username) {
+    public User containsUsername(String username, String password) {
         for(User user : users) {
-            String currentUsername = user.getUsername();
-            if (currentUsername != null && currentUsername.trim().equalsIgnoreCase(username.trim())) {
-                return true;
+            if (user.getUsername() != null && user.getUsername().trim().equalsIgnoreCase(username.trim())) {
+                System.out.println("Username already exists");
             }
         }
-        return false;
+        User createdUser = new User(username, password);
+        this.users.add(createdUser);
+        return createdUser;
     }
 
     /**
      * @author Cade
      * @param user
-     * gets the user from the users list, replaces them with an updated
-     * version of themselves
+     * save all users
      */
-    public void saveUser(User user) {
+    public void saveUsers() {
         for(User u : users) {
-            if(u.getUUID().equals(user.getUUID())){
-                users.remove(u);
-                users.add(user);
-                DataWriter.writeUsers(users,DataWriter.getUserFile());
-                return;
-            }
+            DataWriter.writeUsers(users,DataWriter.getUserFile());
+            return;
         }
     }
 
