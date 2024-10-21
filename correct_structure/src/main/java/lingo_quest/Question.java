@@ -56,11 +56,12 @@ public class Question {
     }
 
     /**
-     *
+     * @author Wade Little
+     * Updates the words values based on if the user is correct
      * @param word The Word object that should be updated.
      */
     public void updateWord(Word word) {
-        // ??? - Implementation pending
+        this.correctAnswer.wordPresented(isCorrect());
     }
 
     /**
