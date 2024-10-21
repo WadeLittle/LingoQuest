@@ -13,7 +13,15 @@ public class MultipleChoice extends Question {
         super();
     }
 
-    
+    /**
+     * Created the paramaterized constructor based off of the Question super constructor
+     * @param pointValue The point value of the question
+     * @param coinValue The coin value of the question
+     * @param question The Question as a String
+     * @param answerChoices The arrayList of answer Choices
+     * @param correctAnswer The correct answer
+     * @param media The media for the question
+     */
     public MultipleChoice(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media) {
         super(pointValue, coinValue, question, answerChoices, correctAnswer, media);
     }
