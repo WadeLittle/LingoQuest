@@ -17,6 +17,7 @@ public class Question {
     private Word correctAnswer;
     private Word userAnswer;
     private File media;
+    private User user;
 
     /**
      * Default constructor that initializes a question with default values.
@@ -45,7 +46,7 @@ public class Question {
      * @param media A File object representing the associated media (e.g., image, audio, video).
      * @author Preston Willis
      */
-    public Question(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media) {
+    public Question(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media, User user) {
         this.pointValue = pointValue;
         this.coinValue = coinValue;
         this.question = question;
@@ -53,6 +54,7 @@ public class Question {
         this.correctAnswer = correctAnswer;
         this.userAnswer = null;
         this.media = media;
+        this.user = LanguageGame.getUser();
     }
 
     /**
@@ -63,13 +65,20 @@ public class Question {
     public void updateWord(Word word) {
         this.correctAnswer.wordPresented(isCorrect());
     }
+    /**
+     * @author Wade Little
+     * Adds the coins to the users balance
+     */
+    public void updatePointValue() {
+        this.user.addCoins(coinValue);
+    }
 
     /**
      * Increases the point value of the question by 1.
      * @author Preston Willis
      */
     public void increasePointValue() {
-        this.pointValue += 1;
+
     }
 
     /**
