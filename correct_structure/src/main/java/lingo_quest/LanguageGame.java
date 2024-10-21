@@ -1,13 +1,14 @@
 package lingo_quest;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 class LanguageGame {
     private Users userList;
     private User user;
     private ItemShop itemShop;
     private Dictionary userDictionary;
-    private Language currentLanguage;
+    private UUID currentLanguage;
     private LanguageManager languageManager;
     private LeaderBoard leaderboard;
     private Section currentSection;
@@ -18,6 +19,7 @@ class LanguageGame {
         this.userList = Users.getInstance();
         userList.loadUsers();
         this.itemShop = ItemShop.getInstance();
+        this.languageManager = LanguageManager.getInstance();
         // work on other variables for constructor
     }
 
@@ -114,8 +116,15 @@ class LanguageGame {
         return false;
     }
 
-    public static User getUser() {
-        return this.user;
+    public User getUser() {
+        return user;
+    }
+
+    public LanguageManager getLanguageManager() {
+        return this.languageManager;
+    }
+    public UUID getCurrentLanguage() {
+        return this.currentLanguage;
     }
 /**
  * @author Wade Little

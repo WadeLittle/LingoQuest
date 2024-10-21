@@ -122,6 +122,10 @@ public class Language {
         return this.progress;
     }
 
+    public User getUser() {
+        return this.user;
+    }
+
     /**
      * @author Cade Stocker
      * @return the enumeration of language (the type of language being learned)

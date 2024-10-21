@@ -54,7 +54,7 @@ public class Question {
         this.correctAnswer = correctAnswer;
         this.userAnswer = null;
         this.media = media;
-        this.user = LanguageGame.getUser();
+        this.user = LanguageManager.getInstance().getCurrentLanguage().getUser();
     }
 
     /**

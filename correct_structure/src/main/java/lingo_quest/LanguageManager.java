@@ -6,6 +6,7 @@ import java.util.UUID;
 public class LanguageManager {
     private ArrayList<Language> languages;  // Corrected to match UML
     private static LanguageManager languageManager;
+    private Language currentLanguage;
 
     // Singleton method
     public static LanguageManager getInstance() {
@@ -13,6 +14,16 @@ public class LanguageManager {
             languageManager = new LanguageManager();
         }
         return languageManager;
+    }
+
+    // THIS PROBABLY ISN'T RIGHT AND SHOULD BE FIXED
+    public void setCurrentLangauge(Language language) {
+        this.currentLanguage = getLanguageByID(language.getUUID());
+    }
+
+    
+    public Language getCurrentLanguage() {
+        return currentLanguage;
     }
 
     // Method to get the list of languages
