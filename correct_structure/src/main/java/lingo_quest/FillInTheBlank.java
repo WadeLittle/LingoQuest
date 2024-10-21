@@ -25,4 +25,17 @@ public class FillInTheBlank extends Question{
     public FillInTheBlank(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media) {
         super(pointValue, coinValue, question, answerChoices, correctAnswer, media);
     }
+    /**
+     * @author Wade Little
+     * Concatanates the question and answer choices into an easy to read format
+     * @return the question and its answer choices as a string
+     */
+    public String toString() {
+        StringBuilder result = new StringBuilder(this.getQuestion() + "\nPlease select your answer choice:\n");
+        for(int i = 0; i < this.getAnswerChoices().size();i++) {
+            result.append(i+1).append(". ").append(this.getAnswerChoices().get(i)).append("\n");
+        }
+        return result.toString();
+        
+    }
 }
