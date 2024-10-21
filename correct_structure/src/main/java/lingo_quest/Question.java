@@ -63,6 +63,13 @@ public class Question {
     public void updateWord(Word word) {
         this.correctAnswer.wordPresented(isCorrect());
     }
+    /**
+     * @author Wade Little
+     * Adds the coins to the users balance
+     */
+    public void addCoinValue() {
+        this.user.addCoins(coinValue);
+    }
 
     /**
      * Increases the point value of the question by 1.
