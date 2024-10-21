@@ -22,8 +22,8 @@ public class FillInTheBlank extends Question{
      * @param correctAnswer The correct answer to the question
      * @param media The media associated to the question
      */
-    public FillInTheBlank(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media) {
-        super(pointValue, coinValue, question, answerChoices, correctAnswer, media);
+    public FillInTheBlank(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media, User user) {
+        super(pointValue, coinValue, question, answerChoices, correctAnswer, media, user);
     }
     /**
      * @author Wade Little

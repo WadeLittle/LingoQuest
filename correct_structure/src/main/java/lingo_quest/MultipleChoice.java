@@ -22,8 +22,8 @@ public class MultipleChoice extends Question {
      * @param correctAnswer The correct answer
      * @param media The media for the question
      */
-    public MultipleChoice(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media) {
-        super(pointValue, coinValue, question, answerChoices, correctAnswer, media);
+    public MultipleChoice(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media, User user) {
+        super(pointValue, coinValue, question, answerChoices, correctAnswer, media, user);
     }
     /**
      * @author Wade Little
