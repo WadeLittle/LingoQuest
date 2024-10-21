@@ -114,7 +114,7 @@ class LanguageGame {
         return false;
     }
 
-    public User getUser() {
+    public static User getUser() {
         return this.user;
     }
 /**
