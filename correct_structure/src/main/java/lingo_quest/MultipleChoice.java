@@ -25,7 +25,11 @@ public class MultipleChoice extends Question {
     public MultipleChoice(int pointValue, int coinValue, String question, ArrayList<Word> answerChoices, Word correctAnswer, File media) {
         super(pointValue, coinValue, question, answerChoices, correctAnswer, media);
     }
-
+    /**
+     * @author Wade Little
+     * Gives  the question as well as the answer choices
+     * @return The string value of the Question and its answer choices in an easy to read format 
+     */
     public String toString() {
         StringBuilder result = new StringBuilder(this.getQuestion() + "\nPlease select your answer choice:\n");
         for(int i = 0; i < this.getAnswerChoices().size();i++) {
