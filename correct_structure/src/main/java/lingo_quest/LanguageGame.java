@@ -8,7 +8,7 @@ class LanguageGame {
     private User user;
     private ItemShop itemShop;
     private Dictionary userDictionary;
-    private UUID currentLanguage;
+    private Language currentLanguage;
     private LanguageManager languageManager;
     private LeaderBoard leaderboard;
     private Section currentSection;
@@ -45,7 +45,14 @@ class LanguageGame {
     public void getItemInformation() {
     }
 
+    /**
+     * @author Wade Little
+     * Sets the language games current language as well as the languagemanagers
+     * @param language THe language you want to work on
+     */
     public void setCurrentLanguage(Language language) {
+        this.currentLanguage = language;
+        languageManager.setCurrentLangauge(language);
     }
     /**
      * @author Wade Little
