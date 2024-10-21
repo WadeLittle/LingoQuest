@@ -54,6 +54,7 @@ class LanguageGame {
         this.currentLanguage = language;
         languageManager.setCurrentLangauge(language);
     }
+
     /**
      * @author Wade Little
      * Checks the userlist for the entered username and password and returns a valid user or null user
@@ -66,7 +67,10 @@ class LanguageGame {
         //userList.loadUsers();
         this.user = userList.getUser(username, password);
     }
-
+    /**
+     * @author Wade Little
+     * Saves the users and sets the user to null
+     */
     public void logout() {
         this.userList.saveUsers();
         // set current user to null
