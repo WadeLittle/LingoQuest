@@ -108,7 +108,10 @@ public class Word {
     public void wordPresented(boolean correct) {
         updateTimesPresented(); // Increment times presented
         if (correct) {
+            System.out.println("You are correct");
             updateTimesCorrect(); // Increment times correct if answered correctly
+        } else {
+            System.out.println("You are incorrect");
         }
         updateUserUnderstanding(); // Update user understanding
     }
@@ -158,6 +161,7 @@ public class Word {
     public String getWord() {
         return this.word;
     }
+
 
     /**
      * Compares this word to another word, ignoring case.

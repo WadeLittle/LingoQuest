@@ -7,6 +7,8 @@ public class LanguageManager {
     private ArrayList<Language> languages;  // Corrected to match UML
     private static LanguageManager languageManager;
     private Language currentLanguage;
+    private Section currentSection;
+    private Lesson currentLesson;
 
     // Singleton method
     public static LanguageManager getInstance() {
@@ -21,9 +23,15 @@ public class LanguageManager {
         this.currentLanguage = getLanguageByID(language.getUUID());
     }
 
-    
+
     public Language getCurrentLanguage() {
         return currentLanguage;
+    }
+    public Section getCurrentSection() {
+        return currentSection;
+    }
+    public Lesson getCurrentLesson() {
+        return currentLesson;
     }
 
     // Method to get the list of languages

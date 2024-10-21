@@ -1,6 +1,7 @@
 package lingo_quest;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.UUID;
 
 class LanguageGame {
@@ -119,12 +120,24 @@ class LanguageGame {
         return null;
     }
 
+    /**
+     * Sets the user answer
+     * @param userAnswer
+     */
     public void setUserAnswer(Word userAnswer) {
         this.userAnswer = userAnswer;
     }
-
-    public boolean answerQuestion() {
-        return false;
+/**
+ * @author Wade Little
+ * Sets the current question and goes through the process of getting user input as well as updating the data of the word and the correct answer.
+ */
+    public void answerQuestionInSpanish() {
+        Question currentQuestion = languageManager.getCurrentLesson().getQuestion();
+        System.out.println(currentQuestion.toString());
+        Scanner keyboard = new Scanner(System.in);
+        String userInput = keyboard.nextLine().trim();
+        currentQuestion.setUserAnswer(userDictionary.getSpanishWordByString(userInput));
+        currentQuestion.getCorrectAnswer().wordPresented(currentQuestion.isCorrect());
     }
 
     public User getUser() {
@@ -134,9 +147,7 @@ class LanguageGame {
     public LanguageManager getLanguageManager() {
         return this.languageManager;
     }
-    public UUID getCurrentLanguage() {
-        return this.currentLanguage;
-    }
+
 /**
  * @author Wade Little
  * This class runs itemshop.displayItemShop() to view the item shop.

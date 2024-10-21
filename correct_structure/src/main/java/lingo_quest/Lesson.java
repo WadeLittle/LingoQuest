@@ -9,6 +9,7 @@ public class Lesson {
     private double lessonProgress;
     private Dictionary topicDictionary;
     private ArrayList<Question> questions;
+    private int questionNum;
 
     public Lesson() {
 
@@ -31,9 +32,10 @@ public class Lesson {
      * @param questionNum The question number you want to get
      * @return A question
      */
-    public Question getQuestion(int questionNum) {
-
-        return questions.get(questionNum);
+    public Question getQuestion() {
+        Question question = questions.get(questionNum);
+        this.questionNum++;
+        return question;
     }
 
     public void halfwayCompleteReward() {

@@ -106,6 +106,23 @@ class Dictionary {
         this.numberOfWords = fromEnglish.size();  // Update the number of words
     }
 
+    public Word getEnglishWordByString(String word) {
+        for(Word englishWord : fromEnglish.keySet()) {
+            if(word.equals(englishWord.getWord())) {
+                return englishWord;
+            }
+        }
+        return null;
+    }
+    public Word getSpanishWordByString(String word) {
+        for(Word spanishWord : fromEnglish.keySet()) {
+            if(word.equals(spanishWord.getWord())) {
+                return spanishWord;
+            }
+        }
+        return null;
+    }
+
 
     /*
     /**
