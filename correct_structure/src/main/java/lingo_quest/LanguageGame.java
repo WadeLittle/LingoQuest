@@ -8,6 +8,7 @@ class LanguageGame {
     private Users userList;
     private User user;
     private ItemShop itemShop;
+    private DictionaryManager dictionaryMan;
     private Dictionary userDictionary;
     private Language currentLanguage;
     private LanguageManager languageManager;
@@ -20,9 +21,11 @@ class LanguageGame {
     // test comment
     public LanguageGame() {
         this.userList = Users.getInstance();
-        userList.loadUsers();
+        this.dictionaryMan = DictionaryManager.getInstance();
+        //userList.loadUsers();
         this.itemShop = ItemShop.getInstance();
         this.languageManager = LanguageManager.getInstance();
+        this.loadAll();
         // work on other variables for constructor
     }
 
@@ -35,6 +38,17 @@ class LanguageGame {
         this.user = createdUser;
         userList.createUser(username, password);
         System.out.println("Successfully Created Account");
+    }
+
+    /**
+     * @author cade
+     * load all of our singletons
+     */
+    public void loadAll() {
+        dictionaryMan.loadDictionaries();
+        languageManager.loadLanguages();
+        itemShop.loadItems();
+        userList.loadUsers();
     }
 
     /**
@@ -139,7 +153,9 @@ class LanguageGame {
         // can replace with a print method in this class or another
         Scanner keyboard = new Scanner(System.in);
         String userInput = keyboard.nextLine().trim();
-        currentQuestion.setUserAnswer(userDictionary.getSpanishWordByString(userInput));
+
+        // changed to getWordByString - cade
+        currentQuestion.setUserAnswer(userDictionary.getWordByString(userInput));
         currentQuestion.getCorrectAnswer().wordPresented(currentQuestion.isCorrect());
     }
 

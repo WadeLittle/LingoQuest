@@ -20,13 +20,21 @@ public class DataLoader {
     public static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
     public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
     public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
-
+    public static String dictionaryFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Dictionaries.json";
     /**
      * @author cade
      * @return file path
      */
     public static String getUserFile() {
         return userFile;
+    }
+
+    /**
+     * @author cade
+     * @return the dictionary filepath
+     */
+    public static String getDictionaryFile() {
+        return dictionaryFile;
     }
 
     /**
@@ -404,6 +412,22 @@ private static User createUser(String userID, String username, String password,
         return lessons;
     }
 
+    public static ArrayList<Dictionary> loadDictionaries(String file) throws FileNotFoundException, IOException, org.json.simple.parser.ParseException {
+        ArrayList<Dictionary> dictionaries = new ArrayList<>();
+        JSONParser jsonParser = new JSONParser();
+
+        // Parse the JSON file
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+        JSONArray dictionaryArray = (JSONArray) jsonObject.get("dictionaries");
+
+        for(Object o : dictionaryArray) {
+            JSONObject obj = (JSONObject) o;
+            dictionaries.add(parseDictionary(obj));
+        }
+
+        return dictionaries;
+    }
+
     /**
      * @author CADE STOCKER
      * @param dictionaryJson
@@ -412,7 +436,16 @@ private static User createUser(String userID, String username, String password,
      */
     private static Dictionary parseDictionary(JSONObject dictionaryJson) {
         ArrayList<Word> dictionary = new ArrayList<>();
-        
+        JSONArray words = (JSONArray) dictionaryJson.get("words");
+        for(Object o : words) {
+            JSONObject wordObj = (JSONObject) o;
+            dictionary.add(makeWord(wordObj));
+        }
+        int numWords = ((Long) dictionaryJson.get("numberOfWords")).intValue();
+        UUID id = UUID.fromString((String) dictionaryJson.get("dictionaryID"));
+        Dictionary retDictionary = new Dictionary(dictionary,numWords);
+        retDictionary.setID(id);
+        return retDictionary;
         
         /*
         HashMap<Word, Word> fromEnglish = new HashMap<>();
@@ -536,10 +569,10 @@ private static User createUser(String userID, String username, String password,
 
     public static Word makeWord(JSONObject obj) {
         Languages language = mapLanguage((String) obj.get("language"));
-        int timesPresented = (int) obj.get("timesPresented");
+        int timesPresented = ((Long) obj.get("timesPresented")).intValue();
         String englishVersion = (String) obj.get("englishVersion");
         String word = (String) obj.get("word");
-        int timesCorrect = (int) obj.get("timesCorrect");
+        int timesCorrect = ((Long) obj.get("timesCorrect")).intValue();
         double userUnderstanding = (double) obj.get("userUnderstanding");
         Word wordReturn = new Word();
         wordReturn.setWord(word);
@@ -555,7 +588,10 @@ private static User createUser(String userID, String username, String password,
      * This method will call all of the methods that actually
      * do the work.
      */
-    public static void loadData() {
+
+
+            //COMMENTED THIS OUT BECAUSE I WANT ALL LOADING TO BE CALLED FROM LANGUAGEGAME
+    /*public static void loadData() {
         try {
             userList.loadUsers();
             
@@ -574,7 +610,7 @@ private static User createUser(String userID, String username, String password,
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * @author CADE STOCKER

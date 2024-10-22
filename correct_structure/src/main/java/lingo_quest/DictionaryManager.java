@@ -1,7 +1,10 @@
 package lingo_quest;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import org.json.simple.parser.ParseException;
 
 public class DictionaryManager {
     private ArrayList<Dictionary> dictionaries;
@@ -46,6 +49,23 @@ public class DictionaryManager {
                 return;
             }
         }
+    }
+
+    /**
+     * @author cade
+     * calls to the dataloader and lets it do the work
+     */
+    public void loadDictionaries() {
+        try {
+            this.dictionaries = DataLoader.loadDictionaries(DataLoader.getDictionaryFile());
+        } catch (IOException | ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void saveDictionary() {
+        
     }
 
     /**
