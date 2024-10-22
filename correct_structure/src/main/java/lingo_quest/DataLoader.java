@@ -501,7 +501,6 @@ private static User createUser(String userID, String username, String password,
         String fileName = (String) media.get("fileName");
         //Media med = new Media();
         //return med;
-        String test = "test";
         return null;
     }
 

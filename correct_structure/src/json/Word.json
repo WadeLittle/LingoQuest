@@ -5,168 +5,192 @@
             "timesPresented": 4,
             "word": "perro",
             "timesCorrect": 3,
-            "userUnderstanding": 0.75
+            "userUnderstanding": 0.75,
+            "englishVersion": "dog"
         },
         {
             "language": "SPANISH",
             "timesPresented": 8,
             "word": "manzana",
             "timesCorrect": 4,
-            "userUnderstanding": 0.5
+            "userUnderstanding": 0.5,
+            "englishVersion": "apple"
         },
         {
             "language": "SPANISH",
             "timesPresented": 6,
             "word": "gato",
             "timesCorrect": 5,
-            "userUnderstanding": 0.83
+            "userUnderstanding": 0.83,
+            "englishVersion": "cat"
         },
         {
             "language": "SPANISH",
             "timesPresented": 3,
             "word": "casa",
             "timesCorrect": 2,
-            "userUnderstanding": 0.67
+            "userUnderstanding": 0.67,
+            "englishVersion": "house"
         },
         {
             "language": "SPANISH",
             "timesPresented": 5,
             "word": "agua",
             "timesCorrect": 3,
-            "userUnderstanding": 0.6
+            "userUnderstanding": 0.6,
+            "englishVersion": "water"
         },
         {
             "language": "SPANISH",
             "timesPresented": 7,
             "word": "mesa",
             "timesCorrect": 6,
-            "userUnderstanding": 0.86
+            "userUnderstanding": 0.86,
+            "englishVersion": "table"
         },
         {
             "language": "SPANISH",
             "timesPresented": 5,
             "word": "silla",
             "timesCorrect": 4,
-            "userUnderstanding": 0.8
+            "userUnderstanding": 0.8,
+            "englishVersion": "chair"
         },
         {
             "language": "SPANISH",
             "timesPresented": 6,
             "word": "pan",
             "timesCorrect": 4,
-            "userUnderstanding": 0.67
+            "userUnderstanding": 0.67,
+            "englishVersion": "bread"
         },
         {
             "language": "SPANISH",
             "timesPresented": 3,
             "word": "techo",
             "timesCorrect": 3,
-            "userUnderstanding": 1.0
+            "userUnderstanding": 1.0,
+            "englishVersion": "roof"
         },
         {
             "language": "SPANISH",
             "timesPresented": 4,
             "word": "puerta",
             "timesCorrect": 3,
-            "userUnderstanding": 0.75
+            "userUnderstanding": 0.75,
+            "englishVersion": "door"
         },
         {
             "language": "SPANISH",
             "timesPresented": 8,
             "word": "hola",
             "timesCorrect": 7,
-            "userUnderstanding": 0.88
+            "userUnderstanding": 0.88,
+            "englishVersion": "hello"
         },
         {
             "language": "SPANISH",
             "timesPresented": 7,
             "word": "adios",
             "timesCorrect": 5,
-            "userUnderstanding": 0.71
+            "userUnderstanding": 0.71,
+            "englishVersion": "goodbye"
         },
         {
             "language": "SPANISH",
             "timesPresented": 5,
             "word": "buenos tardes",
             "timesCorrect": 4,
-            "userUnderstanding": 0.8
+            "userUnderstanding": 0.8,
+            "englishVersion": "good afternoon"
         },
         {
             "language": "SPANISH",
             "timesPresented": 6,
             "word": "sandia",
             "timesCorrect": 5,
-            "userUnderstanding": 0.83
+            "userUnderstanding": 0.83,
+            "englishVersion": "watermelon"
         },
         {
             "language": "SPANISH",
             "timesPresented": 4,
             "word": "uva",
             "timesCorrect": 3,
-            "userUnderstanding": 0.75
+            "userUnderstanding": 0.75,
+            "englishVersion": "grape"
         },
         {
             "language": "SPANISH",
             "timesPresented": 6,
             "word": "naranja",
             "timesCorrect": 4,
-            "userUnderstanding": 0.67
+            "userUnderstanding": 0.67,
+            "englishVersion": "orange"
         },
         {
             "language": "SPANISH",
             "timesPresented": 5,
             "word": "fresa",
             "timesCorrect": 4,
-            "userUnderstanding": 0.8
+            "userUnderstanding": 0.8,
+            "englishVersion": "strawberry"
         },
         {
             "language": "SPANISH",
             "timesPresented": 6,
             "word": "queso",
             "timesCorrect": 5,
-            "userUnderstanding": 0.83
+            "userUnderstanding": 0.83,
+            "englishVersion": "cheese"
         },
         {
             "language": "SPANISH",
             "timesPresented": 4,
             "word": "jamon",
             "timesCorrect": 3,
-            "userUnderstanding": 0.75
+            "userUnderstanding": 0.75,
+            "englishVersion": "ham"
         },
         {
             "language": "SPANISH",
             "timesPresented": 3,
             "word": "pajaro",
             "timesCorrect": 2,
-            "userUnderstanding": 0.67
+            "userUnderstanding": 0.67,
+            "englishVersion": "bird"
         },
         {
             "language": "SPANISH",
             "timesPresented": 4,
             "word": "pez",
             "timesCorrect": 3,
-            "userUnderstanding": 0.75
+            "userUnderstanding": 0.75,
+            "englishVersion": "fish"
         },
         {
             "language": "SPANISH",
             "timesPresented": 5,
             "word": "ventana",
             "timesCorrect": 4,
-            "userUnderstanding": 0.8
+            "userUnderstanding": 0.8,
+            "englishVersion": "window"
         },
         {
             "language": "SPANISH",
             "timesPresented": 6,
             "word": "lampara",
             "timesCorrect": 5,
-            "userUnderstanding": 0.83
+            "userUnderstanding": 0.83,
+            "englishVersion": "lamp"
         },
         {
             "language": "SPANISH",
             "timesPresented": 7,
             "word": "cama",
             "timesCorrect": 6,
-            "userUnderstanding": 0.86
+            "userUnderstanding": 0.86,
+            "englishVersion": "bed"
         }
     ]
 }
