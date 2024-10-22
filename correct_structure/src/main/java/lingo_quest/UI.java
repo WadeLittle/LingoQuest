@@ -33,8 +33,10 @@ public class UI {
             System.out.println("Enter password you would like to use");
             password = keyboard.nextLine();
             // Checking password and username length here to avoid crash
-            if(username.length() <= 8 || password.length() <= 8)
+            if(username.length() <= 8 || password.length() <= 8 || password.contains(" ")) {
                 repeat = true;
+                System.out.println("Invalid username or password");
+            }
             else
                 repeat = false;
         } while(repeat);

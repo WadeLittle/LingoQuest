@@ -23,7 +23,6 @@ class LanguageGame {
         userList.loadUsers();
         this.itemShop = ItemShop.getInstance();
         this.languageManager = LanguageManager.getInstance();
-        String test = "test";
         // work on other variables for constructor
     }
 
