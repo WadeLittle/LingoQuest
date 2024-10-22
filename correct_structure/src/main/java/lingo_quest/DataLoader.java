@@ -447,17 +447,23 @@ private static User createUser(String userID, String username, String password,
 
         for (Object obj : questionsJson) {
             JSONObject questionJson = (JSONObject) obj;
-            String questionType = (String) questionJson.get("questionType");
-            String question = (String) questionJson.get("question");
-            ArrayList<String> answerChoices = new ArrayList<>((JSONArray) questionJson.get("answerChoices"));
-            String userAnswer = (String) questionJson.get("userAnswer");
+            //String question = (String) questionJson.get("question");
+            //ArrayList<String> answerChoices = new ArrayList<>((JSONArray) questionJson.get("answerChoices"));
+            //String userAnswer = (String) questionJson.get("userAnswer");
             int pointValue = ((Long) questionJson.get("pointValue")).intValue();
             int coinValue = ((Long) questionJson.get("coinValue")).intValue();
+            String questionType = (String) questionJson.get("questionType");
             questionType = questionType.toLowerCase();
-            String correctAnswer;
+            //String correctAnswer;
+
+            // get this working 10/21
             switch(questionType){
                 case("matching"):
-                    //HashMap<Word,Word> correctMatches = new HashMap();
+                    
+                    HashMap<Word,Word> correctMatches = new HashMap();
+                    for(int i = 0; i < correctMatches.size(); i++) {
+                        
+                    }
                     //correctMatches.put(key, value)
                     break;
                 case("multiplechoice"):

@@ -134,6 +134,7 @@ class LanguageGame {
     public void answerQuestionInSpanish() {
         Question currentQuestion = languageManager.getCurrentLesson().getQuestion();
         System.out.println(currentQuestion.toString());
+        // can replace with a print method in this class or another
         Scanner keyboard = new Scanner(System.in);
         String userInput = keyboard.nextLine().trim();
         currentQuestion.setUserAnswer(userDictionary.getSpanishWordByString(userInput));
