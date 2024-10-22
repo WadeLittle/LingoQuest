@@ -411,6 +411,10 @@ private static User createUser(String userID, String username, String password,
      * read a dictionary object
      */
     private static Dictionary parseDictionary(JSONObject dictionaryJson) {
+        ArrayList<Word> dictionary = new ArrayList<>();
+        
+        
+        /*
         HashMap<Word, Word> fromEnglish = new HashMap<>();
         HashMap<Word, Word> toEnglish = new HashMap<>();
 
@@ -434,6 +438,7 @@ private static User createUser(String userID, String username, String password,
 
         int numberOfWords = ((Long) dictionaryJson.get("numberOfWords")).intValue();
         return new Dictionary(fromEnglish, toEnglish, numberOfWords);
+        */
     }
 
 

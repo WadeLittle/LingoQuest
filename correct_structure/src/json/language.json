@@ -18,27 +18,7 @@
               "totalPoints": 50,
               "coinValue": 15,
               "lessonProgress": 0.6,
-              "topicDictionary": {
-                "fromEnglish": {
-                  "watermelon": "sandia",
-                  "grape": "uva",
-                  "orange": "naranja",
-                  "strawberry": "fresa",
-                  "bread": "pan",
-                  "cheese": "queso",
-                  "ham": "jamon"
-                },
-                "toEnglish": {
-                  "sandia": "watermelon",
-                  "uva": "grape",
-                  "naranja": "orange",
-                  "fresa": "strawberry",
-                  "pan": "bread",
-                  "queso": "cheese",
-                  "jamon": "ham"
-                },
-                "numberOfWords": 7
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "Matching",
@@ -86,21 +66,7 @@
               "totalPoints": 50,
               "coinValue": 10,
               "lessonProgress": 0.4,
-              "topicDictionary": {
-                "fromEnglish": {
-                  "cat": "gato",
-                  "dog": "perro",
-                  "bird": "pajaro",
-                  "fish": "pez"
-                },
-                "toEnglish": {
-                  "gato": "cat",
-                  "perro": "dog",
-                  "pajaro": "bird",
-                  "pez": "fish"
-                },
-                "numberOfWords": 4
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "MultipleChoice",
@@ -148,21 +114,7 @@
               "totalPoints": 40,
               "coinValue": 12,
               "lessonProgress": 0.5,
-              "topicDictionary": {
-                "fromEnglish": {
-                  "house": "casa",
-                  "window": "ventana",
-                  "door": "puerta",
-                  "roof": "techo"
-                },
-                "toEnglish": {
-                  "casa": "house",
-                  "ventana": "window",
-                  "puerta": "door",
-                  "techo": "roof"
-                },
-                "numberOfWords": 4
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "MultipleChoice",
@@ -199,21 +151,7 @@
               "totalPoints": 30,
               "coinValue": 8,
               "lessonProgress": 0.3,
-              "topicDictionary": {
-                "fromEnglish": {
-                  "table": "mesa",
-                  "chair": "silla",
-                  "lamp": "lampara",
-                  "bed": "cama"
-                },
-                "toEnglish": {
-                  "mesa": "table",
-                  "silla": "chair",
-                  "lampara": "lamp",
-                  "cama": "bed"
-                },
-                "numberOfWords": 4
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "MultipleChoice",
@@ -261,57 +199,7 @@
           "sectionComplete": false
         }
       ],
-      "dictionary": {
-        "fromEnglish": {
-          "hello": "hola",
-          "goodbye": "adios",
-          "good afternoon": "buenos tardes",
-          "watermelon": "sandia",
-          "grape": "uva",
-          "orange": "naranja",
-          "strawberry": "fresa",
-          "bread": "pan",
-          "cheese": "queso",
-          "ham": "jamon",
-          "cat": "gato",
-          "dog": "perro",
-          "bird": "pajaro",
-          "fish": "pez",
-          "house": "casa",
-          "window": "ventana",
-          "door": "puerta",
-          "roof": "techo",
-          "table": "mesa",
-          "chair": "silla",
-          "lamp": "lampara",
-          "bed": "cama"
-        },
-        "toEnglish": {
-          "hola": "hello",
-          "adios": "goodbye",
-          "buenos tardes": "good afternoon",
-          "sandia": "watermelon",
-          "uva": "grape",
-          "naranja": "orange",
-          "fresa": "strawberry",
-          "pan": "bread",
-          "queso": "cheese",
-          "jamon": "ham",
-          "gato": "cat",
-          "perro": "dog",
-          "pajaro": "bird",
-          "pez": "fish",
-          "casa": "house",
-          "ventana": "window",
-          "puerta": "door",
-          "techo": "roof",
-          "mesa": "table",
-          "silla": "chair",
-          "lampara": "lamp",
-          "cama": "bed"
-        },
-        "numberOfWords": 26
-      },
+      "dictionary": "",
       "answerStreak": 7,
       "languageName": "SPANISH",
       "sectionsComplete": ["Section1"],
