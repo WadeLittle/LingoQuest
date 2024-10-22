@@ -456,6 +456,8 @@ private static User createUser(String userID, String username, String password,
             questionType = questionType.toLowerCase();
             //String correctAnswer;
 
+
+            /* 
             // get this working 10/21
             switch(questionType){
                 case("matching"):
@@ -482,6 +484,7 @@ private static User createUser(String userID, String username, String password,
 
         return questions;
     }
+        */
 
     // Need to talk about this with team to get it sorted before reading
     /**
@@ -490,12 +493,15 @@ private static User createUser(String userID, String username, String password,
      * @return Media
      * read an individual media object
      */
+
+     
     private static Media parseMedia(JSONObject media) {
         String name = (String) media.get("name");
         String description = (String) media.get("description");
         String fileName = (String) media.get("fileName");
         //Media med = new Media();
         //return med;
+        String test = "test";
         return null;
     }
 
