@@ -1,18 +1,172 @@
 {
-    "words":[
+    "words": [
         {
             "language": "SPANISH",
-            "timesPresented":4,
-            "word":"perro",
-            "timesCorrect":3,
-            "userUnderstanding":0.75
+            "timesPresented": 4,
+            "word": "perro",
+            "timesCorrect": 3,
+            "userUnderstanding": 0.75
         },
         {
             "language": "SPANISH",
-            "timesPresented":8,
-            "word":"manzana",
-            "timesCorrect":4,
-            "userUnderstanding":0.5
+            "timesPresented": 8,
+            "word": "manzana",
+            "timesCorrect": 4,
+            "userUnderstanding": 0.5
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 6,
+            "word": "gato",
+            "timesCorrect": 5,
+            "userUnderstanding": 0.83
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 3,
+            "word": "casa",
+            "timesCorrect": 2,
+            "userUnderstanding": 0.67
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 5,
+            "word": "agua",
+            "timesCorrect": 3,
+            "userUnderstanding": 0.6
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 7,
+            "word": "mesa",
+            "timesCorrect": 6,
+            "userUnderstanding": 0.86
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 5,
+            "word": "silla",
+            "timesCorrect": 4,
+            "userUnderstanding": 0.8
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 6,
+            "word": "pan",
+            "timesCorrect": 4,
+            "userUnderstanding": 0.67
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 3,
+            "word": "techo",
+            "timesCorrect": 3,
+            "userUnderstanding": 1.0
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 4,
+            "word": "puerta",
+            "timesCorrect": 3,
+            "userUnderstanding": 0.75
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 8,
+            "word": "hola",
+            "timesCorrect": 7,
+            "userUnderstanding": 0.88
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 7,
+            "word": "adios",
+            "timesCorrect": 5,
+            "userUnderstanding": 0.71
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 5,
+            "word": "buenos tardes",
+            "timesCorrect": 4,
+            "userUnderstanding": 0.8
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 6,
+            "word": "sandia",
+            "timesCorrect": 5,
+            "userUnderstanding": 0.83
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 4,
+            "word": "uva",
+            "timesCorrect": 3,
+            "userUnderstanding": 0.75
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 6,
+            "word": "naranja",
+            "timesCorrect": 4,
+            "userUnderstanding": 0.67
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 5,
+            "word": "fresa",
+            "timesCorrect": 4,
+            "userUnderstanding": 0.8
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 6,
+            "word": "queso",
+            "timesCorrect": 5,
+            "userUnderstanding": 0.83
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 4,
+            "word": "jamon",
+            "timesCorrect": 3,
+            "userUnderstanding": 0.75
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 3,
+            "word": "pajaro",
+            "timesCorrect": 2,
+            "userUnderstanding": 0.67
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 4,
+            "word": "pez",
+            "timesCorrect": 3,
+            "userUnderstanding": 0.75
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 5,
+            "word": "ventana",
+            "timesCorrect": 4,
+            "userUnderstanding": 0.8
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 6,
+            "word": "lampara",
+            "timesCorrect": 5,
+            "userUnderstanding": 0.83
+        },
+        {
+            "language": "SPANISH",
+            "timesPresented": 7,
+            "word": "cama",
+            "timesCorrect": 6,
+            "userUnderstanding": 0.86
         }
     ]
 }
