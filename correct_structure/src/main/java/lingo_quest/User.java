@@ -76,6 +76,22 @@ public class User {
         this.currentLanguage = null;
     }
 
+    /**
+     * @author cade
+     * @param d
+     */
+    public void setUserDictionary(Dictionary d) {
+        this.userDictionary = d;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public Dictionary getUserDictionary() {
+        return this.userDictionary;
+    }
+
     public String sendReferralLink() {
 
         return "";
