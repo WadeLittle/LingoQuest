@@ -394,7 +394,7 @@ private static User createUser(String userID, String username, String password,
             double lessonProgress = (double) lessonJson.get("lessonProgress");
 
             Dictionary topicDictionary = parseDictionary((JSONObject) lessonJson.get("topicDictionary"));
-            ArrayList<Question> questions = parseQuestions((JSONArray) lessonJson.get("questions"));
+            //ArrayList<Question> questions = parseQuestions((JSONArray) lessonJson.get("questions"));
 
             Lesson les = new Lesson(coinValue,totalPoints);
             les.setPointsEarned((int)pointsEarned);
@@ -436,12 +436,16 @@ private static User createUser(String userID, String username, String password,
         return new Dictionary(fromEnglish, toEnglish, numberOfWords);
     }
 
+
+    
     /**
      * @author CADE STOCKER
      * @param questionsJson
      * @return ArrayList of questions
      * make an arraylist of question objects
      */
+
+     /*
     private static ArrayList<Question> parseQuestions(JSONArray questionsJson) {
         ArrayList<Question> questions = new ArrayList<>();
 
@@ -455,7 +459,11 @@ private static User createUser(String userID, String username, String password,
             String questionType = (String) questionJson.get("questionType");
             questionType = questionType.toLowerCase();
             //String correctAnswer;
+        }
+    }
+    */
 
+    // PORTIA SAID THAT WE DON'T NEED TO STORE QUESTIONS, GENERATE THEM INSTEAD
 
             /* 
             // get this working 10/21
@@ -485,6 +493,7 @@ private static User createUser(String userID, String username, String password,
         return questions;
     }
         */
+    
 
     // Need to talk about this with team to get it sorted before reading
     /**
@@ -523,6 +532,7 @@ private static User createUser(String userID, String username, String password,
     public static Word makeWord(JSONObject obj) {
         Languages language = mapLanguage((String) obj.get("language"));
         int timesPresented = (int) obj.get("timesPresented");
+        String englishVersion = (String) obj.get("englishVersion");
         String word = (String) obj.get("word");
         int timesCorrect = (int) obj.get("timesCorrect");
         double userUnderstanding = (double) obj.get("userUnderstanding");
