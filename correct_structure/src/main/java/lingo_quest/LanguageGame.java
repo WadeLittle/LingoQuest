@@ -16,11 +16,14 @@ class LanguageGame {
     private Lesson currentLesson;
     private Word userAnswer;
 
+
+    // test comment
     public LanguageGame() {
         this.userList = Users.getInstance();
         userList.loadUsers();
         this.itemShop = ItemShop.getInstance();
         this.languageManager = LanguageManager.getInstance();
+        String test = "test";
         // work on other variables for constructor
     }
 
