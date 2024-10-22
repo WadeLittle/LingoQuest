@@ -1,6 +1,7 @@
 package lingo_quest;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * The Dictionary class provides functionality for storing and managing word translations
@@ -12,6 +13,7 @@ class Dictionary {
     //private HashMap<Word, Word> fromEnglish;
     //private HashMap<Word, Word> toEnglish;
     private ArrayList<Word> words;
+    private UUID dictionaryID;
     private int numberOfWords;
 
     /**
@@ -23,6 +25,7 @@ class Dictionary {
         //fromEnglish = new HashMap<>();
         //toEnglish = new HashMap<>();
         this.words = new ArrayList<Word>();
+        this.dictionaryID = UUID.randomUUID();
         numberOfWords = 0;
     }
 
@@ -48,6 +51,30 @@ class Dictionary {
      */
     public ArrayList<Word> getWords() {
         return this.words;
+    }
+
+    /**
+     * @author Cade
+     * @return the dictionary's id
+     */
+    public UUID getID() {
+        return this.dictionaryID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setID(UUID id) {
+        this.dictionaryID = id;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setID(String id) {
+        this.dictionaryID = UUID.fromString(id);
     }
 
 
