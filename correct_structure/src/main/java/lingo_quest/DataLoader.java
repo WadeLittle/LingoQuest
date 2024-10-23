@@ -201,6 +201,7 @@ private static User createUser(String userID, String username, String password,
     user.setID(UUID.fromString(userID));
     user.setCoinsEarned((int) coinsEarned);
     user.setCoinBalance((int) coinBalance);
+    user.setUserDictionaryID(UUID.fromString(dictionaryID));
 
     // want to change to work by uuid TODO
     user.setFriendsList(friendsList);
@@ -432,9 +433,14 @@ private static User createUser(String userID, String username, String password,
         for(Object o : dictionaryArray) {
             JSONObject obj = (JSONObject) o;
             Dictionary d = parseDictionary(obj);
+            //System.out.println(d.getID().toString() + " TEST");
             dictionaries.add(d);
             //System.out.println("Dictionary exists in loadDictionaries: " + (d != null));
         }
+
+        //for(Dictionary d : dictionaries) {
+        //    System.out.println("in loadDictionaries " + (d != null));
+        //}
 
         return dictionaries;
     }
@@ -459,6 +465,7 @@ private static User createUser(String userID, String username, String password,
         UUID id = UUID.fromString((String) dictionaryJson.get("dictionaryID"));
         Dictionary retDictionary = new Dictionary(dictionary,numWords);
         retDictionary.setID(id);
+        //System.out.println("dictionary ID being set" + retDictionary.getID().toString());
 
         // test
         //System.out.println(retDictionary.toString());

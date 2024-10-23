@@ -125,7 +125,10 @@ public class Users {
                 this.users = DataLoader.loadUsers(DataLoader.getUserFile());
                 for(User u : this.users) {
                     // the user's dicionary has been loaded into dictionaryManager already, but this will assign the object to the user
-                    u.setUserDictionary(DictionaryManager.getInstance().getDictionaryByID(u.getUserDictionaryID()));
+                    //u.setUserDictionary(DictionaryManager.getInstance().getDictionaryByID(u.getUserDictionaryID()));
+                    UUID dictionaryID = u.getUserDictionaryID();
+                    Dictionary d = DictionaryManager.getInstance().getDictionaryByID(dictionaryID);
+                    u.setUserDictionary(d);
                 }
             } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
                 // TODO Auto-generated catch block
