@@ -114,18 +114,7 @@
               "totalPoints": 50,
               "coinValue": 15,
               "lessonProgress": 0.7,
-              "topicDictionary": {
-                "car": "carro",
-                "bicycle": "bicicleta",
-                "bus": "autobus",
-                "train": "tren",
-                "plane": "avion",
-                "boat": "barco",
-                "truck": "camion",
-                "motorcycle": "moto",
-                "subway": "metro",
-                "taxi": "taxi"
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "MultipleChoice",
@@ -173,18 +162,7 @@
               "totalPoints": 60,
               "coinValue": 18,
               "lessonProgress": 0.75,
-              "topicDictionary": {
-                "red": "rojo",
-                "blue": "azul",
-                "green": "verde",
-                "yellow": "amarillo",
-                "black": "negro",
-                "white": "blanco",
-                "pink": "rosa",
-                "purple": "morado",
-                "orange": "naranja",
-                "gray": "gris"
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "Matching",
@@ -224,7 +202,7 @@
             }
           ]
         },
-        
+
         {
           "sectionName": "Animals",
           "lessons": [
@@ -233,18 +211,7 @@
               "totalPoints": 60,
               "coinValue": 20,
               "lessonProgress": 0.7,
-              "topicDictionary": {
-                "dog": "perro",
-                "cat": "gato",
-                "horse": "caballo",
-                "rabbit": "conejo",
-                "bird": "pajaro",
-                "fish": "pez",
-                "lion": "leon",
-                "tiger": "tigre",
-                "bear": "oso",
-                "elephant": "elefante"
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "Matching",
