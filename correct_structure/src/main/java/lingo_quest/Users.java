@@ -1,6 +1,7 @@
 package lingo_quest;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -57,6 +58,24 @@ public class Users {
         System.out.println("Invalid Username or Password");
         return null;
     }
+
+    /**
+     * @author cade
+     * @return the list of users
+     */
+    public ArrayList<User> getUsers() {
+        return this.users;
+    }
+
+    /**
+     * @author cade
+     * @param user list
+     */
+    public void setUsers(ArrayList<User> u) {
+        this.users = u;
+    }
+
+
    /**
     * @author Wade Little
     * Searches through the userlist for the specified UUID
@@ -65,6 +84,7 @@ public class Users {
     */
     public User getUserByUUID(UUID userId) {
         for(User user : users) {
+            //System.out.println("TESTSTSTSTT " + user.getUUID());
             if(user.getUUID().equals(userId)) {
                 return user;
             }
