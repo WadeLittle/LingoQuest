@@ -46,6 +46,9 @@ public class UI {
     public static void main(String[] args) {
         lg = new LanguageGame();
         boolean quit = false;
+        //for(User u : Users.getInstance().getUsers()) {
+        //    System.out.println("TESTTTTTT" +u.getUUID());
+        //}
         Scanner keyboard = new Scanner(System.in);
         while(!quit) {
             System.out.println("Select 1 to Login\nSelect 2 to Logout\nSelect 3 to Create Account\nSelect 9 to Quit\n");

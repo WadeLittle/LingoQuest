@@ -424,11 +424,12 @@ public class User {
      * used for dataloader purposes
      */
     public void setFriendsList(ArrayList<String> list) {
-        ArrayList<User> friends = new ArrayList<User>();
+        ArrayList<UUID> friends = new ArrayList<UUID>();
         for (String friend : list) {
             UUID friendID = UUID.fromString(friend);
-            User u = Users.getInstance().getUserByUUID(friendID);
-            friends.add(u);
+            //User u = Users.getInstance().getUserByUUID(friendID); // causing error (reading friends before all users loaded in)
+            //friends.add(u);
+            friends.add(friendID);
         }
     }
 
