@@ -7,6 +7,7 @@ import java.util.UUID;
 public class User {
     public UUID userID;
     private Dictionary userDictionary;
+    private UUID userDictionaryID;
     private int coinsEarned;
     private int coinBalance;
 
@@ -39,6 +40,7 @@ public class User {
     public User() {
         userID = Users.getInstance().generateUUID();
         userDictionary = new Dictionary();
+        userDictionaryID = userDictionary.getID();
         coinsEarned = 0;
         coinBalance = 0;
         friendsList = new ArrayList<UUID>();
@@ -65,6 +67,7 @@ public class User {
         // If validation passes, initialize remaining fields
         this.userID = Users.getInstance().generateUUID();
         this.userDictionary = new Dictionary();
+        this.userDictionaryID = this.userDictionary.getID();
         this.coinsEarned = 0;
         this.coinBalance = 0;
         this.friendsList = new ArrayList<>();
@@ -81,7 +84,12 @@ public class User {
      * @param d
      */
     public void setUserDictionary(Dictionary d) {
-        this.userDictionary = d;
+        if(d != null) {
+            this.userDictionary = d;
+            this.userDictionaryID = d.getID();
+            return;
+        }
+        System.out.println("null dictionary attempted to be added setUserDictionary in User.java");
     }
 
     /**
@@ -90,6 +98,22 @@ public class User {
      */
     public Dictionary getUserDictionary() {
         return this.userDictionary;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public UUID getUserDictionaryID() {
+        return this.userDictionaryID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setUserDictionaryID(UUID id) {
+        this.userDictionaryID = id;
     }
 
     public String sendReferralLink() {

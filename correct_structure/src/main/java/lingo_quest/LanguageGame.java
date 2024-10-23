@@ -46,9 +46,9 @@ class LanguageGame {
      */
     public void loadAll() {
         dictionaryMan.loadDictionaries();
+        userList.loadUsers();
         languageManager.loadLanguages();
         itemShop.loadItems();
-        userList.loadUsers();
     }
 
     /**

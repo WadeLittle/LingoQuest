@@ -23,10 +23,10 @@ public class DictionaryManager {
      * @return the instance of the class
      */
     public static DictionaryManager getInstance() {
-        if(managerObject == null)
-            return new DictionaryManager();
-        else
-            return managerObject;
+        if (managerObject == null) {
+            managerObject = new DictionaryManager(); // Assign the instance to the static field
+        }
+        return managerObject;
     }
 
     /**
@@ -36,6 +36,7 @@ public class DictionaryManager {
      */
     public void addDictionary(Dictionary d) {
         dictionaries.add(d);
+        //System.out.println("Adding: " + d.getID().toString() + "in actual list");
     }
 
     /**
@@ -57,7 +58,17 @@ public class DictionaryManager {
      */
     public void loadDictionaries() {
         try {
-            this.dictionaries = DataLoader.loadDictionaries(DataLoader.getDictionaryFile());
+            //this.dictionaries = DataLoader.loadDictionaries(DataLoader.getDictionaryFile());
+            ArrayList<Dictionary> list = DataLoader.loadDictionaries(DataLoader.getDictionaryFile());
+            //System.out.println("this many dictionaries: "+list.size());
+            for(Dictionary d : list) {
+                //System.out.println("Adding " + d.getID() + " " + d.getNumberOfWords());
+                this.addDictionary(d);
+            }
+            //System.out.println("ADDRESS OF DICTIONARY ARRAY" + this.dictionaries);
+            //for(Dictionary d : this.dictionaries) {
+            //    System.out.println("ALLLLLKJDLKFJDSKLJFLKSDHGKL" + d.getID()+ " " + d.getNumberOfWords());
+            //}
         } catch (IOException | ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -65,7 +76,7 @@ public class DictionaryManager {
     }
 
     public void saveDictionary() {
-        
+
     }
 
     /**
@@ -74,11 +85,13 @@ public class DictionaryManager {
      * @return
      */
     public Dictionary getDictionaryByID(UUID id) {
-        for(Dictionary d : dictionaries) {
+        //System.out.println("ADDRESS 2: " + this.dictionaries);
+        for(Dictionary d : this.dictionaries) {
+            //System.out.println("TLSDJGLKSJLKSDJLK  " + d.getID());
             if(d.getID().equals(id))
                 return d;
         }
-        System.out.println("Dictionary doesn't exist.");
+        System.out.println(id.toString()+ ": Dictionary doesn't exist.");
         return null;
     }
 }
