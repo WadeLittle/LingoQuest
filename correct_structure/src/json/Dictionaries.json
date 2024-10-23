@@ -35,7 +35,7 @@
                     "englishVersion": "house"
                 }
             ],
-            "numberOfWords" : 1,
+            "numberOfWords" : 4,
             "dictionaryID" : "b35befcc-767e-4a6d-8ad9-0a4c6cf52b8e"
         },
         {
@@ -113,7 +113,7 @@
                     "englishVersion": "good afternoon"
                 }
             ],
-            "numberOfWords" : 1,
+            "numberOfWords" : 9,
             "dictionaryID" : "eeaaed42-a1be-4477-bc7c-2f6f2be2993a"
         }
     ]

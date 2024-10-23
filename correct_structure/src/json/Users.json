@@ -31,7 +31,8 @@
         "userUnderstanding":0.5
       },
       "languages": ["34b98bb6-2a32-4d3a-af62-4f2d50673b24"],
-      "currentLanguage": "SPANISH"
+      "currentLanguage": "SPANISH",
+      "dictionaryID" : "b35befcc-767e-4a6d-8ad9-0a4c6cf52b8e"
     },
     {
       "userID": "123e4567-e89b-12d3-a456-426614174000",
@@ -61,7 +62,8 @@
         "userUnderstanding":0.5
       },
       "languages": ["0a5f916b-fe3c-4d71-8774-51c773345b6d"],
-      "currentLanguage": "SPANISH"
+      "currentLanguage": "SPANISH",
+      "dictionaryID" : "eeaaed42-a1be-4477-bc7c-2f6f2be2993a"
     }
   ]
 }
