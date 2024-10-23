@@ -108,6 +108,152 @@
           "sectionComplete": false
         },
         {
+          "sectionName": "Transportation",
+          "lessons": [
+            {
+              "pointsEarned": 35,
+              "totalPoints": 50,
+              "coinValue": 15,
+              "lessonProgress": 0.7,
+              "topicDictionary": "",
+              "questions": [
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'car' is __________.",
+                  "answerChoices": ["carro", "bicicleta", "avion"],
+                  "correctAnswer": "carro",
+                  "userAnswer": "",
+                  "pointValue": 15,
+                  "coinValue": 2,
+                  "media": {
+                    "name": "car_book",
+                    "description": "Book about cars",
+                    "fileName": "cars.pdf"
+                  }
+                },
+                {
+                  "questionType": "Matching",
+                  "question": "Match the following transportation modes with their Spanish translations:",
+                  "answers": ["bus", "train", "plane", "boat"],
+                  "answerChoices": ["autobus", "tren", "avion", "barco"],
+                  "correctAnswer": {
+                    "bus": "autobus",
+                    "train": "tren",
+                    "plane": "avion",
+                    "boat": "barco"
+                  },
+                  "userAnswer": "",
+                  "pointValue": 20,
+                  "coinValue": 3,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "fileName": ""
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionName": "Colors",
+          "lessons": [
+            {
+              "pointsEarned": 45,
+              "totalPoints": 60,
+              "coinValue": 18,
+              "lessonProgress": 0.75,
+              "topicDictionary": "",
+              "questions": [
+                {
+                  "questionType": "Matching",
+                  "question": "Match the following colors with their translations:",
+                  "answers": ["red", "blue", "green", "yellow"],
+                  "answerChoices": ["rojo", "azul", "verde", "amarillo"],
+                  "correctAnswer": {
+                    "red": "rojo",
+                    "blue": "azul",
+                    "green": "verde",
+                    "yellow": "amarillo"
+                  },
+                  "userAnswer": "",
+                  "pointValue": 20,
+                  "coinValue": 2,
+                  "media": {
+                    "name": "colors_video",
+                    "description": "Video about colors",
+                    "fileName": "colors.mp4"
+                  }
+                },
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'black' is __________.",
+                  "answerChoices": ["blanco", "negro", "verde"],
+                  "correctAnswer": "negro",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "fileName": ""
+                  }
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "sectionName": "Animals",
+          "lessons": [
+            {
+              "pointsEarned": 40,
+              "totalPoints": 60,
+              "coinValue": 20,
+              "lessonProgress": 0.7,
+              "topicDictionary": "",
+              "questions": [
+                {
+                  "questionType": "Matching",
+                  "question": "Match the following animals with their Spanish translations:",
+                  "answers": ["dog", "cat", "horse", "rabbit"],
+                  "answerChoices": ["perro", "gato", "caballo", "conejo"],
+                  "correctAnswer": {
+                    "dog": "perro",
+                    "cat": "gato",
+                    "horse": "caballo",
+                    "rabbit": "conejo"
+                  },
+                  "userAnswer": "",
+                  "pointValue": 20,
+                  "coinValue": 2,
+                  "media": {
+                    "name": "animals_song",
+                    "description": "Song about animals",
+                    "fileName": "animals.mp3"
+                  }
+                },
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'bird' is __________.",
+                  "answerChoices": ["pajaro", "pez", "leon"],
+                  "correctAnswer": "pajaro",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "fileName": ""
+                  }
+                }
+              ]
+            }
+          ]
+        },
+    
+        {
           "sectionName": "House",
           "lessons": [
             {
