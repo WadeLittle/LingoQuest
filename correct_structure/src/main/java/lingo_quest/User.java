@@ -76,6 +76,22 @@ public class User {
         this.currentLanguage = null;
     }
 
+    /**
+     * @author cade
+     * @param d
+     */
+    public void setUserDictionary(Dictionary d) {
+        this.userDictionary = d;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public Dictionary getUserDictionary() {
+        return this.userDictionary;
+    }
+
     public String sendReferralLink() {
 
         return "";
@@ -361,16 +377,13 @@ public class User {
      * @author Cade Stocker
      * setID method will take in a string, turn it into a UUID,
      * then will set it if there isn't already a UUID.
+     * 
+     * CHANGED TO SET THE ID REGARDLESS IF ONE ALREADY EXISTS
+     * NEEDED THIS CHANGE FOR DATALOADER
      * @param UUID
      */
     public void setID(UUID id) {
-        if(this.userID == null) {
-            this.userID = id;
-        }
-        else {
-            System.out.println("Attempting to add ID in user when Id "
-            + "already exists.");
-        }
+        this.userID = id;
     }
 
     /**

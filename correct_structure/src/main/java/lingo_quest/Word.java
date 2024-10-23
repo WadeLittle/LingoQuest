@@ -13,6 +13,7 @@ public class Word {
     private int timesCorrect;
     private double userUnderstanding;
     private Languages language;
+    private String englishVersion;
 
     /**
      * Default constructor that initializes the word and other fields to default
@@ -24,6 +25,7 @@ public class Word {
         this.timesCorrect = 0;
         this.userUnderstanding = 0.0;
         this.language = Languages.DEFAULT;
+        this.englishVersion = "";
     }
 
     /**
@@ -46,6 +48,22 @@ public class Word {
      */
     public void setWord(String word) {
         this.word = word;
+    }
+
+    /**
+     * @author cade
+     * @return englishWord
+     */
+    public String getEnglishVersion() {
+        return this.englishVersion;
+    }
+
+    /**
+     * @author
+     * @param englishWord
+     */
+    public void setEnglishVersion(String englishWord) {
+        this.englishVersion = englishWord;
     }
 
     /**

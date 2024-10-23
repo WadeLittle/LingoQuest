@@ -1,0 +1,120 @@
+{
+    "dictionaries": [
+        {
+            "words" : [
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 4,
+                    "word": "perro",
+                    "timesCorrect": 3,
+                    "userUnderstanding": 0.75,
+                    "englishVersion": "dog"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 8,
+                    "word": "manzana",
+                    "timesCorrect": 4,
+                    "userUnderstanding": 0.5,
+                    "englishVersion": "apple"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 6,
+                    "word": "gato",
+                    "timesCorrect": 5,
+                    "userUnderstanding": 0.83,
+                    "englishVersion": "cat"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 3,
+                    "word": "casa",
+                    "timesCorrect": 2,
+                    "userUnderstanding": 0.67,
+                    "englishVersion": "house"
+                }
+            ],
+            "numberOfWords" : 1,
+            "dictionaryID" : "b35befcc-767e-4a6d-8ad9-0a4c6cf52b8e"
+        },
+        {
+            "words" : [
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 5,
+                    "word": "agua",
+                    "timesCorrect": 3,
+                    "userUnderstanding": 0.6,
+                    "englishVersion": "water"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 7,
+                    "word": "mesa",
+                    "timesCorrect": 6,
+                    "userUnderstanding": 0.86,
+                    "englishVersion": "table"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 5,
+                    "word": "silla",
+                    "timesCorrect": 4,
+                    "userUnderstanding": 0.8,
+                    "englishVersion": "chair"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 6,
+                    "word": "pan",
+                    "timesCorrect": 4,
+                    "userUnderstanding": 0.67,
+                    "englishVersion": "bread"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 3,
+                    "word": "techo",
+                    "timesCorrect": 3,
+                    "userUnderstanding": 1.0,
+                    "englishVersion": "roof"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 4,
+                    "word": "puerta",
+                    "timesCorrect": 3,
+                    "userUnderstanding": 0.75,
+                    "englishVersion": "door"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 8,
+                    "word": "hola",
+                    "timesCorrect": 7,
+                    "userUnderstanding": 0.88,
+                    "englishVersion": "hello"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 7,
+                    "word": "adios",
+                    "timesCorrect": 5,
+                    "userUnderstanding": 0.71,
+                    "englishVersion": "goodbye"
+                },
+                {
+                    "language": "SPANISH",
+                    "timesPresented": 5,
+                    "word": "buenos tardes",
+                    "timesCorrect": 4,
+                    "userUnderstanding": 0.8,
+                    "englishVersion": "good afternoon"
+                }
+            ],
+            "numberOfWords" : 1,
+            "dictionaryID" : "eeaaed42-a1be-4477-bc7c-2f6f2be2993a"
+        }
+    ]
+}

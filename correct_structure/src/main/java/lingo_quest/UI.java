@@ -12,7 +12,7 @@ public class UI {
         String password = keyboard.nextLine();
         //Users users = Users.getInstance();
         lg.login(username,password);
-        //lg.getUser().setCoinsEarned(40);
+        lg.getUser().setCoinsEarned(40);
         //lg.logout();
 
     }
@@ -23,11 +23,23 @@ public class UI {
     }
 
     public static void createAccount() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter username you would like to use");
-        String username = keyboard.nextLine();
-        System.out.println("Enter password you would like to use");
-        String password = keyboard.nextLine();
+        String username;
+        String password;
+        boolean repeat = false;
+        do{
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("Enter username you would like to use");
+            username = keyboard.nextLine();
+            System.out.println("Enter password you would like to use");
+            password = keyboard.nextLine();
+            // Checking password and username length here to avoid crash
+            if(username.length() <= 8 || password.length() <= 8 || password.contains(" ")) {
+                repeat = true;
+                System.out.println("Invalid username or password");
+            }
+            else
+                repeat = false;
+        } while(repeat);
         lg.createUser(username, password);
     }
 
@@ -49,6 +61,10 @@ public class UI {
                         logout();
                     break;
                 case 3:
+                    if(lg.hasCurrentUser()) {
+                        System.out.println("Cannot create account when logged in.");
+                        break;
+                    }
                     createAccount();
                     break;
                 case 9:

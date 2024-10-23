@@ -1,6 +1,10 @@
 package lingo_quest;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+
+import javax.xml.crypto.Data;
 
 public class ItemShop {
     
@@ -82,12 +86,14 @@ public class ItemShop {
 
     /**
      * @author cade stocker
-     * @param list
-     * the list should be sent from the dataloader
+     * calls the dataloader
      */
-    public void loadItems(ArrayList<Item> list) {
-        for(Item item : list) {
-            items.add(item);
+    public void loadItems() {
+        try {
+            this.items = DataLoader.loadItemShop(DataLoader.getItemFile());
+        } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 

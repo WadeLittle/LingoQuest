@@ -63,10 +63,8 @@ public class LeaderBoard {
                 users.set(i).get(i+1);
                 users.set(i+1,i);
             }
-
         }
-    }
-       
+    }    
 }
 
     /**
