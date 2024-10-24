@@ -111,7 +111,9 @@ public class DataLoader {
 
         // Create and configure User object
         User user = createUser(userID, username, password, coinsEarned, coinBalance, friendsList, 
-                               items, null, wordObject.getWord(), languages, currentLanguage, dictionaryID);
+                               items, null, languages, currentLanguage, dictionaryID);
+
+        // Set the word of the day
         user.setWordOfTheDay(wordObject);
         users.add(user); // Add the fully created user to the list
     }
@@ -194,7 +196,7 @@ private static Languages mapLanguage(String language) {
 private static User createUser(String userID, String username, String password, 
                                long coinsEarned, long coinBalance, ArrayList<String> friendsList,
                                ArrayList<Item> items, HashMap<Languages, Double> userProgress,
-                               String wordOfTheDay, ArrayList<String> languages, 
+                               ArrayList<String> languages, 
                                String currentLanguage, String dictionaryID) {
 
     User user = new User(username, password);
@@ -210,7 +212,8 @@ private static User createUser(String userID, String username, String password,
     user.setItems(items);
 
     user.setUserProgress(userProgress);
-    user.setWordOfTheDay(new Word(wordOfTheDay));
+    // Decided to handle word of the day in the loadUser class
+    //user.setWordOfTheDay(wordOfTheDay);
 
     ArrayList<UUID> languagesUUID = new ArrayList<>();
     for (String lang : languages) {
@@ -290,7 +293,9 @@ private static User createUser(String userID, String username, String password,
             double userUnderstanding = (double) wordJson.get("userUnderstanding");
 
             // Create and configure User object
-            Word createdWord = new Word(word);
+            Word createdWord = new Word();
+            // Had to change this because constructor for word was changed
+            createdWord.setWord(word);
             createdWord.setTimesCorrect((int)timesCorrect);
             createdWord.setTimesPresented((int)timesPresented);
             createdWord.setUserUnderstanding(userUnderstanding);
