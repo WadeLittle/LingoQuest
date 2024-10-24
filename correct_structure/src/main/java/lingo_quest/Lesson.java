@@ -24,7 +24,7 @@ public class Lesson {
     }
 
     public void updateProgress() {
-        this.lessonProgress = this.pointsEarned/this.totalPoints;
+         this.lessonProgress = this.pointsEarned/this.totalPoints;
     }
 
     public Lesson(UUID languageUUID, String lessonName, UUID lessonUUID) {

@@ -13,10 +13,6 @@ class LanguageGame {
     private Language currentLanguage;
     private LanguageManager languageManager;
     private LeaderBoard leaderboard;
-    private Section currentSection;
-    private Lesson currentLesson;
-    private Word userAnswer;
-
 
     // test comment
     public LanguageGame() {
@@ -179,15 +175,16 @@ class LanguageGame {
     }
 
     public void pickALanguage(Language language) {
-       this.currentLanguage = language;
+        user.currentLanguage = language;
     }
 
     public void pickASection(Section section) {
-        this.currentSection = section;
+        user.currentSection = section;
     }
     public void pickALesson(Lesson lesson) {
-        this.currentLesson = lesson;
+        user.currentLesson = lesson;
     }
+
 
 
 }

@@ -55,6 +55,9 @@ public class Word {
         this.lessonUUID = lessonUUID;
         this.wordUUID = wordUUID;
     }
+    public UUID getWordUUID() {
+        return this.wordUUID;
+    }
 
     /**
      * Sets the word.
@@ -139,16 +142,20 @@ public class Word {
      * @param correct a boolean indicating whether the user's response was correct
      */
     public void wordPresented(boolean correct) {
-        updateTimesPresented(); // Increment times presented
+        updateTimesPresented();
+    
         if (correct) {
-            points +=100;
+           
+            points = Math.min(points + 100, 400); 
             System.out.println("You are correct");
-            updateTimesCorrect(); // Increment times correct if answered correctly
+            updateTimesCorrect(); 
         } else {
-            points-=100;
+           
+            points = Math.max(points - 100, 0);
             System.out.println("You are incorrect");
         }
-        updateUserUnderstanding(); // Update user understanding
+    
+        updateUserUnderstanding(); 
     }
 
     /**
@@ -220,7 +227,6 @@ public class Word {
     public void setLanguage(Languages language) {
         this.language = language;
     }
-
     /*public void toString() {
         System.out.println(this.word+ " "+this.timesCorrect+ " "+
         this.timesPresented+ " "+ this.userUnderstanding);

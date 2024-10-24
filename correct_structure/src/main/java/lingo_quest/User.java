@@ -24,7 +24,9 @@ public class User {
     private ArrayList<UUID> languages;
 
     // Changed this to Languages so that we can just use the enum we made - cade
-    public Languages currentLanguage;
+    public Language currentLanguage;
+    public Section currentSection;
+    public Lesson currentLesson;
 
     /**
      * @author Wade Little

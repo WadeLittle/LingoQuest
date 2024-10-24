@@ -188,6 +188,15 @@ class Dictionary {
         return null;
     }
 
+    public Word getWordByUUID(UUID uuid) {
+        for (Word w : this.words) {
+            if (w.getWordUUID().equals(uuid)) {
+                return w;  
+            }
+        }
+        return null;  
+    }
+
 
     /*
     /**

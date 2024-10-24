@@ -40,7 +40,7 @@ public class MultipleChoice extends Question  {
         }
         return result.toString();
     }
-    public boolean isCorrect(String userInput) {
+    public boolean isCorrect(String userInput, User user) {
         if(userInput.equals(this.correctAnswerIndex)) {
             correctAnswer.wordPresented(true);
             return true;
