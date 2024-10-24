@@ -11,6 +11,7 @@ public class Lesson {
     private ArrayList<Word> topicWords;
     private String lessonName;
     private UUID lessonUUID;
+    public Question currentQuestion;
 
     public Lesson() {
         languageUUID = null;
@@ -38,6 +39,9 @@ public class Lesson {
 
     public int getTotalPoints() {
         return topicWords.size() * 300; 
+    }
+    public int getPointsEarned() {
+        return pointsEarned;
     }
 
     public void awardForCompletion(User user) {

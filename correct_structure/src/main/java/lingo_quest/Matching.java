@@ -13,11 +13,12 @@ public class Matching extends Question {
     public Matching(ArrayList<Word> answerChoices,) {
         
     }
-    public boolean isCorrect(String languageWord, String englishWord) {
+    public boolean isCorrect(Word languageWord, Word englishWord) {
         words.get(2).getEnglishVersion()
     }
 
-    public void display() {
-
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("Match the following words")
     }
 }
