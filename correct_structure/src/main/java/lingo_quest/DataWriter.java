@@ -18,13 +18,18 @@ class DataWriter {
     public static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
     public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
     public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
+    public static String dictionaryFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Dictionaries.json";
 
-/**
+    /**
      * @author cade
      * @return file path
      */
     public static String getUserFile() {
         return userFile;
+    }
+
+    public static String getDictionaryFile() {
+        return dictionaryFile;
     }
 
     /**
@@ -319,4 +324,57 @@ class DataWriter {
             }
         }
     }
+
+    public static void writeLanguages(ArrayList<Language> languages, String file) {
+        JSONArray langArray = new JSONArray();
+        for(Language l : languages) {
+
+        }
+    }
+
+    /**
+     * @author cade
+     * @param dictionaries
+     * @param file
+     */
+    public static void writeDictionaries(ArrayList<Dictionary> dictionaries, String file) {
+        // make the object that holds the whole file's content
+        JSONObject root = new JSONObject();
+        // make an array to hold each dictionary
+        JSONArray jsonDictionaries = new JSONArray();
+        // turn each dictionary into an object and add to array
+        for(Dictionary d : dictionaries) {
+            jsonDictionaries.add(serializeDictionary(d));
+        }
+        // put the array in root
+        root.put("dictionaries", jsonDictionaries);
+        // write to the file
+        try (FileWriter writer = new FileWriter(file)) {
+            writer.write(root.toJSONString());
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * @author cade
+     * @param d
+     * @return the dictionary jsonobject
+     */
+    public static JSONObject serializeDictionary(Dictionary d) {
+        // dictionary object
+        JSONObject root = new JSONObject();
+        // array of words
+        JSONArray wordArray = new JSONArray();
+        // make each word into jsonobject then add to array
+        for(Word w : d.getWords()) {
+            JSONObject obj = serializeWord(w);
+            wordArray.add(obj);
+        }
+        // put the array into the dictionary object
+        root.put("words",wordArray);
+        return root;
+    }
+
 }

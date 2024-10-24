@@ -20,7 +20,7 @@ public class LanguageManager {
 
     // THIS PROBABLY ISN'T RIGHT AND SHOULD BE FIXED
     public void setCurrentLangauge(Language language) {
-        this.currentLanguage = getLanguageByID(language.getUUID());
+        this.currentLanguage = getLanguageByID(language.getLanguageID());
     }
 
 
@@ -72,7 +72,7 @@ public class LanguageManager {
     public Language getLanguageByID(UUID id) {
         if(this.languages != null) {
             for(Language l : languages) {
-                if(l.getUUID().equals(id))
+                if(l.getLanguageID().equals(id))
                     return l;
             }
             System.out.println("Language not found.");
