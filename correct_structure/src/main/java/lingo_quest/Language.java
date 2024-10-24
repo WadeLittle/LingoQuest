@@ -6,6 +6,7 @@ import java.util.UUID;
 
 public class Language {
     private User user;
+    private UUID userID;
     private UUID languageID;
     private PlacementTest placementTest;
     private int pointsEarned;
@@ -63,7 +64,7 @@ public class Language {
      * UUID will be used to access the user who owns this object of language
      * UUID should be used to find the user in the Users class
      */
-    public void setUUID(UUID id) {
+    public void setLanguageID(UUID id) {
         this.languageID = id;
     }
 
@@ -80,6 +81,22 @@ public class Language {
     }
 
     /**
+     * @author cade
+     * @param id
+     */
+    public void setUserID(UUID id) {
+        this.userID = id;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public UUID getUserID() {
+        return this.userID;
+    }
+
+    /**
      * @author Cade
      * @param points
      */
@@ -92,7 +109,7 @@ public class Language {
      * @return String of the Language's UUID
      * UUID is the unique identifier of this object of language
      */
-    public UUID getUUID() {
+    public UUID getLanguageID() {
         return this.languageID;
     }
 
@@ -120,6 +137,10 @@ public class Language {
     public double getProgress() {
         this.updateProgress();
         return this.progress;
+    }
+
+    public User getUser() {
+        return this.user;
     }
 
     /**

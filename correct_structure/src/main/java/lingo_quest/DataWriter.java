@@ -177,6 +177,7 @@ class DataWriter {
             wordJson.put("word", word.getWord());
             wordJson.put("timesCorrect", word.getTimesCorrect());
             wordJson.put("userUnderstanding", word.getUserUnderstanding());
+            wordJson.put("englishVersion", word.getEnglishVersion());
         }
         return wordJson;
     }

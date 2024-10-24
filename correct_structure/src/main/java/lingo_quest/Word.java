@@ -1,5 +1,7 @@
 package lingo_quest;
 
+import java.util.UUID;
+
 /**
  * The {@code Word} class represents a word and tracks how many times it has
  * been presented and answered correctly by a user. It also calculates the
@@ -13,6 +15,9 @@ public class Word {
     private int timesCorrect;
     private double userUnderstanding;
     private Languages language;
+    private String englishVersion;
+    private UUID wordUUID;
+    private UUID lessonUUID;
 
     /**
      * Default constructor that initializes the word and other fields to default
@@ -24,19 +29,28 @@ public class Word {
         this.timesCorrect = 0;
         this.userUnderstanding = 0.0;
         this.language = Languages.DEFAULT;
+        this.englishVersion = "";
+        this.wordUUID = UUID.randomUUID();
+        this.lessonUUID = UUID.randomUUID();
     }
 
-    /**
-     * Constructor that initializes the word and sets other fields to default
-     * values.
-     * 
-     * @param word the word to initialize
-     */
-    public Word(String word) {
+/**
+ * Is the paramaterized constructor and sets default values as well as the items being read in from the JSON file
+ * @param language The language that this word is a part of
+ * @param word The word in string format 
+ * @param englishVersion The english translation of the word
+ * @param lessonUUID The UUID for the lesson this word is related to
+ * @param wordUUID The words UUID (mostly used for matching)
+ */
+    public Word(Languages language, String word, String englishVersion, UUID lessonUUID, UUID wordUUID) {
+        this.language = language;
         this.word = word;
+        this.englishVersion = englishVersion;
         this.timesPresented = 0;
         this.timesCorrect = 0;
         this.userUnderstanding = 0.0;
+        this.lessonUUID = lessonUUID;
+        this.wordUUID = wordUUID;
     }
 
     /**
@@ -46,6 +60,22 @@ public class Word {
      */
     public void setWord(String word) {
         this.word = word;
+    }
+
+    /**
+     * @author cade
+     * @return englishWord
+     */
+    public String getEnglishVersion() {
+        return this.englishVersion;
+    }
+
+    /**
+     * @author
+     * @param englishWord
+     */
+    public void setEnglishVersion(String englishWord) {
+        this.englishVersion = englishWord;
     }
 
     /**
@@ -108,7 +138,10 @@ public class Word {
     public void wordPresented(boolean correct) {
         updateTimesPresented(); // Increment times presented
         if (correct) {
+            System.out.println("You are correct");
             updateTimesCorrect(); // Increment times correct if answered correctly
+        } else {
+            System.out.println("You are incorrect");
         }
         updateUserUnderstanding(); // Update user understanding
     }
@@ -155,9 +188,10 @@ public class Word {
      * 
      * @return the word
      */
-    public String getWord() {
+    public String getWordinLanguage() {
         return this.word;
     }
+
 
     /**
      * Compares this word to another word, ignoring case.

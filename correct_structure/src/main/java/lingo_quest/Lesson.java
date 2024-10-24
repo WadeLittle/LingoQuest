@@ -3,12 +3,14 @@ package lingo_quest;
 import java.util.ArrayList;
 
 public class Lesson {
+    private Languages language;
     private int pointsEarned;
     private int totalPoints;
     private int coinValue;
     private double lessonProgress;
     private Dictionary topicDictionary;
     private ArrayList<Question> questions;
+    private int questionNum;
 
     public Lesson() {
 
@@ -25,15 +27,19 @@ public class Lesson {
     public void awardForCompletion(User user) {
 
     }
+    public String getLanguageName() {
+        return language.toString().toLowerCase();
+    }
     /**
      * @author Wade Little
      * Gets the question at the specified question number from the questions list
      * @param questionNum The question number you want to get
      * @return A question
      */
-    public Question getQuestion(int questionNum) {
-
-        return questions.get(questionNum);
+    public Question getQuestion() {
+        Question question = questions.get(questionNum);
+        this.questionNum++;
+        return question;
     }
 
     public void halfwayCompleteReward() {
@@ -89,6 +95,21 @@ public class Lesson {
     public double getLessonProgress(){
         this.updateProgress();
         return this.lessonProgress;
+    }
+
+    /**
+     * Creates a question from the list of words
+     * @return
+     */
+    public Question createQuestion() {
+
+    }
+    /**
+     * NOT SURE
+     * @return
+     */
+    public String presentQuestion(Question question) {
+
     }
 }
 

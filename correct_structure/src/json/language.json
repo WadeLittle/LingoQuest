@@ -1,8 +1,9 @@
 {
   "Spanish": 
     {
+      "languageID": "b2657c2b-56ef-45b1-a794-97eda7a32bd4",
       "User": {
-        "userID": "550e8400-e29b-41d4-a716-446655440000"
+        "userID": "123e4567-e89b-12d3-a456-426614174000"
       },
       "PlacementTest": "95de287a-d432-4c4f-baba-edfac664f74c",
       "pointsEarned": 300,
@@ -18,27 +19,7 @@
               "totalPoints": 50,
               "coinValue": 15,
               "lessonProgress": 0.6,
-              "topicDictionary": {
-                "fromEnglish": {
-                  "watermelon": "sandia",
-                  "grape": "uva",
-                  "orange": "naranja",
-                  "strawberry": "fresa",
-                  "bread": "pan",
-                  "cheese": "queso",
-                  "ham": "jamon"
-                },
-                "toEnglish": {
-                  "sandia": "watermelon",
-                  "uva": "grape",
-                  "naranja": "orange",
-                  "fresa": "strawberry",
-                  "pan": "bread",
-                  "queso": "cheese",
-                  "jamon": "ham"
-                },
-                "numberOfWords": 7
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "Matching",
@@ -86,21 +67,7 @@
               "totalPoints": 50,
               "coinValue": 10,
               "lessonProgress": 0.4,
-              "topicDictionary": {
-                "fromEnglish": {
-                  "cat": "gato",
-                  "dog": "perro",
-                  "bird": "pajaro",
-                  "fish": "pez"
-                },
-                "toEnglish": {
-                  "gato": "cat",
-                  "perro": "dog",
-                  "pajaro": "bird",
-                  "pez": "fish"
-                },
-                "numberOfWords": 4
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "MultipleChoice",
@@ -141,6 +108,152 @@
           "sectionComplete": false
         },
         {
+          "sectionName": "Transportation",
+          "lessons": [
+            {
+              "pointsEarned": 35,
+              "totalPoints": 50,
+              "coinValue": 15,
+              "lessonProgress": 0.7,
+              "topicDictionary": "",
+              "questions": [
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'car' is __________.",
+                  "answerChoices": ["carro", "bicicleta", "avion"],
+                  "correctAnswer": "carro",
+                  "userAnswer": "",
+                  "pointValue": 15,
+                  "coinValue": 2,
+                  "media": {
+                    "name": "car_book",
+                    "description": "Book about cars",
+                    "fileName": "cars.pdf"
+                  }
+                },
+                {
+                  "questionType": "Matching",
+                  "question": "Match the following transportation modes with their Spanish translations:",
+                  "answers": ["bus", "train", "plane", "boat"],
+                  "answerChoices": ["autobus", "tren", "avion", "barco"],
+                  "correctAnswer": {
+                    "bus": "autobus",
+                    "train": "tren",
+                    "plane": "avion",
+                    "boat": "barco"
+                  },
+                  "userAnswer": "",
+                  "pointValue": 20,
+                  "coinValue": 3,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "fileName": ""
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionName": "Colors",
+          "lessons": [
+            {
+              "pointsEarned": 45,
+              "totalPoints": 60,
+              "coinValue": 18,
+              "lessonProgress": 0.75,
+              "topicDictionary": "",
+              "questions": [
+                {
+                  "questionType": "Matching",
+                  "question": "Match the following colors with their translations:",
+                  "answers": ["red", "blue", "green", "yellow"],
+                  "answerChoices": ["rojo", "azul", "verde", "amarillo"],
+                  "correctAnswer": {
+                    "red": "rojo",
+                    "blue": "azul",
+                    "green": "verde",
+                    "yellow": "amarillo"
+                  },
+                  "userAnswer": "",
+                  "pointValue": 20,
+                  "coinValue": 2,
+                  "media": {
+                    "name": "colors_video",
+                    "description": "Video about colors",
+                    "fileName": "colors.mp4"
+                  }
+                },
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'black' is __________.",
+                  "answerChoices": ["blanco", "negro", "verde"],
+                  "correctAnswer": "negro",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "fileName": ""
+                  }
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "sectionName": "Animals",
+          "lessons": [
+            {
+              "pointsEarned": 40,
+              "totalPoints": 60,
+              "coinValue": 20,
+              "lessonProgress": 0.7,
+              "topicDictionary": "",
+              "questions": [
+                {
+                  "questionType": "Matching",
+                  "question": "Match the following animals with their Spanish translations:",
+                  "answers": ["dog", "cat", "horse", "rabbit"],
+                  "answerChoices": ["perro", "gato", "caballo", "conejo"],
+                  "correctAnswer": {
+                    "dog": "perro",
+                    "cat": "gato",
+                    "horse": "caballo",
+                    "rabbit": "conejo"
+                  },
+                  "userAnswer": "",
+                  "pointValue": 20,
+                  "coinValue": 2,
+                  "media": {
+                    "name": "animals_song",
+                    "description": "Song about animals",
+                    "fileName": "animals.mp3"
+                  }
+                },
+                {
+                  "questionType": "MultipleChoice",
+                  "question": "The Spanish word for 'bird' is __________.",
+                  "answerChoices": ["pajaro", "pez", "leon"],
+                  "correctAnswer": "pajaro",
+                  "userAnswer": "",
+                  "pointValue": 10,
+                  "coinValue": 1,
+                  "media": {
+                    "name": "",
+                    "description": "",
+                    "fileName": ""
+                  }
+                }
+              ]
+            }
+          ]
+        },
+    
+        {
           "sectionName": "House",
           "lessons": [
             {
@@ -148,21 +261,7 @@
               "totalPoints": 40,
               "coinValue": 12,
               "lessonProgress": 0.5,
-              "topicDictionary": {
-                "fromEnglish": {
-                  "house": "casa",
-                  "window": "ventana",
-                  "door": "puerta",
-                  "roof": "techo"
-                },
-                "toEnglish": {
-                  "casa": "house",
-                  "ventana": "window",
-                  "puerta": "door",
-                  "techo": "roof"
-                },
-                "numberOfWords": 4
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "MultipleChoice",
@@ -199,21 +298,7 @@
               "totalPoints": 30,
               "coinValue": 8,
               "lessonProgress": 0.3,
-              "topicDictionary": {
-                "fromEnglish": {
-                  "table": "mesa",
-                  "chair": "silla",
-                  "lamp": "lampara",
-                  "bed": "cama"
-                },
-                "toEnglish": {
-                  "mesa": "table",
-                  "silla": "chair",
-                  "lampara": "lamp",
-                  "cama": "bed"
-                },
-                "numberOfWords": 4
-              },
+              "topicDictionary": "",
               "questions": [
                 {
                   "questionType": "MultipleChoice",
@@ -261,57 +346,7 @@
           "sectionComplete": false
         }
       ],
-      "dictionary": {
-        "fromEnglish": {
-          "hello": "hola",
-          "goodbye": "adios",
-          "good afternoon": "buenos tardes",
-          "watermelon": "sandia",
-          "grape": "uva",
-          "orange": "naranja",
-          "strawberry": "fresa",
-          "bread": "pan",
-          "cheese": "queso",
-          "ham": "jamon",
-          "cat": "gato",
-          "dog": "perro",
-          "bird": "pajaro",
-          "fish": "pez",
-          "house": "casa",
-          "window": "ventana",
-          "door": "puerta",
-          "roof": "techo",
-          "table": "mesa",
-          "chair": "silla",
-          "lamp": "lampara",
-          "bed": "cama"
-        },
-        "toEnglish": {
-          "hola": "hello",
-          "adios": "goodbye",
-          "buenos tardes": "good afternoon",
-          "sandia": "watermelon",
-          "uva": "grape",
-          "naranja": "orange",
-          "fresa": "strawberry",
-          "pan": "bread",
-          "queso": "cheese",
-          "jamon": "ham",
-          "gato": "cat",
-          "perro": "dog",
-          "pajaro": "bird",
-          "pez": "fish",
-          "casa": "house",
-          "ventana": "window",
-          "puerta": "door",
-          "techo": "roof",
-          "mesa": "table",
-          "silla": "chair",
-          "lampara": "lamp",
-          "cama": "bed"
-        },
-        "numberOfWords": 26
-      },
+      "dictionary": "",
       "answerStreak": 7,
       "languageName": "SPANISH",
       "sectionsComplete": ["Section1"],
@@ -319,6 +354,7 @@
         "Section1": true,
         "Section2": false
       }
+
     }
   
 }

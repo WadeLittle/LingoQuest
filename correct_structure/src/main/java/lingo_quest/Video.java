@@ -18,7 +18,7 @@ import javafx.application.Platform;
  * 
  * @author Alok Patel
  */
-public class Video {
+public class Video extends Media{
     private File video;
     private String description;
     private String name;

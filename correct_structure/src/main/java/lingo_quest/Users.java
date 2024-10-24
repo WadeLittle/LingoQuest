@@ -1,6 +1,7 @@
 package lingo_quest;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -57,6 +58,24 @@ public class Users {
         System.out.println("Invalid Username or Password");
         return null;
     }
+
+    /**
+     * @author cade
+     * @return the list of users
+     */
+    public ArrayList<User> getUsers() {
+        return this.users;
+    }
+
+    /**
+     * @author cade
+     * @param user list
+     */
+    public void setUsers(ArrayList<User> u) {
+        this.users = u;
+    }
+
+
    /**
     * @author Wade Little
     * Searches through the userlist for the specified UUID
@@ -65,6 +84,7 @@ public class Users {
     */
     public User getUserByUUID(UUID userId) {
         for(User user : users) {
+            //System.out.println("TESTSTSTSTT " + user.getUUID());
             if(user.getUUID().equals(userId)) {
                 return user;
             }
@@ -123,6 +143,13 @@ public class Users {
         if(this.users != null)
             try {
                 this.users = DataLoader.loadUsers(DataLoader.getUserFile());
+                for(User u : this.users) {
+                    // the user's dicionary has been loaded into dictionaryManager already, but this will assign the object to the user
+                    //u.setUserDictionary(DictionaryManager.getInstance().getDictionaryByID(u.getUserDictionaryID()));
+                    UUID dictionaryID = u.getUserDictionaryID();
+                    Dictionary d = DictionaryManager.getInstance().getDictionaryByID(dictionaryID);
+                    u.setUserDictionary(d);
+                }
             } catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

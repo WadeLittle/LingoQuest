@@ -7,6 +7,7 @@ import java.util.UUID;
 public class User {
     public UUID userID;
     private Dictionary userDictionary;
+    private UUID userDictionaryID;
     private int coinsEarned;
     private int coinBalance;
 
@@ -39,6 +40,7 @@ public class User {
     public User() {
         userID = Users.getInstance().generateUUID();
         userDictionary = new Dictionary();
+        userDictionaryID = userDictionary.getID();
         coinsEarned = 0;
         coinBalance = 0;
         friendsList = new ArrayList<UUID>();
@@ -65,6 +67,7 @@ public class User {
         // If validation passes, initialize remaining fields
         this.userID = Users.getInstance().generateUUID();
         this.userDictionary = new Dictionary();
+        this.userDictionaryID = this.userDictionary.getID();
         this.coinsEarned = 0;
         this.coinBalance = 0;
         this.friendsList = new ArrayList<>();
@@ -74,6 +77,43 @@ public class User {
         this.wordOfTheDay = null;
         this.languages = new ArrayList<>();
         this.currentLanguage = null;
+    }
+
+    /**
+     * @author cade
+     * @param d
+     */
+    public void setUserDictionary(Dictionary d) {
+        if(d != null) {
+            this.userDictionary = d;
+            this.userDictionaryID = d.getID();
+            return;
+        }
+        System.out.println("null dictionary attempted to be added setUserDictionary in User.java");
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public Dictionary getUserDictionary() {
+        return this.userDictionary;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public UUID getUserDictionaryID() {
+        return this.userDictionaryID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setUserDictionaryID(UUID id) {
+        this.userDictionaryID = id;
     }
 
     public String sendReferralLink() {
@@ -361,16 +401,13 @@ public class User {
      * @author Cade Stocker
      * setID method will take in a string, turn it into a UUID,
      * then will set it if there isn't already a UUID.
+     * 
+     * CHANGED TO SET THE ID REGARDLESS IF ONE ALREADY EXISTS
+     * NEEDED THIS CHANGE FOR DATALOADER
      * @param UUID
      */
     public void setID(UUID id) {
-        if(this.userID == null) {
-            this.userID = id;
-        }
-        else {
-            System.out.println("Attempting to add ID in user when Id "
-            + "already exists.");
-        }
+        this.userID = id;
     }
 
     /**
@@ -387,11 +424,12 @@ public class User {
      * used for dataloader purposes
      */
     public void setFriendsList(ArrayList<String> list) {
-        ArrayList<User> friends = new ArrayList<User>();
+        ArrayList<UUID> friends = new ArrayList<UUID>();
         for (String friend : list) {
             UUID friendID = UUID.fromString(friend);
-            User u = Users.getInstance().getUserByUUID(friendID);
-            friends.add(u);
+            //User u = Users.getInstance().getUserByUUID(friendID); // causing error (reading friends before all users loaded in)
+            //friends.add(u);
+            friends.add(friendID);
         }
     }
 

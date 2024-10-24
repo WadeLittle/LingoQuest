@@ -3,15 +3,21 @@ package lingo_quest;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Matching {
+public class Matching extends Question {
     
-    private HashMap<Word, Word> answers;
+    ArrayList<Word> words;
+    // ArrayList<String> englishWords;
+    // ArrayList<String> languageWords;
 
-    public Matching() {
 
+    public Matching(ArrayList<Word> answerChoices,) {
+        
+    }
+    public boolean isCorrect(String languageWord, String englishWord) {
+        words.get(2).getEnglishVersion()
     }
 
-    public Matching(ArrayList<Word> englishWords, ArrayList<Word> otherLanguageWords) {
-        
+    public void display() {
+
     }
 }
