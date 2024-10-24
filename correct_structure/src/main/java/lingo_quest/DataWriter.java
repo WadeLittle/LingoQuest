@@ -14,7 +14,7 @@ class DataWriter {
     private ItemShop itemShop;
     private Users users;
     private LanguageManager languageManager;
-    public static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/usertest.json";
+    public static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json";
     public static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
     public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
     public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
@@ -104,12 +104,13 @@ class DataWriter {
 
         // Items
         JSONArray itemsArray = new JSONArray();
-        for (Item item : user.getItems()) {
-            JSONObject itemJson = new JSONObject();
-            itemJson.put("name", item.getName());
-            itemJson.put("description", item.getDescription());
-            itemJson.put("price", item.getPrice());
-            itemsArray.add(itemJson);
+        for (UUID item : user.getItems()) {
+            itemsArray.add(item.toString());
+            //JSONObject itemJson = new JSONObject();
+            //itemJson.put("name", item.getName());
+            //itemJson.put("description", item.getDescription());
+            //itemJson.put("price", item.getPrice());
+            //itemsArray.add(itemJson);
         }
         userJson.put("items", itemsArray);
 

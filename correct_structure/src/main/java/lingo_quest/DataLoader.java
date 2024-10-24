@@ -12,6 +12,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.google.gson.JsonArray;
+
 public class DataLoader {
     public static ItemShop itemShop = ItemShop.getInstance();
     public static Users userList = Users.getInstance();
@@ -95,7 +97,8 @@ public class DataLoader {
 
         // Extract lists from JSON
         ArrayList<String> friendsList = extractStringList((JSONArray) userJson.get("friendsList"));
-        ArrayList<Item> items = extractItems((JSONArray) userJson.get("items"));
+        JSONArray itemsArray = (JSONArray) userJson.get("items");
+        ArrayList<String> items = extractStringList(((JSONArray) userJson.get("items")));
 
         // Make the word of the day
         Word wordObject = new Word();
@@ -195,7 +198,7 @@ private static Languages mapLanguage(String language) {
  */
 private static User createUser(String userID, String username, String password, 
                                long coinsEarned, long coinBalance, ArrayList<String> friendsList,
-                               ArrayList<Item> items, HashMap<Languages, Double> userProgress,
+                               ArrayList<String> items, HashMap<Languages, Double> userProgress,
                                ArrayList<String> languages, 
                                String currentLanguage, String dictionaryID) {
 
@@ -209,7 +212,11 @@ private static User createUser(String userID, String username, String password,
     user.setFriendsList(friendsList);
 
     // want to change this to load items by UUIDs TODO
-    user.setItems(items);
+    ArrayList<UUID> finalItems = new ArrayList();
+    for(String s : items) {
+        finalItems.add(UUID.fromString(s));
+    }
+    user.setItems(finalItems);
 
     user.setUserProgress(userProgress);
     // Decided to handle word of the day in the loadUser class

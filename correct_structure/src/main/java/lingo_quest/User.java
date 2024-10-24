@@ -15,7 +15,8 @@ public class User {
     private ArrayList<UUID> friendsList;
     private String username;
     private String password;
-    private ArrayList<Item> items;
+    // changed to UUID - cade (please dont change)
+    private ArrayList<UUID> items;
     private ArrayList<Lesson> bookmarkedLessons;
 
     // Changed userProgress key to Languages (enum) - cade
@@ -46,7 +47,7 @@ public class User {
         friendsList = new ArrayList<UUID>();
         username = null;
         password = null;
-        items = new ArrayList<Item>();
+        items = new ArrayList<UUID>();
         bookmarkedLessons = new ArrayList<Lesson>();
         userProgress = new HashMap<Languages, Double>();
         wordOfTheDay = null;
@@ -170,7 +171,7 @@ public class User {
         return coinBalance;
     }
 
-    public ArrayList<Item> getItems() {
+    public ArrayList<UUID> getItems() {
         return this.items;
     }
 
@@ -350,8 +351,11 @@ public class User {
      *         This method allows us to see if a user has already purchased an item,
      *         and removes
      *         the need for the "owned" variable inside of class Item
+     * 
+     * 
+     * CHANGED TO WORK WITH UUID - 10/24
      */
-    public boolean ownsItem(Item item) {
+    public boolean ownsItem(UUID item) {
         return items.contains(item);
     }
     /**
@@ -360,17 +364,17 @@ public class User {
      * @param item The item the user wants to purchase
      * @return true if the user successfully buys the item, false if they already own it or they don't have enough coins to purchase it
      */
-    public boolean buyItem(Item item) {
+    public boolean buyItem(UUID itemID) {
         synchronized(this) {
-            if(this.ownsItem(item)) {
+            if(this.ownsItem(itemID)) {
                 System.out.println("User already owns this item");
                 return false;
-            } else if(item.getPrice() > this.coinBalance) {
+            } else if(ItemShop.getInstance().getItemByID(itemID).getPrice() > this.coinBalance) {
                 System.out.println("You don't have enough coins to purchase this item.");
                 return false;
             }else {
-                this.coinBalance -= item.getPrice();
-                this.items.add(item);
+                this.coinBalance -= ItemShop.getInstance().getItemByID(itemID).getPrice();
+                this.items.add(itemID);
                 return true;
             }
         }
@@ -442,7 +446,7 @@ public class User {
      * @param ArrayList<Item>
      * used for dataloader
      */
-    public void setItems(ArrayList<Item> items) {
+    public void setItems(ArrayList<UUID> items) {
         if(items != null)
             this.items = items;
     }
