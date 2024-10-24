@@ -178,10 +178,15 @@ class LanguageGame {
         itemShop.displayItemShop();;
     }
 
-    public Lan
+    public void pickALanguage(Language language) {
+       this.currentLanguage = language;
+    }
 
-    public void pickASection() {
-
+    public void pickASection(Section section) {
+        this.currentSection = section;
+    }
+    public void pickALesson(Lesson lesson) {
+        this.currentLesson = lesson;
     }
 
 
