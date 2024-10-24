@@ -34,6 +34,10 @@ class LanguageGame {
             System.out.println("Someone is already logged in");
             return;
         }
+        if(this.userList.containsUsername(username)) {
+            System.out.println("Username already exists.");
+            return;
+        }
         User createdUser = new User(username,password);
         this.user = createdUser;
         userList.createUser(username, password);

@@ -102,6 +102,8 @@ class DataWriter {
         }
         userJson.put("friendsList", friendsArray);
 
+        userJson.put("dictionaryID", user.getUserDictionaryID().toString());
+
         // Items
         JSONArray itemsArray = new JSONArray();
         for (UUID item : user.getItems()) {
