@@ -92,5 +92,20 @@ public class Lesson {
         this.updateProgress();
         return this.lessonProgress;
     }
+
+    /**
+     * Creates a question from the list of words
+     * @return
+     */
+    public Question createQuestion() {
+
+    }
+    /**
+     * NOT SURE
+     * @return
+     */
+    public String presentQuestion(Question question) {
+
+    }
 }
 

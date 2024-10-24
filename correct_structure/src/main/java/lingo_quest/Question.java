@@ -27,7 +27,7 @@ public class Question {
      */
     public Question() {
         this.pointValue = 0;
-        this.coinValue = 0;
+        this.coinValue = 100;
         this.question = "";
         this.answerChoices = new ArrayList<>();
         this.correctAnswer = null;
