@@ -167,6 +167,8 @@ private static ArrayList<Item> extractItems(JSONArray itemsJson) {
  * helper method
  */
 private static Languages mapLanguage(String language) {
+    if(language == null)
+        return Languages.DEFAULT;
     language = language.toLowerCase();
     switch (language) {
         case "spanish": return Languages.SPANISH;
