@@ -1,27 +1,33 @@
 package lingo_quest;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Lesson {
-    private Languages language;
+    private UUID languageUUID;
     private int pointsEarned;
     private int totalPoints;
-    private int coinValue;
     private double lessonProgress;
-    private Dictionary topicDictionary;
-    private ArrayList<Question> questions;
-    private int questionNum;
+    private ArrayList<Word> topicWords;
+    private String lessonName;
+    private UUID lessonUUID;
 
     public Lesson() {
-
+        languageUUID = null;
+        pointsEarned =0;
+        totalPoints =0;
+        lessonProgress = 0;
+        topicWords = null;
+        lessonName = "";
+        lessonUUID = null;
     }
 
     public void updateProgress() {
         this.lessonProgress = this.pointsEarned/this.totalPoints;
     }
 
-    public Lesson(int coinValue, int totalPoints) {
-
+    public Lesson(UUID languageUuid, String lessonName, String lessonUUID) {
+        
     }
 
     public void awardForCompletion(User user) {
