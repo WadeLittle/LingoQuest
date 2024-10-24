@@ -1,5 +1,7 @@
 package lingo_quest;
 
+import java.util.UUID;
+
 /**
  * The {@code Word} class represents a word and tracks how many times it has
  * been presented and answered correctly by a user. It also calculates the
@@ -14,6 +16,8 @@ public class Word {
     private double userUnderstanding;
     private Languages language;
     private String englishVersion;
+    private UUID wordUUID;
+    private UUID lessonUUID;
 
     /**
      * Default constructor that initializes the word and other fields to default
