@@ -3,6 +3,7 @@ package lingo_quest;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.xml.crypto.Data;
 
@@ -38,7 +39,7 @@ public class ItemShop {
      * @param item The item the user wants to buy
      * @return True if the user successfully purchases the item. False if they already own it or don't have enough coins.
      */
-    public boolean purchaseItem(User user, Item item) {
+    public boolean purchaseItem(User user, UUID item) {
        return user.buyItem(item);
     }
     /**
@@ -49,6 +50,20 @@ public class ItemShop {
      */
     public String getItem(Item item) {
         return item.toString();
+    }
+
+    /**
+     * @author cade
+     * @param id
+     * @return
+     */
+    public Item getItemByID(UUID id) {
+        for(Item i : items) {
+            if(i.getID().equals(id))
+                return i;
+        }
+        System.out.println("Item doesn't exist.");
+        return null;
     }
 
     /**

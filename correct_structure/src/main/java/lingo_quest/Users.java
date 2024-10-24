@@ -115,16 +115,17 @@ public class Users {
      * @param password Added this too - cade
      * @return User
      * changed return type from boolean to User for create account purposes - CADE
+     * changed back to boolean - cade 10/24
      */
-    public User containsUsername(String username, String password) {
+    public boolean containsUsername(String username) {
         for(User user : users) {
             if (user.getUsername() != null && user.getUsername().trim().equalsIgnoreCase(username.trim())) {
                 System.out.println("Username already exists");
+                return true;
             }
         }
-        User createdUser = new User(username, password);
-        this.users.add(createdUser);
-        return createdUser;
+        //User createdUser = new User(username, password);
+        return false;
     }
 
     /**

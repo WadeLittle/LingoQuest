@@ -9,6 +9,7 @@ import org.json.simple.parser.ParseException;
 public class DictionaryManager {
     private ArrayList<Dictionary> dictionaries;
     private static DictionaryManager managerObject;
+    private final UUID spanishDictionary = UUID.fromString("cfa1b3f2-5c76-4eaf-90a2-7d58a76c3f36");
 
     /**
      * @author cade
@@ -37,6 +38,14 @@ public class DictionaryManager {
     public void addDictionary(Dictionary d) {
         dictionaries.add(d);
         //System.out.println("Adding: " + d.getID().toString() + "in actual list");
+    }
+
+    /**
+     * @author cade
+     * @return the uuid of the master spanish dictionary
+     */
+    public UUID getSpanishDictionary() {
+        return this.spanishDictionary;
     }
 
     /**
@@ -76,7 +85,7 @@ public class DictionaryManager {
     }
 
     public void saveDictionary() {
-
+        DataWriter.writeDictionaries(dictionaries, DataWriter.getDictionaryFile());
     }
 
     /**
@@ -92,6 +101,32 @@ public class DictionaryManager {
                 return d;
         }
         System.out.println(id.toString()+ ": Dictionary doesn't exist.");
+        return null;
+    }
+
+    /**
+     * @author cade
+     * @param u
+     * @return the user's dictionary
+     */
+    public Dictionary getDictionaryByUser(User u) {
+        return getDictionaryByID(u.getUserDictionaryID());
+    }
+    
+    /**
+     * @author cade
+     * @param id
+     * @return the duplicated dictionary
+     */
+    public Dictionary duplicateDictionary(UUID id) {
+        Dictionary ret = new Dictionary();
+        if(id != null && getDictionaryByID(id) != null) {
+            for(Word w : getDictionaryByID(id).getWords()) {
+                ret.addWord(w);
+            }
+            return ret;
+        }
+        System.out.println("Dictionary not found");
         return null;
     }
 }

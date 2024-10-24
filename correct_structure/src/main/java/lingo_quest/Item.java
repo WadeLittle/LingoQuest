@@ -1,10 +1,13 @@
 package lingo_quest;
 
+import java.util.UUID;
+
 public class Item {
   
     private String name;
     private String description;
     private int price;
+    private UUID id;
     //private boolean owned;
     // REFER TO REMOVED getOwned() method below
 
@@ -13,7 +16,7 @@ public class Item {
      * default constructor doesn't need to do anything specific
      */
     public Item() {
-
+        this.id = UUID.randomUUID();
     }
 
     /**
@@ -51,6 +54,22 @@ public class Item {
      */
     public int getPrice() {
         return this.price;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setID(UUID id) {
+        this.id = id;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public UUID getID() {
+        return this.id;
     }
 
 

@@ -12,6 +12,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.google.gson.JsonArray;
+
 public class DataLoader {
     public static ItemShop itemShop = ItemShop.getInstance();
     public static Users userList = Users.getInstance();
@@ -95,7 +97,8 @@ public class DataLoader {
 
         // Extract lists from JSON
         ArrayList<String> friendsList = extractStringList((JSONArray) userJson.get("friendsList"));
-        ArrayList<Item> items = extractItems((JSONArray) userJson.get("items"));
+        JSONArray itemsArray = (JSONArray) userJson.get("items");
+        ArrayList<String> items = extractStringList(((JSONArray) userJson.get("items")));
 
         // Make the word of the day
         Word wordObject = new Word();
@@ -111,7 +114,9 @@ public class DataLoader {
 
         // Create and configure User object
         User user = createUser(userID, username, password, coinsEarned, coinBalance, friendsList, 
-                               items, null, wordObject.getWord(), languages, currentLanguage, dictionaryID);
+                               items, null, languages, currentLanguage, dictionaryID);
+
+        // Set the word of the day
         user.setWordOfTheDay(wordObject);
         users.add(user); // Add the fully created user to the list
     }
@@ -162,6 +167,8 @@ private static ArrayList<Item> extractItems(JSONArray itemsJson) {
  * helper method
  */
 private static Languages mapLanguage(String language) {
+    if(language == null)
+        return Languages.DEFAULT;
     language = language.toLowerCase();
     switch (language) {
         case "spanish": return Languages.SPANISH;
@@ -193,8 +200,8 @@ private static Languages mapLanguage(String language) {
  */
 private static User createUser(String userID, String username, String password, 
                                long coinsEarned, long coinBalance, ArrayList<String> friendsList,
-                               ArrayList<Item> items, HashMap<Languages, Double> userProgress,
-                               String wordOfTheDay, ArrayList<String> languages, 
+                               ArrayList<String> items, HashMap<Languages, Double> userProgress,
+                               ArrayList<String> languages, 
                                String currentLanguage, String dictionaryID) {
 
     User user = new User(username, password);
@@ -207,10 +214,15 @@ private static User createUser(String userID, String username, String password,
     user.setFriendsList(friendsList);
 
     // want to change this to load items by UUIDs TODO
-    user.setItems(items);
+    ArrayList<UUID> finalItems = new ArrayList();
+    for(String s : items) {
+        finalItems.add(UUID.fromString(s));
+    }
+    user.setItems(finalItems);
 
     user.setUserProgress(userProgress);
-    user.setWordOfTheDay(new Word(wordOfTheDay));
+    // Decided to handle word of the day in the loadUser class
+    //user.setWordOfTheDay(wordOfTheDay);
 
     ArrayList<UUID> languagesUUID = new ArrayList<>();
     for (String lang : languages) {
@@ -290,7 +302,9 @@ private static User createUser(String userID, String username, String password,
             double userUnderstanding = (double) wordJson.get("userUnderstanding");
 
             // Create and configure User object
-            Word createdWord = new Word(word);
+            Word createdWord = new Word();
+            // Had to change this because constructor for word was changed
+            createdWord.setWord(word);
             createdWord.setTimesCorrect((int)timesCorrect);
             createdWord.setTimesPresented((int)timesPresented);
             createdWord.setUserUnderstanding(userUnderstanding);
