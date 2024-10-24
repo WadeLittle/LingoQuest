@@ -12,12 +12,13 @@ import java.util.UUID;
 public class Word {
     private int timesPresented;
     private String word;
+    private int points;
     private int timesCorrect;
     private double userUnderstanding;
     private Languages language;
     private String englishVersion;
-    private UUID wordUUID;
-    private UUID lessonUUID;
+    public UUID wordUUID;
+    public UUID lessonUUID;
 
     /**
      * Default constructor that initializes the word and other fields to default
@@ -32,6 +33,7 @@ public class Word {
         this.englishVersion = "";
         this.wordUUID = UUID.randomUUID();
         this.lessonUUID = UUID.randomUUID();
+        this.points =0;
     }
 
 /**
@@ -43,6 +45,7 @@ public class Word {
  * @param wordUUID The words UUID (mostly used for matching)
  */
     public Word(Languages language, String word, String englishVersion, UUID lessonUUID, UUID wordUUID) {
+        this.points =0;
         this.language = language;
         this.word = word;
         this.englishVersion = englishVersion;
@@ -138,9 +141,11 @@ public class Word {
     public void wordPresented(boolean correct) {
         updateTimesPresented(); // Increment times presented
         if (correct) {
+            points +=100;
             System.out.println("You are correct");
             updateTimesCorrect(); // Increment times correct if answered correctly
         } else {
+            points-=100;
             System.out.println("You are incorrect");
         }
         updateUserUnderstanding(); // Update user understanding

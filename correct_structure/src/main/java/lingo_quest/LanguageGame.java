@@ -162,13 +162,8 @@ class LanguageGame {
         currentQuestion.getCorrectAnswer().wordPresented(currentQuestion.isCorrect());
     }
 
-<<<<<<< HEAD
-    public static User getUser() {
-        return this.user;
-=======
     public User getUser() {
         return user;
->>>>>>> 413c67c8aa77016802ff955392e8f8e2578415a6
     }
 
     public LanguageManager getLanguageManager() {
@@ -182,4 +177,12 @@ class LanguageGame {
     public void checkItemShop() {
         itemShop.displayItemShop();;
     }
+
+    public Lan
+
+    public void pickASection() {
+
+    }
+
+
 }

@@ -7,6 +7,7 @@ public class MultipleChoice extends Question  {
     private String language;
     private ArrayList<Word> answerChoices;
     private Word correctAnswer;
+    private int correctAnswerIndex;
     private int coinValue; 
     private int pointValue;
 
@@ -14,10 +15,19 @@ public class MultipleChoice extends Question  {
         super(language);
         this.answerChoices = answerChoices;
         this.correctAnswer = correctAnswer;
+        this.correctAnswerIndex = getCorrectAnswerIndexPlusOne();
         coinValue = 100;
         pointValue = 100;
     }
 
+    public int getCorrectAnswerIndexPlusOne() {
+        for(int i = 0; i < answerChoices.size();i++) {
+            if(answerChoices.get(i).wordUUID.equals(correctAnswer.wordUUID)) {
+                return i+1;
+            }
+        }
+        return -1;
+    }
     /**
      * @author Wade Little
      * Gives  the question as well as the answer choices
@@ -29,5 +39,14 @@ public class MultipleChoice extends Question  {
             result.append(i+1).append(". ").append(answerChoices.get(i).getWordinLanguage()).append("\n");
         }
         return result.toString();
+    }
+    public boolean isCorrect(String userInput) {
+        if(userInput.equals(this.correctAnswerIndex)) {
+            correctAnswer.wordPresented(true);
+            return true;
+        } else {
+            correctAnswer.wordPresented(false);
+            return false;
+        }
     }
 }

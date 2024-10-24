@@ -26,8 +26,18 @@ public class Lesson {
         this.lessonProgress = this.pointsEarned/this.totalPoints;
     }
 
-    public Lesson(UUID languageUuid, String lessonName, String lessonUUID) {
-        
+    public Lesson(UUID languageUUID, String lessonName, UUID lessonUUID) {
+        this.languageUUID = languageUUID;
+        pointsEarned = 0;
+        totalPoints = getTotalPoints();
+        lessonProgress = getLessonProgress();
+        //MISSING TOPIC WORDS
+        this.lessonName = lessonName;
+        this.lessonUUID = lessonUUID;
+    }
+
+    public int getTotalPoints() {
+        return topicWords.size() * 300; 
     }
 
     public void awardForCompletion(User user) {
@@ -76,14 +86,6 @@ public class Lesson {
     public void setTotalPoints(int points) {
         this.totalPoints = points;
         this.updateProgress();
-    }
-
-    /**
-     * @author cade stocker
-     * @return the total points you can earn in the lesson
-     */
-    public int getTotalPoints() {
-        return this.totalPoints;
     }
 
     /**
