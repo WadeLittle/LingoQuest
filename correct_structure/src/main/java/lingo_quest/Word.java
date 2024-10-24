@@ -40,11 +40,15 @@ public class Word {
      * 
      * @param word the word to initialize
      */
-    public Word(String word) {
+    public Word(Languages language, String word, String englishVersion, UUID lessonUUID, UUID wordUUID) {
+        this.language = language;
         this.word = word;
+        this.englishVersion = englishVersion;
         this.timesPresented = 0;
         this.timesCorrect = 0;
         this.userUnderstanding = 0.0;
+        this.lessonUUID = lessonUUID;
+        this.wordUUID = wordUUID;
     }
 
     /**
