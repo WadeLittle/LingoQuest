@@ -30,6 +30,8 @@ public class Word {
         this.userUnderstanding = 0.0;
         this.language = Languages.DEFAULT;
         this.englishVersion = "";
+        this.wordUUID = UUID.randomUUID();
+        this.lessonUUID = UUID.randomUUID();
     }
 
     /**
