@@ -34,12 +34,14 @@ public class Word {
         this.lessonUUID = UUID.randomUUID();
     }
 
-    /**
-     * Constructor that initializes the word and sets other fields to default
-     * values.
-     * 
-     * @param word the word to initialize
-     */
+/**
+ * Is the paramaterized constructor and sets default values as well as the items being read in from the JSON file
+ * @param language The language that this word is a part of
+ * @param word The word in string format 
+ * @param englishVersion The english translation of the word
+ * @param lessonUUID The UUID for the lesson this word is related to
+ * @param wordUUID The words UUID (mostly used for matching)
+ */
     public Word(Languages language, String word, String englishVersion, UUID lessonUUID, UUID wordUUID) {
         this.language = language;
         this.word = word;
