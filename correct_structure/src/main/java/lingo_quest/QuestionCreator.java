@@ -1,4 +1,4 @@
-package main.java.lingo_quest;
+package lingo_quest;
 
 public class QuestionCreator {
     
