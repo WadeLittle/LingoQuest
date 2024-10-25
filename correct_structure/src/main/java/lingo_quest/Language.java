@@ -113,6 +113,11 @@ public class Language {
     public void setLanguageName(Languages l) {
         if(l != null)
             this.languageName = l;
+        
+        // when more languages are created, this function would be expanded
+        if(l.equals(Languages.SPANISH)) {
+            this.dictionary = DictionaryManager.getInstance().duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
+        }
     }
 
     /**

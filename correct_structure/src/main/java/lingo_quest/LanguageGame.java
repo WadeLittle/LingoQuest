@@ -97,6 +97,29 @@ class LanguageGame {
     }
 
     /**
+     * @author cade
+     * @param lang
+     * @return
+     */
+    public Language startLanguage(Languages lang) {
+        // make sure there's a user logged in
+        if(this.getUser() == null)
+            return null;
+        Language l = new Language();
+        // add the new language to the singleton
+        languageManager.addLanguage(l);
+        // set the type of language it is (this assigns the master dictionary to the language object)
+        if(lang != null)
+            l.setLanguageName(lang);
+        // put the user's id into the language
+        l.setUserID(this.getUser().getUUID());
+        // put the language's id into user
+        this.getUser().addLanguage(l);
+        // return the language
+        return l;
+    }
+
+    /**
      * @author Wade Little
      * Sets the language games current language as well as the languagemanagers
      * @param language THe language you want to work on

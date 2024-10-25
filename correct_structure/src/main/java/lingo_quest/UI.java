@@ -42,6 +42,7 @@ public class UI {
                 repeat = false;
         } while(repeat);
         lg.createUser(username, password);
+        lg.startLanguage(Languages.SPANISH);
     }
 
     public static void main(String[] args) throws Exception {
