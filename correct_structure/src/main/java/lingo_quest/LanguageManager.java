@@ -19,6 +19,14 @@ public class LanguageManager {
         return languageManager;
     }
 
+    /**
+     * @author cade
+     * @return the id of the spanish dictionary
+     */
+    public String getSpanishDictionary() {
+        return this.spanishDictionary;
+    }
+
     // THIS PROBABLY ISN'T RIGHT AND SHOULD BE FIXED
     public void setCurrentLangauge(Language language) {
         this.currentLanguage = getLanguageByID(language.getLanguageID());
