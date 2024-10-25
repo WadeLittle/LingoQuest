@@ -124,6 +124,7 @@ public class DictionaryManager {
             for(Word w : getDictionaryByID(id).getWords()) {
                 ret.addWord(w);
             }
+            dictionaries.add(ret);
             return ret;
         }
         System.out.println("Dictionary not found");

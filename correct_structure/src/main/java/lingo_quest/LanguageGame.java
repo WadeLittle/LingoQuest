@@ -149,6 +149,8 @@ class LanguageGame {
      */
     public void logout() {
         this.userList.saveUsers();
+        this.dictionaryMan.saveDictionary();
+        this.languageManager.saveLanguages();
         // set current user to null
         this.user = null;
         System.out.println("Successfully logged out");

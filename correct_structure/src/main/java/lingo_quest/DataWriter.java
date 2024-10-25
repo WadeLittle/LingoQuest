@@ -9,6 +9,8 @@ import java.util.UUID;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory;
+
 class DataWriter {
     private String filePath;
     private ItemShop itemShop;
@@ -19,6 +21,7 @@ class DataWriter {
     public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
     public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
     public static String dictionaryFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Dictionaries.json";
+    public static String languageFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Languages2.json";
 
     /**
      * @author cade
@@ -26,6 +29,14 @@ class DataWriter {
      */
     public static String getUserFile() {
         return userFile;
+    }
+
+    /**
+     * @author cade
+     * @return file path
+     */
+    public static String getLanguageFile() {
+        return languageFile;
     }
 
     /**
@@ -342,10 +353,38 @@ class DataWriter {
     }
 
     public static void writeLanguages(ArrayList<Language> languages, String file) {
+        // Object that holds everything
+        JSONObject root = new JSONObject();
+        // the array of users
         JSONArray langArray = new JSONArray();
-        for(Language l : languages) {
 
+        // serialize each user in users class
+        for (Language l : languages) {
+            langArray.add(serializeLanguage(l));
         }
+
+        // put all of the serialized users into the array
+        root.put("languages", langArray);
+
+        // write the whole user json file
+        try (FileWriter writer = new FileWriter(file)) {
+            writer.write(root.toJSONString());
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject serializeLanguage(Language l) {
+        JSONObject root = new JSONObject();
+        root.put("userID", l.getUserID());
+        root.put("pointsEarned",l.getPointsEarned());
+        root.put("totalPoints",l.getTotalPoints());
+        root.put("progress",l.getProgress());
+        root.put("answerStreak",l.getAnswerStreak());
+        root.put("languageName",l.getLanguageName().toString());
+        root.put("languageID", l.getLanguageID());
+        root.put("PlacementTest",l.getPlacementTestID());
     }
 
     /**
