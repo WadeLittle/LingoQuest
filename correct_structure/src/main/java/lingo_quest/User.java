@@ -211,6 +211,19 @@ public class User {
     }
 
     /**
+     * @author cade
+     * @param l the language to be added
+     */
+    public void addLanguage(Language l) {
+        if(l == null) {
+            System.out.println("null language sent to addLanguage.");
+            return;
+        }
+        this.languages.add(l.getLanguageID());
+        this.currentLanguage = l;
+    }
+
+    /**
      * @author Wade Little
      *         Searches the users friends list and returns the friend if they are on
      *         the list or null if the user can't be found

@@ -116,7 +116,7 @@ class Dictionary {
         //fromEnglish.remove(english);
         //toEnglish.remove(otherLanguage);
         for(Word w : this.words) {
-            if(w.getWord().equalsIgnoreCase(word)) {
+            if(w.getWordinLanguage().equalsIgnoreCase(word)) {
                 this.words.remove(w);
                 this.numberOfWords --;
                 return;
@@ -145,7 +145,7 @@ class Dictionary {
     public boolean contains(String word) {
         //return fromEnglish.containsKey(word) || toEnglish.containsKey(word);
         for(Word w : this.words) {
-            if(w.getWord().equalsIgnoreCase(word)) {
+            if(w.getWordinLanguage().equalsIgnoreCase(word)) {
                 return true;
             }
         }
@@ -159,6 +159,20 @@ class Dictionary {
      */
     public int getNumberOfWords() {
         return numberOfWords;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     * @return list of words in that lesson
+     */
+    public ArrayList<Word> getWordsByTopicID(UUID id) {
+        ArrayList<Word> ret = new ArrayList<>();
+        for(Word w : this.words) {
+            if(w.getLessonID().equals(id))
+                ret.add(w);
+        }
+        return ret;
     }
 
     /**
@@ -181,7 +195,7 @@ class Dictionary {
      */
     public Word getWordByString(String word) {
         for(Word w : this.words) {
-            if(word.equalsIgnoreCase(w.getWord())) {
+            if(word.equalsIgnoreCase(w.getWordinLanguage())) {
                 return w;
             }
         }
