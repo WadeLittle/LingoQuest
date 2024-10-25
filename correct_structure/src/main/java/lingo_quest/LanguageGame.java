@@ -15,6 +15,7 @@ class LanguageGame {
     private LanguageManager languageManager;
     private LeaderBoard leaderboard;
     private Word userAnswer;
+    private QuestionCreator questionCreator;
 
     // test comment
     public LanguageGame() throws Exception {
@@ -23,6 +24,7 @@ class LanguageGame {
         //userList.loadUsers();
         this.itemShop = ItemShop.getInstance();
         this.languageManager = LanguageManager.getInstance();
+        this.questionCreator = new QuestionCreator();
         this.loadAll();
         // work on other variables for constructor
     }
@@ -223,6 +225,19 @@ class LanguageGame {
     }
     public void pickALesson(Lesson lesson) {
         user.currentLesson = lesson;
+    }
+    public void getAQuestion() {
+      Question question =  questionCreator.createQuestion(user.currentLesson);
+      System.out.println(question.toString());
+    }
+
+    public void getProgressScreen() {
+        System.out.println("Here is your progress on the words in the current lesson");
+        System.out.println("The lesson you are currently working on is " + user.currentLesson.getLessonName());
+        System.out.println("You have completed " + user.currentLesson.getLessonProgress() + " of the lesson");
+        for(Word w : user.currentLesson.topicWords) {
+            w.toString();
+        }
     }
 
 
