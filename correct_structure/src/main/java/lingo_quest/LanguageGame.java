@@ -3,6 +3,7 @@ package lingo_quest;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.HashMap;
 
 class LanguageGame {
     private Users userList;
@@ -63,6 +64,25 @@ class LanguageGame {
         }
 
         
+    }
+
+    /**
+     * @author cade
+     * @return
+     * 
+     * making this function to generate the progress screen for the scenario 10/25
+     * needs to show language progress, current lesson, and words that the user needs to work on
+     */
+    public HashMap<String,Double> getProgressInfo() {
+        if(this.user == null) {
+            System.out.println("No current user in LanguageGame.");
+            return null;
+        }
+        HashMap<String,Double> progress = new HashMap<>();
+        if(this.user.getCurrentLanguage() != null) {
+            progress.put("Current Language Progress", this.user.getCurrentLanguage().getProgress());
+            //for(Section s : this.user.getCurrentLanguage().get
+        }
     }
 
     /**

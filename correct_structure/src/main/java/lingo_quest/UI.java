@@ -60,6 +60,7 @@ public class UI {
                 case 1:
                     if(lg.hasCurrentUser() == false)
                         login();
+                    //System.out.println("Hello " +lg.getUser().getUsername());
                     break;
                 case 2:
                     if(lg.hasCurrentUser() == true)

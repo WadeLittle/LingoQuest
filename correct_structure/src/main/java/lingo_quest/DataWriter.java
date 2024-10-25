@@ -28,6 +28,10 @@ class DataWriter {
         return userFile;
     }
 
+    /**
+     * @author cade
+     * @return the file path
+     */
     public static String getDictionaryFile() {
         return dictionaryFile;
     }
@@ -189,6 +193,8 @@ class DataWriter {
             wordJson.put("englishVersion", word.getEnglishVersion());
             wordJson.put("wordUUID", word.getWordUUID().toString());
             wordJson.put("lessonUUID", word.getLessonID().toString());
+            // points added to words - 10/25
+            wordJson.put("points", word.getPoints());
         }
         return wordJson;
     }
