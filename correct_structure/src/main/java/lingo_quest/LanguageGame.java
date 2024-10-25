@@ -245,9 +245,11 @@ class LanguageGame {
 
     public void pickASection(Section section) {
         user.currentSection = section;
+        System.out.println("You switched to section " + user.currentSection.getName());
     }
     public void pickALesson(Lesson lesson) {
         user.currentLesson = lesson;
+        System.out.println("You switched to lesson " + user.currentLesson.getLessonName());
     }
     public void getAQuestion() {
       Question question =  questionCreator.createQuestion(user.currentLesson);
