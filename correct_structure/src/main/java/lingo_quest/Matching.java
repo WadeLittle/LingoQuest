@@ -15,8 +15,14 @@ public class Matching extends Question {
         super(language);
         this.words = answerChoices;
     }
-    public boolean isCorrect(Word languageWord, Word englishWord) {
-       return languageWord.getWordUUID().equals(englishWord.getWordUUID());
+    public boolean isCorrect(Word languageWord, Word englishWord, User user) {
+       boolean isCorrect = languageWord.getWordUUID().equals(englishWord.getWordUUID());
+       if(isCorrect) {
+        user.getUserDictionary().getWordByUUID(languageWord.getWordUUID()).wordPresented(true);
+       } else {
+        user.getUserDictionary().getWordByUUID(languageWord.getWordUUID()).wordPresented(false);
+       }
+       return isCorrect;
     }
 
     public String toString() {
