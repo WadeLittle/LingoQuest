@@ -22,7 +22,7 @@ public class QuestionCreator {
         } else if (wordPoint >= 200) {
             return new FillInTheBlank(lesson.getLanguageName(), lesson.getRandomWord());
         } else if (wordPoint >= 300) {
-            return new Matching(null);
+            return new Matching(lesson.getLanguageName(),lesson.getWords(word, 4));
         }
         throw new IllegalArgumentException("Invalid wordPoint value");
     }
