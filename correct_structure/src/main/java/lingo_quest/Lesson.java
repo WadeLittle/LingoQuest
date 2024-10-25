@@ -28,6 +28,23 @@ public class Lesson {
          this.lessonProgress = this.pointsEarned/this.totalPoints;
     }
 
+    /**
+     * @author cade
+     * @return the id of the lesson
+     */
+    public UUID getLessonID() {
+        return this.lessonUUID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setLessonID(UUID id) {
+        if(id != null)
+            this.lessonUUID = id;
+    }
+
     public Lesson( String lessonName,UUID languageUUID, UUID lessonUUID) {
         this.languageUUID = languageUUID;
         pointsEarned = 0;
@@ -46,6 +63,23 @@ public class Lesson {
     }
     public int getPointsEarned() {
         return pointsEarned;
+    }
+
+    /**
+     * @author cade
+     * @return the id
+     */
+    public UUID getLanguageID() {
+        return this.languageUUID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setLanguageID(UUID id) {
+        if(id != null)
+            this.languageUUID = id;
     }
 
     public void awardForCompletion(User user) {

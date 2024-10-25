@@ -385,6 +385,27 @@ class DataWriter {
         root.put("languageName",l.getLanguageName().toString());
         root.put("languageID", l.getLanguageID());
         root.put("PlacementTest",l.getPlacementTestID());
+        for(Section s : l.getSections()) {
+
+        }
+    }
+
+    public static JSONObject serializeSection(Section s) {
+        JSONObject root = new JSONObject();
+        root.put("sectionName",s.getName());
+        root.put("sectionUUID",s.getID());
+        JSONArray lessonArray = new JSONArray();
+        for(Lesson l : s.getAllLessons()) {
+            
+        }
+    }
+
+    public static JSONObject serializeLesson(Lesson l) {
+        JSONObject root = new JSONObject();
+        root.put("lessonName",l.getLessonName());
+        root.put("lessonUUID", l.getLessonID());
+        root.put("languageID",l.getLanguageID());
+        return root;
     }
 
     /**

@@ -267,6 +267,10 @@ public class Language {
         return this.sectionsComplete;
     }
 
+    public ArrayList<Section> getSections() {
+        return this.sections;
+    }
+
     /**
      * @author CADE STOCKER
      * goes through sections and adds them to completed if they need to be
