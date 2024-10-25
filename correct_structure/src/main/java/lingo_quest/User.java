@@ -23,9 +23,12 @@ public class User {
     public HashMap<Languages, Double> userProgress;
     private Word wordOfTheDay;
     private ArrayList<UUID> languages;
+    private Languages languageType;
 
     // Changed this to Languages so that we can just use the enum we made - cade
+    // changed back to language object so that it can be accessed
     public Language currentLanguage;
+    public UUID currentLanguageID;
     public Section currentSection;
     public Lesson currentLesson;
 
@@ -101,6 +104,32 @@ public class User {
      */
     public Dictionary getUserDictionary() {
         return this.userDictionary;
+    }
+
+    public UUID getCurrentLanguageID() {
+        return this.currentLanguageID;
+    }
+
+    public void setCurrentLangaugeID(UUID id) {
+        if(id != null)
+            this.currentLanguageID = id;
+    }
+
+    /**
+     * @author cade
+     * @param l
+     */
+    public void setLanguageType(Languages l) {
+        if(l != null)
+            this.languageType = l;
+    }
+
+    /**
+     * @author cade
+     * @return
+     */
+    public Languages getLanguageType() {
+        return this.languageType;
     }
 
     /**
@@ -327,9 +356,10 @@ public class User {
     /**
      * @author Wade Little
      * Sets the current language to a new language
-     * @param language The current language the user wants to switch to
+     * @param UUID The current language the user wants to switch to
+     * changed to param UUID - cade 10/24
      */
-    public void setCurrentLanguage(Languages language) {
+    public void setCurrentLanguage(Language language) {
         this.currentLanguage = language;
     }
 
@@ -337,8 +367,9 @@ public class User {
      * @author Wade Little
      * Gets the users current langauge
      * @return The users current language
+     * Changed to return Language object - cade 10/24
      */
-    public Languages getCurrentLanguage() {
+    public Language getCurrentLanguage() {
         return currentLanguage;
     }
 

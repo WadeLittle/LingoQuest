@@ -94,6 +94,7 @@ class DataWriter {
         JSONObject userJson = new JSONObject();
         // this should put these variables in order but isn't
         userJson.put("userID", user.getUUID().toString());
+        userJson.put("currentLanguageID",user.getCurrentLanguageID());
         userJson.put("username", user.getUsername());
         userJson.put("password", user.getPassword());
         userJson.put("coinsEarned", user.getCoinsEarned());
@@ -182,10 +183,12 @@ class DataWriter {
         if(word.getLanguage() != null) {
             wordJson.put("language", word.getLanguage().toString());
             wordJson.put("timesPresented", word.getTimesPresented());
-            wordJson.put("word", word.getWord());
+            wordJson.put("word", word.getWordinLanguage());
             wordJson.put("timesCorrect", word.getTimesCorrect());
             wordJson.put("userUnderstanding", word.getUserUnderstanding());
             wordJson.put("englishVersion", word.getEnglishVersion());
+            wordJson.put("wordUUID", word.getWordUUID().toString());
+            wordJson.put("lessonUUID", word.getLessonID().toString());
         }
         return wordJson;
     }
@@ -196,7 +199,9 @@ class DataWriter {
      * @param file
      * turn a placement test object into json object
      */
-    public static void writePlacementTest(PlacementTest test, String file) {
+
+    // I WILL WORRY ABOUT THIS AFTER SCENARIOS
+    /*public static void writePlacementTest(PlacementTest test, String file) {
         JSONObject root = new JSONObject();
         root.put("PlacementTest", serializePlacementTest(test));
 
@@ -206,7 +211,7 @@ class DataWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * @author Cade
@@ -215,15 +220,17 @@ class DataWriter {
      */
     private static JSONObject serializePlacementTest(PlacementTest test) {
         JSONObject testJson = new JSONObject();
-        JSONArray questionsArray = new JSONArray();
+        //JSONArray questionsArray = new JSONArray();
 
         // serialize each question in the test
-        for (Question question : test.getQuestions()) {
+        // NO LONGER NEED TO WRITE QUESTIONS
+
+        /*for (Question question : test.getQuestions()) {
             questionsArray.add(serializeQuestion(question));
-        }
+        }*/
 
         // other data to be stored
-        testJson.put("questions", questionsArray);
+        //testJson.put("questions", questionsArray);
         testJson.put("correctAnswers", test.getCorrectAnswers());
         testJson.put("score", test.getScore());
 
@@ -236,7 +243,9 @@ class DataWriter {
      * @param question
      * @return jsonObject created from question object
      */
-    private static JSONObject serializeQuestion(Question question) {
+    // WE NO LONGER NEED TO STORE QUESTIONS
+
+    /*private static JSONObject serializeQuestion(Question question) {
         JSONObject questionJson = new JSONObject();
         // NEED HELP FIGURING OUT QUESTIONTYPE TODO
         //questionJson.put("questionType", question.getQuestionType());
@@ -256,7 +265,7 @@ class DataWriter {
         questionJson.put("coinValue", question.getCoinValue());
 
         return questionJson;
-    }
+    }*/
 
 /*   public static void main(String[] args) {
         Word word = new Word("doctor");

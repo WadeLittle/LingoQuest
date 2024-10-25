@@ -1,53 +1,6 @@
 {
   "spanishPlacementTest": {
-    "questions": [
-      {
-        "questionType": "MultipleChoice",
-        "question": "What is the Spanish word for 'cheese'?",
-        "answerChoices": ["queso", "pastel", "naranja"],
-        "correctAnswer": "queso",
-        "userAnswer": "",
-        "pointValue": 10,
-        "coinValue": 1
-      },
-      {
-        "questionType": "FillInTheBlank",
-        "question": "The Spanish word for 'apple' is __________.",
-        "answerChoices": ["manzana"],
-        "correctAnswer": "manzana",
-        "userAnswer": "",
-        "pointValue": 20,
-        "coinValue": 2
-      },
-      {
-        "questionType": "Matching",
-        "question": "Match the following words with their translations:",
-        "answers": {
-          "Hello": "Hola",
-          "Goodbye": "Adios",
-          "Good Afternoon": "Buenos Tardes"
-        },
-        "answerChoices": ["Hola", "Adios", "Buenos Tardes"],
-        "correctAnswer": {
-          "Hello": "Hola",
-          "Goodbye": "Adios",
-          "Good Afternoon": "Buenos Tardes"
-        },
-        "userAnswer": {},
-        "pointValue": 20,
-        "coinValue": 2
-      },
-      {
-        "questionType": "MultipleChoice",
-        "question": "The Spanish word for 'bread' is __________.",
-        "answerChoices": ["pan", "queso", "jamon"],
-        "correctAnswer": "pan",
-        "userAnswer": "",
-        "pointValue": 10,
-        "coinValue": 1
-      }
-    ],
-    "correctAnswers": null,
-    "score": null
+    "correctAnswers": 4,
+    "score": 80
   }
 }

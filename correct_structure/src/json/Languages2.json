@@ -1,19 +1,20 @@
 {
-    "Spanish": 
-      {
-        "languageID": "b2657c2b-56ef-45b1-a794-97eda7a32bd4",
-        "PlacementTest": "95de287a-d432-4c4f-baba-edfac664f74c",
-        "sections": [
+  "languages":[
+    {
+      "userID" : "514fe893-a25f-4849-8240-76657f683e0e",
+      "pointsEarned": 10,
+      "totalPoints": 100,
+      "progress" : 0.1,
+      "answerStreak": 1,
+      "languageName": "SPANISH",
+      "languageID": "b2657c2b-56ef-45b1-a794-97eda7a32bd4",
+      "PlacementTest": "95de287a-d432-4c4f-baba-edfac664f74c",
+      "sections": [
           {
             "sectionName": "Food",
-            "sectionUUID": "bb8832c1-3f9c-4796-84e2-d8a41ff22d14",
-            "lessons": [
-              {
-               "lessonName": "Beverages",
-               "lessonUUID": "826b20ab-251a-4b5b-abd3-542a559209fd"
-              }
-            ]
+            "sectionUUID": "bb8832c1-3f9c-4796-84e2-d8a41ff22d14"
           }
-        ]
-      }
-    }         
+      ]
+    }
+  ]
+}         

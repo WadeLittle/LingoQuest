@@ -15,20 +15,30 @@ import org.json.simple.parser.JSONParser;
 import com.google.gson.JsonArray;
 
 public class DataLoader {
-    public static ItemShop itemShop = ItemShop.getInstance();
-    public static Users userList = Users.getInstance();
-    public static LanguageManager languageManager = LanguageManager.getInstance();
-    public static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json";
-    public static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
-    public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
-    public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
-    public static String dictionaryFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Dictionaries.json";
+    public final static ItemShop itemShop = ItemShop.getInstance();
+    public final static Users userList = Users.getInstance();
+    public final static LanguageManager languageManager = LanguageManager.getInstance();
+    public final static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json";
+    public final static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
+    public final static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
+    public final static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
+    public final static String dictionaryFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Dictionaries.json";
+    public final static String languageFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Languages2.json";
+    
     /**
      * @author cade
      * @return file path
      */
     public static String getUserFile() {
         return userFile;
+    }
+
+    /**
+     * @author cade
+     * @return path of languagefile
+     */
+    public static String getLanguageFile() {
+        return languageFile;
     }
 
     /**
@@ -94,6 +104,7 @@ public class DataLoader {
         String password = (String) userJson.get("password");
         long coinsEarned = (long) userJson.get("coinsEarned");
         long coinBalance = (long) userJson.get("coinBalance");
+        String currentLanguageID = (String) userJson.get("currentLanguageID");
 
         // Extract lists from JSON
         ArrayList<String> friendsList = extractStringList((JSONArray) userJson.get("friendsList"));
@@ -118,11 +129,14 @@ public class DataLoader {
 
         // Set the word of the day
         user.setWordOfTheDay(wordObject);
-        users.add(user); // Add the fully created user to the list
-    }
+        if(currentLanguageID != null)
+            user.setCurrentLangaugeID(UUID.fromString(currentLanguageID));
+
+            users.add(user); // Add the fully created user to the list
+        }
 
     return users;
-}
+    }
 
 /**
  * @author CADE STOCKER
@@ -230,7 +244,7 @@ private static User createUser(String userID, String username, String password,
     }
     user.setLanguages(languagesUUID);
 
-    user.setCurrentLanguage(mapLanguage(currentLanguage));
+    user.setLanguageType(mapLanguage(currentLanguage));
     //System.out.println(user.toString());
     return user;
 }
@@ -321,18 +335,13 @@ private static User createUser(String userID, String username, String password,
      * @return a hashmap of languages
      * @throws Exception
      */
-    public static HashMap<String, Language> loadLanguages(String file) throws Exception {
-        HashMap<String, Language> languages = new HashMap<>();
+    public static ArrayList<Language> loadLanguages(String file) throws Exception {
+        ArrayList<Language> languages = new ArrayList<Language>();
         JSONParser parser = new JSONParser();
         JSONObject root = (JSONObject) parser.parse(new FileReader(file));
-
-        for (Object key : root.keySet()) {
-            String languageName = (String) key;
-            JSONObject languageJson = (JSONObject) root.get(languageName);
-
-            Language language = parseLanguage(languageJson, languageName);
-            languages.put(languageName, language);
-            //System.out.println(language.toString());
+        JSONArray list = (JSONArray) root.get("languages");
+        for (Object key : list) {
+            languages.add(parseLanguage((JSONObject) key));
         }
         return languages;
     }
@@ -344,36 +353,42 @@ private static User createUser(String userID, String username, String password,
      * @return language object
      * read a single language object
      */
-    private static Language parseLanguage(JSONObject languageJson, String languageName) {
-        UUID userID = UUID.fromString((String) ((JSONObject) languageJson.get("User")).get("userID"));
+    private static Language parseLanguage(JSONObject languageJson) {
+        UUID userID = UUID.fromString((String) languageJson.get("userID"));
         String placementTest = (String) languageJson.get("PlacementTest");
         int pointsEarned = ((Long) languageJson.get("pointsEarned")).intValue();
         int totalPoints = ((Long) languageJson.get("totalPoints")).intValue();
         double progress = (double) languageJson.get("progress");
-        int placementScore = ((Long) languageJson.get("placementScore")).intValue();
+        //int placementScore = ((Long) languageJson.get("placementScore")).intValue();
         // added UUID to each language object
         UUID languageID = UUID.fromString((String) languageJson.get("languageID"));
 
-        ArrayList<Section> sections = parseSections((JSONArray) languageJson.get("sections"));
-        Dictionary dictionary = parseDictionary((JSONObject) languageJson.get("dictionary"));
+        //ArrayList<Section> sections = parseSections((JSONArray) languageJson.get("sections"));
+        //Dictionary dictionary = parseDictionary((JSONObject) languageJson.get("dictionary"));
 
         int answerStreak = ((Long) languageJson.get("answerStreak")).intValue();
         String langName = (String) languageJson.get("languageName");
 
-        ArrayList<String> sectionsComplete = new ArrayList<>((JSONArray) languageJson.get("sectionsComplete"));
-        HashMap<String, Boolean> sectionAccess = parseSectionAccess((JSONObject) languageJson.get("sectionAccess"));
+        //ArrayList<String> sectionsComplete = new ArrayList<>((JSONArray) languageJson.get("sectionsComplete"));
+        //HashMap<String, Boolean> sectionAccess = parseSectionAccess((JSONObject) languageJson.get("sectionAccess"));
 
         // Load the user by their UUID (Users must be loaded before languages)
-        Language lang = new Language(userList.getUserByUUID(userID));
+        //Language lang = new Language(userList.getUserByUUID(userID));
+        // MOVING THIS TO LOADUSERS METHOD IN LANGUAGEGAME - CADE
 
-        PlacementTest pt = new PlacementTest();
-        pt.setID(UUID.fromString(placementTest));
-        lang.setPlacementTest(pt);
+        Language lang = new Language();
+        //LOAD IN PT IN LOADUSERS
+        //PlacementTest pt = new PlacementTest();
+        //pt.setID(UUID.fromString(placementTest));
+        lang.setPlacementTestID(UUID.fromString(placementTest));
+        //lang.setPlacementTest(pt);
         lang.setLanguageID(languageID);
         lang.setPointsEarned(pointsEarned);
         lang.setTotalPoints(totalPoints);
         lang.setUserProgress(progress);
-        lang.setPlacementScore(placementScore);
+        lang.setAnswerStreak(answerStreak);
+        lang.setLanguageName(mapLanguage(langName));
+        //lang.setPlacementScore(placementScore);
 
         return lang;
     }
@@ -390,7 +405,12 @@ private static User createUser(String userID, String username, String password,
         for (Object obj : sectionsJson) {
             JSONObject sectionJson = (JSONObject) obj;
             String sectionName = (String) sectionJson.get("sectionName");
-            boolean userAccess = (boolean) sectionJson.get("userAccess");
+            boolean userAccess;
+            if(sectionJson.get("userAccess") == null) {
+                userAccess = true;
+            }
+            else
+                userAccess = (boolean) sectionJson.get("userAccess");
             double sectionProgress = (double) sectionJson.get("sectionProgress");
             int pointsEarned = ((Long) sectionJson.get("pointsEarned")).intValue();
             int totalPoints = ((Long) sectionJson.get("totalPoints")).intValue();
@@ -399,12 +419,15 @@ private static User createUser(String userID, String username, String password,
 
             ArrayList<Lesson> lessons = parseLessons((JSONArray) sectionJson.get("lessons"));
 
-            Section sec = new Section(lessons,coinValue);
+            Section sec = new Section();
             sec.setSectionProgress(sectionProgress);
             sec.setUserAccess(userAccess);
             sec.setPointsEarned((int)pointsEarned);
             sec.setTotalPoints(totalPoints);
+            sec.setCoinValue(coinValue);
             sec.setSectionComplete(sectionComplete);
+            sec.setLessons(lessons);
+            sec.setName(sectionName);
         }
         return sections;
     }
@@ -421,14 +444,17 @@ private static User createUser(String userID, String username, String password,
         for (Object obj : lessonsJson) {
             JSONObject lessonJson = (JSONObject) obj;
             int pointsEarned = ((Long) lessonJson.get("pointsEarned")).intValue();
-            int totalPoints = ((Long) lessonJson.get("totalPoints")).intValue();
-            int coinValue = ((Long) lessonJson.get("coinValue")).intValue();
+            //int totalPoints = ((Long) lessonJson.get("totalPoints")).intValue();
+            //int coinValue = ((Long) lessonJson.get("coinValue")).intValue();
             double lessonProgress = (double) lessonJson.get("lessonProgress");
 
             Dictionary topicDictionary = parseDictionary((JSONObject) lessonJson.get("topicDictionary"));
             //ArrayList<Question> questions = parseQuestions((JSONArray) lessonJson.get("questions"));
 
-            Lesson les = new Lesson(coinValue,totalPoints);
+            //Lesson les = new Lesson(coinValue,totalPoints);
+            Lesson les = new Lesson();
+            // after changes made to lesson, can no loger add coinValue or totalPoints
+            //les.setCoinValue(coinValue);
             les.setPointsEarned((int)pointsEarned);
             les.setLessonProgress(lessonProgress);
         }
@@ -475,7 +501,15 @@ private static User createUser(String userID, String username, String password,
             //System.out.println(w.getWord() + " " + w.getEnglishVersion());
             //System.out.println("TEST: "+ makeWord(wordObj).toString());
         }
-        int numWords = ((Long) dictionaryJson.get("numberOfWords")).intValue();
+
+        int numWords;
+        if(dictionaryJson.get("numberOfWords") == null) {
+            numWords = 0;
+        }
+        else {
+            numWords = ((Long) dictionaryJson.get("numberOfWords")).intValue();
+        }
+
         UUID id = UUID.fromString((String) dictionaryJson.get("dictionaryID"));
         Dictionary retDictionary = new Dictionary(dictionary,numWords);
         retDictionary.setID(id);
@@ -609,11 +643,31 @@ private static User createUser(String userID, String username, String password,
 
     public static Word makeWord(JSONObject obj) {
         Languages language = mapLanguage((String) obj.get("language"));
-        int timesPresented = ((Long) obj.get("timesPresented")).intValue();
+        int timesPresented;
+        if(obj.get("timesPresented") == null) {
+            timesPresented = 0;
+        }
+        else {
+            timesPresented = ((Long) obj.get("timesPresented")).intValue();
+        }
+
         String englishVersion = (String) obj.get("englishVersion");
         String word = (String) obj.get("word");
-        int timesCorrect = ((Long) obj.get("timesCorrect")).intValue();
-        double userUnderstanding = (double) obj.get("userUnderstanding");
+        int timesCorrect;
+        if(obj.get("timesCorrect") == null) {
+            timesCorrect = 0;
+        }
+        else {
+            timesCorrect = ((Long) obj.get("timesCorrect")).intValue();
+        }
+
+        double userUnderstanding;
+        if(obj.get("userUnderstanding") == null) {
+            userUnderstanding = 0;
+        }
+        else {
+            userUnderstanding = (double) obj.get("userUnderstanding");
+        }
         Word wordReturn = new Word();
         wordReturn.setWord(word);
         wordReturn.setLanguage(language);

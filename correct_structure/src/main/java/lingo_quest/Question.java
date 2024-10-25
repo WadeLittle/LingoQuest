@@ -4,14 +4,59 @@ package lingo_quest;
 import java.util.ArrayList;
 
 abstract class Question {
-    protected String language;
-    
+  protected String language;
+  protected Word userAnswer;
+  protected Word correctAnswer;
+  
+  
+  /**
+   * @author cade
+   * @return the user's answer
+   */
+  public Word getUserAnswer() {
+    return this.userAnswer;
+  }
 
-    public Question(String language) {
-      this.language = language;
-    }
+  /**
+   * @author cade
+   * @return the correct answer
+   */
+  public Word getCorrectAnswer() {
+    return this.correctAnswer;
+  }
 
-    public abstract String toString();
+  /**
+   * @author cade
+   * @param w word
+   */
+  public void setCorrectAnswer(Word w) {
+    if(w != null)
+      this.correctAnswer = w;
+  }
+
+  /**
+   * @author
+   * @param w word
+   */
+  public void setUserAnswer(Word w) {
+    if(w != null)
+      this.userAnswer = w;
+  }
+
+
+  public Question(String language) {
+    this.language = language;
+  }
+
+  public boolean isCorrect() {
+    // if the string of "correct answer" and the string of "user answer" match
+    if(this.correctAnswer.getWordinLanguage().equalsIgnoreCase(this.userAnswer.getWordinLanguage()))
+      return true;
+    else
+      return false;
+  }
+
+  public abstract String toString();
    
 }
 

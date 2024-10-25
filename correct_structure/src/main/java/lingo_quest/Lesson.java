@@ -47,8 +47,9 @@ public class Lesson {
     public void awardForCompletion(User user) {
 
     }
+    
     public String getLanguageName() {
-        return language.toString().toLowerCase();
+        return LanguageManager.getInstance().getLanguageByID(languageUUID).getLanguageName().toString();
     }
     /**
      * @author Wade Little

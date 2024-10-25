@@ -73,6 +73,23 @@ public class Word {
 
     /**
      * @author cade
+     * @param id
+     */
+    public void setLessonID(UUID id) {
+        if(id != null)
+            this.lessonUUID = id;
+    }
+
+    /**
+     * @author cade
+     * @return the lessonid
+     */
+    public UUID getLessonID() {
+        return this.lessonUUID;
+    }
+
+    /**
+     * @author cade
      * @return englishWord
      */
     public String getEnglishVersion() {
@@ -216,7 +233,7 @@ public class Word {
      *         {@code false} otherwise
      */
     public boolean isEqualTo(Word otherWord) {
-        return this.word.equalsIgnoreCase(otherWord.getWord());
+        return this.word.equalsIgnoreCase(otherWord.getWordinLanguage());
     }
 
     /**

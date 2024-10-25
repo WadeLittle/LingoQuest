@@ -13,9 +13,10 @@ class LanguageGame {
     private Language currentLanguage;
     private LanguageManager languageManager;
     private LeaderBoard leaderboard;
+    private Word userAnswer;
 
     // test comment
-    public LanguageGame() {
+    public LanguageGame() throws Exception {
         this.userList = Users.getInstance();
         this.dictionaryMan = DictionaryManager.getInstance();
         //userList.loadUsers();
@@ -43,8 +44,9 @@ class LanguageGame {
     /**
      * @author cade
      * load all of our singletons
+     * @throws Exception 
      */
-    public void loadAll() {
+    public void loadAll() throws Exception {
         dictionaryMan.loadDictionaries();
         System.out.println("done with load dictionaries");
         userList.loadUsers();
@@ -52,6 +54,15 @@ class LanguageGame {
         languageManager.loadLanguages();
         System.out.println("done with load languages");
         itemShop.loadItems();
+
+        // load object the user needs by their UUIDs
+        for(User u : userList.getUsers()) {
+            // use the UUID's to access the language from languagemanager
+            u.setCurrentLanguage(languageManager.getLanguageByID(u.getCurrentLanguageID()));
+            u.setUserDictionary(dictionaryMan.getDictionaryByID(u.getUserDictionaryID()));
+        }
+
+        
     }
 
     /**
@@ -98,12 +109,12 @@ class LanguageGame {
         System.out.println("Successfully logged out");
     }
 
-    public Dictionary getLanguageDictionary(String language) {
-        return null;
+    public Dictionary getLanguageDictionary(String languageUUID) {
+        return languageManager.getLanguageByID(UUID.fromString(languageUUID)).getDictionary();
     }
 
     public ArrayList<Language> getAllLanguages() {
-        return null;
+        return languageManager.getLanguages();
     }
 
     public boolean openSection(Section section) {
@@ -146,10 +157,15 @@ class LanguageGame {
     public void setUserAnswer(Word userAnswer) {
         this.userAnswer = userAnswer;
     }
-/**
- * @author Wade Little
- * Sets the current question and goes through the process of getting user input as well as updating the data of the word and the correct answer.
- */
+
+    public Word getUserAnswer() {
+        return this.userAnswer;
+    }
+
+    /**
+     * @author Wade Little
+     * Sets the current question and goes through the process of getting user input as well as updating the data of the word and the correct answer.
+     */
     public void answerQuestionInSpanish() {
         Question currentQuestion = languageManager.getCurrentLesson().getQuestion();
         System.out.println(currentQuestion.toString());
