@@ -55,6 +55,9 @@ public class Word {
         this.lessonUUID = lessonUUID;
         this.wordUUID = wordUUID;
     }
+    public int getPoints() {
+        return this.points;
+    }
     public UUID getWordUUID() {
         return this.wordUUID;
     }

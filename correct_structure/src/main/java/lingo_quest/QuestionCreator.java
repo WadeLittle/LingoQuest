@@ -1,24 +1,28 @@
 package lingo_quest;
 
+import java.util.ArrayList;
+
 public class QuestionCreator {
 
-    private DictionaryManager dictionaryManager;
+    
+    private ArrayList<Word> wordsInLesson;
 
     // Constructor to initialize DictionaryManager
-    public QuestionCreator(DictionaryManager dictionaryManager) {
-        this.dictionaryManager = dictionaryManager;
+    public QuestionCreator(ArrayList<Word> wordsInLesson) {
+        this.wordsInLesson = wordsInLesson;
     }
     
-    public Question createQuestion(int wordPoint) {
+    public Question createQuestion(Word word) {
         // Retrieve a word from the dictionary to use in the question
-        String word = dictionaryManager.getRandomWord(); 
-
+        int wordPoint = word.getPoints();
         if (wordPoint <= 0) {
-            return new MultipleChoice(word);
+            return new TrueOrFalse(word, null, null);
         } else if (wordPoint == 100) {
-            return new FillInTheBlank(word);
+            return new MultipleChoice(anotherWord, null, null);
         } else if (wordPoint >= 200) {
-            return new Matching(word);
+            return new FillInTheBlank(anotherWord, null);
+        } else if (wordPoint >= 300) {
+            return new Matching(null);
         }
         throw new IllegalArgumentException("Invalid wordPoint value");
     }
