@@ -230,7 +230,7 @@ private static User createUser(String userID, String username, String password,
     }
     user.setLanguages(languagesUUID);
 
-    user.setCurrentLanguage(mapLanguage(currentLanguage));
+    user.setLanguageType(mapLanguage(currentLanguage));
     //System.out.println(user.toString());
     return user;
 }
@@ -399,12 +399,15 @@ private static User createUser(String userID, String username, String password,
 
             ArrayList<Lesson> lessons = parseLessons((JSONArray) sectionJson.get("lessons"));
 
-            Section sec = new Section(lessons,coinValue);
+            Section sec = new Section();
             sec.setSectionProgress(sectionProgress);
             sec.setUserAccess(userAccess);
             sec.setPointsEarned((int)pointsEarned);
             sec.setTotalPoints(totalPoints);
+            sec.setCoinValue(coinValue);
             sec.setSectionComplete(sectionComplete);
+            sec.setLessons(lessons);
+            sec.setName(sectionName);
         }
         return sections;
     }
@@ -421,14 +424,17 @@ private static User createUser(String userID, String username, String password,
         for (Object obj : lessonsJson) {
             JSONObject lessonJson = (JSONObject) obj;
             int pointsEarned = ((Long) lessonJson.get("pointsEarned")).intValue();
-            int totalPoints = ((Long) lessonJson.get("totalPoints")).intValue();
-            int coinValue = ((Long) lessonJson.get("coinValue")).intValue();
+            //int totalPoints = ((Long) lessonJson.get("totalPoints")).intValue();
+            //int coinValue = ((Long) lessonJson.get("coinValue")).intValue();
             double lessonProgress = (double) lessonJson.get("lessonProgress");
 
             Dictionary topicDictionary = parseDictionary((JSONObject) lessonJson.get("topicDictionary"));
             //ArrayList<Question> questions = parseQuestions((JSONArray) lessonJson.get("questions"));
 
-            Lesson les = new Lesson(coinValue,totalPoints);
+            //Lesson les = new Lesson(coinValue,totalPoints);
+            Lesson les = new Lesson();
+            // after changes made to lesson, can no loger add coinValue or totalPoints
+            //les.setCoinValue(coinValue);
             les.setPointsEarned((int)pointsEarned);
             les.setLessonProgress(lessonProgress);
         }
@@ -475,7 +481,15 @@ private static User createUser(String userID, String username, String password,
             //System.out.println(w.getWord() + " " + w.getEnglishVersion());
             //System.out.println("TEST: "+ makeWord(wordObj).toString());
         }
-        int numWords = ((Long) dictionaryJson.get("numberOfWords")).intValue();
+
+        int numWords;
+        if(dictionaryJson.get("numberOfWords") == null) {
+            numWords = 0;
+        }
+        else {
+            numWords = ((Long) dictionaryJson.get("numberOfWords")).intValue();
+        }
+        
         UUID id = UUID.fromString((String) dictionaryJson.get("dictionaryID"));
         Dictionary retDictionary = new Dictionary(dictionary,numWords);
         retDictionary.setID(id);
@@ -609,11 +623,31 @@ private static User createUser(String userID, String username, String password,
 
     public static Word makeWord(JSONObject obj) {
         Languages language = mapLanguage((String) obj.get("language"));
-        int timesPresented = ((Long) obj.get("timesPresented")).intValue();
+        int timesPresented;
+        if(obj.get("timesPresented") == null) {
+            timesPresented = 0;
+        }
+        else {
+            timesPresented = ((Long) obj.get("timesPresented")).intValue();
+        }
+
         String englishVersion = (String) obj.get("englishVersion");
         String word = (String) obj.get("word");
-        int timesCorrect = ((Long) obj.get("timesCorrect")).intValue();
-        double userUnderstanding = (double) obj.get("userUnderstanding");
+        int timesCorrect;
+        if(obj.get("timesCorrect") == null) {
+            timesCorrect = 0;
+        }
+        else {
+            timesCorrect = ((Long) obj.get("timesCorrect")).intValue();
+        }
+
+        double userUnderstanding;
+        if(obj.get("userUnderstanding") == null) {
+            userUnderstanding = 0;
+        }
+        else {
+            userUnderstanding = (double) obj.get("userUnderstanding");
+        }
         Word wordReturn = new Word();
         wordReturn.setWord(word);
         wordReturn.setLanguage(language);

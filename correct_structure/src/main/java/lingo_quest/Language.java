@@ -14,6 +14,7 @@ public class Language {
     private double progress;
     private int placementScore;
     private ArrayList<Section> sections;
+    private UUID dictionaryID;
     private Dictionary dictionary;
     private int answerStreak;
     private Languages languageName;
@@ -66,6 +67,15 @@ public class Language {
      */
     public void setLanguageID(UUID id) {
         this.languageID = id;
+    }
+
+    public Dictionary geDictionary() {
+        return this.dictionary;
+    }
+
+    public void setDictionary(UUID id) {
+        if(id != null)
+            this.dictionary = DictionaryManager.getInstance().getDictionaryByID(id);
     }
 
     /**

@@ -5,24 +5,25 @@ import java.util.UUID;
 
 public class Section {
     private ArrayList<Lesson> lessons;
-  //  private boolean userAccess;
+    private boolean userAccess;
     private double sectionProgress;
     private int pointsEarned;
     private int totalPoints;
     private int coinValue;
-   // private boolean sectionComplete;
+    private String sectionName;
+    private boolean sectionComplete;
     private UUID ID;
-  //  private int pointRequirement;
+    private int pointRequirement;
 
     // Constructors
     public Section() {
         lessons = new ArrayList<Lesson>();
-        userAccess = false;
+        //userAccess = false;
         sectionProgress = 0;
         pointsEarned = 0;
         totalPoints = 0;
         coinValue = 0;
-        sectionComplete = false;
+        //sectionComplete = false;
     }
 
     public Section(ArrayList<Lesson> lessons, UUID ID) {
@@ -42,6 +43,22 @@ public class Section {
         return totalPoints;
     }
 
+    /**
+     * @author cade
+     * @param n
+     */
+    public void setName(String n) {
+        this.sectionName = n;
+    }
+
+    /**
+     * @author cade
+     * @return the sectionName
+     */
+    public String getName() {
+        return this.sectionName;
+    }
+
     public int getPointsEarned() {
         int pointsEarned = 0;
         for(Lesson lesson: lessons) {
@@ -50,9 +67,14 @@ public class Section {
         return pointsEarned;
     }
 
-    public void setSectionProgress() {
+    /**
+     * changed to be called updateSectionProgress
+     */
+    public void updateSectionProgress() {
         this.sectionProgress = getSectionProgress();
     }
+
+
  
     public double getSectionProgress() {
         int totalPoints = 0;
@@ -62,6 +84,22 @@ public class Section {
            earnedPoints += lesson.getPointsEarned();
         }
         return (earnedPoints/totalPoints) * 100;
+    }
+
+    /**
+     * @author cade
+     * @param int of coin balance
+     */
+    public void setCoinValue(int cb) {
+        this.coinValue = cb;
+    }
+
+    /**
+     * @author cade
+     * @return the coin value
+     */
+    public int getCoinValue() {
+        return this.coinValue;
     }
 
 
@@ -86,18 +124,39 @@ public class Section {
         return this.sectionComplete;
     }
 
+    // what is this method for? - cade
     public Lesson getLesson(Lesson lesson) {        
         return lesson;
     }
 
+    /**
+     * @author cade
+     * @return the list of lessons
+     */
     public ArrayList<Lesson> getAllLessons() {
-       
-        return null;
+        return this.lessons;
+    }
+
+    /**
+     * @author cade
+     * @param l
+     */
+    public void setLessons(ArrayList<Lesson> l) {
+        if(l != null)
+            this.lessons = l;
     }
 
     public ArrayList<Lesson> getAvailableLessons() {
         
         return null;
+    }
+
+    /**
+     * @author cade
+     * @param p
+     */
+    public void setSectionProgress(double p) {
+        this.sectionProgress = p;
     }
 
     /**
@@ -129,7 +188,7 @@ public class Section {
         this.totalPoints = totalPoints;
     }
 
-    private void awardForCompletion(User user) {
+    public void awardForCompletion(User user) {
         
     }
 
