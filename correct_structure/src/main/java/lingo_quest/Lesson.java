@@ -9,7 +9,7 @@ public class Lesson {
     private int pointsEarned;
     private int totalPoints;
     private double lessonProgress;
-    private ArrayList<Word> topicWords;
+    public ArrayList<Word> topicWords;
     private String lessonName;
     private UUID lessonUUID;
     public Question currentQuestion;
@@ -38,6 +38,9 @@ public class Lesson {
         this.lessonUUID = lessonUUID;
     }
 
+    public String getLessonName() {
+        return lessonName;
+    }
     public int getTotalPoints() {
         return topicWords.size() * 300; 
     }

@@ -220,7 +220,15 @@ public class Word {
      */
     @Override
     public String toString() {
-        return "Word: " + word + ", Presented: " + timesPresented + ", Correct: " + timesCorrect + ", Understanding: " + userUnderstanding + "%";
+        return "Word Details:\n" +
+               "------------------------\n" +
+               "Word: " + word + " (" + language + ")\n" +
+               "English Version: " + englishVersion + "\n" +
+               "Points: " + points + "\n" +
+               "Times Presented: " + timesPresented + "\n" +
+               "Times Correct: " + timesCorrect + "\n" +
+               "User Understanding: " + String.format("%.2f", userUnderstanding * 100) + "%\n" +
+               "------------------------";
     }
 
     /**
