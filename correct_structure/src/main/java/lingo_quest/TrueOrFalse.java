@@ -11,6 +11,7 @@ public class TrueOrFalse extends Question {
     private Word correctWord;
     private int coinValue;
     private int pointValue;
+    public String userAnswer;
     public TrueOrFalse(String language, Word aWord, Word anotherWord ) {
        super(language);
         this.aWord = aWord;
@@ -18,6 +19,9 @@ public class TrueOrFalse extends Question {
         answer = "";
         coinValue = 100;
         pointValue = 100;
+    }
+    public void setUserAnswer(String userAnswer) {
+        this.userAnswer = userAnswer;
     }
 
     public String toString() {
@@ -38,8 +42,8 @@ public class TrueOrFalse extends Question {
     return result.toString();
     }
 
-    public boolean isCorrect(String userInput, User user) {
-        if(userInput.toLowerCase().trim().equals(answer)) {
+    public boolean isCorrect( User user) {
+        if(userAnswer.toLowerCase().trim().equals(answer)) {
           user.getUserDictionary().getWordByUUID(correctWord.getWordUUID()).wordPresented(true);
             return true;
         } else {

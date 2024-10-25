@@ -8,6 +8,7 @@ public class FillInTheBlank extends Question{
     private Word correctAnswer;
     private int coinValue;
     private int pointValue;
+    public String userAnswer;
     /**
      * @author Wade Little
      * Uses the super constructor to create a fill in the blank question
@@ -18,7 +19,10 @@ public class FillInTheBlank extends Question{
         coinValue = 100;
         pointValue = 100;
     }
-    
+    public void setUserAnswer(String userAnswer) {
+        this.userAnswer = userAnswer;
+    }
+
     /* 
      * @author Wade Little
      * Concatanates the question and answer choices into an easy to read format
@@ -28,8 +32,8 @@ public class FillInTheBlank extends Question{
         StringBuilder result = new StringBuilder("The " + language + " word for " + correctAnswer.getEnglishVersion() + " is ______" + "\nType your answer below\n");
         return result.toString();
     }
-    public boolean isCorrect(String userInput, User user) {
-        if(userInput.toLowerCase().trim().equals(correctAnswer.getWordinLanguage())) {
+    public boolean isCorrect( User user) {
+        if(userAnswer.toLowerCase().trim().equals(correctAnswer.getWordinLanguage())) {
           user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(true);
             return true;
         } else {

@@ -10,6 +10,7 @@ public class MultipleChoice extends Question  {
     private int correctAnswerIndex;
     private int coinValue; 
     private int pointValue;
+    public String userAnswer;
 
     public MultipleChoice(String language, ArrayList<Word> answerChoices, Word correctAnswer) {
         super(language);

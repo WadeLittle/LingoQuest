@@ -12,7 +12,13 @@
       "sections": [
           {
             "sectionName": "Food",
-            "sectionUUID": "bb8832c1-3f9c-4796-84e2-d8a41ff22d14"
+            "sectionUUID": "bb8832c1-3f9c-4796-84e2-d8a41ff22d14",
+            "Lessons": [
+                {
+                "lessonName" : "Drinks",
+                "lessonUUID" : ""
+                }
+            ]
           }
       ]
     }

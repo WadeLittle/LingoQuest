@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 abstract class Question {
   protected String language;
-  protected Word userAnswer;
+  protected String userAnswer;
   protected Word correctAnswer;
   
   
@@ -38,9 +38,8 @@ abstract class Question {
    * @author
    * @param w word
    */
-  public void setUserAnswer(Word w) {
-    if(w != null)
-      this.userAnswer = w;
+  public void setUserAnswer(String userAnswer) {
+      this.userAnswer = userAnswer;
   }
 
 

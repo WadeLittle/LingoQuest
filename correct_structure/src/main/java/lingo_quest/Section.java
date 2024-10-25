@@ -26,14 +26,14 @@ public class Section {
         //sectionComplete = false;
     }
 
-    public Section(ArrayList<Lesson> lessons, UUID ID) {
+    public Section(String sectionName, UUID sectionUUID, ArrayList<Lesson> lessons) {
+        this.sectionName = sectionName;
         this.lessons = lessons;
+        this.ID = sectionUUID;
         this.sectionProgress = getSectionProgress();
         this.pointsEarned = getPointsEarned();
         this.totalPoints = getTotalPoints();
         this.coinValue = 1000;
-        this.ID = ID; 
-        
     }
     public int getTotalPoints() {
         int totalPoints = 0;

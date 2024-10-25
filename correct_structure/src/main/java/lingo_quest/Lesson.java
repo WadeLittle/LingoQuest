@@ -28,7 +28,7 @@ public class Lesson {
          this.lessonProgress = this.pointsEarned/this.totalPoints;
     }
 
-    public Lesson(UUID languageUUID, String lessonName, UUID lessonUUID) {
+    public Lesson( String lessonName,UUID languageUUID, UUID lessonUUID) {
         this.languageUUID = languageUUID;
         pointsEarned = 0;
         totalPoints = getTotalPoints();

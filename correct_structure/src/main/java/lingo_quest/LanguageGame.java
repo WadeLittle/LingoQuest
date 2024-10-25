@@ -253,7 +253,11 @@ class LanguageGame {
     }
     public void getAQuestion() {
       Question question =  questionCreator.createQuestion(user.currentLesson);
+      user.currentLesson.currentQuestion = question;
       System.out.println(question.toString());
+    }
+    public void answerQuestion(String userAnswer) {
+        user.currentLesson.currentQuestion.setUserAnswer(userAnswer);
     }
 
     public void getProgressScreen() {
