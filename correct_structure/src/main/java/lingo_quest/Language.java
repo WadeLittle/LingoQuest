@@ -158,6 +158,14 @@ public class Language {
     }
 
     /**
+     * @author cade
+     * @return the pointsEarned
+     */
+    public int getPointsEarned() {
+        return this.pointsEarned;
+    }
+
+    /**
      * @author Cade Stocker
      * @return String of the Language's UUID
      * UUID is the unique identifier of this object of language

@@ -21,7 +21,7 @@ public class LanguageManager {
 
     /**
      * @author cade
-     * @return the id of the spanish dictionary
+     * @return the id of the spanish dicitonary
      */
     public String getSpanishDictionary() {
         return this.spanishDictionary;
@@ -70,6 +70,7 @@ public class LanguageManager {
 
     // Method to save languages
     public void saveLanguages() {
+        DataWriter.writeLanguages(languages,DataWriter.getLanguageFile());
         // Stub implementation
     }
 
