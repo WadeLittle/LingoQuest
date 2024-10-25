@@ -383,6 +383,7 @@ private static User createUser(String userID, String username, String password,
         lang.setPlacementTestID(UUID.fromString(placementTest));
         //lang.setPlacementTest(pt);
         lang.setLanguageID(languageID);
+        lang.setUserID(userID);
         lang.setPointsEarned(pointsEarned);
         lang.setTotalPoints(totalPoints);
         lang.setUserProgress(progress);

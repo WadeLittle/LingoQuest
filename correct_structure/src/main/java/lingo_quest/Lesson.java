@@ -10,6 +10,7 @@ public class Lesson {
     private int totalPoints;
     private double lessonProgress;
     public ArrayList<Word> topicWords;
+    private int questionNum;
     private String lessonName;
     private UUID lessonUUID;
     public Question currentQuestion;
@@ -109,9 +110,9 @@ public class Lesson {
      * @author cade stocker
      * @return lesson's coin value
      */
-    public int getCoinValue() {
-        return this.coinValue;
-    }
+    //public int getCoinValue() {
+    //    return this.coinValue;
+    //}
 
     /**
      * @author cade

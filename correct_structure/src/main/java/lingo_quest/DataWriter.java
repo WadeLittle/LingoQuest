@@ -377,29 +377,43 @@ class DataWriter {
 
     public static JSONObject serializeLanguage(Language l) {
         JSONObject root = new JSONObject();
-        root.put("userID", l.getUserID());
+        root.put("userID", l.getUserID().toString());
         root.put("pointsEarned",l.getPointsEarned());
         root.put("totalPoints",l.getTotalPoints());
         root.put("progress",l.getProgress());
         root.put("answerStreak",l.getAnswerStreak());
         root.put("languageName",l.getLanguageName().toString());
-        root.put("languageID", l.getLanguageID());
-        root.put("PlacementTest",l.getPlacementTestID());
+        root.put("languageID", l.getLanguageID().toString());
+        root.put("PlacementTest",l.getPlacementTestID().toString());
+        JSONArray sections = new JSONArray();
         for(Section s : l.getSections()) {
-
+            sections.add(serializeSection(s));
         }
+        root.put("sections",sections);
+        return root;
     }
 
+    /**
+     * @author
+     * @param s
+     * @return 
+     */
     public static JSONObject serializeSection(Section s) {
         JSONObject root = new JSONObject();
         root.put("sectionName",s.getName());
         root.put("sectionUUID",s.getID());
         JSONArray lessonArray = new JSONArray();
         for(Lesson l : s.getAllLessons()) {
-            
+            lessonArray.add(serializeLesson(l));
         }
+        return root;
     }
 
+    /**
+     * @author cade
+     * @param l
+     * @return object version of lesson
+     */
     public static JSONObject serializeLesson(Lesson l) {
         JSONObject root = new JSONObject();
         root.put("lessonName",l.getLessonName());
@@ -441,6 +455,7 @@ class DataWriter {
     public static JSONObject serializeDictionary(Dictionary d) {
         // dictionary object
         JSONObject root = new JSONObject();
+        root.put("dictionaryID", d.getID().toString());
         // array of words
         JSONArray wordArray = new JSONArray();
         // make each word into jsonobject then add to array
