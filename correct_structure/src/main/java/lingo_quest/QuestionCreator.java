@@ -5,22 +5,22 @@ import java.util.ArrayList;
 public class QuestionCreator {
 
     
-    private ArrayList<Word> wordsInLesson;
-
+    
     // Constructor to initialize DictionaryManager
-    public QuestionCreator(ArrayList<Word> wordsInLesson) {
-        this.wordsInLesson = wordsInLesson;
+    public QuestionCreator() {
     }
     
-    public Question createQuestion(Word word) {
+    public Question createQuestion(Lesson lesson) {
+        Word word = lesson.getRandomWord();
         // Retrieve a word from the dictionary to use in the question
         int wordPoint = word.getPoints();
         if (wordPoint <= 0) {
-            return new TrueOrFalse(word, null, null);
+            Word anotherWord = lesson.getRandomWord();
+            return new TrueOrFalse(lesson.getLanguageName(), word, anotherWord);
         } else if (wordPoint == 100) {
-            return new MultipleChoice(anotherWord, null, null);
+            return new MultipleChoice(lesson.getLanguageName(), lesson.getWords(word, 4), word);
         } else if (wordPoint >= 200) {
-            return new FillInTheBlank(anotherWord, null);
+            return new FillInTheBlank(lesson.getLanguageName(), lesson.getRandomWord());
         } else if (wordPoint >= 300) {
             return new Matching(null);
         }

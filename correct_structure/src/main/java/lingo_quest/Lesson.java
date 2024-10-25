@@ -1,6 +1,7 @@
 package lingo_quest;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.UUID;
 
 public class Lesson {
@@ -124,5 +125,30 @@ public class Lesson {
     public String presentQuestion(Question question) {
 
     }
+
+    public Word getRandomWord() {
+        Random randomNum = new Random();
+        int randomIndex = randomNum.nextInt(this.topicWords.size());
+        return this.topicWords.get(randomIndex);
+    }
+
+    public ArrayList<Word> getWords(Word word, int numOfWords) {
+        ArrayList<Word> words = new ArrayList<>();
+        words.add(word);
+
+
+        Random randomNum = new Random();
+        while(words.size() < numOfWords) {
+            int randomIndex = randomNum.nextInt(this.topicWords.size());
+            Word aWord = this.topicWords.get(randomIndex);
+
+            if(!words.contains(aWord)) {
+                words.add(aWord);
+            }
+        }
+        return words;
+    }
+
+    
 }
 

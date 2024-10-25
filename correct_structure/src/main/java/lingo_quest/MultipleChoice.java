@@ -40,13 +40,13 @@ public class MultipleChoice extends Question  {
         }
         return result.toString();
     }
-    
+
     public boolean isCorrect(String userInput, User user) {
         if(userInput.equals(this.correctAnswerIndex)) {
-            correctAnswer.wordPresented(true);
+           user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(true);
             return true;
         } else {
-            correctAnswer.wordPresented(false);
+            user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(false);
             return false;
         }
     }

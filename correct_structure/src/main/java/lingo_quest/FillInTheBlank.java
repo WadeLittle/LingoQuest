@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class FillInTheBlank extends Question{
     private String language;
-    private ArrayList<Word> answerChoices;
     private Word correctAnswer;
     private int coinValue;
     private int pointValue;
@@ -28,6 +27,15 @@ public class FillInTheBlank extends Question{
     public String toString() {
         StringBuilder result = new StringBuilder("The " + language + " word for " + correctAnswer.getEnglishVersion() + " is ______" + "\nType your answer below\n");
         return result.toString();
+    }
+    public boolean isCorrect(String userInput, User user) {
+        if(userInput.toLowerCase().trim().equals(correctAnswer.getWordinLanguage())) {
+          user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(true);
+            return true;
+        } else {
+            user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(false);
+            return false;
+        }
     }
 }
 
