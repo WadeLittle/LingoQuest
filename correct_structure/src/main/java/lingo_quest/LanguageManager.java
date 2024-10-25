@@ -9,6 +9,7 @@ public class LanguageManager {
     private Language currentLanguage;
     private Section currentSection;
     private Lesson currentLesson;
+    private final String spanishDictionary = "eeaaed42-a1be-4477-bc7c-2f6f2be2993b";
 
     // Singleton method
     public static LanguageManager getInstance() {
@@ -55,8 +56,8 @@ public class LanguageManager {
     }
 
     // Method to load languages
-    public void loadLanguages() {
-        // Stub implementation
+    public void loadLanguages() throws Exception {
+        languages = DataLoader.loadLanguages(DataLoader.getLanguageFile());
     }
 
     // Method to save languages

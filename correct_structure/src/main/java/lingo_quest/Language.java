@@ -9,6 +9,7 @@ public class Language {
     private UUID userID;
     private UUID languageID;
     private PlacementTest placementTest;
+    private UUID placementTestID;
     private int pointsEarned;
     private int totalPoints;
     private double progress;
@@ -60,6 +61,23 @@ public class Language {
     }
 
     /**
+     * @author cade
+     * @return the placement test's id
+     */
+    public UUID getPlacementTestID() {
+        return this.placementTestID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setPlacementTestID(UUID id) {
+        if(id != null)
+            this.placementTestID = id;
+    }
+
+    /**
      * @author Cade Stocker
      * @param UUID that will be added to the language
      * UUID will be used to access the user who owns this object of language
@@ -69,13 +87,32 @@ public class Language {
         this.languageID = id;
     }
 
-    public Dictionary geDictionary() {
+
+    /**
+     * @author cade
+     * @return the language's dictionary
+     */
+    public Dictionary getDictionary() {
         return this.dictionary;
     }
 
+    /**
+     * @author cade
+     * @param id
+     */
     public void setDictionary(UUID id) {
         if(id != null)
             this.dictionary = DictionaryManager.getInstance().getDictionaryByID(id);
+    }
+
+    /**
+     * @author cade
+     * @param l language type
+     * used for dataloader
+     */
+    public void setLanguageName(Languages l) {
+        if(l != null)
+            this.languageName = l;
     }
 
     /**
@@ -85,6 +122,7 @@ public class Language {
     public void setUserProgress(double progress) {
         this.progress = progress;
     }
+
 
     public void setPlacementScore(int score) {
         this.placementScore = score;
@@ -172,6 +210,15 @@ public class Language {
      */
     public void increaseAnswerStreak() {
         this.answerStreak++;
+    }
+
+    /**
+     * @author cade
+     * @param i
+     */
+    public void setAnswerStreak(int i) {
+        if(i>=0)
+            this.answerStreak = i;
     }
 
     /**

@@ -12,7 +12,8 @@ public class UI {
         String password = keyboard.nextLine();
         //Users users = Users.getInstance();
         lg.login(username,password);
-        lg.getUser().setCoinsEarned(40);
+        if(lg.getUser() != null)
+            lg.getUser().setCoinsEarned(40);
         //lg.logout();
 
     }
@@ -43,8 +44,9 @@ public class UI {
         lg.createUser(username, password);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         lg = new LanguageGame();
+        System.out.println(lg.getAllLanguages().get(0).toString());
         boolean quit = false;
         //for(User u : Users.getInstance().getUsers()) {
         //    System.out.println("TESTTTTTT" +u.getUUID());

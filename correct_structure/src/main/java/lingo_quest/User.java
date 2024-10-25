@@ -28,6 +28,7 @@ public class User {
     // Changed this to Languages so that we can just use the enum we made - cade
     // changed back to language object so that it can be accessed
     public Language currentLanguage;
+    public UUID currentLanguageID;
     public Section currentSection;
     public Lesson currentLesson;
 
@@ -103,6 +104,15 @@ public class User {
      */
     public Dictionary getUserDictionary() {
         return this.userDictionary;
+    }
+
+    public UUID getCurrentLanguageID() {
+        return this.currentLanguageID;
+    }
+
+    public void setCurrentLangaugeID(UUID id) {
+        if(id != null)
+            this.currentLanguageID = id;
     }
 
     /**

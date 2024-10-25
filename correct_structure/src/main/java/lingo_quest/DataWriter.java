@@ -94,6 +94,7 @@ class DataWriter {
         JSONObject userJson = new JSONObject();
         // this should put these variables in order but isn't
         userJson.put("userID", user.getUUID().toString());
+        userJson.put("currentLanguageID",user.getCurrentLanguageID());
         userJson.put("username", user.getUsername());
         userJson.put("password", user.getPassword());
         userJson.put("coinsEarned", user.getCoinsEarned());
@@ -186,8 +187,8 @@ class DataWriter {
             wordJson.put("timesCorrect", word.getTimesCorrect());
             wordJson.put("userUnderstanding", word.getUserUnderstanding());
             wordJson.put("englishVersion", word.getEnglishVersion());
-            wordJson.put("wordUUID", word.getWordUUID());
-            wordJson.put("lessonUUID", word.getLessonID());
+            wordJson.put("wordUUID", word.getWordUUID().toString());
+            wordJson.put("lessonUUID", word.getLessonID().toString());
         }
         return wordJson;
     }
