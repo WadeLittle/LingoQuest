@@ -651,6 +651,14 @@ private static User createUser(String userID, String username, String password,
             timesPresented = ((Long) obj.get("timesPresented")).intValue();
         }
 
+        int points;
+        if(obj.get("points") == null) {
+            points = 0;
+        }
+        else {
+            points = ((Long) obj.get("points")).intValue();
+        }
+
         String englishVersion = (String) obj.get("englishVersion");
         String word = (String) obj.get("word");
         int timesCorrect;
@@ -675,6 +683,7 @@ private static User createUser(String userID, String username, String password,
         wordReturn.setUserUnderstanding(userUnderstanding);
         wordReturn.setTimesPresented(timesPresented);
         wordReturn.setEnglishVersion(englishVersion);
+        wordReturn.setPoints(points);
         return wordReturn;
     }
 

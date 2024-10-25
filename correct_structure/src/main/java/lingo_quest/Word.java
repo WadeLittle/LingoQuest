@@ -90,14 +90,6 @@ public class Word {
 
     /**
      * @author cade
-     * @return the points
-     */
-    public int getPoints() {
-        return this.points;
-    }
-
-    /**
-     * @author cade
      * @param p points
      */
     public void setPoints(int p) {

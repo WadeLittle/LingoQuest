@@ -98,7 +98,7 @@ class DataWriter {
         JSONObject userJson = new JSONObject();
         // this should put these variables in order but isn't
         userJson.put("userID", user.getUUID().toString());
-        userJson.put("currentLanguageID",user.getCurrentLanguageID());
+        userJson.put("currentLanguageID",user.getCurrentLanguageID().toString());
         userJson.put("username", user.getUsername());
         userJson.put("password", user.getPassword());
         userJson.put("coinsEarned", user.getCoinsEarned());
