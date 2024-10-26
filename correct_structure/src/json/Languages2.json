@@ -22,7 +22,30 @@
               }
               
             ]
+          },
+          {
+            "sectionName": "Transportation",
+            "sectionUUID": "c6e5cbc9-8afb-4631-b4ae-dcf5b766759d",
+            "lessons": [
+              {
+                "lessonName": "Land Transportation",
+                "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4"
+              },
+              {
+                "lessonName": "Air Transportation",
+                "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2"
+              },
+              {
+                "lessonName": "Water Transportation",
+                "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c"
+              },
+              {
+                "lessonName": "Miscellaneous Transportation",
+                "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a"
+              }
+            ]
           }
         ]
       }
-    }         
+    }
+       

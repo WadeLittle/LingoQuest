@@ -420,6 +420,286 @@
             "wordInEnglish": "Mango",
             "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
             "wordUUID": "e3f58b8c-86b4-47b1-abe4-d7846f5a1d8b"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Coche",
+            "wordInEnglish": "Car",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "d6ace4e2-5fcb-425d-aea6-9b0322c8acf0"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Autobús",
+            "wordInEnglish": "Bus",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "85206927-7270-45c6-b0b5-f88f23098219"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Bicicleta",
+            "wordInEnglish": "Bicycle",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "1764783b-da6f-4770-9c21-5d9267eed68f"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Motocicleta",
+            "wordInEnglish": "Motorcycle",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "6092844b-d274-4a70-8c45-22ae250ff907"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Taxi",
+            "wordInEnglish": "Taxi",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "352020f7-3551-4e7d-b582-3b1d2a84cfe6"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Tren",
+            "wordInEnglish": "Train",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "59e5e33d-82b8-4ff4-9184-94ecf63bdf6a"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Camión",
+            "wordInEnglish": "Truck",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "b3ca3a39-5d91-4af2-b93f-e4d164d471b2"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Furgoneta",
+            "wordInEnglish": "Van",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "90371491-2fbb-4370-9574-3208d88eb54f"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Metro",
+            "wordInEnglish": "Subway",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "71300543-e5cf-4568-975e-8578907d63fe"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Patinete",
+            "wordInEnglish": "Scooter",
+            "lessonUUID": "654eb1dd-65b6-469d-939d-b8d4fddca9e4",
+            "wordUUID": "1df6d162-81e8-4b32-ba95-70864e5b1399"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Avión",
+            "wordInEnglish": "Airplane",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "01332694-341f-4ce5-9d3d-f19621484907"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Helicóptero",
+            "wordInEnglish": "Helicopter",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "aa9dbc31-d087-499d-89c1-e9838587b4e3"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Globo Aerostático",
+            "wordInEnglish": "Hot Air Balloon",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "dcf342e1-030c-4e64-8579-013e5fd7896c"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Jet",
+            "wordInEnglish": "Jet",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "2ebfdda3-8ba7-4c5c-ba02-acadb730c61b"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Planeador",
+            "wordInEnglish": "Glider",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "2b75b5a4-f9dd-48eb-95d7-393b5f8c6ec0"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Aeropuerto",
+            "wordInEnglish": "Airport",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "f7e61ee8-5176-4a5d-8612-338373edf619"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Vuelo",
+            "wordInEnglish": "Flight",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "2eb9539a-59c0-4ee0-8b05-9197ae106548"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Piloto",
+            "wordInEnglish": "Pilot",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "e50cf714-f672-4e42-b962-26c7bf495eb3"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Paracaídas",
+            "wordInEnglish": "Parachute",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "df5e9941-44a3-4034-b405-9d21ccf1c58c"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Equipaje",
+            "wordInEnglish": "Baggage",
+            "lessonUUID": "743e1d8c-3961-4e53-9fb6-578cb4393fe2",
+            "wordUUID": "77cd93e8-c55d-403c-b89d-7e0aa96f3af8"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Barco",
+            "wordInEnglish": "Boat",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "642a9f7a-63be-4560-a1da-598e4ef296f6"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Embarcación",
+            "wordInEnglish": "Ship",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "7f2ce1c3-d10c-4101-9fae-2991c3bc8edd"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Ferry",
+            "wordInEnglish": "Ferry",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "51f4ee56-0a63-485b-acab-8568cdbc08c3"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Submarino",
+            "wordInEnglish": "Submarine",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "e529866d-4012-4344-a03f-f76211d5a09e"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Yate",
+            "wordInEnglish": "Yacht",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "177111b6-0f77-4f10-b9c1-a7a2817e23a2"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Canoa",
+            "wordInEnglish": "Canoe",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "3136d31f-8753-4391-8715-7fd7db828295"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Velero",
+            "wordInEnglish": "Sailboat",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "897aff92-5c63-4806-84d7-e7055dcd927f"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Puerto",
+            "wordInEnglish": "Port",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "fc6481eb-96f4-45f8-8b0e-cb902e9ff85c"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Capitán",
+            "wordInEnglish": "Captain",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "41545014-f29d-4de5-9a4e-8ac2ee1ffa25"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Bote Salvavidas",
+            "wordInEnglish": "Lifeboat",
+            "lessonUUID": "27d3b8ea-9636-4f6f-aa4a-542a0ce8b82c",
+            "wordUUID": "cad25f1e-4bec-4d4a-b1e3-1d06d2bdfc73"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Estación de tren",
+            "wordInEnglish": "Train Station",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "286d5685-3764-4c14-90a4-562d522b52e3"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Estación de autobuses",
+            "wordInEnglish": "Bus Station",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "e7538af1-97a7-4afc-9ac2-862361759d15"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Autopista",
+            "wordInEnglish": "Highway",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "4639c188-f8e2-4e44-b783-a369270cdfaa"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Carretera",
+            "wordInEnglish": "Road",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "aed0e535-ef45-4019-a673-88736d42497f"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Semáforo",
+            "wordInEnglish": "Traffic Light",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "9ea7f7e1-0793-4fa4-b0e6-468d84aea078"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Paso de peatones",
+            "wordInEnglish": "Crosswalk",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "5d49694c-8376-4be3-bbb5-d336268d00d3"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Peaje",
+            "wordInEnglish": "Toll",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "db448fa7-657a-4eaf-8862-57b8ffba425c"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Licencia de conducir",
+            "wordInEnglish": "Driver's License",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "38328e3e-ec55-43e7-8bd5-d285d2df81bc"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Estacionamiento",
+            "wordInEnglish": "Parking Lot",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "91f35e61-27a6-4f17-a75c-0d6095e7b4f8"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Tráfico",
+            "wordInEnglish": "Traffic",
+            "lessonUUID": "34d4128f-0ace-4bd4-a6a2-e72c84c3da7a",
+            "wordUUID": "80d09e2b-beaa-4715-a754-985f680b02e5"
           }
     ]
 }
