@@ -49,6 +49,7 @@ public class UI {
 
     public static void main(String[] args) throws Exception {
         lg = new LanguageGame();
+        Scanner keyboard = new Scanner(System.in);
 
         lg.createUser("Jim", "jimiscool23");
         lg.logout();
@@ -58,6 +59,25 @@ public class UI {
         lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
         lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
         lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
+        for(int i =0; i< 5;i++) {
+            lg.getAQuestion();
+            lg.answerQuestion(keyboard);
+        }
+
+        lg.getProgressScreen();
+
+        lg.pickALesson(UUID.fromString("c2e6b17a-5f04-4f9d-8cb7-bddedc6c1782"));
+        for(int i=0; i < 5;i++) {
+            lg.getAQuestion();
+            lg.answerQuestion(keyboard);
+        }
+        lg.getProgressScreen();
+        lg.logout();
+        lg.login("Jim", "Jimiscool23");
+        lg.getAQuestion();
+        lg.answerQuestion(keyboard);
+        
+
         
 
 
@@ -67,7 +87,6 @@ public class UI {
         //for(User u : Users.getInstance().getUsers()) {
         //    System.out.println("TESTTTTTT" +u.getUUID());
         //}
-        Scanner keyboard = new Scanner(System.in);
 
 
 

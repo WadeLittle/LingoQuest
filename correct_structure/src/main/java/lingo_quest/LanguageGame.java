@@ -264,7 +264,9 @@ class LanguageGame {
       user.currentLesson.currentQuestion = question;
       System.out.println(question.toString());
     }
-    public void answerQuestion(String userAnswer) {
+    public void answerQuestion(Scanner k) {
+        System.out.println("Please enter your answer");
+       String userAnswer = k.nextLine().toLowerCase().trim();
         user.currentLesson.currentQuestion.setUserAnswer(userAnswer);
         user.currentLesson.currentQuestion.isCorrect(user);
     }
@@ -274,7 +276,9 @@ class LanguageGame {
         System.out.println("The lesson you are currently working on is " + user.currentLesson.getLessonName());
         System.out.println("You have completed " + user.currentLesson.getLessonProgress() + " of the lesson");
         for(Word w : user.currentLesson.topicWords) {
-            w.toString();
+            if(w.getTimesPresented() > 0) {
+                w.toString();
+            }
         }
     }
 
