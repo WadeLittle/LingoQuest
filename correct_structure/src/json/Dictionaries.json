@@ -282,6 +282,76 @@
                         "englishVersion": "Sausage",
                         "lessonUUID": "d5c71c37-f01a-4c76-aab9-c0d639d3e02b",
                         "wordUUID": "fb9e65be-ef6f-44b4-b431-b2442b22eb39"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Coche",
+                        "englishVersion": "Car",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "92e206c6-f9e2-4e62-b542-93c9c57733c2"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Autobús",
+                        "englishVersion": "Bus",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "a2b8c5f5-42eb-4864-b6e6-639c60bfe3d5"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Bicicleta",
+                        "englishVersion": "Bicycle",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "b0527de9-65bc-4e8e-b6af-d37665f0f824"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Motocicleta",
+                        "englishVersion": "Motorcycle",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "33b3f8a5-5994-453f-848e-e83a40e5508e"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Taxi",
+                        "englishVersion": "Taxi",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "e39bc9ed-b9ed-4741-943f-4c96a6efbf31"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Tren",
+                        "englishVersion": "Train",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "05410aa2-5066-49c8-b17c-45863437206f"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Camión",
+                        "englishVersion": "Truck",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "7f81a01e-eaa5-4e69-a189-df4d432d77ae"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Furgoneta",
+                        "englishVersion": "Van",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "5b2d5c79-5cbb-4b55-9961-f7bc0f51c0b0"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Metro",
+                        "englishVersion": "Subway",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "14fdc1a4-1b1e-4790-a470-09f72f7f4b4e"
+                    },
+                    {
+                        "language": "SPANISH",
+                        "word": "Patinete",
+                        "englishVersion": "Scooter",
+                        "lessonUUID": "dca79914-b256-45c7-b788-d21f469d7d05",
+                        "wordUUID": "f1a5a1e0-e10b-4c5c-96bc-6f2b802b3ef9"
                     }
                 ]
             ]

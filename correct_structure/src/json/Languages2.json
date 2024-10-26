@@ -36,7 +36,8 @@
             "sectionUUID" : "5a9ba1e5-fd2b-49bf-ba5f-270e5a6421e3",
             "Lessons": [
                 {
-                    "lessonName" :
+                    "lessonName" : "Land Transportation",
+                    "lessonUUID" : "dca79914-b256-45c7-b788-d21f469d7d05"
                 }
             ]
           }
