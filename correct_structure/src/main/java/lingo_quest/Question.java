@@ -47,13 +47,7 @@ abstract class Question {
     this.language = language;
   }
 
-  public boolean isCorrect() {
-    // if the string of "correct answer" and the string of "user answer" match
-    if(this.correctAnswer.getWordinLanguage().equalsIgnoreCase(this.userAnswer.getWordinLanguage()))
-      return true;
-    else
-      return false;
-  }
+  public abstract boolean isCorrect(User user);
 
   public abstract String toString();
    

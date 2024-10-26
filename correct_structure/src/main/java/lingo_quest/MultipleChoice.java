@@ -29,6 +29,9 @@ public class MultipleChoice extends Question  {
         }
         return -1;
     }
+    public void setUserAnswer(String userAnswer) {
+        this.userAnswer = userAnswer;
+    }
     /**
      * @author Wade Little
      * Gives  the question as well as the answer choices
@@ -42,8 +45,8 @@ public class MultipleChoice extends Question  {
         return result.toString();
     }
 
-    public boolean isCorrect(String userInput, User user) {
-        if(userInput.equals(this.correctAnswerIndex)) {
+    public boolean isCorrect( User user) {
+        if(userAnswer.equals(this.correctAnswerIndex)) {
            user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(true);
             return true;
         } else {

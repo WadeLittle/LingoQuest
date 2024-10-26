@@ -284,12 +284,10 @@
                         "wordUUID": "fb9e65be-ef6f-44b4-b431-b2442b22eb39"
                     }
                 ]
-            ]
-        ]
-    ],
-    "numberOfWords": 40,
-    "dictionaryID": "eeaaed42-a1be-4477-bc7c-2f6f2be2993b",
-    "userID": "514fe893-a25f-4849-8240-76657f683e0e"
-}
-]
+            ],
+            "numberOfWords": 40,
+            "dictionaryID": "eeaaed42-a1be-4477-bc7c-2f6f2be2993b",
+            "userID": "514fe893-a25f-4849-8240-76657f683e0e"
+        }
+    ]
 }

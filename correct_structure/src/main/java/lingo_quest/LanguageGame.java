@@ -266,6 +266,7 @@ class LanguageGame {
     }
     public void answerQuestion(String userAnswer) {
         user.currentLesson.currentQuestion.setUserAnswer(userAnswer);
+        user.currentLesson.currentQuestion.isCorrect(user);
     }
 
     public void getProgressScreen() {
