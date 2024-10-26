@@ -247,16 +247,16 @@ class LanguageGame {
         itemShop.displayItemShop();;
     }
 
-    public void pickALanguage(Language language) {
-        user.currentLanguage = language;
+    public void pickALanguageByUUID(UUID languageUUID) {
+        user.currentLanguage = languageManager.getLanguageByID(languageUUID);
     }
 
-    public void pickASection(Section section) {
-        user.currentSection = section;
+    public void pickASection(UUID sectionUUID) {
+        user.currentSection = languageManager.getSectionByID(sectionUUID);
         System.out.println("You switched to section " + user.currentSection.getName());
     }
-    public void pickALesson(Lesson lesson) {
-        user.currentLesson = lesson;
+    public void pickALesson( UUID lessonUUID) {
+        user.currentLesson = languageManager.getLessonByID(lessonUUID);
         System.out.println("You switched to lesson " + user.currentLesson.getLessonName());
     }
     public void getAQuestion() {

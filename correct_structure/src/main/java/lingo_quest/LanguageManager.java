@@ -85,14 +85,46 @@ public class LanguageManager {
     public Language getLanguageByID(UUID id) {
         if(this.languages != null) {
             for(Language l : languages) {
-                if(l.getLanguageID().equals(id))
+                if(l.getLanguageID().equals(id)) {
+                    this.currentLanguage = l;
                     return l;
+                }
             }
             System.out.println("Language not found.");
             return null;
         }
         System.out.println("List of languages is empty in LanguageManager");
         this.languages = new ArrayList<Language>();
+        return null;
+    }
+
+    public Section getSectionByID(UUID sectionId) {
+        if (this.currentLanguage != null && this.currentLanguage.getSections() != null) {
+            for (Section section : this.currentLanguage.getSections()) {
+                if (section.getID().equals(sectionId)) {
+                    this.currentSection = section;
+                    return section; 
+                }
+            }
+            System.out.println("Section not found in the current language.");
+            return null;
+        }
+        System.out.println("Current language is not set or has no sections.");
+        return null;
+    }
+
+    public Lesson getLessonByID(UUID lessonId) {
+        if (this.currentSection != null && this.currentSection.getAllLessons() != null) {
+            for (Lesson lesson : this.currentSection.getAllLessons()) {
+                if (lesson.getLessonID().equals(lessonId)) {
+                    this.currentLesson = lesson;  
+                    return lesson;  
+                }
+            }
+            System.out.println("Lesson not found in the current section.");
+            return null;
+        }
+        System.out.println("Current section is not set or has no lessons.");
         return null;
     }
 }

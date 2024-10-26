@@ -1,6 +1,7 @@
 package lingo_quest;
 
 import java.util.Scanner;
+import java.util.UUID;
 public class UI {
     private static LanguageGame lg;
     public static void login() {
@@ -53,8 +54,12 @@ public class UI {
         lg.logout();
 
         lg.login("Jim", "jimiscool23");
-        lg.getLanguageManager().setCurrentLangauge();
-        lg.pickALanguage();
+        
+        lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
+        lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
+        lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
+        
+
 
 
         System.out.println(lg.getAllLanguages().get(0).toString());
