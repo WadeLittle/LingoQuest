@@ -9,7 +9,7 @@ import org.json.simple.parser.ParseException;
 public class DictionaryManager {
     private ArrayList<Dictionary> dictionaries;
     private static DictionaryManager managerObject;
-    private final UUID spanishDictionary = UUID.fromString("cfa1b3f2-5c76-4eaf-90a2-7d58a76c3f36");
+    private final UUID spanishDictionary = UUID.fromString("3a8be850-f88e-443a-a130-df157f779ac0");
 
     /**
      * @author cade
@@ -125,6 +125,7 @@ public class DictionaryManager {
                 ret.addWord(w);
             }
             dictionaries.add(ret);
+            System.out.println("\n\n\nTEST added dictionary\n\n\n");
             return ret;
         }
         System.out.println("Dictionary not found");

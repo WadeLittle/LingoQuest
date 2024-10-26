@@ -243,6 +243,8 @@ private static User createUser(String userID, String username, String password,
         languagesUUID.add(UUID.fromString(lang));
     }
     user.setLanguages(languagesUUID);
+    if(languages.size() > 0)
+        user.setCurrentLangaugeID(languagesUUID.get(0));
 
     user.setLanguageType(mapLanguage(currentLanguage));
     //System.out.println(user.toString());
@@ -383,13 +385,16 @@ private static User createUser(String userID, String username, String password,
         lang.setPlacementTestID(UUID.fromString(placementTest));
         //lang.setPlacementTest(pt);
         lang.setLanguageID(languageID);
+        lang.setUserID(userID);
         lang.setPointsEarned(pointsEarned);
         lang.setTotalPoints(totalPoints);
         lang.setUserProgress(progress);
         lang.setAnswerStreak(answerStreak);
         lang.setLanguageName(mapLanguage(langName));
         //lang.setPlacementScore(placementScore);
-
+        //if(lang.getPlacementTestID() == null) {
+        //    lang.setPlacementTestID(UUID.randomUUID());
+        //}
         return lang;
     }
 

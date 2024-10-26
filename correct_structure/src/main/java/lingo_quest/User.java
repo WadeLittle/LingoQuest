@@ -111,8 +111,10 @@ public class User {
     }
 
     public void setCurrentLangaugeID(UUID id) {
-        if(id != null)
+        if(id != null) {
             this.currentLanguageID = id;
+            this.currentLanguage = LanguageManager.getInstance().getLanguageByID(id);
+        }
     }
 
     /**

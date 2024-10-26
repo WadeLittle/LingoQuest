@@ -43,6 +43,7 @@ public class UI {
         } while(repeat);
         lg.createUser(username, password);
         lg.startLanguage(Languages.SPANISH);
+        lg.getUser().getUserDictionary().getWordByString("Galleta").setPoints(100);
     }
 
     public static void main(String[] args) throws Exception {

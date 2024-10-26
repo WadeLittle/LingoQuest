@@ -60,7 +60,8 @@ public class LanguageManager {
 
     // Method to add a language
     public void addLanguage(Language language) {
-        // Stub implementation
+        if(language != null)
+            languages.add(language);
     }
 
     // Method to load languages
@@ -68,10 +69,12 @@ public class LanguageManager {
         languages = DataLoader.loadLanguages(DataLoader.getLanguageFile());
     }
 
-    // Method to save languages
+    /**
+     * @author cade
+     * calls on datawriter
+     */
     public void saveLanguages() {
         DataWriter.writeLanguages(languages,DataWriter.getLanguageFile());
-        // Stub implementation
     }
 
     /**

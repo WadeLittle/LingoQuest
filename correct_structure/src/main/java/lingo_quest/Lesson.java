@@ -10,6 +10,7 @@ public class Lesson {
     private int totalPoints;
     private double lessonProgress;
     public ArrayList<Word> topicWords;
+    private int questionNum;
     private String lessonName;
     private UUID lessonUUID;
     public Question currentQuestion;
@@ -26,6 +27,23 @@ public class Lesson {
 
     public void updateProgress() {
          this.lessonProgress = this.pointsEarned/this.totalPoints;
+    }
+
+    /**
+     * @author cade
+     * @return the id of the lesson
+     */
+    public UUID getLessonID() {
+        return this.lessonUUID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setLessonID(UUID id) {
+        if(id != null)
+            this.lessonUUID = id;
     }
 
     public Lesson( String lessonName,UUID languageUUID, UUID lessonUUID) {
@@ -46,6 +64,23 @@ public class Lesson {
     }
     public int getPointsEarned() {
         return pointsEarned;
+    }
+
+    /**
+     * @author cade
+     * @return the id
+     */
+    public UUID getLanguageID() {
+        return this.languageUUID;
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setLanguageID(UUID id) {
+        if(id != null)
+            this.languageUUID = id;
     }
 
     public void awardForCompletion(User user) {
@@ -75,9 +110,9 @@ public class Lesson {
      * @author cade stocker
      * @return lesson's coin value
      */
-    public int getCoinValue() {
-        return this.coinValue;
-    }
+    //public int getCoinValue() {
+    //    return this.coinValue;
+    //}
 
     /**
      * @author cade
