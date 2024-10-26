@@ -242,6 +242,15 @@ public class User {
         return null;
     }
 
+    public void setCurrentLangauge(Language l) {
+        if(l != null) {
+            this.currentLanguage = l;
+            this.currentLanguageID = l.getLanguageID();
+            if(this.languages.contains(l.getLanguageID()) != true)
+                this.languages.add(currentLanguageID);
+        }
+    }
+
     public HashMap<Languages,Double> getUserProgress() {
         return this.userProgress;
     }

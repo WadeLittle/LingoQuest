@@ -272,7 +272,9 @@ class LanguageGame {
     }
 
     public void pickALanguageByUUID(UUID languageUUID) {
-        user.currentLanguage = languageManager.getLanguageByID(languageUUID);
+        //user.currentLanguage = languageManager.getLanguageByID(languageUUID);
+        //user.addLanguage(user.currentLanguage);
+        user.setCurrentLangauge(languageManager.getInstance().getLanguageByID(languageUUID));
     }
 
     public void pickASection(UUID sectionUUID) {

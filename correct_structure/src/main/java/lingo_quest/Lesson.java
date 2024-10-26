@@ -30,7 +30,12 @@ public class Lesson {
     }
 
     public void updateProgress() {
-         this.lessonProgress = this.pointsEarned/this.totalPoints;
+        //this.lessonProgress = this.pointsEarned/this.totalPoints;
+        // set to 0 before running the sum
+        this.pointsEarned = 0;
+        for(Word w : topicWords) {
+            this.pointsEarned += w.getPoints();
+        }
     }
 
     /**
@@ -92,7 +97,9 @@ public class Lesson {
     }
     
     public String getLanguageName() {
-        return LanguageManager.getInstance().getLanguageByID(languageUUID).getLanguageName().toString();
+        // hardcoded TODO
+        return "Spanish";
+        //return LanguageManager.getInstance().getLanguageByID(languageUUID).getLanguageName().toString();
     }
     /**
      * @author Wade Little
