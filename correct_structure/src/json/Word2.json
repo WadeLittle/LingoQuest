@@ -279,6 +279,147 @@
             "wordInEnglish": "Write",
             "lessonUUID": "68b9a72a-5881-4c72-99ab-d7e6265c8179",
             "wordUUID": "850637fc-0ae2-4f97-b99e-957606ac44f4"
-        }
+        },
+
+        {
+            "language": "SPANISH",
+            "word": "Pastel",
+            "wordInEnglish": "Cake",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "f20eebc2-28cb-4824-9f14-97f0984a4c6d"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Helado",
+            "wordInEnglish": "Ice Cream",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "d52c327e-9997-4b84-b79b-8fa4f63f2915"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Galleta",
+            "wordInEnglish": "Cookie",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "36b2e3e2-2030-44f9-b353-c32f9a78e0c7"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Tarta",
+            "wordInEnglish": "Pie",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "8c875a2e-15b5-4aa0-9c6b-043e8343d34f"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Brownie",
+            "wordInEnglish": "Brownie",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "742a9444-f394-4449-ae7d-05f55b79fa1c"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Pudín",
+            "wordInEnglish": "Pudding",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "bc2a1f02-c853-4741-8524-c5a6e23b2238"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Rosquilla",
+            "wordInEnglish": "Donut",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "13b7fa24-0b46-45c0-b5b5-d00a0f87b95b"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Flan",
+            "wordInEnglish": "Custard",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "3656d6f0-99b4-4b44-b1a7-556bdb44920e"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Dulce",
+            "wordInEnglish": "Candy",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "e40443e1-1aa4-4b9e-9b68-165d9d57e1df"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Chocolate",
+            "wordInEnglish": "Chocolate",
+            "lessonUUID": "45c9e6e1-e7c4-45ba-8fc5-c93f0075a88d",
+            "wordUUID": "6598d7a3-b848-41b1-bc3c-d4b04744d5de"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Manzana",
+            "wordInEnglish": "Apple",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "815f255d-9672-49b4-8cbb-f20a6b0cb24e"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Plátano",
+            "wordInEnglish": "Banana",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "2a8ac8e0-0174-44f4-b7b6-5e9de3989baf"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Uva",
+            "wordInEnglish": "Grape",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "5fa3a846-d6b3-4b28-90cf-027da8fcf60e"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Naranja",
+            "wordInEnglish": "Orange",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "14e9f219-77df-4f80-8c87-e17243a49064"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Piña",
+            "wordInEnglish": "Pineapple",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "2b9cc9ad-5fb3-4d29-9d19-89ba1b272b35"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Fresa",
+            "wordInEnglish": "Strawberry",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "ff9f1d50-b434-4f7a-b4b4-89e9732fca2a"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Sandía",
+            "wordInEnglish": "Watermelon",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "f8e1d0a4-d403-4db6-96d7-e37e82b96b24"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Durazno",
+            "wordInEnglish": "Peach",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "f2dbd23b-fc2d-4d17-bb2c-b2eebc944bde"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Pera",
+            "wordInEnglish": "Pear",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "f5122e45-9cf1-4960-86f9-3b9c5abbe33d"
+          },
+          {
+            "language": "SPANISH",
+            "word": "Mango",
+            "wordInEnglish": "Mango",
+            "lessonUUID": "cd00798a-9cb5-4cf7-bd26-118f6af23f77",
+            "wordUUID": "e3f58b8c-86b4-47b1-abe4-d7846f5a1d8b"
+          }
     ]
 }
