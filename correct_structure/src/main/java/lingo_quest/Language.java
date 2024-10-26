@@ -299,6 +299,11 @@ public class Language {
         return this.sections;
     }
 
+    public void setSections(ArrayList<Section> sections) {
+        if(sections != null)
+            this.sections = sections;
+    }
+
     /**
      * @author CADE STOCKER
      * goes through sections and adds them to completed if they need to be

@@ -51,10 +51,11 @@ public class UI {
         lg = new LanguageGame();
         Scanner keyboard = new Scanner(System.in);
 
-        lg.createUser("Jim", "jimiscool23");
+        lg.createUser("JimJimJimJimJimmy", "jimiscool23");
+        //lg.startLanguage(Languages.SPANISH);
         lg.logout();
 
-        lg.login("Jim", "jimiscool23");
+        lg.login("JimJimJimJimJimmy", "jimiscool23");
         
         lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
         lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
@@ -73,7 +74,7 @@ public class UI {
         }
         lg.getProgressScreen();
         lg.logout();
-        lg.login("Jim", "Jimiscool23");
+        lg.login("JimJimJimJimJimmy", "Jimiscool23");
         lg.getAQuestion();
         lg.answerQuestion(keyboard);
         
@@ -117,9 +118,10 @@ public class UI {
         //             break;
         //         default:
         //             break;
-            }
-        }
-        keyboard.close();
-        System.exit(0);
+        
+            keyboard.close();
+            System.exit(0);
     }
 }
+    //}
+//}

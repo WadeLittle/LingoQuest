@@ -25,6 +25,10 @@ public class Lesson {
         lessonUUID = null;
     }
 
+    public void setTopicWords(User u) {
+        this.topicWords = u.getUserDictionary().getWordsByTopicID(this.lessonUUID);
+    }
+
     public void updateProgress() {
          this.lessonProgress = this.pointsEarned/this.totalPoints;
     }
@@ -138,6 +142,11 @@ public class Lesson {
      */
     public void setLessonProgress(double progress) {
         this.lessonProgress = progress;
+    }
+
+    public void setLessonName(String name) {
+        if(name != null)
+            this.lessonName = name;
     }
 
     /**

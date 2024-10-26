@@ -391,11 +391,45 @@ private static User createUser(String userID, String username, String password,
         lang.setUserProgress(progress);
         lang.setAnswerStreak(answerStreak);
         lang.setLanguageName(mapLanguage(langName));
+        ArrayList<Section> sec = parseSections((JSONArray) languageJson.get("sections"));
+        lang.setSections(sec);
         //lang.setPlacementScore(placementScore);
         //if(lang.getPlacementTestID() == null) {
         //    lang.setPlacementTestID(UUID.randomUUID());
         //}
         return lang;
+    }
+
+    private static ArrayList<Section> parseSections(JSONArray sections) {
+        ArrayList<Section> sec = new ArrayList<>();
+        for(Object obj : sections) {
+            JSONObject objJson = (JSONObject) obj;
+            Section s = new Section();
+            s.setName((String) objJson.get("sectionName"));
+            s.setID(UUID.fromString((String) objJson.get("sectionUUID")));
+            JSONArray lessons = (JSONArray) objJson.get("Lessons");
+            s.setLessons(parseLessons(lessons));
+            //for(Lesson l : s.getAllLessons()) {
+            //    System.out.println("\n\n\n\nTEST:LJL:KJLKJ\n\n\n\n " + l.getLessonName());
+            //}
+            sec.add(s);
+        }
+        return sec;
+    }
+
+    private static ArrayList<Lesson> parseLessons(JSONArray lessons) {
+        ArrayList<Lesson> les = new ArrayList<>();
+        for(Object obj : lessons) {
+            JSONObject objJson = (JSONObject) obj;
+            Lesson l = new Lesson();
+            l.setLessonName((String) objJson.get("lessonName"));
+            l.setLessonID(UUID.fromString((String) objJson.get("lessonUUID")));
+            l.setLanguageID(UUID.fromString((String) objJson.get("languageID")));
+            les.add(l);
+            System.out.println(l.getLessonName());
+        }
+        System.out.println("TESTSDLKFJDSL:KGJ   " + (les == null));
+        return les;
     }
 
     /**
@@ -404,7 +438,7 @@ private static User createUser(String userID, String username, String password,
      * @return arraylist of sections
      * make an arraylist of section objects
      */
-    private static ArrayList<Section> parseSections(JSONArray sectionsJson) {
+    /*private static ArrayList<Section> parseSections(JSONArray sectionsJson) {
         ArrayList<Section> sections = new ArrayList<>();
 
         for (Object obj : sectionsJson) {
@@ -435,7 +469,7 @@ private static User createUser(String userID, String username, String password,
             sec.setName(sectionName);
         }
         return sections;
-    }
+    }*/
 
     /**
      * @author CADE STOCKER
@@ -443,7 +477,7 @@ private static User createUser(String userID, String username, String password,
      * @return arraylist of lessons
      * make a list of lesson objects
      */
-    private static ArrayList<Lesson> parseLessons(JSONArray lessonsJson) {
+    /*private static ArrayList<Lesson> parseLessons(JSONArray lessonsJson) {
         ArrayList<Lesson> lessons = new ArrayList<>();
 
         for (Object obj : lessonsJson) {
@@ -465,7 +499,7 @@ private static User createUser(String userID, String username, String password,
         }
 
         return lessons;
-    }
+    }*/
 
     public static ArrayList<Dictionary> loadDictionaries(String file) throws FileNotFoundException, IOException, org.json.simple.parser.ParseException {
         ArrayList<Dictionary> dictionaries = new ArrayList<>();
@@ -648,6 +682,54 @@ private static User createUser(String userID, String username, String password,
 
     public static Word makeWord(JSONObject obj) {
         Languages language = mapLanguage((String) obj.get("language"));
+        String word = (String) obj.get("word");
+        String englishVersion = (String) obj.get("englishVersion");
+        UUID lessonID = UUID.fromString((String) obj.get("lessonUUID"));
+        
+        UUID wordID = UUID.fromString((String) obj.get("wordUUID"));
+
+        int timesPresented;
+        if(obj.get("timesPresented") == null) {
+            timesPresented = 0;
+        }
+        else {
+            timesPresented = ((Long) obj.get("timesPresented")).intValue();
+        }
+
+        int points;
+        if(obj.get("points") == null) {
+            points = 0;
+        }
+        else {
+            points = ((Long) obj.get("points")).intValue();
+        }
+
+        int timesCorrect;
+        if(obj.get("timesCorrect") == null) {
+            timesCorrect = 0;
+        }
+        else {
+            timesCorrect = ((Long) obj.get("timesCorrect")).intValue();
+        }
+
+        double userUnderstanding;
+        if(obj.get("userUnderstanding") == null) {
+            userUnderstanding = 0;
+        }
+        else {
+            userUnderstanding = (double) obj.get("userUnderstanding");
+        }
+
+        Word w = new Word(language, word, englishVersion, lessonID, wordID);
+        w.setTimesCorrect(timesCorrect);
+        w.setPoints(points);
+        w.setTimesPresented(timesPresented);
+        w.setUserUnderstanding(userUnderstanding);
+        return w;
+    }
+
+    /*public static Word makeWord(JSONObject obj) {
+        Languages language = mapLanguage((String) obj.get("language"));
         int timesPresented;
         if(obj.get("timesPresented") == null) {
             timesPresented = 0;
@@ -690,7 +772,7 @@ private static User createUser(String userID, String username, String password,
         wordReturn.setEnglishVersion(englishVersion);
         wordReturn.setPoints(points);
         return wordReturn;
-    }
+    }*/
 
     /**
      * @author CADE STOCKER

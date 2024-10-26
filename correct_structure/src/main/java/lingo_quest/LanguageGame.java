@@ -30,6 +30,7 @@ class LanguageGame {
     }
 
     public void createUser(String username, String password) {
+        System.out.println("TEST " + username + " " + password);
         if(this.user != null) {
             System.out.println("Someone is already logged in");
             return;
@@ -41,6 +42,10 @@ class LanguageGame {
         User createdUser = new User(username,password);
         this.user = createdUser;
         userList.createUser(username, password);
+
+        // just added this
+        this.startLanguage(Languages.SPANISH);
+
         System.out.println("Successfully Created Account");
     }
 
@@ -64,6 +69,15 @@ class LanguageGame {
             u.setCurrentLanguage(languageManager.getLanguageByID(u.getCurrentLanguageID()));
             u.setUserDictionary(dictionaryMan.getDictionaryByID(u.getUserDictionaryID()));
         }
+
+        /*for(Language l : languageManager.getLanguages()) {
+            for(Section sec : l.getSections()) {
+                for(Lesson les : sec.getAllLessons()) {
+                    les.setTopicWords(l.getUser());
+                }
+            }
+        }*/
+
 
         
     }
@@ -147,6 +161,16 @@ class LanguageGame {
         // will load users in constructor
         //userList.loadUsers();
         this.user = userList.getUser(username, password);
+
+
+
+        for(Language l : languageManager.getLanguages()) {
+            for(Section sec : l.getSections()) {
+                for(Lesson les : sec.getAllLessons()) {
+                    les.setTopicWords(this.user);
+                }
+            }
+        }
     }
     /**
      * @author Wade Little

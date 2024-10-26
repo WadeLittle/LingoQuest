@@ -388,6 +388,13 @@ class DataWriter {
         //root.put("PlacementTest",l.getPlacementTestID().toString());
         root.put("PlacementTest", "c8d23cf7-c643-4988-ab6c-8f0fff97b934");
         JSONArray sections = new JSONArray();
+        //System.out.println("TESTTTTTT   sections are null: " + (l.getSections() == null));
+        
+        for(Object s : l.getSections()) {
+            System.out.println(s.getClass().getName());
+        }
+        
+        
         for(Section s : l.getSections()) {
             sections.add(serializeSection(s));
         }
@@ -403,11 +410,13 @@ class DataWriter {
     public static JSONObject serializeSection(Section s) {
         JSONObject root = new JSONObject();
         root.put("sectionName",s.getName());
-        root.put("sectionUUID",s.getID());
+        root.put("sectionUUID",s.getID().toString());
         JSONArray lessonArray = new JSONArray();
         for(Lesson l : s.getAllLessons()) {
+            //System.out.println("\n\nserialize section test: \n\n" + l.getLessonName());
             lessonArray.add(serializeLesson(l));
         }
+        root.put("lessons", lessonArray);
         return root;
     }
 
@@ -419,8 +428,8 @@ class DataWriter {
     public static JSONObject serializeLesson(Lesson l) {
         JSONObject root = new JSONObject();
         root.put("lessonName",l.getLessonName());
-        root.put("lessonUUID", l.getLessonID());
-        root.put("languageID",l.getLanguageID());
+        root.put("lessonUUID", l.getLessonID().toString());
+        root.put("languageID",l.getLanguageID().toString());
         return root;
     }
 
