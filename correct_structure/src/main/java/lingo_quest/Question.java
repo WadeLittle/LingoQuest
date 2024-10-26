@@ -13,9 +13,9 @@ abstract class Question {
    * @author cade
    * @return the user's answer
    */
-  public Word getUserAnswer() {
-    return this.userAnswer;
-  }
+  // public Word getUserAnswer() {
+  //   return this.userAnswer;
+  // }
 
   /**
    * @author cade

@@ -2,6 +2,7 @@ package lingo_quest;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MultipleChoice extends Question  {
     private String language;
@@ -39,6 +40,7 @@ public class MultipleChoice extends Question  {
      */
     public String toString() {
         StringBuilder result = new StringBuilder("The " + language + " word for " + correctAnswer.getEnglishVersion() + " is _______" + "\nPlease select your answer choice:\n");
+        Collections.shuffle(answerChoices);
         for(int i = 0; i < answerChoices.size();i++) {
             result.append(i+1).append(". ").append(answerChoices.get(i).getWordinLanguage()).append("\n");
         }
