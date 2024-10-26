@@ -24,6 +24,7 @@ class Dictionary {
     public Dictionary() {
         //fromEnglish = new HashMap<>();
         //toEnglish = new HashMap<>();
+        
         this.words = new ArrayList<Word>();
         this.dictionaryID = UUID.randomUUID();
         numberOfWords = 0;

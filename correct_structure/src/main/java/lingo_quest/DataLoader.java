@@ -407,7 +407,7 @@ private static User createUser(String userID, String username, String password,
             Section s = new Section();
             s.setName((String) objJson.get("sectionName"));
             s.setID(UUID.fromString((String) objJson.get("sectionUUID")));
-            JSONArray lessons = (JSONArray) objJson.get("Lessons");
+            JSONArray lessons = (JSONArray) objJson.get("lessons");
             s.setLessons(parseLessons(lessons));
             //for(Lesson l : s.getAllLessons()) {
             //    System.out.println("\n\n\n\nTEST:LJL:KJLKJ\n\n\n\n " + l.getLessonName());
@@ -685,7 +685,7 @@ private static User createUser(String userID, String username, String password,
         String word = (String) obj.get("word");
         String englishVersion = (String) obj.get("englishVersion");
         UUID lessonID = UUID.fromString((String) obj.get("lessonUUID"));
-        
+
         UUID wordID = UUID.fromString((String) obj.get("wordUUID"));
 
         int timesPresented;

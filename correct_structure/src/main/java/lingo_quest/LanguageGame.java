@@ -123,9 +123,9 @@ class LanguageGame {
             return null;
         Language l = new Language();
         // add the new language to the singleton
-        System.out.println(languageManager.getLanguages().size());
+        //System.out.println(languageManager.getLanguages().size());
         languageManager.addLanguage(l);
-        System.out.println(languageManager.getLanguages().size());
+        //System.out.println(languageManager.getLanguages().size());
         // put the user's id into the language
         l.setUserID(this.getUser().getUUID());
         // put the language's id into user

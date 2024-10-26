@@ -9,7 +9,7 @@ import org.json.simple.parser.ParseException;
 public class DictionaryManager {
     private ArrayList<Dictionary> dictionaries;
     private static DictionaryManager managerObject;
-    private final UUID spanishDictionary = UUID.fromString("3a8be850-f88e-443a-a130-df157f779ac0");
+    private final UUID spanishDictionary = UUID.fromString("eeaaed42-a1be-4477-bc7c-2f6f2be2993b");
 
     /**
      * @author cade

@@ -45,7 +45,7 @@ public class User {
      */
     public User() {
         userID = Users.getInstance().generateUUID();
-        userDictionary = new Dictionary();
+        userDictionary = DictionaryManager.getInstance().duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
         userDictionaryID = userDictionary.getID();
         coinsEarned = 0;
         coinBalance = 0;
@@ -72,8 +72,8 @@ public class User {
 
         // If validation passes, initialize remaining fields
         this.userID = Users.getInstance().generateUUID();
-        this.userDictionary = new Dictionary();
-        this.userDictionaryID = this.userDictionary.getID();
+        userDictionary = DictionaryManager.getInstance().duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
+        userDictionaryID = userDictionary.getID();
         this.coinsEarned = 0;
         this.coinBalance = 0;
         this.friendsList = new ArrayList<>();
