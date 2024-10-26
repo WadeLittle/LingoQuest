@@ -109,15 +109,20 @@ class LanguageGame {
             return null;
         Language l = new Language();
         // add the new language to the singleton
+        System.out.println(languageManager.getLanguages().size());
         languageManager.addLanguage(l);
-        // set the type of language it is (this assigns the master dictionary to the language object)
-        if(lang != null)
-            l.setLanguageName(lang);
+        System.out.println(languageManager.getLanguages().size());
         // put the user's id into the language
         l.setUserID(this.getUser().getUUID());
         // put the language's id into user
         this.getUser().addLanguage(l);
         // return the language
+        // set the type of language it is (this assigns the master dictionary to the language object)
+        if(lang == null)
+            System.out.print("TESTING FOR NULL LANG IN STARTLANGUAGE IN LANGUAGE GAME");
+        if(lang != null)
+            l.setLanguageName(lang);
+        
         return l;
     }
 
@@ -151,6 +156,7 @@ class LanguageGame {
         this.userList.saveUsers();
         this.dictionaryMan.saveDictionary();
         this.languageManager.saveLanguages();
+        this.itemShop.saveItems();
         // set current user to null
         this.user = null;
         System.out.println("Successfully logged out");

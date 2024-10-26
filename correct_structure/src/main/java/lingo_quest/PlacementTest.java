@@ -17,6 +17,7 @@ public class PlacementTest {
     public PlacementTest() {
         this.questions = new ArrayList<Question>();
         this.taken = false;
+        this.testID = UUID.randomUUID();
         // If the test was just created, then it has not been taken yet.
     }
 

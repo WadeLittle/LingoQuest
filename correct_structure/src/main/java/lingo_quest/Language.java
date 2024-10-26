@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
+import software.amazon.awssdk.auth.signer.internal.DigestComputingSubscriber;
+
 public class Language {
     private User user;
     private UUID userID;
@@ -31,6 +33,8 @@ public class Language {
         this.sections = new ArrayList<Section>();
         this.sectionsComplete = new ArrayList<Section>();
         this.sectionAccess = new HashMap<Section, Boolean>();
+        this.languageID = UUID.randomUUID();
+        this.placementTest = new PlacementTest();
     }
 
     /**
@@ -45,6 +49,8 @@ public class Language {
         this.sectionsComplete = new ArrayList<Section>();
         this.sectionAccess = new HashMap<Section, Boolean>();
         this.user = user;
+        this.languageID = UUID.randomUUID();
+        this.placementTest = new PlacementTest();
     }
 
     // Methods
@@ -111,12 +117,31 @@ public class Language {
      * used for dataloader
      */
     public void setLanguageName(Languages l) {
-        if(l != null)
+        if(l != null) {
             this.languageName = l;
-        
+        }
+        else {
+            System.out.println("\n\n\nlanguage is null in setLanguagename\n\n\n");
+        }
         // when more languages are created, this function would be expanded
         if(l.equals(Languages.SPANISH)) {
             this.dictionary = DictionaryManager.getInstance().duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
+        }
+        else {
+            System.out.println("\n\n\nlanguage isnt spanish\n\n\n");
+        }
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void setDictionaryID(UUID id) {
+        if(id == null)
+            return;
+        this.dictionaryID = id;
+        if(DictionaryManager.getInstance().getDictionaryByID(id) != null) {
+            this.dictionary = DictionaryManager.getInstance().getDictionaryByID(id);
         }
     }
 
@@ -256,7 +281,10 @@ public class Language {
      * by the total amount of points of the language
      */
     private void updateProgress() {
-        this.progress = this.pointsEarned/this.totalPoints;
+        if(this.totalPoints == 0)
+            this.progress = 0;
+        else
+            this.progress = this.pointsEarned/this.totalPoints;
     }
 
     /**

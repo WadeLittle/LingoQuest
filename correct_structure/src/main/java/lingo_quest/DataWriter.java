@@ -384,7 +384,9 @@ class DataWriter {
         root.put("answerStreak",l.getAnswerStreak());
         root.put("languageName",l.getLanguageName().toString());
         root.put("languageID", l.getLanguageID().toString());
-        root.put("PlacementTest",l.getPlacementTestID().toString());
+        // will implement placement test later
+        //root.put("PlacementTest",l.getPlacementTestID().toString());
+        root.put("PlacementTest", "c8d23cf7-c643-4988-ab6c-8f0fff97b934");
         JSONArray sections = new JSONArray();
         for(Section s : l.getSections()) {
             sections.add(serializeSection(s));
