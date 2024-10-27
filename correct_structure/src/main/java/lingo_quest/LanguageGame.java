@@ -55,8 +55,9 @@ class LanguageGame {
      * @throws Exception 
      */
     public void loadAll() throws Exception {
-        dictionaryMan.loadDictionaries();
-        System.out.println("done with load dictionaries");
+        // CHANGED LOADDICTIONARIES TO BE CALLED IN DICTIONARYMANAGER CONSTRUCTOR
+        //dictionaryMan.loadDictionaries();
+        //System.out.println("done with load dictionaries");
         userList.loadUsers();
         System.out.println("done with loadusers");
         languageManager.loadLanguages();
@@ -161,6 +162,7 @@ class LanguageGame {
         // will load users in constructor
         //userList.loadUsers();
         this.user = userList.getUser(username, password);
+
 
 
 

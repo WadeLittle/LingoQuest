@@ -17,6 +17,7 @@ public class DictionaryManager {
      */
     private DictionaryManager() {
         this.dictionaries = new ArrayList<>();
+        loadDictionaries();
     }
     
     /**
@@ -67,19 +68,13 @@ public class DictionaryManager {
      */
     public void loadDictionaries() {
         try {
-            //this.dictionaries = DataLoader.loadDictionaries(DataLoader.getDictionaryFile());
             ArrayList<Dictionary> list = DataLoader.loadDictionaries(DataLoader.getDictionaryFile());
-            //System.out.println("this many dictionaries: "+list.size());
-            for(Dictionary d : list) {
-                //System.out.println("Adding " + d.getID() + " " + d.getNumberOfWords());
-                this.addDictionary(d);
+            for (Dictionary d : list) {
+                if (!dictionaries.contains(d)) {
+                    this.addDictionary(d);
+                }
             }
-            //System.out.println("ADDRESS OF DICTIONARY ARRAY" + this.dictionaries);
-            //for(Dictionary d : this.dictionaries) {
-            //    System.out.println("ALLLLLKJDLKFJDSKLJFLKSDHGKL" + d.getID()+ " " + d.getNumberOfWords());
-            //}
         } catch (IOException | ParseException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-import software.amazon.awssdk.auth.signer.internal.DigestComputingSubscriber;
 
 public class Language {
     private User user;
@@ -107,8 +106,10 @@ public class Language {
      * @param id
      */
     public void setDictionary(UUID id) {
-        if(id != null)
+        if(id != null) {
             this.dictionary = DictionaryManager.getInstance().getDictionaryByID(id);
+            this.dictionaryID = this.dictionary.getID();
+        }
     }
 
     /**
@@ -130,6 +131,14 @@ public class Language {
         else {
             System.out.println("\n\n\nlanguage isnt spanish\n\n\n");
         }
+    }
+
+    /**
+     * @author cade
+     * @return the dictionary's id
+     */
+    public UUID getDictionaryID() {
+        return this.dictionaryID;
     }
 
     /**

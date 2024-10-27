@@ -74,8 +74,8 @@ public class UI {
         }
         lg.getProgressScreen();
         lg.logout();
-        System.out.print("here\n\n\n\n");
-        //lg.login("JimJimJimJimJimmy", "jimiscool23");
+        //System.out.print("here\n\n\n\n");
+        lg.login("JimJimJimJimJimmy", "jimiscool23");
         lg.getAQuestion();
         lg.answerQuestion(keyboard);
         

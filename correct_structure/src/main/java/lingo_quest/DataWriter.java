@@ -165,8 +165,8 @@ class DataWriter {
         }
         userJson.put("languages", languagesArray);
 
-        if(user.getCurrentLanguage() != null)
-            userJson.put("currentLanguage", user.getCurrentLanguage().toString());
+        //if(user.getCurrentLanguage() != null)
+        //    userJson.put("currentLanguage", user.getCurrentLanguage().toString());
 
         return userJson;
     }
