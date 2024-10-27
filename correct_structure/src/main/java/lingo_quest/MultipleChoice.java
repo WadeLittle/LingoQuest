@@ -40,7 +40,7 @@ public class MultipleChoice extends Question  {
      * @return The string value of the Question and its answer choices in an easy to read format 
      */
     public String toString() {
-        StringBuilder result = new StringBuilder("The " + language + " word for " + correctAnswer.getEnglishVersion() + " is _______" + "\nPlease select your answer choice:\n");
+        StringBuilder result = new StringBuilder("What is the spanish equivalent to " + correctAnswer.getEnglishVersion() + "\nPlease select your answer choice:\n");
         for (int i = 0; i < answerChoices.size(); i++) {
             result.append(i + 1).append(". ").append(answerChoices.get(i).getWordinLanguage()).append("\n");
         }
