@@ -33,9 +33,20 @@ public class Lesson {
         //this.lessonProgress = this.pointsEarned/this.totalPoints;
         // set to 0 before running the sum
         this.pointsEarned = 0;
+        //double dTotal = 0.0;
+        //double dPointsEarned = this.pointsEarned;
+        if(topicWords.size() > 0) {
+            setTotalPoints(topicWords.size()*300);
+            //dTotal = this.totalPoints;
+        }
         for(Word w : topicWords) {
+            //System.out.println(w.getEnglishVersion() + " " + w.getPoints());
             this.pointsEarned += w.getPoints();
         }
+        System.out.println("pointsearned: " + this.pointsEarned + "\n\ntotalpoints: "+ this.totalPoints);
+        //System.out.println(dPointsEarned/dTotal);
+        double quotient = (double)this.pointsEarned/(double)this.totalPoints;
+        this.lessonProgress = 100*(quotient);
     }
 
     /**
@@ -69,7 +80,8 @@ public class Lesson {
         return lessonName;
     }
     public int getTotalPoints() {
-        return topicWords.size() * 300; 
+        //return topicWords.size() * 300; 
+        return this.totalPoints;
     }
     public int getPointsEarned() {
         return pointsEarned;
@@ -140,7 +152,7 @@ public class Lesson {
      */
     public void setTotalPoints(int points) {
         this.totalPoints = points;
-        this.updateProgress();
+        //this.updateProgress();
     }
 
     /**

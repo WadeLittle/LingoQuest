@@ -24,7 +24,7 @@ class Dictionary {
     public Dictionary() {
         //fromEnglish = new HashMap<>();
         //toEnglish = new HashMap<>();
-        
+
         this.words = new ArrayList<Word>();
         this.dictionaryID = UUID.randomUUID();
         numberOfWords = 0;
@@ -68,6 +68,21 @@ class Dictionary {
      */
     public void setID(UUID id) {
         this.dictionaryID = id;
+    }
+
+    /**
+     * @author cade
+     * @param maxPointsInclusive
+     * @return list of words that are equal to or below the specified number
+     * of points
+     */
+    public ArrayList<Word> getWordsByUnderstanding(int maxPointsInclusive) {
+        ArrayList<Word> words = new ArrayList<>();
+        for(Word w : this.words) {
+            if(w.getPoints() <= maxPointsInclusive)
+                words.add(w);
+        }
+        return words;
     }
 
     /**
