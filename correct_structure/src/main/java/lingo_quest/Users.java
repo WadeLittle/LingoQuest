@@ -14,43 +14,32 @@ public class Users {
     private Users() {
         users = new ArrayList<User>();
     }
-/**
- * @author Wade Little
- * Returns the single instance of the Users class (Singleton)
- * @return the Users class
- */
+
+    /**
+     * @author Wade Little
+     *         Returns the single instance of the Users class (Singleton)
+     * @return the Users class
+     */
     public static Users getInstance() {
-        if(usersObject == null) {
+        if (usersObject == null) {
             usersObject = new Users();
         }
         return usersObject;
     }
-/**
- * @author Wade Little
- * This returns the user that has the matching username and password. If there is no match then it returns null and prints an error message.
- * @param username The username of the user you are getting
- * @param password The password of the user you are getting
- * @return The user with the matching username and password. Or null if the user can't be found
- */
-    public User getUser(String username, String password) {
-        // change to for each loop
-        /*User user = null;
-        for(int i=0;i < users.size();i++) {
-            if(users.get(i).getUsername().equals(username) && users.get(i).getPassword().equals(password)) {
-                user = users.get(i);
-                break;
-            }
-        }*/
-        /*if(user == null) {
-            System.out.println("Username or password invalid");
-        } else {
-            System.out.println("Successfully Logged in");
-        }
-        return user;*/
 
+    /**
+     * @author Wade Little
+     *         This returns the user that has the matching username and password. If
+     *         there is no match then it returns null and prints an error message.
+     * @param username The username of the user you are getting
+     * @param password The password of the user you are getting
+     * @return The user with the matching username and password. Or null if the user
+     *         can't be found
+     */
+    public User getUser(String username, String password) {
         // changed to a for-each loop - CADE
-        for(User user : users) {
-            if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+        for (User user : users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 System.out.println("Successfully Logged In");
                 return user;
             }
@@ -75,78 +64,82 @@ public class Users {
         this.users = u;
     }
 
-
-   /**
-    * @author Wade Little
-    * Searches through the userlist for the specified UUID
-    * @param userId the userid you are looking for
-    * @return Null if the user isn't found, or the user with the matching UUID
-    */
+    /**
+     * @author Wade Little
+     *         Searches through the userlist for the specified UUID
+     * @param userId the userid you are looking for
+     * @return Null if the user isn't found, or the user with the matching UUID
+     */
     public User getUserByUUID(UUID userId) {
-        for(User user : users) {
-            //System.out.println("TESTSTSTSTT " + user.getUUID());
-            if(user.getUUID().equals(userId)) {
+        for (User user : users) {
+            // System.out.println("TESTSTSTSTT " + user.getUUID());
+            if (user.getUUID().equals(userId)) {
                 return user;
             }
-        }       
+        }
         System.out.println("User not found");
         return null;
     }
+
     /**
      * @author Wade Little
-     * Creates a user if they provide a valid username and password and adds it to the user list
+     *         Creates a user if they provide a valid username and password and adds
+     *         it to the user list
      * @param username The users desired username
      * @param password The users desired password
-     * @return True if the user is created and added to userlist. False if the user has invalid credentials.
+     * @return True if the user is created and added to userlist. False if the user
+     *         has invalid credentials.
      */
     public boolean createUser(String username, String password) {
         User user = new User();
-        if(user.setUsername(username) && user.setPassword(password)) {
+        if (user.setUsername(username) && user.setPassword(password)) {
             users.add(user);
             return true;
         } else {
             return false;
         }
     }
+
     /**
      * @author Wade Little
-     * Checks the userlist and returns true if the username is contained, false if the username isn't there.
+     *         Checks the userlist and returns true if the username is contained,
+     *         false if the username isn't there.
      * @param username The username you are checking for
      * @param password Added this too - cade
      * @return User
-     * changed return type from boolean to User for create account purposes - CADE
-     * changed back to boolean - cade 10/24
+     *         changed return type from boolean to User for create account purposes
+     *         - CADE
+     *         changed back to boolean - cade 10/24
      */
     public boolean containsUsername(String username) {
-        for(User user : users) {
+        for (User user : users) {
             if (user.getUsername() != null && user.getUsername().trim().equalsIgnoreCase(username.trim())) {
                 System.out.println("Username already exists");
                 return true;
             }
         }
-        //User createdUser = new User(username, password);
         return false;
     }
 
     /**
      * @author Cade
      * @param user
-     * save all users
+     *             save all users
      */
     public void saveUsers() {
-        for(User u : users) {
-            DataWriter.writeUsers(users,DataWriter.getUserFile());
+        for (User u : users) {
+            DataWriter.writeUsers(users, DataWriter.getUserFile());
             return;
         }
     }
 
     public void loadUsers() {
-        if(this.users != null)
+        if (this.users != null)
             try {
                 this.users = DataLoader.loadUsers(DataLoader.getUserFile());
-                for(User u : this.users) {
-                    // the user's dicionary has been loaded into dictionaryManager already, but this will assign the object to the user
-                    //u.setUserDictionary(DictionaryManager.getInstance().getDictionaryByID(u.getUserDictionaryID()));
+                for (User u : this.users) {
+                    // the user's dicionary has been loaded into dictionaryManager already, but this
+                    // will assign the object to the user
                     UUID dictionaryID = u.getUserDictionaryID();
                     Dictionary d = DictionaryManager.getInstance().getDictionaryByID(dictionaryID);
                     u.setUserDictionary(d);
@@ -160,18 +153,17 @@ public class Users {
     /**
      * @author Cade Stocker
      * @return a UUID
-     * Originally debated between turning the UUID into a string,
-     * but decided that the UUID class offers a lot of methods that may
-     * be useful.
+     *         Originally debated between turning the UUID into a string,
+     *         but decided that the UUID class offers a lot of methods that may
+     *         be useful.
      */
     public UUID generateUUID() {
         return UUID.randomUUID();
     }
 
     public void printUserList() {
-        for(User u : users) {
+        for (User u : users) {
             System.out.println(u.toString());
         }
     }
 }
-
