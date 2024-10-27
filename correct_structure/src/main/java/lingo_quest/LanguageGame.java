@@ -19,6 +19,7 @@ class LanguageGame {
 
     // test comment
     public LanguageGame() throws Exception {
+        speak("");
         this.userList = Users.getInstance();
         this.dictionaryMan = DictionaryManager.getInstance();
         //userList.loadUsers();
@@ -30,7 +31,7 @@ class LanguageGame {
     }
 
     public void createUser(String username, String password) {
-        System.out.println("TEST " + username + " " + password);
+        //System.out.println("TEST " + username + " " + password);
         if(this.user != null) {
             System.out.println("Someone is already logged in");
             return;
@@ -59,9 +60,9 @@ class LanguageGame {
         //dictionaryMan.loadDictionaries();
         //System.out.println("done with load dictionaries");
         userList.loadUsers();
-        System.out.println("done with loadusers");
+        //System.out.println("done with loadusers");
         languageManager.loadLanguages();
-        System.out.println("done with load languages");
+        //System.out.println("done with load languages");
         itemShop.loadItems();
 
         // load object the user needs by their UUIDs
@@ -134,7 +135,7 @@ class LanguageGame {
         // return the language
         // set the type of language it is (this assigns the master dictionary to the language object)
         if(lang == null)
-            System.out.print("TESTING FOR NULL LANG IN STARTLANGUAGE IN LANGUAGE GAME");
+            //System.out.print("TESTING FOR NULL LANG IN STARTLANGUAGE IN LANGUAGE GAME");
         if(lang != null)
             l.setLanguageName(lang);
         
@@ -279,6 +280,11 @@ class LanguageGame {
         user.setCurrentLangauge(languageManager.getInstance().getLanguageByID(languageUUID));
     }
 
+    public void speak(String s) {
+        Narriator.playSound(s);
+
+    }
+
     public void pickASection(UUID sectionUUID) {
         user.currentSection = languageManager.getSectionByID(sectionUUID);
         System.out.println("You switched to section " + user.currentSection.getName());
@@ -291,6 +297,7 @@ class LanguageGame {
       Question question =  questionCreator.createQuestion(user.currentLesson);
       user.currentLesson.currentQuestion = question;
       System.out.println(question.toString());
+      speak(question.toString());
     }
     public void answerQuestion(Scanner k) {
         System.out.println("Please enter your answer");
