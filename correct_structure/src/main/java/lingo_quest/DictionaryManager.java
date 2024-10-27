@@ -13,13 +13,13 @@ public class DictionaryManager {
 
     /**
      * @author cade
-     * private constructor for singleton
+     *         private constructor for singleton
      */
     private DictionaryManager() {
         this.dictionaries = new ArrayList<>();
         loadDictionaries();
     }
-    
+
     /**
      * @author cade
      * @return the instance of the class
@@ -34,11 +34,10 @@ public class DictionaryManager {
     /**
      * @author cade
      * @param d
-     * add a dictionary to the arraylist
+     *          add a dictionary to the arraylist
      */
     public void addDictionary(Dictionary d) {
         dictionaries.add(d);
-        //System.out.println("Adding: " + d.getID().toString() + "in actual list");
     }
 
     /**
@@ -54,8 +53,8 @@ public class DictionaryManager {
      * @param id
      */
     public void removeDictionary(UUID id) {
-        for(Dictionary d : dictionaries) {
-            if(d.getID().equals(id)) {
+        for (Dictionary d : dictionaries) {
+            if (d.getID().equals(id)) {
                 dictionaries.remove(d);
                 return;
             }
@@ -64,7 +63,7 @@ public class DictionaryManager {
 
     /**
      * @author cade
-     * calls to the dataloader and lets it do the work
+     *         calls to the dataloader and lets it do the work
      */
     public void loadDictionaries() {
         try {
@@ -89,13 +88,11 @@ public class DictionaryManager {
      * @return
      */
     public Dictionary getDictionaryByID(UUID id) {
-        //System.out.println("ADDRESS 2: " + this.dictionaries);
-        for(Dictionary d : this.dictionaries) {
-            //System.out.println("TLSDJGLKSJLKSDJLK  " + d.getID());
-            if(d.getID().equals(id))
+        for (Dictionary d : this.dictionaries) {
+            if (d.getID().equals(id))
                 return d;
         }
-        System.out.println(id.toString()+ ": Dictionary doesn't exist.");
+        System.out.println(id.toString() + ": Dictionary doesn't exist.");
         return null;
     }
 
@@ -107,7 +104,7 @@ public class DictionaryManager {
     public Dictionary getDictionaryByUser(User u) {
         return getDictionaryByID(u.getUserDictionaryID());
     }
-    
+
     /**
      * @author cade
      * @param id
@@ -115,8 +112,8 @@ public class DictionaryManager {
      */
     public Dictionary duplicateDictionary(UUID id) {
         Dictionary ret = new Dictionary();
-        if(id != null && getDictionaryByID(id) != null) {
-            for(Word w : getDictionaryByID(id).getWords()) {
+        if (id != null && getDictionaryByID(id) != null) {
+            for (Word w : getDictionaryByID(id).getWords()) {
                 ret.addWord(w);
             }
             dictionaries.add(ret);

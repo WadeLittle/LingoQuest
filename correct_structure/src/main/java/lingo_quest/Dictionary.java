@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 /**
- * The Dictionary class provides functionality for storing and managing word translations
- * between English and another language. It maintains two HashMaps for bidirectional translation.
+ * The Dictionary class provides functionality for storing and managing word
+ * translations
+ * between English and another language. It maintains two HashMaps for
+ * bidirectional translation.
  * 
- * 10/22 We have changed the design of the Word class, meaning that dictionary will now be restructured as an ArrayList of words
+ * 10/22 We have changed the design of the Word class, meaning that dictionary
+ * will now be restructured as an ArrayList of words
  */
 class Dictionary {
-    //private HashMap<Word, Word> fromEnglish;
-    //private HashMap<Word, Word> toEnglish;
     private ArrayList<Word> words;
     private UUID dictionaryID;
     private int numberOfWords;
@@ -19,12 +20,10 @@ class Dictionary {
     /**
      * Constructs an empty Dictionary with no words.
      * creates empty arraylist
+     * 
      * @author Preston Willis
      */
     public Dictionary() {
-        //fromEnglish = new HashMap<>();
-        //toEnglish = new HashMap<>();
-
         this.words = new ArrayList<Word>();
         this.dictionaryID = UUID.randomUUID();
         numberOfWords = 0;
@@ -74,12 +73,12 @@ class Dictionary {
      * @author cade
      * @param maxPointsInclusive
      * @return list of words that are equal to or below the specified number
-     * of points
+     *         of points
      */
     public ArrayList<Word> getWordsByUnderstanding(int maxPointsInclusive) {
         ArrayList<Word> words = new ArrayList<>();
-        for(Word w : this.words) {
-            if(w.getPoints() <= maxPointsInclusive)
+        for (Word w : this.words) {
+            if (w.getPoints() <= maxPointsInclusive)
                 words.add(w);
         }
         return words;
@@ -93,48 +92,46 @@ class Dictionary {
         this.dictionaryID = UUID.fromString(id);
     }
 
-
     /**
      * Constructs a Dictionary with predefined word mappings and a word count.
      *
-     * @param word1 HashMap for translating from English to another language.
-     * @param word2 HashMap for translating from another language to English.
+     * @param word1         HashMap for translating from English to another
+     *                      language.
+     * @param word2         HashMap for translating from another language to
+     *                      English.
      * @param numberOfWords Number of words initially present in the dictionary.
      */
     public Dictionary(ArrayList<Word> words, int numberOfWords) {
-        //this.fromEnglish = word1;
-        //this.toEnglish = word2;
         this.words = words;
         this.numberOfWords = numberOfWords;
     }
 
     /**
      * Adds a new word translation to the dictionary.
-     * Updates both the fromEnglish and toEnglish maps and increments the word count.
+     * Updates both the fromEnglish and toEnglish maps and increments the word
+     * count.
      *
-     * @param english The Word object representing the English word.
-     * @param otherLanguage The Word object representing the translation in another language.
+     * @param english       The Word object representing the English word.
+     * @param otherLanguage The Word object representing the translation in another
+     *                      language.
      */
     public void addWord(Word word) {
-        //fromEnglish.put(english, otherLanguage);
-        //toEnglish.put(otherLanguage, english);
         this.words.add(word);
         numberOfWords++;
     }
 
     /**
      * Removes a word translation from the dictionary.
-     * Deletes entries from both fromEnglish and toEnglish maps and decrements the word count.
+     * Deletes entries from both fromEnglish and toEnglish maps and decrements the
+     * word count.
      *
      * @param word The string representing the word to be removed.
      */
     public void removeWord(String word) {
-        //fromEnglish.remove(english);
-        //toEnglish.remove(otherLanguage);
-        for(Word w : this.words) {
-            if(w.getWordinLanguage().equalsIgnoreCase(word)) {
+        for (Word w : this.words) {
+            if (w.getWordinLanguage().equalsIgnoreCase(word)) {
                 this.words.remove(w);
-                this.numberOfWords --;
+                this.numberOfWords--;
                 return;
             }
         }
@@ -143,7 +140,8 @@ class Dictionary {
     /**
      * Prints the contents of the given HashMap representing word translations.
      * 
-     * @param map A HashMap representing a dictionary for translation (either from or to English).
+     * @param map A HashMap representing a dictionary for translation (either from
+     *            or to English).
      */
     public void printDictionary() {
         for (Word w : this.words) {
@@ -152,16 +150,16 @@ class Dictionary {
     }
 
     /**
-     * Checks if the dictionary contains a specific word in either the fromEnglish or toEnglish maps.
+     * Checks if the dictionary contains a specific word in either the fromEnglish
+     * or toEnglish maps.
      *
      * @param word The String of the word to check for in the dictionary.
      * @return true if the word exists in the dictionary, false otherwise.
-     * edited by cade
+     *         edited by cade
      */
     public boolean contains(String word) {
-        //return fromEnglish.containsKey(word) || toEnglish.containsKey(word);
-        for(Word w : this.words) {
-            if(w.getWordinLanguage().equalsIgnoreCase(word)) {
+        for (Word w : this.words) {
+            if (w.getWordinLanguage().equalsIgnoreCase(word)) {
                 return true;
             }
         }
@@ -184,34 +182,23 @@ class Dictionary {
      */
     public ArrayList<Word> getWordsByTopicID(UUID id) {
         ArrayList<Word> ret = new ArrayList<>();
-        for(Word w : this.words) {
-            if(w.getLessonID().equals(id))
+        for (Word w : this.words) {
+            if (w.getLessonID().equals(id))
                 ret.add(w);
         }
         return ret;
     }
 
     /**
-     * Rebuilds the toEnglish map based on the current fromEnglish map, clearing the existing toEnglish map.
-     * Updates the number of words in the dictionary to reflect the size of fromEnglish.
-     */
-
-    /*
-    public void loadDictionary() {
-        DataLoader loader = new DataLoader();
-        this.words = loader.loadWords(loader.getWordFile());
-    }
-    */
-
-    /**
      * @author Cade
      * @param word
      * @return the word object
-     * changed this to work with the new way we are using words (got rid of hashmaps)
+     *         changed this to work with the new way we are using words (got rid of
+     *         hashmaps)
      */
     public Word getWordByString(String word) {
-        for(Word w : this.words) {
-            if(word.equalsIgnoreCase(w.getWordinLanguage())) {
+        for (Word w : this.words) {
+            if (word.equalsIgnoreCase(w.getWordinLanguage())) {
                 return w;
             }
         }
@@ -221,44 +208,10 @@ class Dictionary {
     public Word getWordByUUID(UUID uuid) {
         for (Word w : this.words) {
             if (w.getWordUUID().equals(uuid)) {
-                return w;  
+                return w;
             }
         }
-        return null;  
+        return null;
     }
 
-
-    /*
-    /**
-     * Saves the current fromEnglish map.
-     * 
-     * @return A new HashMap containing the translations from English to another language.
-     */
-    /*
-    public HashMap<Word, Word> saveFromEnglishDictionary() {
-        return new HashMap<>(fromEnglish);
-    }
-    */
-     
-    /**
-     * Saves the current toEnglish map.
-     * 
-     * @return A new HashMap containing the translations from another language to English.
-     */
-    /* 
-    public HashMap<Word, Word> saveToEnglishDictionary() {
-        return new HashMap<>(toEnglish);
-    }
-    */
-
-    // will call on datawriter
-    public void saveDictionary() {
-        //DataWriter.
-    }
 }
-
-
-
-
-
-
