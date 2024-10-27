@@ -33,7 +33,8 @@ public class TrueOrFalse extends Question {
 
     @Override
     public String toString() {
-        return "Is " + displayedWord.getWordinLanguage() + " the " + language + " word for " + correctWord.getEnglishVersion() + "? (true/false)";
+        return "Is " + displayedWord.getWordinLanguage() + " the " + language + " word for "
+                + correctWord.getEnglishVersion() + "? (true/false)";
     }
 
     public boolean isCorrect(User user) {

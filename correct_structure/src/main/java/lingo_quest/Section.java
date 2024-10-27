@@ -18,12 +18,12 @@ public class Section {
     // Constructors
     public Section() {
         lessons = new ArrayList<Lesson>();
-        //userAccess = false;
+        // userAccess = false;
         sectionProgress = 0;
         pointsEarned = 0;
         totalPoints = 0;
         coinValue = 0;
-        //sectionComplete = false;
+        // sectionComplete = false;
     }
 
     public Section(String sectionName, UUID sectionUUID, ArrayList<Lesson> lessons) {
@@ -35,9 +35,10 @@ public class Section {
         this.totalPoints = getTotalPoints();
         this.coinValue = 1000;
     }
+
     public int getTotalPoints() {
         int totalPoints = 0;
-        for(Lesson lesson:lessons) {
+        for (Lesson lesson : lessons) {
             totalPoints += lesson.getTotalPoints();
         }
         return totalPoints;
@@ -61,7 +62,7 @@ public class Section {
 
     public int getPointsEarned() {
         int pointsEarned = 0;
-        for(Lesson lesson: lessons) {
+        for (Lesson lesson : lessons) {
             pointsEarned += lesson.getPointsEarned();
         }
         return pointsEarned;
@@ -74,16 +75,14 @@ public class Section {
         this.sectionProgress = getSectionProgress();
     }
 
-
- 
     public double getSectionProgress() {
         int totalPoints = 0;
         int earnedPoints = 0;
-        for(Lesson lesson : lessons) {
-           totalPoints += lesson.getTotalPoints();
-           earnedPoints += lesson.getPointsEarned();
+        for (Lesson lesson : lessons) {
+            totalPoints += lesson.getTotalPoints();
+            earnedPoints += lesson.getPointsEarned();
         }
-        return (earnedPoints/totalPoints) * 100;
+        return (earnedPoints / totalPoints) * 100;
     }
 
     /**
@@ -102,7 +101,6 @@ public class Section {
         return this.coinValue;
     }
 
-
     public boolean getUserAccess() {
         return this.userAccess;
     }
@@ -115,17 +113,12 @@ public class Section {
         this.userAccess = access;
     }
 
-    public boolean userAccessRequirements(ArrayList<Section> sections) {
-        
-        return false;
-    }
-
     public boolean getSectionComplete() {
         return this.sectionComplete;
     }
 
     // what is this method for? - cade
-    public Lesson getLesson(Lesson lesson) {        
+    public Lesson getLesson(Lesson lesson) {
         return lesson;
     }
 
@@ -142,13 +135,8 @@ public class Section {
      * @param l
      */
     public void setLessons(ArrayList<Lesson> l) {
-        if(l != null)
+        if (l != null)
             this.lessons = l;
-    }
-
-    public ArrayList<Lesson> getAvailableLessons() {
-        
-        return null;
     }
 
     /**
@@ -162,8 +150,8 @@ public class Section {
     /**
      * @author Cade Stocker
      * @param id the UUID to be set
-     * if the id needs to be a new UUID, the new UUID will be
-     * created in another class and then sent here to be set.
+     *           if the id needs to be a new UUID, the new UUID will be
+     *           created in another class and then sent here to be set.
      */
     public void setID(UUID id) {
         this.ID = id;
@@ -177,9 +165,6 @@ public class Section {
         return this.ID;
     }
 
-    // Private Methods
-    // Do these need to be private? (are they called from within the class?) - cade
-
     public void setPointsEarned(int pointsEarned) {
         this.pointsEarned = pointsEarned;
     }
@@ -188,14 +173,8 @@ public class Section {
         this.totalPoints = totalPoints;
     }
 
-    public void awardForCompletion(User user) {
-        
-    }
-
     public void setSectionComplete(boolean complete) {
         this.sectionComplete = complete;
     }
 
-
 }
-
