@@ -19,32 +19,29 @@ public class TrueOrFalse extends Question {
         answer = "";
         coinValue = 100;
         pointValue = 100;
+
+        Random rand = new Random();
+        if(rand.nextBoolean()) {
+            this.answer = "true";
+            this.correctWord = aWord;
+        } else {
+            this.answer = "false";
+            this.correctWord = anotherWord;
+        }
     }
     public void setUserAnswer(String userAnswer) {
         this.userAnswer = userAnswer;
     }
 
     public String toString() {
-    StringBuilder result = new StringBuilder();
-    Random rand = new Random();  
-    boolean chooseFirstWord = rand.nextBoolean(); 
+    return "Is " + correctWord.getWordinLanguage() + " the " + language + " word for " + correctWord.getEnglishVersion() + "?";
 
-    if (chooseFirstWord) {
-        result.append("Is " + aWord.getWordinLanguage() + " the " + language + " word for " + aWord.getEnglishVersion() + "?");
-        answer = "true";
-        correctWord = aWord;
-    } else {
-        result.append("Is " + anotherWord.getWordinLanguage() + " the " + language + " word for " + anotherWord.getEnglishVersion() + "?");
-        answer = "false";
-        correctWord = anotherWord;
     }
     
-    return result.toString();
-    }
 
-    public boolean isCorrect( User user) {
-        if(userAnswer.toLowerCase().trim().equals(answer)) {
-          user.getUserDictionary().getWordByUUID(correctWord.getWordUUID()).wordPresented(true);
+    public boolean isCorrect(User user) {
+        if (userAnswer != null && userAnswer.toLowerCase().trim().equals(answer)) {
+            user.getUserDictionary().getWordByUUID(correctWord.getWordUUID()).wordPresented(true);
             return true;
         } else {
             user.getUserDictionary().getWordByUUID(correctWord.getWordUUID()).wordPresented(false);

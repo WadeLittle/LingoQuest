@@ -17,15 +17,16 @@ public class MultipleChoice extends Question  {
         super(language);
         this.answerChoices = answerChoices;
         this.correctAnswer = correctAnswer;
+        Collections.shuffle(answerChoices);
         this.correctAnswerIndex = getCorrectAnswerIndexPlusOne();
         coinValue = 100;
         pointValue = 100;
     }
 
-    public int getCorrectAnswerIndexPlusOne() {
-        for(int i = 0; i < answerChoices.size();i++) {
-            if(answerChoices.get(i).wordUUID.equals(correctAnswer.wordUUID)) {
-                return i+1;
+    private int getCorrectAnswerIndexPlusOne() {
+        for (int i = 0; i < answerChoices.size(); i++) {
+            if (answerChoices.get(i).wordUUID.equals(correctAnswer.wordUUID)) {
+                return i + 1;
             }
         }
         return -1;
@@ -40,18 +41,21 @@ public class MultipleChoice extends Question  {
      */
     public String toString() {
         StringBuilder result = new StringBuilder("The " + language + " word for " + correctAnswer.getEnglishVersion() + " is _______" + "\nPlease select your answer choice:\n");
-        Collections.shuffle(answerChoices);
-        for(int i = 0; i < answerChoices.size();i++) {
-            result.append(i+1).append(". ").append(answerChoices.get(i).getWordinLanguage()).append("\n");
+        for (int i = 0; i < answerChoices.size(); i++) {
+            result.append(i + 1).append(". ").append(answerChoices.get(i).getWordinLanguage()).append("\n");
         }
         return result.toString();
     }
 
-    public boolean isCorrect( User user) {
-        if(userAnswer.equals(this.correctAnswerIndex)) {
-           user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(true);
-            return true;
-        } else {
+    public boolean isCorrect(User user) {
+        try {
+            int userAnswerIndex = Integer.parseInt(userAnswer.trim());
+            boolean isCorrect = (userAnswerIndex == correctAnswerIndex);
+
+            user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(isCorrect);
+            return isCorrect;
+        } catch (NumberFormatException e) {
+            // Handle invalid user input
             user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(false);
             return false;
         }

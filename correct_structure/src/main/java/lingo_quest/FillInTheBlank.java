@@ -33,7 +33,7 @@ public class FillInTheBlank extends Question{
         return result.toString();
     }
     public boolean isCorrect( User user) {
-        if(userAnswer.toLowerCase().trim().equals(correctAnswer.getWordinLanguage())) {
+        if(userAnswer.toLowerCase().trim().equals(correctAnswer.getWordinLanguage().toLowerCase().trim())) {
           user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(true);
             return true;
         } else {
