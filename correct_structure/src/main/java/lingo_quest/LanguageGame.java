@@ -22,29 +22,25 @@ class LanguageGame {
         speak("");
         this.userList = Users.getInstance();
         this.dictionaryMan = DictionaryManager.getInstance();
-        //userList.loadUsers();
         this.itemShop = ItemShop.getInstance();
         this.languageManager = LanguageManager.getInstance();
         this.questionCreator = new QuestionCreator();
         this.loadAll();
-        // work on other variables for constructor
     }
 
     public void createUser(String username, String password) {
-        //System.out.println("TEST " + username + " " + password);
-        if(this.user != null) {
+        if (this.user != null) {
             System.out.println("Someone is already logged in");
             return;
         }
-        if(this.userList.containsUsername(username)) {
+        if (this.userList.containsUsername(username)) {
             System.out.println("Username already exists.");
             return;
         }
-        User createdUser = new User(username,password);
+        User createdUser = new User(username, password);
         this.user = createdUser;
         userList.createUser(username, password);
 
-        // just added this
         this.startLanguage(Languages.SPANISH);
 
         System.out.println("Successfully Created Account");
@@ -52,55 +48,21 @@ class LanguageGame {
 
     /**
      * @author cade
-     * load all of our singletons
-     * @throws Exception 
+     *         load all of our singletons
+     * @throws Exception
      */
     public void loadAll() throws Exception {
-        // CHANGED LOADDICTIONARIES TO BE CALLED IN DICTIONARYMANAGER CONSTRUCTOR
-        //dictionaryMan.loadDictionaries();
-        //System.out.println("done with load dictionaries");
         userList.loadUsers();
-        //System.out.println("done with loadusers");
         languageManager.loadLanguages();
-        //System.out.println("done with load languages");
         itemShop.loadItems();
 
         // load object the user needs by their UUIDs
-        for(User u : userList.getUsers()) {
+        for (User u : userList.getUsers()) {
             // use the UUID's to access the language from languagemanager
             u.setCurrentLanguage(languageManager.getLanguageByID(u.getCurrentLanguageID()));
             u.setUserDictionary(dictionaryMan.getDictionaryByID(u.getUserDictionaryID()));
         }
 
-        /*for(Language l : languageManager.getLanguages()) {
-            for(Section sec : l.getSections()) {
-                for(Lesson les : sec.getAllLessons()) {
-                    les.setTopicWords(l.getUser());
-                }
-            }
-        }*/
-
-
-        
-    }
-
-    /**
-     * @author cade
-     * @return
-     * 
-     * making this function to generate the progress screen for the scenario 10/25
-     * needs to show language progress, current lesson, and words that the user needs to work on
-     */
-    public HashMap<String,Double> getProgressInfo() {
-        if(this.user == null) {
-            System.out.println("No current user in LanguageGame.");
-            return null;
-        }
-        HashMap<String,Double> progress = new HashMap<>();
-        if(this.user.getCurrentLanguage() != null) {
-            progress.put("Current Language Progress", this.user.getCurrentLanguage().getProgress());
-            //for(Section s : this.user.getCurrentLanguage().get
-        }
     }
 
     /**
@@ -111,9 +73,6 @@ class LanguageGame {
         return (this.user != null);
     }
 
-    public void getItemInformation() {
-    }
-
     /**
      * @author cade
      * @param lang
@@ -121,30 +80,29 @@ class LanguageGame {
      */
     public Language startLanguage(Languages lang) {
         // make sure there's a user logged in
-        if(this.getUser() == null)
+        if (this.getUser() == null)
             return null;
         Language l = new Language();
         // add the new language to the singleton
-        //System.out.println(languageManager.getLanguages().size());
         languageManager.addLanguage(l);
-        //System.out.println(languageManager.getLanguages().size());
         // put the user's id into the language
         l.setUserID(this.getUser().getUUID());
         // put the language's id into user
         this.getUser().addLanguage(l);
         // return the language
-        // set the type of language it is (this assigns the master dictionary to the language object)
-        if(lang == null)
-            //System.out.print("TESTING FOR NULL LANG IN STARTLANGUAGE IN LANGUAGE GAME");
-        if(lang != null)
-            l.setLanguageName(lang);
-        
+        // set the type of language it is (this assigns the master dictionary to the
+        // language object)
+        if (lang == null)
+            if (lang != null)
+                l.setLanguageName(lang);
+
         return l;
     }
 
     /**
      * @author Wade Little
-     * Sets the language games current language as well as the languagemanagers
+     *         Sets the language games current language as well as the
+     *         languagemanagers
      * @param language THe language you want to work on
      */
     public void setCurrentLanguage(Language language) {
@@ -154,36 +112,32 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     * Checks the userlist for the entered username and password and returns a valid user or null user
+     *         Checks the userlist for the entered username and password and returns
+     *         a valid user or null user
      * @param username The username that the user is trying to login with
      * @param password The password the user is trying to login with
      * @return A valid User or null if it isn't a valid user
      */
     public void login(String username, String password) {
-        // will load users in constructor
-        //userList.loadUsers();
         this.user = userList.getUser(username, password);
 
-
-
-
-        for(Language l : languageManager.getLanguages()) {
-            for(Section sec : l.getSections()) {
-                for(Lesson les : sec.getAllLessons()) {
+        for (Language l : languageManager.getLanguages()) {
+            for (Section sec : l.getSections()) {
+                for (Lesson les : sec.getAllLessons()) {
                     les.setTopicWords(this.user);
                 }
             }
         }
     }
+
     /**
      * @author Wade Little
-     * Saves the users and sets the user to null
+     *         Saves the users and sets the user to null
      */
     public void logout() {
         this.userList.saveUsers();
         this.dictionaryMan.saveDictionary();
         this.languageManager.saveLanguages();
-        this.itemShop.saveItems();
         // set current user to null
         this.user = null;
         System.out.println("Successfully logged out");
@@ -232,6 +186,7 @@ class LanguageGame {
 
     /**
      * Sets the user answer
+     * 
      * @param userAnswer
      */
     public void setUserAnswer(Word userAnswer) {
@@ -242,22 +197,6 @@ class LanguageGame {
         return this.userAnswer;
     }
 
-    /**
-     * @author Wade Little
-     * Sets the current question and goes through the process of getting user input as well as updating the data of the word and the correct answer.
-     */
-    public void answerQuestionInSpanish() {
-        Question currentQuestion = languageManager.getCurrentLesson().getQuestion();
-        System.out.println(currentQuestion.toString());
-        // can replace with a print method in this class or another
-        Scanner keyboard = new Scanner(System.in);
-        String userInput = keyboard.nextLine().trim();
-
-        // changed to getWordByString - cade
-        currentQuestion.setUserAnswer(userDictionary.getWordByString(userInput));
-        currentQuestion.getCorrectAnswer().wordPresented(currentQuestion.isCorrect());
-    }
-
     public User getUser() {
         return user;
     }
@@ -266,17 +205,16 @@ class LanguageGame {
         return this.languageManager;
     }
 
-/**
- * @author Wade Little
- * This class runs itemshop.displayItemShop() to view the item shop.
- */
+    /**
+     * @author Wade Little
+     *         This class runs itemshop.displayItemShop() to view the item shop.
+     */
     public void checkItemShop() {
-        itemShop.displayItemShop();;
+        itemShop.displayItemShop();
+        ;
     }
 
     public void pickALanguageByUUID(UUID languageUUID) {
-        //user.currentLanguage = languageManager.getLanguageByID(languageUUID);
-        //user.addLanguage(user.currentLanguage);
         user.setCurrentLangauge(languageManager.getInstance().getLanguageByID(languageUUID));
     }
 
@@ -289,19 +227,22 @@ class LanguageGame {
         user.currentSection = languageManager.getSectionByID(sectionUUID);
         System.out.println("You switched to section " + user.currentSection.getName());
     }
-    public void pickALesson( UUID lessonUUID) {
+
+    public void pickALesson(UUID lessonUUID) {
         user.currentLesson = languageManager.getLessonByID(lessonUUID);
         System.out.println("You switched to lesson " + user.currentLesson.getLessonName());
     }
+
     public void getAQuestion() {
-      Question question =  questionCreator.createQuestion(user.currentLesson);
-      user.currentLesson.currentQuestion = question;
-      System.out.println(question.toString());
-      speak(question.toString());
+        Question question = questionCreator.createQuestion(user.currentLesson);
+        user.currentLesson.currentQuestion = question;
+        System.out.println(question.toString());
+        speak(question.toString());
     }
+
     public void answerQuestion(Scanner k) {
         System.out.println("Please enter your answer");
-       String userAnswer = k.nextLine().toLowerCase().trim();
+        String userAnswer = k.nextLine().toLowerCase().trim();
         user.currentLesson.currentQuestion.setUserAnswer(userAnswer);
         user.currentLesson.currentQuestion.isCorrect(user);
     }
@@ -309,14 +250,13 @@ class LanguageGame {
     public void getProgressScreen() {
         System.out.println("Here is your progress on the words in the current lesson");
         System.out.println("The lesson you are currently working on is " + user.currentLesson.getLessonName());
-        System.out.println("You have completed " + String.format("%.2f", user.currentLesson.getLessonProgress()) + "% of the lesson");
-        for(Word w : user.currentLesson.topicWords) {
-            if(w.getTimesPresented() > 0) {
+        System.out.println("You have completed " + String.format("%.2f", user.currentLesson.getLessonProgress())
+                + "% of the lesson");
+        for (Word w : user.currentLesson.topicWords) {
+            if (w.getTimesPresented() > 0) {
                 System.out.println(w.toString());
             }
         }
     }
-
-
 
 }
