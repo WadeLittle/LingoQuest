@@ -45,7 +45,8 @@ public class User {
      */
     public User() {
         userID = Users.getInstance().generateUUID();
-        userDictionary = DictionaryManager.getInstance().duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
+        userDictionary = DictionaryManager.getInstance()
+                .duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
         userDictionaryID = userDictionary.getID();
         coinsEarned = 0;
         coinBalance = 0;
@@ -59,12 +60,14 @@ public class User {
         languages = new ArrayList<UUID>();
         currentLanguage = null;
     }
-/**
- * @author Wade Little
- * Pararamaterized constructor that throws an error if there isn't a valid username or password
- * @param username Desired users username
- * @param password Desired users password
- */
+
+    /**
+     * @author Wade Little
+     *         Pararamaterized constructor that throws an error if there isn't a
+     *         valid username or password
+     * @param username Desired users username
+     * @param password Desired users password
+     */
     public User(String username, String password) {
         if (!setUsername(username) || !setPassword(password)) {
             throw new IllegalArgumentException("Failed to create user: invalid username or password");
@@ -72,7 +75,8 @@ public class User {
 
         // If validation passes, initialize remaining fields
         this.userID = Users.getInstance().generateUUID();
-        userDictionary = DictionaryManager.getInstance().duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
+        userDictionary = DictionaryManager.getInstance()
+                .duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
         userDictionaryID = userDictionary.getID();
         this.coinsEarned = 0;
         this.coinBalance = 0;
@@ -90,7 +94,7 @@ public class User {
      * @param d
      */
     public void setUserDictionary(Dictionary d) {
-        if(d != null) {
+        if (d != null) {
             this.userDictionary = d;
             this.userDictionaryID = d.getID();
             return;
@@ -111,7 +115,7 @@ public class User {
     }
 
     public void setCurrentLangaugeID(UUID id) {
-        if(id != null) {
+        if (id != null) {
             this.currentLanguageID = id;
             this.currentLanguage = LanguageManager.getInstance().getLanguageByID(id);
         }
@@ -122,7 +126,7 @@ public class User {
      * @param l
      */
     public void setLanguageType(Languages l) {
-        if(l != null)
+        if (l != null)
             this.languageType = l;
     }
 
@@ -186,20 +190,21 @@ public class User {
     public Word getWordOfTheDay() {
         return wordOfTheDay;
     }
-    
-/**
- * @author Wade Little
- * Gets the amount of coins earned
- * @return The users amount of coins earned
- */
+
+    /**
+     * @author Wade Little
+     *         Gets the amount of coins earned
+     * @return The users amount of coins earned
+     */
     public int getCoinsEarned() {
         return coinsEarned;
     }
-/**
- * @author Wade Little
- * Gets the users coin balance
- * @return The users coin balance
- */
+
+    /**
+     * @author Wade Little
+     *         Gets the users coin balance
+     * @return The users coin balance
+     */
     public int getCoinBalance() {
         return coinBalance;
     }
@@ -217,7 +222,7 @@ public class User {
      * @param l the language to be added
      */
     public void addLanguage(Language l) {
-        if(l == null) {
+        if (l == null) {
             System.out.println("null language sent to addLanguage.");
             return;
         }
@@ -243,15 +248,15 @@ public class User {
     }
 
     public void setCurrentLangauge(Language l) {
-        if(l != null) {
+        if (l != null) {
             this.currentLanguage = l;
             this.currentLanguageID = l.getLanguageID();
-            if(this.languages.contains(l.getLanguageID()) != true)
+            if (this.languages.contains(l.getLanguageID()) != true)
                 this.languages.add(currentLanguageID);
         }
     }
 
-    public HashMap<Languages,Double> getUserProgress() {
+    public HashMap<Languages, Double> getUserProgress() {
         return this.userProgress;
     }
 
@@ -316,11 +321,7 @@ public class User {
         if (username == null || username.trim().isEmpty()) {
             System.out.println("Username cannot be empty or null");
             return false;
-        } //else if (userList.containsUsername(username)) {
-            //System.out.println("* Username already Taken *");
-            //return false;
-        //} 
-        else if (username.length() < 4) {
+        } else if (username.length() < 4) {
             System.out.println("* Your username must be at least 4 characters *");
             return false;
         } else {
@@ -357,31 +358,11 @@ public class User {
         }
     }
 
-    public void sendFriendRequest(User friend) {
-
-    }
-
-    public void acceptFriendRequest(boolean accept) {
-
-    }
-
-    public void addWordToDictionary(Word word) {
-
-    }
-
-    public boolean knowsWord(Word word, Dictionary otherLanguage) {
-
-        return true;
-    }
-
-    public void equipItem(Item item) {
-
-    }
     /**
      * @author Wade Little
-     * Sets the current language to a new language
+     *         Sets the current language to a new language
      * @param UUID The current language the user wants to switch to
-     * changed to param UUID - cade 10/24
+     *             changed to param UUID - cade 10/24
      */
     public void setCurrentLanguage(Language language) {
         this.currentLanguage = language;
@@ -389,16 +370,12 @@ public class User {
 
     /**
      * @author Wade Little
-     * Gets the users current langauge
+     *         Gets the users current langauge
      * @return The users current language
-     * Changed to return Language object - cade 10/24
+     *         Changed to return Language object - cade 10/24
      */
     public Language getCurrentLanguage() {
         return currentLanguage;
-    }
-
-    public void saveUser() {
-
     }
 
     /**
@@ -410,26 +387,29 @@ public class User {
      *         the need for the "owned" variable inside of class Item
      * 
      * 
-     * CHANGED TO WORK WITH UUID - 10/24
+     *         CHANGED TO WORK WITH UUID - 10/24
      */
     public boolean ownsItem(UUID item) {
         return items.contains(item);
     }
+
     /**
      * @author Wade Little
-     * Allows the user to buy an item if they don't already own it and they have enough coins to buy it
+     *         Allows the user to buy an item if they don't already own it and they
+     *         have enough coins to buy it
      * @param item The item the user wants to purchase
-     * @return true if the user successfully buys the item, false if they already own it or they don't have enough coins to purchase it
+     * @return true if the user successfully buys the item, false if they already
+     *         own it or they don't have enough coins to purchase it
      */
     public boolean buyItem(UUID itemID) {
-        synchronized(this) {
-            if(this.ownsItem(itemID)) {
+        synchronized (this) {
+            if (this.ownsItem(itemID)) {
                 System.out.println("User already owns this item");
                 return false;
-            } else if(ItemShop.getInstance().getItemByID(itemID).getPrice() > this.coinBalance) {
+            } else if (ItemShop.getInstance().getItemByID(itemID).getPrice() > this.coinBalance) {
                 System.out.println("You don't have enough coins to purchase this item.");
                 return false;
-            }else {
+            } else {
                 this.coinBalance -= ItemShop.getInstance().getItemByID(itemID).getPrice();
                 this.items.add(itemID);
                 return true;
@@ -460,11 +440,11 @@ public class User {
 
     /**
      * @author Cade Stocker
-     * setID method will take in a string, turn it into a UUID,
-     * then will set it if there isn't already a UUID.
+     *         setID method will take in a string, turn it into a UUID,
+     *         then will set it if there isn't already a UUID.
      * 
-     * CHANGED TO SET THE ID REGARDLESS IF ONE ALREADY EXISTS
-     * NEEDED THIS CHANGE FOR DATALOADER
+     *         CHANGED TO SET THE ID REGARDLESS IF ONE ALREADY EXISTS
+     *         NEEDED THIS CHANGE FOR DATALOADER
      * @param UUID
      */
     public void setID(UUID id) {
@@ -482,14 +462,12 @@ public class User {
     /**
      * @author CADE STOCKER
      * @param list
-     * used for dataloader purposes
+     *             used for dataloader purposes
      */
     public void setFriendsList(ArrayList<String> list) {
         ArrayList<UUID> friends = new ArrayList<UUID>();
         for (String friend : list) {
             UUID friendID = UUID.fromString(friend);
-            //User u = Users.getInstance().getUserByUUID(friendID); // causing error (reading friends before all users loaded in)
-            //friends.add(u);
             friends.add(friendID);
         }
     }
@@ -501,34 +479,28 @@ public class User {
     /**
      * @author CADE STOCKER
      * @param ArrayList<Item>
-     * used for dataloader
+     *                        used for dataloader
      */
     public void setItems(ArrayList<UUID> items) {
-        if(items != null)
+        if (items != null)
             this.items = items;
     }
 
     /**
      * @author CADE STOCKER
      * @param HashMap<Languages,int>
-     * used for dataloader
-     * Had to do some parsing to get this method right.
+     *                               used for dataloader
+     *                               Had to do some parsing to get this method
+     *                               right.
      */
-    public void setUserProgress(HashMap<Languages,Double> progress) {
-        /*if(progress != null) {
-            HashMap<Languages,Double> map = new HashMap();
-            for (Languages key : progress.keySet()) {
-                map.put(key, map.get(key));
-            }
-            this.userProgress = map;
-        }*/
+    public void setUserProgress(HashMap<Languages, Double> progress) {
         this.userProgress = progress;
     }
 
     /**
      * @author CADE STOCKER
      * @param word
-     * used for dataloader
+     *             used for dataloader
      */
     public void setWordOfTheDay(Word word) {
         this.wordOfTheDay = word;
@@ -537,11 +509,11 @@ public class User {
     /**
      * @author CADE STOCKER
      * @param list
-     * used for dataloader
-     * changed languages to be stored as uuid
+     *             used for dataloader
+     *             changed languages to be stored as uuid
      */
     public void setLanguages(ArrayList<UUID> list) {
-        for(UUID id : list)
+        for (UUID id : list)
             this.languages.add(id);
     }
 
