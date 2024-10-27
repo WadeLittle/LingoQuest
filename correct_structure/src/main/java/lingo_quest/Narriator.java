@@ -20,12 +20,11 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackListener;
 
 public class Narriator {
-    private Narriator(){};
+    private Narriator() {
+    };
 
-    public static void playSound(String text){
+    public static void playSound(String text) {
         PollyClient polly = PollyClient.builder().region(Region.EU_WEST_3).build();
-        //System.out.println("testing order");
-
         talkPolly(polly, text);
         polly.close();
     }
@@ -42,30 +41,30 @@ public class Narriator {
                     .findFirst()
                     .orElseThrow(() -> new RuntimeException("Voice not found"));
 
-
             InputStream stream = synthesize(polly, text, voice, OutputFormat.MP3);
             AdvancedPlayer player = new AdvancedPlayer(stream,
-            javazoom.jl.player.FactoryRegistry.systemRegistry().createAudioDevice());
-            
-    player.setPlayBackListener(new PlaybackListener(){});
+                    javazoom.jl.player.FactoryRegistry.systemRegistry().createAudioDevice());
 
-    player.play();
+            player.setPlayBackListener(new PlaybackListener() {
+            });
 
-} catch (PollyException | JavaLayerException | IOException e) {
-    System.err.println(e.getMessage());
-    System.exit(1);
-}
-}
+            player.play();
 
-public static InputStream synthesize(PollyClient polly, String text, Voice voice, OutputFormat format)
-    throws IOException {
-SynthesizeSpeechRequest synthReq = SynthesizeSpeechRequest.builder()
-        .text(text)
-        .voiceId(voice.id())
-        .outputFormat(format)
-        .build();
+        } catch (PollyException | JavaLayerException | IOException e) {
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+    }
 
-ResponseInputStream<SynthesizeSpeechResponse> synthRes = polly.synthesizeSpeech(synthReq);
-return synthRes;
-}
+    public static InputStream synthesize(PollyClient polly, String text, Voice voice, OutputFormat format)
+            throws IOException {
+        SynthesizeSpeechRequest synthReq = SynthesizeSpeechRequest.builder()
+                .text(text)
+                .voiceId(voice.id())
+                .outputFormat(format)
+                .build();
+
+        ResponseInputStream<SynthesizeSpeechResponse> synthRes = polly.synthesizeSpeech(synthReq);
+        return synthRes;
+    }
 }
