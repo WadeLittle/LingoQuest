@@ -1,14 +1,16 @@
 package lingo_quest;
 
 import java.util.ArrayList;
-import java.util.Collections;   
+import java.util.Collections;
 
 /**
- * The Leaderboard class maintains a list of users and their rankings based on points.
- * It supports adding/removing users and sorting the leaderboard by the user's total points.
+ * The Leaderboard class maintains a list of users and their rankings based on
+ * points.
+ * It supports adding/removing users and sorting the leaderboard by the user's
+ * total points.
  */
 public class LeaderBoard {
-    
+
     // List to store users
     private ArrayList<User> users;
     private static LeaderBoard leaderboardInstance;
@@ -51,29 +53,17 @@ public class LeaderBoard {
         users.remove(user);
     }
 
-    /**
-     * Sorts the leaderboard based on the users' total coins in descending order.
-     */
-    public void sortLeaderboard() {
-    for(int j = 0; j < users.size() - 1; j++)
-    {
-        for(int i = 0; i < users.size(); i++){
-            if(users.get(i).User.getCoinsEarned < users.get(i + 1).User.getCoinsEarned ){
-                User temp = users.get(i);
-                users.set(i).get(i+1);
-                users.set(i+1,i);
-            }
-        }
-    }    
-}
+   
 
     /**
-     * Prints the leaderboard in a formatted way, showing the username and total points of each user.
+     * Prints the leaderboard in a formatted way, showing the username and total
+     * points of each user.
      */
     public void printLeaderboard() {
         System.out.println("Leaderboard:");
         for (int i = 0; i < users.size(); i++) {
-            System.out.println((i + 1) + ". " + users.get(i).getUsername() + " - " + users.get(i).getCoinsEarned() + " points");
+            System.out.println(
+                    (i + 1) + ". " + users.get(i).getUsername() + " - " + users.get(i).getCoinsEarned() + " points");
         }
     }
 

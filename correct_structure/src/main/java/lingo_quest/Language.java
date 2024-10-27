@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-
 public class Language {
     private User user;
     private UUID userID;
@@ -25,8 +24,8 @@ public class Language {
 
     /**
      * @author Cade Stocker
-     * Default constructor for language
-     * initializes all of the ArrayLists and HashMaps
+     *         Default constructor for language
+     *         initializes all of the ArrayLists and HashMaps
      */
     public Language() {
         this.sections = new ArrayList<Section>();
@@ -38,12 +37,12 @@ public class Language {
 
     /**
      * Parameterized constructor for language
-     * each language needs a user so that the user can make progress as they complete questions
+     * each language needs a user so that the user can make progress as they
+     * complete questions
+     * 
      * @param user The user who is learning this language
      */
     public Language(User user) {
-        // We need to decide how the language will be constructed when the user logs in
-        // How will we recreate a language object with the JSON Data?
         this.sections = new ArrayList<Section>();
         this.sectionsComplete = new ArrayList<Section>();
         this.sectionAccess = new HashMap<Section, Boolean>();
@@ -58,8 +57,9 @@ public class Language {
      * @author CADE STOCKER
      * @param section
      * @return whether or not the user has access to a specific section
-     * sections should be locked based on points (a user must have accumulated a certain amount 
-     * of points to gain access to a section)
+     *         sections should be locked based on points (a user must have
+     *         accumulated a certain amount
+     *         of points to gain access to a section)
      */
     public boolean hasAccessToSection(Section section) {
         return sectionAccess.get(section);
@@ -78,20 +78,20 @@ public class Language {
      * @param id
      */
     public void setPlacementTestID(UUID id) {
-        if(id != null)
+        if (id != null)
             this.placementTestID = id;
     }
 
     /**
      * @author Cade Stocker
      * @param UUID that will be added to the language
-     * UUID will be used to access the user who owns this object of language
-     * UUID should be used to find the user in the Users class
+     *             UUID will be used to access the user who owns this object of
+     *             language
+     *             UUID should be used to find the user in the Users class
      */
     public void setLanguageID(UUID id) {
         this.languageID = id;
     }
-
 
     /**
      * @author cade
@@ -106,7 +106,7 @@ public class Language {
      * @param id
      */
     public void setDictionary(UUID id) {
-        if(id != null) {
+        if (id != null) {
             this.dictionary = DictionaryManager.getInstance().getDictionaryByID(id);
             this.dictionaryID = this.dictionary.getID();
         }
@@ -115,20 +115,19 @@ public class Language {
     /**
      * @author cade
      * @param l language type
-     * used for dataloader
+     *          used for dataloader
      */
     public void setLanguageName(Languages l) {
-        if(l != null) {
+        if (l != null) {
             this.languageName = l;
-        }
-        else {
+        } else {
             System.out.println("\n\n\nlanguage is null in setLanguagename\n\n\n");
         }
         // when more languages are created, this function would be expanded
-        if(l.equals(Languages.SPANISH)) {
-            this.dictionary = DictionaryManager.getInstance().duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
-        }
-        else {
+        if (l.equals(Languages.SPANISH)) {
+            this.dictionary = DictionaryManager.getInstance()
+                    .duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary());
+        } else {
             System.out.println("\n\n\nlanguage isnt spanish\n\n\n");
         }
     }
@@ -146,10 +145,10 @@ public class Language {
      * @param id
      */
     public void setDictionaryID(UUID id) {
-        if(id == null)
+        if (id == null)
             return;
         this.dictionaryID = id;
-        if(DictionaryManager.getInstance().getDictionaryByID(id) != null) {
+        if (DictionaryManager.getInstance().getDictionaryByID(id) != null) {
             this.dictionary = DictionaryManager.getInstance().getDictionaryByID(id);
         }
     }
@@ -161,7 +160,6 @@ public class Language {
     public void setUserProgress(double progress) {
         this.progress = progress;
     }
-
 
     public void setPlacementScore(int score) {
         this.placementScore = score;
@@ -202,7 +200,7 @@ public class Language {
     /**
      * @author Cade Stocker
      * @return String of the Language's UUID
-     * UUID is the unique identifier of this object of language
+     *         UUID is the unique identifier of this object of language
      */
     public UUID getLanguageID() {
         return this.languageID;
@@ -213,7 +211,7 @@ public class Language {
      * @param points (total number of points possible in the language)
      */
     public void setTotalPoints(int points) {
-        if(points >= 0)
+        if (points >= 0)
             this.totalPoints = points;
     }
 
@@ -247,13 +245,13 @@ public class Language {
     }
 
     public void setPlacementTest(PlacementTest pt) {
-        if(pt != null)
+        if (pt != null)
             this.placementTest = pt;
     }
 
     /**
      * @author Cade Stocker
-     * increase the user's answer streak if they get a problem correct.
+     *         increase the user's answer streak if they get a problem correct.
      */
     public void increaseAnswerStreak() {
         this.answerStreak++;
@@ -264,13 +262,13 @@ public class Language {
      * @param i
      */
     public void setAnswerStreak(int i) {
-        if(i>=0)
+        if (i >= 0)
             this.answerStreak = i;
     }
 
     /**
      * @author Cade Stocker
-     * Set the answer streak to 0 if the user gets a problem wrong.
+     *         Set the answer streak to 0 if the user gets a problem wrong.
      */
     public void resetAnswerStreak() {
         this.answerStreak = 0;
@@ -286,14 +284,14 @@ public class Language {
 
     /**
      * @author Cade Stocker
-     * finds the current progress by dividing the points earned
-     * by the total amount of points of the language
+     *         finds the current progress by dividing the points earned
+     *         by the total amount of points of the language
      */
     private void updateProgress() {
-        if(this.totalPoints == 0)
+        if (this.totalPoints == 0)
             this.progress = 0;
         else
-            this.progress = this.pointsEarned/this.totalPoints;
+            this.progress = this.pointsEarned / this.totalPoints;
     }
 
     /**
@@ -309,23 +307,25 @@ public class Language {
     }
 
     public void setSections(ArrayList<Section> sections) {
-        if(sections != null)
+        if (sections != null)
             this.sections = sections;
     }
 
     /**
      * @author CADE STOCKER
-     * goes through sections and adds them to completed if they need to be
-     * Also returns if either of the lists hasn't been initialized.
+     *         goes through sections and adds them to completed if they need to be
+     *         Also returns if either of the lists hasn't been initialized.
      */
     public void setSectionsComplete() {
         if (this.sections == null || this.sectionsComplete == null) {
             return;
-            //throw new IllegalStateException("Sections or sectionsComplete is not initialized.");
+            // throw new IllegalStateException("Sections or sectionsComplete is not
+            // initialized.");
         }
-        
+
         for (Section section : this.sections) {
-            // If the section is complete and isnt in the completed list, add it to completed list
+            // If the section is complete and isnt in the completed list, add it to
+            // completed list
             if (section.getSectionComplete() && !this.sectionsComplete.contains(section)) {
                 this.sectionsComplete.add(section);
             }
@@ -343,15 +343,15 @@ public class Language {
     /**
      * @author CADE STOCKER
      * @return arraylist of lessons
-     * goes through to see available sections
-     *  goest through each available section and adds each available lesson
+     *         goes through to see available sections
+     *         goest through each available section and adds each available lesson
      */
     public ArrayList<Lesson> getAvailableLessons() {
         ArrayList<Lesson> lessons = new ArrayList();
 
-        for(Section sec : this.getAvailableSections()) {
-            for(Lesson lesson : sec.getAvailableLessons())
-            lessons.add(lesson);
+        for (Section sec : this.getAvailableSections()) {
+            for (Lesson lesson : sec.getAvailableLessons())
+                lessons.add(lesson);
         }
         return lessons;
     }
@@ -362,12 +362,11 @@ public class Language {
      */
     public ArrayList<Section> getAvailableSections() {
         ArrayList<Section> sections = new ArrayList();
-        for(Section sec : this.sections) {
-            if(this.sectionAccess.get(sec)) {
+        for (Section sec : this.sections) {
+            if (this.sectionAccess.get(sec)) {
                 sections.add(sec);
             }
         }
         return sections;
     }
 }
-

@@ -33,19 +33,21 @@ public class Word {
         this.englishVersion = "";
         this.wordUUID = UUID.randomUUID();
         this.lessonUUID = UUID.randomUUID();
-        this.points =0;
+        this.points = 0;
     }
 
-/**
- * Is the paramaterized constructor and sets default values as well as the items being read in from the JSON file
- * @param language The language that this word is a part of
- * @param word The word in string format 
- * @param englishVersion The english translation of the word
- * @param lessonUUID The UUID for the lesson this word is related to
- * @param wordUUID The words UUID (mostly used for matching)
- */
+    /**
+     * Is the paramaterized constructor and sets default values as well as the items
+     * being read in from the JSON file
+     * 
+     * @param language       The language that this word is a part of
+     * @param word           The word in string format
+     * @param englishVersion The english translation of the word
+     * @param lessonUUID     The UUID for the lesson this word is related to
+     * @param wordUUID       The words UUID (mostly used for matching)
+     */
     public Word(Languages language, String word, String englishVersion, UUID lessonUUID, UUID wordUUID) {
-        this.points =0;
+        this.points = 0;
         this.language = language;
         this.word = word;
         this.englishVersion = englishVersion;
@@ -55,9 +57,11 @@ public class Word {
         this.lessonUUID = lessonUUID;
         this.wordUUID = wordUUID;
     }
+
     public int getPoints() {
         return this.points;
     }
+
     public UUID getWordUUID() {
         return this.wordUUID;
     }
@@ -76,7 +80,7 @@ public class Word {
      * @param id
      */
     public void setLessonID(UUID id) {
-        if(id != null)
+        if (id != null)
             this.lessonUUID = id;
     }
 
@@ -171,19 +175,19 @@ public class Word {
      */
     public void wordPresented(boolean correct) {
         updateTimesPresented();
-    
+
         if (correct) {
-           
-            points = Math.min(points + 100, 400); 
+
+            points = Math.min(points + 100, 400);
             System.out.println("You are correct");
-            updateTimesCorrect(); 
+            updateTimesCorrect();
         } else {
-           
+
             points = Math.max(points - 100, 0);
             System.out.println("You are incorrect");
         }
-    
-        updateUserUnderstanding(); 
+
+        updateUserUnderstanding();
     }
 
     /**
@@ -221,14 +225,14 @@ public class Word {
     @Override
     public String toString() {
         return "Word Details:\n" +
-               "------------------------\n" +
-               "Word: " + word + " (" + language + ")\n" +
-               "English Version: " + englishVersion + "\n" +
-               "Points: " + points + "\n" +
-               "Times Presented: " + timesPresented + "\n" +
-               "Times Correct: " + timesCorrect + "\n" +
-               "User Understanding: " + String.format("%.2f", userUnderstanding) + "%\n" +
-               "------------------------";
+                "------------------------\n" +
+                "Word: " + word + " (" + language + ")\n" +
+                "English Version: " + englishVersion + "\n" +
+                "Points: " + points + "\n" +
+                "Times Presented: " + timesPresented + "\n" +
+                "Times Correct: " + timesCorrect + "\n" +
+                "User Understanding: " + String.format("%.2f", userUnderstanding) + "%\n" +
+                "------------------------";
     }
 
     /**
@@ -239,7 +243,6 @@ public class Word {
     public String getWordinLanguage() {
         return this.word;
     }
-
 
     /**
      * Compares this word to another word, ignoring case.
@@ -263,9 +266,4 @@ public class Word {
     public void setLanguage(Languages language) {
         this.language = language;
     }
-    /*public void toString() {
-        System.out.println(this.word+ " "+this.timesCorrect+ " "+
-        this.timesPresented+ " "+ this.userUnderstanding);
-    }*/
 }
-

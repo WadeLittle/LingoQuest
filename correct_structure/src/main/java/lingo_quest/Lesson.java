@@ -18,8 +18,8 @@ public class Lesson {
 
     public Lesson() {
         languageUUID = null;
-        pointsEarned =0;
-        totalPoints =0;
+        pointsEarned = 0;
+        totalPoints = 0;
         lessonProgress = 0;
         topicWords = null;
         lessonName = "";
@@ -37,23 +37,17 @@ public class Lesson {
     }
 
     public void updateProgress() {
-        //this.lessonProgress = this.pointsEarned/this.totalPoints;
         // set to 0 before running the sum
         this.pointsEarned = 0;
-        //double dTotal = 0.0;
-        //double dPointsEarned = this.pointsEarned;
-        if(topicWords.size() > 0) {
-            setTotalPoints(topicWords.size()*300);
-            //dTotal = this.totalPoints;
+        if (topicWords.size() > 0) {
+            setTotalPoints(topicWords.size() * 300);
         }
-        for(Word w : topicWords) {
-            //System.out.println(w.getEnglishVersion() + " " + w.getPoints());
+        for (Word w : topicWords) {
             this.pointsEarned += w.getPoints();
         }
-        System.out.println("pointsearned: " + this.pointsEarned + "\n\ntotalpoints: "+ this.totalPoints);
-        //System.out.println(dPointsEarned/dTotal);
-        double quotient = (double)this.pointsEarned/(double)this.totalPoints;
-        this.lessonProgress = 100*(quotient);
+        System.out.println("pointsearned: " + this.pointsEarned + "\n\ntotalpoints: " + this.totalPoints);
+        double quotient = (double) this.pointsEarned / (double) this.totalPoints;
+        this.lessonProgress = 100 * (quotient);
     }
 
     /**
@@ -69,16 +63,16 @@ public class Lesson {
      * @param id
      */
     public void setLessonID(UUID id) {
-        if(id != null)
+        if (id != null)
             this.lessonUUID = id;
     }
 
-    public Lesson( String lessonName,UUID languageUUID, UUID lessonUUID) {
+    public Lesson(String lessonName, UUID languageUUID, UUID lessonUUID) {
         this.languageUUID = languageUUID;
         pointsEarned = 0;
         totalPoints = getTotalPoints();
         lessonProgress = getLessonProgress();
-        //MISSING TOPIC WORDS
+        // MISSING TOPIC WORDS
         this.lessonName = lessonName;
         this.lessonUUID = lessonUUID;
     }
@@ -86,10 +80,11 @@ public class Lesson {
     public String getLessonName() {
         return lessonName;
     }
+
     public int getTotalPoints() {
-        //return topicWords.size() * 300; 
         return this.totalPoints;
     }
+
     public int getPointsEarned() {
         return pointsEarned;
     }
@@ -107,17 +102,14 @@ public class Lesson {
      * @param id
      */
     public void setLanguageID(UUID id) {
-        if(id != null)
+        if (id != null)
             this.languageUUID = id;
     }
 
-    public void awardForCompletion(User user) {
-
-    }
-    
     public String getLanguageName() {
         // hardcoded TODO
         return "Spanish";
+<<<<<<< HEAD
         //return LanguageManager.getInstance().getLanguageByID(languageUUID).getLanguageName().toString();
     }
 
@@ -144,15 +136,14 @@ public class Lesson {
 
     public void halfwayCompleteReward() {
 
+=======
+>>>>>>> db21abb0812c7f447acaaa10f9ad40d3ff824548
     }
 
     /**
      * @author cade stocker
      * @return lesson's coin value
      */
-    //public int getCoinValue() {
-    //    return this.coinValue;
-    //}
 
     /**
      * @author cade
@@ -169,11 +160,11 @@ public class Lesson {
      */
     public void setTotalPoints(int points) {
         this.totalPoints = points;
-        //this.updateProgress();
     }
 
     /**
      * set the lesson's progress
+     * 
      * @param progress
      */
     public void setLessonProgress(double progress) {
@@ -181,7 +172,7 @@ public class Lesson {
     }
 
     public void setLessonName(String name) {
-        if(name != null)
+        if (name != null)
             this.lessonName = name;
     }
 
@@ -189,24 +180,9 @@ public class Lesson {
      * @author cade stocker
      * @return the lesson progress
      */
-    public double getLessonProgress(){
+    public double getLessonProgress() {
         this.updateProgress();
         return this.lessonProgress;
-    }
-
-    /**
-     * Creates a question from the list of words
-     * @return
-     */
-    public Question createQuestion() {
-
-    }
-    /**
-     * NOT SURE
-     * @return
-     */
-    public String presentQuestion(Question question) {
-
     }
 
     public Word getRandomWord() {
@@ -219,19 +195,16 @@ public class Lesson {
         ArrayList<Word> words = new ArrayList<>();
         words.add(word);
 
-
         Random randomNum = new Random();
-        while(words.size() < numOfWords) {
+        while (words.size() < numOfWords) {
             int randomIndex = randomNum.nextInt(this.topicWords.size());
             Word aWord = this.topicWords.get(randomIndex);
 
-            if(!words.contains(aWord)) {
+            if (!words.contains(aWord)) {
                 words.add(aWord);
             }
         }
         return words;
     }
 
-    
 }
-

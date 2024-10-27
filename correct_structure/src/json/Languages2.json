@@ -1,1 +1,160 @@
-{"languages":[{"PlacementTest":"c8d23cf7-c643-4988-ab6c-8f0fff97b934","pointsEarned":10,"answerStreak":1,"totalPoints":100,"languageID":"b2657c2b-56ef-45b1-a794-97eda7a32bd4","progress":0.0,"userID":"514fe893-a25f-4849-8240-76657f683e0e","languageName":"SPANISH","sections":[{"sectionName":"Food","sectionUUID":"bb8832c1-3f9c-4796-84e2-d8a41ff22d14","lessons":[{"languageID":"b2657c2b-56ef-45b1-a794-97eda7a32bd4","lessonUUID":"a5d8b523-68e9-46c0-ba96-63a244127868","lessonName":"Drinks"},{"languageID":"b2657c2b-56ef-45b1-a794-97eda7a32bd4","lessonUUID":"b6f3aee1-7c92-4f20-8c0e-2a7f9a6a5a2d","lessonName":"Desserts"},{"languageID":"b2657c2b-56ef-45b1-a794-97eda7a32bd4","lessonUUID":"c2e6b17a-5f04-4f9d-8cb7-bddedc6c1782","lessonName":"Fruits"},{"languageID":"b2657c2b-56ef-45b1-a794-97eda7a32bd4","lessonUUID":"d5c71c37-f01a-4c76-aab9-c0d639d3e02b","lessonName":"Proteins"}]}]},{"PlacementTest":"c8d23cf7-c643-4988-ab6c-8f0fff97b934","pointsEarned":0,"answerStreak":0,"totalPoints":0,"languageID":"e6604d6a-3862-4c9c-9ca0-402ffceb6fdf","progress":0.0,"userID":"d03fda66-6d4e-4248-bc50-1079628edf41","languageName":"SPANISH","sections":[]},{"PlacementTest":"c8d23cf7-c643-4988-ab6c-8f0fff97b934","pointsEarned":0,"answerStreak":0,"totalPoints":0,"languageID":"fe514e0f-8552-45d7-a0d2-8c2535cbd0c1","progress":0.0,"userID":"ec0338e7-cfe8-49f0-b747-a2a84f1d4f1c","languageName":"SPANISH","sections":[]},{"PlacementTest":"c8d23cf7-c643-4988-ab6c-8f0fff97b934","pointsEarned":0,"answerStreak":0,"totalPoints":0,"languageID":"83c3cb24-a996-409c-aee1-ffbcad4c490a","progress":0.0,"userID":"6ac48a74-8308-4ec8-9b3a-f91ce13fc853","languageName":"SPANISH","sections":[]}]}
+{
+    "languages": [
+      {
+        "PlacementTest": "c8d23cf7-c643-4988-ab6c-8f0fff97b934",
+        "pointsEarned": 10,
+        "answerStreak": 1,
+        "totalPoints": 100,
+        "languageID": "b2657c2b-56ef-45b1-a794-97eda7a32bd4",
+        "progress": 0.0,
+        "userID": "514fe893-a25f-4849-8240-76657f683e0e",
+        "languageName": "SPANISH",
+        "sections": [
+          {
+            "sectionName": "Food",
+            "sectionUUID": "bb8832c1-3f9c-4796-84e2-d8a41ff22d14",
+            "lessons": [
+              {
+                "languageID": "b2657c2b-56ef-45b1-a794-97eda7a32bd4",
+                "lessonUUID": "a5d8b523-68e9-46c0-ba96-63a244127868",
+                "lessonName": "Drinks"
+              },
+              {
+                "languageID": "b2657c2b-56ef-45b1-a794-97eda7a32bd4",
+                "lessonUUID": "b6f3aee1-7c92-4f20-8c0e-2a7f9a6a5a2d",
+                "lessonName": "Desserts"
+              },
+              {
+                "languageID": "b2657c2b-56ef-45b1-a794-97eda7a32bd4",
+                "lessonUUID": "c2e6b17a-5f04-4f9d-8cb7-bddedc6c1782",
+                "lessonName": "Fruits"
+              },
+              {
+                "languageID": "b2657c2b-56ef-45b1-a794-97eda7a32bd4",
+                "lessonUUID": "d5c71c37-f01a-4c76-aab9-c0d639d3e02b",
+                "lessonName": "Proteins"
+              }
+            ]
+          },
+          {
+            "sectionName": "Colors",
+            "sectionUUID": "f8d12344-d0bc-4f32-8019-9b3cc6069376",
+            "lessons": [
+              {
+                "lessonUUID": "2983bcbf-d847-48a4-b4a1-8c5fdc0657c6",
+                "lessonName": "Basic Colors"
+              },
+              {
+                "lessonUUID": "d308fe63-c640-49df-bcfa-b7fbb65c6b8c",
+                "lessonName": "Shades of Colors"
+              },
+              {
+                "lessonUUID": "d1af07fd-105e-4fb7-aabb-5cbb06e85cda",
+                "lessonName": "Describing Colors"
+              }
+            ]
+          },
+          {
+            "sectionName": "Animals",
+            "sectionUUID": "285d7f67-e328-41f7-9e1c-e1832dbd0487",
+            "lessons": [
+              {
+                "lessonUUID": "cf62b3ec-1a19-4459-821e-b7547f3ef4e3",
+                "lessonName": "Sea Animals"
+              },
+              {
+                "lessonUUID": "3fc7a6b4-fc45-4d7f-8828-f18634b43b94",
+                "lessonName": "Insects"
+              },
+              {
+                "lessonUUID": "d7049a39-8396-49c0-86c8-503f824f1ac7",
+                "lessonName": "Birds"
+              }
+            ]
+          },
+          {
+            "sectionName": "Phrases",
+            "sectionUUID": "d3f539bb-25d6-4786-b8d5-7edb57c3a40c",
+            "lessons": [
+              {
+                "lessonUUID": "10bfc1ae-d03d-42fa-9158-768d412e5c9f",
+                "lessonName": "Basic Greetings and Introductions"
+              },
+              {
+                "lessonUUID": "297acefa-854a-4de3-89af-d41d9351c647",
+                "lessonName": "Travel and Directions"
+              },
+              {
+                "lessonUUID": "57fbc33d-d59b-4187-bcc5-4d3b40f61e69",
+                "lessonName": "Shopping and Money"
+              },
+              {
+                "lessonUUID": "d03b5bc2-d66e-4a8b-870d-7e49dbff40e1",
+                "lessonName": "Eating Out"
+              },
+              {
+                "lessonUUID": "cb62e6d9-94e7-4f9a-8f07-d18e213e44d1",
+                "lessonName": "Socializing and Small Talk"
+              }
+            ]
+          },
+          {
+            "sectionName": "Simple Communication",
+            "sectionUUID": "b0b4df64-8349-43d4-b6b9-024646728e45",
+            "lessons": [
+              {
+                "lessonUUID": "80af4997-6180-4e78-8ff7-d558def3c4f1",
+                "lessonName": "Basic Communication Words"
+              },
+              {
+                "lessonUUID": "1c7d649f-2093-4ec6-8d83-346330f5f96e",
+                "lessonName": "Question Words"
+              },
+              {
+                "lessonUUID": "5a8cb021-2ba8-4a47-808e-c35b4a437ed3",
+                "lessonName": "Polite Words"
+              },
+              {
+                "lessonUUID": "08fe97dc-6c48-47a5-aad7-d5d77c5e1202",
+                "lessonName": "Everyday Communication Words"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "PlacementTest": "c8d23cf7-c643-4988-ab6c-8f0fff97b934",
+        "pointsEarned": 0,
+        "answerStreak": 0,
+        "totalPoints": 0,
+        "languageID": "e6604d6a-3862-4c9c-9ca0-402ffceb6fdf",
+        "progress": 0.0,
+        "userID": "d03fda66-6d4e-4248-bc50-1079628edf41",
+        "languageName": "SPANISH",
+        "sections": []
+      },
+      {
+        "PlacementTest": "c8d23cf7-c643-4988-ab6c-8f0fff97b934",
+        "pointsEarned": 0,
+        "answerStreak": 0,
+        "totalPoints": 0,
+        "languageID": "fe514e0f-8552-45d7-a0d2-8c2535cbd0c1",
+        "progress": 0.0,
+        "userID": "ec0338e7-cfe8-49f0-b747-a2a84f1d4f1c",
+        "languageName": "SPANISH",
+        "sections": []
+      },
+      {
+        "PlacementTest": "c8d23cf7-c643-4988-ab6c-8f0fff97b934",
+        "pointsEarned": 0,
+        "answerStreak": 0,
+        "totalPoints": 0,
+        "languageID": "83c3cb24-a996-409c-aee1-ffbcad4c490a",
+        "progress": 0.0,
+        "userID": "6ac48a74-8308-4ec8-9b3a-f91ce13fc853",
+        "languageName": "SPANISH",
+        "sections": []
+      }
+    ]
+  }
+  
