@@ -56,10 +56,11 @@ public class UI {
         lg.logout();
 
         lg.login("JimJimJimJimJimmy", "jimiscool23");
-        
+
         lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
         lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
         lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
+        lg.getProgressScreen();
         for(int i =0; i< 5;i++) {
             lg.getAQuestion();
             lg.answerQuestion(keyboard);
@@ -78,13 +79,20 @@ public class UI {
         lg.login("JimJimJimJimJimmy", "jimiscool23");
         lg.getAQuestion();
         lg.answerQuestion(keyboard);
+        System.out.println("Let's practice your words with low understanding.\n");
+        lg.practiceLowUnderstanding();
+        for(int i=0; i < 4;i++) {
+            lg.getAQuestion();
+            lg.answerQuestion(keyboard);
+        }
+        lg.makeStudySheet();
         
 
         
 
 
 
-        System.out.println(lg.getAllLanguages().get(0).toString());
+        //System.out.println(lg.getAllLanguages().get(0).toString());
         boolean quit = false;
         //for(User u : Users.getInstance().getUsers()) {
         //    System.out.println("TESTTTTTT" +u.getUUID());

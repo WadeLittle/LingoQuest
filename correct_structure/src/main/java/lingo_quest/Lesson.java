@@ -14,6 +14,7 @@ public class Lesson {
     private String lessonName;
     private UUID lessonUUID;
     public Question currentQuestion;
+    private String languageName;
 
     public Lesson() {
         languageUUID = null;
@@ -27,6 +28,12 @@ public class Lesson {
 
     public void setTopicWords(User u) {
         this.topicWords = u.getUserDictionary().getWordsByTopicID(this.lessonUUID);
+    }
+
+    public void setTopicWordsByList(ArrayList<Word> w) {
+        if(w != null) {
+            this.topicWords = w;
+        }
     }
 
     public void updateProgress() {
@@ -113,6 +120,16 @@ public class Lesson {
         return "Spanish";
         //return LanguageManager.getInstance().getLanguageByID(languageUUID).getLanguageName().toString();
     }
+
+    /**
+     * @author cade
+     * @param n
+     */
+    public void setLanguageName(String n) {
+        if(n != null)
+            this.languageName = n;
+    }
+
     /**
      * @author Wade Little
      * Gets the question at the specified question number from the questions list

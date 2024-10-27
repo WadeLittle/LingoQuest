@@ -76,10 +76,12 @@ class Dictionary {
      * @return list of words that are equal to or below the specified number
      * of points
      */
-    public ArrayList<Word> getWordsByUnderstanding(int maxPointsInclusive) {
+    public ArrayList<Word> getWordsByUnderstanding(double maxUnderstandingInclusive) {
         ArrayList<Word> words = new ArrayList<>();
         for(Word w : this.words) {
-            if(w.getPoints() <= maxPointsInclusive)
+            // if the word has less than a certain understanding, and has been presented
+            // then add it to list
+            if(w.getUserUnderstanding() <= maxUnderstandingInclusive && w.getTimesPresented() > 0)
                 words.add(w);
         }
         return words;

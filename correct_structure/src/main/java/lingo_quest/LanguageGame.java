@@ -19,6 +19,8 @@ class LanguageGame {
 
     // test comment
     public LanguageGame() throws Exception {
+        // Speak prints out a message to terminal when connected, so we call it here to display
+        // it before our questions get displayed
         speak("");
         this.userList = Users.getInstance();
         this.dictionaryMan = DictionaryManager.getInstance();
@@ -280,6 +282,11 @@ class LanguageGame {
         user.setCurrentLangauge(languageManager.getInstance().getLanguageByID(languageUUID));
     }
 
+    public void makeStudySheet() {
+        // Write all words that aren't understood well to the study sheet
+        DataWriter.writeStudySheet(user.getUserDictionary().getWordsByUnderstanding(50.0));
+    }
+
     public void speak(String s) {
         Narriator.playSound(s);
 
@@ -293,6 +300,14 @@ class LanguageGame {
         user.currentLesson = languageManager.getLessonByID(lessonUUID);
         System.out.println("You switched to lesson " + user.currentLesson.getLessonName());
     }
+
+    public void practiceLowUnderstanding() {
+        Lesson practice = new Lesson();
+        practice.setLanguageID(this.user.getCurrentLanguage().getLanguageID());
+        practice.setTopicWordsByList(this.user.getUserDictionary().getWordsByUnderstanding(50.0));
+        user.currentLesson = practice;
+    }
+
     public void getAQuestion() {
       Question question =  questionCreator.createQuestion(user.currentLesson);
       user.currentLesson.currentQuestion = question;
@@ -315,6 +330,7 @@ class LanguageGame {
                 System.out.println(w.toString());
             }
         }
+        //System.out.println("\n\nCurrent Language Progress: " + user.getCurrentLanguageProgress());
     }
 
 

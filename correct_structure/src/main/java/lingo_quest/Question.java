@@ -44,7 +44,10 @@ abstract class Question {
 
 
   public Question(String language) {
-    this.language = language;
+    if(language == null)
+      this.language = "Spanish";
+    else
+      this.language = language;
   }
 
   public abstract boolean isCorrect(User user);

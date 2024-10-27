@@ -479,4 +479,18 @@ class DataWriter {
         return root;
     }
 
+    public static void writeStudySheet(ArrayList<Word> words) {
+        try {
+            FileWriter myWriter = new FileWriter("/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/studySheet/sheet.txt");
+            myWriter.write("");
+            for(Word w : words) {
+                myWriter.append(w.toString());
+                myWriter.append("\n");
+            }
+            myWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

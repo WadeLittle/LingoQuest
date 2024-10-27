@@ -29,6 +29,7 @@ public class User {
     // changed back to language object so that it can be accessed
     public Language currentLanguage;
     public UUID currentLanguageID;
+    public double currentLanguageProgress;
     public Section currentSection;
     public Lesson currentLesson;
 
@@ -96,6 +97,19 @@ public class User {
             return;
         }
         System.out.println("null dictionary attempted to be added setUserDictionary in User.java");
+    }
+
+    public double getCurrentLanguageProgress() {
+        if(this.userDictionary != null) {
+            double sum = 0.0;
+            for(Word w : this.userDictionary.getWords()) {
+                sum += w.getPoints();
+            }
+            System.out.println(sum + " " + this.userDictionary.getNumberOfWords());
+            return sum / (double)this.userDictionary.getNumberOfWords();
+        }
+        System.out.println("null dictionary");
+        return 0.0;
     }
 
     /**
@@ -224,6 +238,8 @@ public class User {
         this.languages.add(l.getLanguageID());
         this.currentLanguage = l;
     }
+
+
 
     /**
      * @author Wade Little
