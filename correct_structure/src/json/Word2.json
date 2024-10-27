@@ -1263,140 +1263,140 @@
           },
           {
             "language": "SPANISH",
-            "word": "How are you?",
+            "word": "¿Cómo estás?",
             "wordInEnglish": "How are you?",
             "lessonUUID": "10bfc1ae-d03d-42fa-9158-768d412e5c9f",
             "wordUUID": "b7ffbfa3-1455-4b42-81f8-29158d7fe0f3"
           },
           {
             "language": "SPANISH",
-            "word": "Nice to meet you",
+            "word": "Mucho gusto",
             "wordInEnglish": "Nice to meet you",
             "lessonUUID": "10bfc1ae-d03d-42fa-9158-768d412e5c9f",
             "wordUUID": "f234afcb-93bc-4d9b-9f95-3e7e95ae5cc9"
           },
           {
             "language": "SPANISH",
-            "word": "My name is...",
+            "word": "Me llamo...",
             "wordInEnglish": "My name is...",
             "lessonUUID": "10bfc1ae-d03d-42fa-9158-768d412e5c9f",
             "wordUUID": "c98ad308-4537-4dbe-b5e8-7d45a81b908d"
           },
           {
             "language": "SPANISH",
-            "word": "What’s your name?",
+            "word": "¿Cómo te llamas?",
             "wordInEnglish": "What’s your name?",
             "lessonUUID": "10bfc1ae-d03d-42fa-9158-768d412e5c9f",
             "wordUUID": "e9588371-e7a2-43d2-9c85-4b1d1ef55ef6"
           },
           {
             "language": "SPANISH",
-            "word": "Where is the hotel?",
+            "word": "¿Dónde está el hotel?",
             "wordInEnglish": "Where is the hotel?",
             "lessonUUID": "297acefa-854a-4de3-89af-d41d9351c647",
             "wordUUID": "f45dbf38-2a8b-4d39-a71d-918c4a5c9d87"
           },
           {
             "language": "SPANISH",
-            "word": "How much is the ticket?",
+            "word": "¿Cuánto cuesta el boleto?",
             "wordInEnglish": "How much is the ticket?",
             "lessonUUID": "297acefa-854a-4de3-89af-d41d9351c647",
             "wordUUID": "ea4a1b63-dc1c-4e9e-b4f4-f42df55e4883"
           },
           {
             "language": "SPANISH",
-            "word": "I need a taxi",
+            "word": "Necesito un taxi",
             "wordInEnglish": "I need a taxi",
             "lessonUUID": "297acefa-854a-4de3-89af-d41d9351c647",
             "wordUUID": "53918378-f206-47c6-b0eb-0c4e67987f06"
           },
           {
             "language": "SPANISH",
-            "word": "Turn left/right",
+            "word": "Gira a la izquierda/derecha",
             "wordInEnglish": "Turn left/right",
             "lessonUUID": "297acefa-854a-4de3-89af-d41d9351c647",
             "wordUUID": "77662fb6-f2da-4d8a-91e1-6848f347b1d7"
           },
           {
             "language": "SPANISH",
-            "word": "How much does this cost?",
+            "word": "¿Cuánto cuesta esto?",
             "wordInEnglish": "How much does this cost?",
             "lessonUUID": "57fbc33d-d59b-4187-bcc5-4d3b40f61e69",
             "wordUUID": "e8a524c8-564d-4dff-b67b-d2c48b9ba3ef"
           },
           {
             "language": "SPANISH",
-            "word": "Do you accept credit cards?",
+            "word": "¿Aceptan tarjetas de crédito?",
             "wordInEnglish": "Do you accept credit cards?",
             "lessonUUID": "57fbc33d-d59b-4187-bcc5-4d3b40f61e69",
             "wordUUID": "29e8c267-c5ff-4707-8675-117e824f611b"
           },
           {
             "language": "SPANISH",
-            "word": "I’m just looking",
+            "word": "Solo estoy mirando",
             "wordInEnglish": "I’m just looking",
             "lessonUUID": "57fbc33d-d59b-4187-bcc5-4d3b40f61e69",
             "wordUUID": "eb11d177-59e5-4b18-83a9-32600a1f196b"
           },
           {
             "language": "SPANISH",
-            "word": "Can I get a receipt?",
+            "word": "¿Puedo obtener un recibo?",
             "wordInEnglish": "Can I get a receipt?",
             "lessonUUID": "57fbc33d-d59b-4187-bcc5-4d3b40f61e69",
             "wordUUID": "4537a8db-dfa8-471e-8514-fb8c457a74e1"
           },
           {
             "language": "SPANISH",
-            "word": "I would like to order...",
+            "word": "Me gustaría pedir...",
             "wordInEnglish": "I would like to order...",
             "lessonUUID": "d03b5bc2-d66e-4a8b-870d-7e49dbff40e1",
             "wordUUID": "f4707458-bf7a-4c3d-b617-df2c47e88dff"
           },
           {
             "language": "SPANISH",
-            "word": "Can I see the menu?",
+            "word": "¿Puedo ver el menú?",
             "wordInEnglish": "Can I see the menu?",
             "lessonUUID": "d03b5bc2-d66e-4a8b-870d-7e49dbff40e1",
             "wordUUID": "0a7325f5-1fa5-4e53-9e1d-df42e90fe74c"
           },
           {
             "language": "SPANISH",
-            "word": "Is this spicy?",
+            "word": "¿Es picante?",
             "wordInEnglish": "Is this spicy?",
             "lessonUUID": "d03b5bc2-d66e-4a8b-870d-7e49dbff40e1",
             "wordUUID": "f5f36c17-5b5e-4f78-a6c3-653c64583a39"
           },
           {
             "language": "SPANISH",
-            "word": "The bill, please",
+            "word": "La cuenta, por favor",
             "wordInEnglish": "The bill, please",
             "lessonUUID": "d03b5bc2-d66e-4a8b-870d-7e49dbff40e1",
             "wordUUID": "e2123f3c-7c48-41a4-9822-27fb9f09c295"
           },
           {
             "language": "SPANISH",
-            "word": "What do you do?",
+            "word": "¿A qué te dedicas?",
             "wordInEnglish": "What do you do?",
             "lessonUUID": "cb62e6d9-94e7-4f9a-8f07-d18e213e44d1",
             "wordUUID": "498ed75a-4ab5-4112-91b5-02dcbb84f158"
           },
           {
             "language": "SPANISH",
-            "word": "Do you like sports?",
+            "word": "¿Te gustan los deportes?",
             "wordInEnglish": "Do you like sports?",
             "lessonUUID": "cb62e6d9-94e7-4f9a-8f07-d18e213e44d1",
             "wordUUID": "a9c96e8b-6f9e-45a0-9342-0bff8480659f"
           },
           {
             "language": "SPANISH",
-            "word": "The weather is nice today",
+            "word": "Hace buen tiempo hoy",
             "wordInEnglish": "The weather is nice today",
             "lessonUUID": "cb62e6d9-94e7-4f9a-8f07-d18e213e44d1",
             "wordUUID": "0a137b65-7c21-4721-b65c-6fdcce332c06"
           },
           {
             "language": "SPANISH",
-            "word": "What are your hobbies?",
+            "word": "¿Cuáles son tus pasatiempos?",
             "wordInEnglish": "What are your hobbies?",
             "lessonUUID": "cb62e6d9-94e7-4f9a-8f07-d18e213e44d1",
             "wordUUID": "cf157e83-02a0-45b8-bd84-fabbc6f53e75"
