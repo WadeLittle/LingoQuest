@@ -7,8 +7,6 @@ import java.util.HashMap;
 public class Matching extends Question {
     String language;
     ArrayList<Word> words;
-    // ArrayList<String> englishWords;
-    // ArrayList<String> languageWords;
 
 
     public Matching(String language, ArrayList<Word> answerChoices) {
