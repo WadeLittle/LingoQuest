@@ -73,6 +73,32 @@
             ]
           },
           {
+            "sectionName": "Phrases",
+            "sectionUUID": "d3f539bb-25d6-4786-b8d5-7edb57c3a40c",
+            "lessons": [
+              {
+                "lessonUUID": "10bfc1ae-d03d-42fa-9158-768d412e5c9f",
+                "lessonName": "Basic Greetings and Introductions"
+              },
+              {
+                "lessonUUID": "297acefa-854a-4de3-89af-d41d9351c647",
+                "lessonName": "Travel and Directions"
+              },
+              {
+                "lessonUUID": "57fbc33d-d59b-4187-bcc5-4d3b40f61e69",
+                "lessonName": "Shopping and Money"
+              },
+              {
+                "lessonUUID": "d03b5bc2-d66e-4a8b-870d-7e49dbff40e1",
+                "lessonName": "Eating Out"
+              },
+              {
+                "lessonUUID": "cb62e6d9-94e7-4f9a-8f07-d18e213e44d1",
+                "lessonName": "Socializing and Small Talk"
+              }
+            ]
+          },
+          {
             "sectionName": "Simple Communication",
             "sectionUUID": "b0b4df64-8349-43d4-b6b9-024646728e45",
             "lessons": [
