@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 /**
- * The Dictionary class provides functionality for storing and managing word translations
- * between English and another language. It maintains two HashMaps for bidirectional translation.
+ * The Dictionary class provides functionality for storing and managing word
+ * translations
+ * between English and another language. It maintains two HashMaps for
+ * bidirectional translation.
  * 
- * 10/22 We have changed the design of the Word class, meaning that dictionary will now be restructured as an ArrayList of words
+ * 10/22 We have changed the design of the Word class, meaning that dictionary
+ * will now be restructured as an ArrayList of words
  */
 class Dictionary {
     private ArrayList<Word> words;
@@ -17,6 +20,7 @@ class Dictionary {
     /**
      * Constructs an empty Dictionary with no words.
      * creates empty arraylist
+     * 
      * @author Preston Willis
      */
     public Dictionary() {
@@ -69,12 +73,12 @@ class Dictionary {
      * @author cade
      * @param maxPointsInclusive
      * @return list of words that are equal to or below the specified number
-     * of points
+     *         of points
      */
     public ArrayList<Word> getWordsByUnderstanding(int maxPointsInclusive) {
         ArrayList<Word> words = new ArrayList<>();
-        for(Word w : this.words) {
-            if(w.getPoints() <= maxPointsInclusive)
+        for (Word w : this.words) {
+            if (w.getPoints() <= maxPointsInclusive)
                 words.add(w);
         }
         return words;
@@ -88,12 +92,13 @@ class Dictionary {
         this.dictionaryID = UUID.fromString(id);
     }
 
-
     /**
      * Constructs a Dictionary with predefined word mappings and a word count.
      *
-     * @param word1 HashMap for translating from English to another language.
-     * @param word2 HashMap for translating from another language to English.
+     * @param word1         HashMap for translating from English to another
+     *                      language.
+     * @param word2         HashMap for translating from another language to
+     *                      English.
      * @param numberOfWords Number of words initially present in the dictionary.
      */
     public Dictionary(ArrayList<Word> words, int numberOfWords) {
@@ -103,10 +108,12 @@ class Dictionary {
 
     /**
      * Adds a new word translation to the dictionary.
-     * Updates both the fromEnglish and toEnglish maps and increments the word count.
+     * Updates both the fromEnglish and toEnglish maps and increments the word
+     * count.
      *
-     * @param english The Word object representing the English word.
-     * @param otherLanguage The Word object representing the translation in another language.
+     * @param english       The Word object representing the English word.
+     * @param otherLanguage The Word object representing the translation in another
+     *                      language.
      */
     public void addWord(Word word) {
         this.words.add(word);
@@ -115,15 +122,16 @@ class Dictionary {
 
     /**
      * Removes a word translation from the dictionary.
-     * Deletes entries from both fromEnglish and toEnglish maps and decrements the word count.
+     * Deletes entries from both fromEnglish and toEnglish maps and decrements the
+     * word count.
      *
      * @param word The string representing the word to be removed.
      */
     public void removeWord(String word) {
-        for(Word w : this.words) {
-            if(w.getWordinLanguage().equalsIgnoreCase(word)) {
+        for (Word w : this.words) {
+            if (w.getWordinLanguage().equalsIgnoreCase(word)) {
                 this.words.remove(w);
-                this.numberOfWords --;
+                this.numberOfWords--;
                 return;
             }
         }
@@ -132,7 +140,8 @@ class Dictionary {
     /**
      * Prints the contents of the given HashMap representing word translations.
      * 
-     * @param map A HashMap representing a dictionary for translation (either from or to English).
+     * @param map A HashMap representing a dictionary for translation (either from
+     *            or to English).
      */
     public void printDictionary() {
         for (Word w : this.words) {
@@ -141,15 +150,16 @@ class Dictionary {
     }
 
     /**
-     * Checks if the dictionary contains a specific word in either the fromEnglish or toEnglish maps.
+     * Checks if the dictionary contains a specific word in either the fromEnglish
+     * or toEnglish maps.
      *
      * @param word The String of the word to check for in the dictionary.
      * @return true if the word exists in the dictionary, false otherwise.
-     * edited by cade
+     *         edited by cade
      */
     public boolean contains(String word) {
-        for(Word w : this.words) {
-            if(w.getWordinLanguage().equalsIgnoreCase(word)) {
+        for (Word w : this.words) {
+            if (w.getWordinLanguage().equalsIgnoreCase(word)) {
                 return true;
             }
         }
@@ -172,23 +182,23 @@ class Dictionary {
      */
     public ArrayList<Word> getWordsByTopicID(UUID id) {
         ArrayList<Word> ret = new ArrayList<>();
-        for(Word w : this.words) {
-            if(w.getLessonID().equals(id))
+        for (Word w : this.words) {
+            if (w.getLessonID().equals(id))
                 ret.add(w);
         }
         return ret;
     }
 
-   
     /**
      * @author Cade
      * @param word
      * @return the word object
-     * changed this to work with the new way we are using words (got rid of hashmaps)
+     *         changed this to work with the new way we are using words (got rid of
+     *         hashmaps)
      */
     public Word getWordByString(String word) {
-        for(Word w : this.words) {
-            if(word.equalsIgnoreCase(w.getWordinLanguage())) {
+        for (Word w : this.words) {
+            if (word.equalsIgnoreCase(w.getWordinLanguage())) {
                 return w;
             }
         }
@@ -198,16 +208,10 @@ class Dictionary {
     public Word getWordByUUID(UUID uuid) {
         for (Word w : this.words) {
             if (w.getWordUUID().equals(uuid)) {
-                return w;  
+                return w;
             }
         }
-        return null;  
+        return null;
     }
 
 }
-
-
-
-
-
-
