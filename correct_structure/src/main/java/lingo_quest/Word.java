@@ -227,7 +227,7 @@ public class Word {
                "Points: " + points + "\n" +
                "Times Presented: " + timesPresented + "\n" +
                "Times Correct: " + timesCorrect + "\n" +
-               "User Understanding: " + String.format("%.2f", userUnderstanding * 100) + "%\n" +
+               "User Understanding: " + String.format("%.2f", userUnderstanding) + "%\n" +
                "------------------------";
     }
 

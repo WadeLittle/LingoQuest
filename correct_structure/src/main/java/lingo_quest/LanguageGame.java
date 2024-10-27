@@ -302,7 +302,7 @@ class LanguageGame {
     public void getProgressScreen() {
         System.out.println("Here is your progress on the words in the current lesson");
         System.out.println("The lesson you are currently working on is " + user.currentLesson.getLessonName());
-        System.out.println("You have completed " + user.currentLesson.getLessonProgress() + "% of the lesson");
+        System.out.println("You have completed " + String.format("%.2f", user.currentLesson.getLessonProgress()) + "% of the lesson");
         for(Word w : user.currentLesson.topicWords) {
             if(w.getTimesPresented() > 0) {
                 System.out.println(w.toString());
