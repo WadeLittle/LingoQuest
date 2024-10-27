@@ -12,7 +12,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
 public class DataLoader {
     public final static ItemShop itemShop = ItemShop.getInstance();
     public final static Users userList = Users.getInstance();
@@ -23,7 +22,7 @@ public class DataLoader {
     public final static String wordFile = "correct_structure\\src\\json\\Word.json";
     public final static String dictionaryFile = "correct_structure\\src\\json\\Dictionaries.json";
     public final static String languageFile = "correct_structure\\src\\json\\Languages2.json";
-    
+
     /**
      * @author cade
      * @return file path
@@ -80,179 +79,184 @@ public class DataLoader {
      * @throws IOException
      * @throws ParseException
      * @throws org.json.simple.parser.ParseException
-     * REFACTORED VERSION OF COMMENTED CODE ABOVE
+     *                                               REFACTORED VERSION OF COMMENTED
+     *                                               CODE ABOVE
      */
-    public static ArrayList<User> loadUsers(String file) 
-        throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+    public static ArrayList<User> loadUsers(String file)
+            throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
-    ArrayList<User> users = new ArrayList<>();
-    JSONParser jsonParser = new JSONParser();
+        ArrayList<User> users = new ArrayList<>();
+        JSONParser jsonParser = new JSONParser();
 
-    // Parse the JSON file
-    JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
-    JSONArray usersArray = (JSONArray) jsonObject.get("users");
+        // Parse the JSON file
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+        JSONArray usersArray = (JSONArray) jsonObject.get("users");
 
-    // Iterate through each user object in the JSON array
-    for (Object obj : usersArray) {
-        JSONObject userJson = (JSONObject) obj;
+        // Iterate through each user object in the JSON array
+        for (Object obj : usersArray) {
+            JSONObject userJson = (JSONObject) obj;
 
-        // Extract basic user data
-        String userID = (String) userJson.get("userID");
-        String dictionaryID = (String) userJson.get("dictionaryID");
-        String username = (String) userJson.get("username");
-        String password = (String) userJson.get("password");
-        long coinsEarned = (long) userJson.get("coinsEarned");
-        long coinBalance = (long) userJson.get("coinBalance");
-        String currentLanguageID = (String) userJson.get("currentLanguageID");
+            // Extract basic user data
+            String userID = (String) userJson.get("userID");
+            String dictionaryID = (String) userJson.get("dictionaryID");
+            String username = (String) userJson.get("username");
+            String password = (String) userJson.get("password");
+            long coinsEarned = (long) userJson.get("coinsEarned");
+            long coinBalance = (long) userJson.get("coinBalance");
+            String currentLanguageID = (String) userJson.get("currentLanguageID");
 
-        // Extract lists from JSON
-        ArrayList<String> friendsList = extractStringList((JSONArray) userJson.get("friendsList"));
-        JSONArray itemsArray = (JSONArray) userJson.get("items");
-        ArrayList<String> items = extractStringList(((JSONArray) userJson.get("items")));
+            // Extract lists from JSON
+            ArrayList<String> friendsList = extractStringList((JSONArray) userJson.get("friendsList"));
+            JSONArray itemsArray = (JSONArray) userJson.get("items");
+            ArrayList<String> items = extractStringList(((JSONArray) userJson.get("items")));
 
-        // Make the word of the day
-        Word wordObject = new Word();
-        JSONObject wordOfDay = (JSONObject) jsonObject.get("wordOfTheDay");
-        if(wordOfDay != null)
-            wordObject = makeWord(wordOfDay);
-        // Make the languages the user has stored
-        ArrayList<String> languages = extractStringList((JSONArray) userJson.get("languages"));
-        
-        // Languages are stored in json as UUID
-        // Language should then be loaded in from the Languages json file by its UUID
-        String currentLanguage = (String) userJson.get("currentLanguage");
+            // Make the word of the day
+            Word wordObject = new Word();
+            JSONObject wordOfDay = (JSONObject) jsonObject.get("wordOfTheDay");
+            if (wordOfDay != null)
+                wordObject = makeWord(wordOfDay);
+            // Make the languages the user has stored
+            ArrayList<String> languages = extractStringList((JSONArray) userJson.get("languages"));
 
-        // Create and configure User object
-        User user = createUser(userID, username, password, coinsEarned, coinBalance, friendsList, 
-                               items, null, languages, currentLanguage, dictionaryID);
+            // Languages are stored in json as UUID
+            // Language should then be loaded in from the Languages json file by its UUID
+            String currentLanguage = (String) userJson.get("currentLanguage");
 
-        // Set the word of the day
-        user.setWordOfTheDay(wordObject);
-        if(currentLanguageID != null)
-            user.setCurrentLangaugeID(UUID.fromString(currentLanguageID));
+            // Create and configure User object
+            User user = createUser(userID, username, password, coinsEarned, coinBalance, friendsList,
+                    items, null, languages, currentLanguage, dictionaryID);
+
+            // Set the word of the day
+            user.setWordOfTheDay(wordObject);
+            if (currentLanguageID != null)
+                user.setCurrentLangaugeID(UUID.fromString(currentLanguageID));
 
             users.add(user); // Add the fully created user to the list
         }
 
-    return users;
+        return users;
     }
 
-/**
- * @author CADE STOCKER
- * @param jsonArray
- * @return
- * helper method
- */
-private static ArrayList<String> extractStringList(JSONArray jsonArray) {
-    ArrayList<String> list = new ArrayList<>();
-    for (Object obj : jsonArray) {
-        list.add((String) obj);
+    /**
+     * @author CADE STOCKER
+     * @param jsonArray
+     * @return
+     *         helper method
+     */
+    private static ArrayList<String> extractStringList(JSONArray jsonArray) {
+        ArrayList<String> list = new ArrayList<>();
+        for (Object obj : jsonArray) {
+            list.add((String) obj);
+        }
+        return list;
     }
-    return list;
-}
 
-/**
- * @author CADE STOCKER
- * @param itemsJson
- * @return
- * helper method
- */
-private static ArrayList<Item> extractItems(JSONArray itemsJson) {
-    ArrayList<Item> items = new ArrayList<>();
-    for (Object itemObj : itemsJson) {
-        JSONObject itemJson = (JSONObject) itemObj;
-        String name = (String) itemJson.get("name");
-        String description = (String) itemJson.get("description");
-        long price = (long) itemJson.get("price");
-        items.add(new Item(name, description, (int) price));
+    /**
+     * @author CADE STOCKER
+     * @param itemsJson
+     * @return
+     *         helper method
+     */
+    private static ArrayList<Item> extractItems(JSONArray itemsJson) {
+        ArrayList<Item> items = new ArrayList<>();
+        for (Object itemObj : itemsJson) {
+            JSONObject itemJson = (JSONObject) itemObj;
+            String name = (String) itemJson.get("name");
+            String description = (String) itemJson.get("description");
+            long price = (long) itemJson.get("price");
+            items.add(new Item(name, description, (int) price));
+        }
+        return items;
     }
-    return items;
-}
 
-
-
-/**
- * @author CADE STOCKER
- * @param language
- * @return
- * helper method
- */
-private static Languages mapLanguage(String language) {
-    if(language == null)
-        return Languages.DEFAULT;
-    language = language.toLowerCase();
-    switch (language) {
-        case "spanish": return Languages.SPANISH;
-        case "french": return Languages.FRENCH;
-        case "german": return Languages.GERMAN;
-        case "japanese": return Languages.JAPANESE;
-        case "korean": return Languages.KOREAN;
-        default:
-            System.out.println("Error reading language: " + language);
+    /**
+     * @author CADE STOCKER
+     * @param language
+     * @return
+     *         helper method
+     */
+    private static Languages mapLanguage(String language) {
+        if (language == null)
             return Languages.DEFAULT;
+        language = language.toLowerCase();
+        switch (language) {
+            case "spanish":
+                return Languages.SPANISH;
+            case "french":
+                return Languages.FRENCH;
+            case "german":
+                return Languages.GERMAN;
+            case "japanese":
+                return Languages.JAPANESE;
+            case "korean":
+                return Languages.KOREAN;
+            default:
+                System.out.println("Error reading language: " + language);
+                return Languages.DEFAULT;
+        }
     }
-}
 
-/**
- * @author CADE STOCKER
- * @param userID
- * @param username
- * @param password
- * @param coinsEarned
- * @param coinBalance
- * @param friendsList
- * @param items
- * @param userProgress
- * @param wordOfTheDay
- * @param languages
- * @param currentLanguage
- * @return
- * helper method for creating the user once you've found all of their data
- */
-private static User createUser(String userID, String username, String password, 
-                               long coinsEarned, long coinBalance, ArrayList<String> friendsList,
-                               ArrayList<String> items, HashMap<Languages, Double> userProgress,
-                               ArrayList<String> languages, 
-                               String currentLanguage, String dictionaryID) {
+    /**
+     * @author CADE STOCKER
+     * @param userID
+     * @param username
+     * @param password
+     * @param coinsEarned
+     * @param coinBalance
+     * @param friendsList
+     * @param items
+     * @param userProgress
+     * @param wordOfTheDay
+     * @param languages
+     * @param currentLanguage
+     * @return
+     *         helper method for creating the user once you've found all of their
+     *         data
+     */
+    private static User createUser(String userID, String username, String password,
+            long coinsEarned, long coinBalance, ArrayList<String> friendsList,
+            ArrayList<String> items, HashMap<Languages, Double> userProgress,
+            ArrayList<String> languages,
+            String currentLanguage, String dictionaryID) {
 
-    User user = new User(username, password);
-    user.setID(UUID.fromString(userID));
-    user.setCoinsEarned((int) coinsEarned);
-    user.setCoinBalance((int) coinBalance);
-    user.setUserDictionaryID(UUID.fromString(dictionaryID));
+        User user = new User(username, password);
+        user.setID(UUID.fromString(userID));
+        user.setCoinsEarned((int) coinsEarned);
+        user.setCoinBalance((int) coinBalance);
+        user.setUserDictionaryID(UUID.fromString(dictionaryID));
 
-    // want to change to work by uuid TODO
-    user.setFriendsList(friendsList);
+        // want to change to work by uuid TODO
+        user.setFriendsList(friendsList);
 
-    // want to change this to load items by UUIDs TODO
-    ArrayList<UUID> finalItems = new ArrayList();
-    for(String s : items) {
-        finalItems.add(UUID.fromString(s));
+        // want to change this to load items by UUIDs TODO
+        ArrayList<UUID> finalItems = new ArrayList();
+        for (String s : items) {
+            finalItems.add(UUID.fromString(s));
+        }
+        user.setItems(finalItems);
+
+        user.setUserProgress(userProgress);
+        // Decided to handle word of the day in the loadUser class
+        ArrayList<UUID> languagesUUID = new ArrayList<>();
+        for (String lang : languages) {
+            languagesUUID.add(UUID.fromString(lang));
+        }
+        user.setLanguages(languagesUUID);
+        if (languages.size() > 0)
+            user.setCurrentLangaugeID(languagesUUID.get(0));
+
+        user.setLanguageType(mapLanguage(currentLanguage));
+        return user;
     }
-    user.setItems(finalItems);
-
-    user.setUserProgress(userProgress);
-    // Decided to handle word of the day in the loadUser class
-    ArrayList<UUID> languagesUUID = new ArrayList<>();
-    for (String lang : languages) {
-        languagesUUID.add(UUID.fromString(lang));
-    }
-    user.setLanguages(languagesUUID);
-    if(languages.size() > 0)
-        user.setCurrentLangaugeID(languagesUUID.get(0));
-
-    user.setLanguageType(mapLanguage(currentLanguage));
-    return user;
-}
 
     /**
      * @author CADE STOCKER
      * @return arraylist of items
      * @param String of the file's name
-     * loads all items into the item shop
+     *               loads all items into the item shop
      */
-    public static ArrayList<Item> loadItemShop(String file) 
-        throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+    public static ArrayList<Item> loadItemShop(String file)
+            throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
         ArrayList<Item> items = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
@@ -271,7 +275,7 @@ private static User createUser(String userID, String username, String password,
             long price = (long) userJson.get("price");
 
             // Create and configure User object
-            Item item = new Item(name, description, (int)price);
+            Item item = new Item(name, description, (int) price);
             items.add(item); // Add the fully created user to the list
         }
 
@@ -286,10 +290,11 @@ private static User createUser(String userID, String username, String password,
      * @throws IOException
      * @throws ParseException
      * @throws org.json.simple.parser.ParseException
-     * read multiple words and turn them into an arraylist
+     *                                               read multiple words and turn
+     *                                               them into an arraylist
      */
-    public static ArrayList<Word> loadWords(String file) 
-        throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+    public static ArrayList<Word> loadWords(String file)
+            throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
         ArrayList<Word> words = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
@@ -314,8 +319,8 @@ private static User createUser(String userID, String username, String password,
             Word createdWord = new Word();
             // Had to change this because constructor for word was changed
             createdWord.setWord(word);
-            createdWord.setTimesCorrect((int)timesCorrect);
-            createdWord.setTimesPresented((int)timesPresented);
+            createdWord.setTimesCorrect((int) timesCorrect);
+            createdWord.setTimesPresented((int) timesPresented);
             createdWord.setUserUnderstanding(userUnderstanding);
             createdWord.setLanguage(lang);
 
@@ -346,7 +351,7 @@ private static User createUser(String userID, String username, String password,
      * @param languageJson
      * @param languageName
      * @return language object
-     * read a single language object
+     *         read a single language object
      */
     private static Language parseLanguage(JSONObject languageJson) {
         UUID userID = UUID.fromString((String) languageJson.get("userID"));
@@ -360,7 +365,7 @@ private static User createUser(String userID, String username, String password,
         String langName = (String) languageJson.get("languageName");
 
         Language lang = new Language();
-        //LOAD IN PT IN LOADUSERS
+        // LOAD IN PT IN LOADUSERS
         lang.setPlacementTestID(UUID.fromString(placementTest));
         lang.setLanguageID(languageID);
         lang.setUserID(userID);
@@ -376,7 +381,7 @@ private static User createUser(String userID, String username, String password,
 
     private static ArrayList<Section> parseSections(JSONArray sections) {
         ArrayList<Section> sec = new ArrayList<>();
-        for(Object obj : sections) {
+        for (Object obj : sections) {
             JSONObject objJson = (JSONObject) obj;
             Section s = new Section();
             s.setName((String) objJson.get("sectionName"));
@@ -390,7 +395,7 @@ private static User createUser(String userID, String username, String password,
 
     private static ArrayList<Lesson> parseLessons(JSONArray lessons) {
         ArrayList<Lesson> les = new ArrayList<>();
-        for(Object obj : lessons) {
+        for (Object obj : lessons) {
             JSONObject objJson = (JSONObject) obj;
             Lesson l = new Lesson();
             l.setLessonName((String) objJson.get("lessonName"));
@@ -403,7 +408,8 @@ private static User createUser(String userID, String username, String password,
         return les;
     }
 
-    public static ArrayList<Dictionary> loadDictionaries(String file) throws FileNotFoundException, IOException, org.json.simple.parser.ParseException {
+    public static ArrayList<Dictionary> loadDictionaries(String file)
+            throws FileNotFoundException, IOException, org.json.simple.parser.ParseException {
         ArrayList<Dictionary> dictionaries = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
 
@@ -411,7 +417,7 @@ private static User createUser(String userID, String username, String password,
         JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
         JSONArray dictionaryArray = (JSONArray) jsonObject.get("dictionaries");
 
-        for(Object o : dictionaryArray) {
+        for (Object o : dictionaryArray) {
             JSONObject obj = (JSONObject) o;
             Dictionary d = parseDictionary(obj);
             dictionaries.add(d);
@@ -424,51 +430,45 @@ private static User createUser(String userID, String username, String password,
      * @author CADE STOCKER
      * @param dictionaryJson
      * @return dictionary
-     * read a dictionary object
+     *         read a dictionary object
      */
     private static Dictionary parseDictionary(JSONObject dictionaryJson) {
         ArrayList<Word> dictionary = new ArrayList<>();
         JSONArray words = (JSONArray) dictionaryJson.get("words");
-        for(Object o : words) {
+        for (Object o : words) {
             JSONObject wordObj = (JSONObject) o;
             Word w = makeWord(wordObj);
             dictionary.add(w);
         }
 
         int numWords;
-        if(dictionaryJson.get("numberOfWords") == null) {
+        if (dictionaryJson.get("numberOfWords") == null) {
             numWords = 0;
-        }
-        else {
+        } else {
             numWords = ((Long) dictionaryJson.get("numberOfWords")).intValue();
         }
 
         UUID id = UUID.fromString((String) dictionaryJson.get("dictionaryID"));
-        Dictionary retDictionary = new Dictionary(dictionary,numWords);
+        Dictionary retDictionary = new Dictionary(dictionary, numWords);
         retDictionary.setID(id);
 
         return retDictionary;
     }
-
-
-
-    
 
     // Need to talk about this with team to get it sorted before reading
     /**
      * @author CADE STOCKER
      * @param media
      * @return Media
-     * read an individual media object
+     *         read an individual media object
      */
 
-     
     private static Media parseMedia(JSONObject media) {
         String name = (String) media.get("name");
         String description = (String) media.get("description");
         String fileName = (String) media.get("fileName");
-        //Media med = new Media();
-        //return med;
+        // Media med = new Media();
+        // return med;
         return null;
     }
 
@@ -476,7 +476,7 @@ private static User createUser(String userID, String username, String password,
      * @author CADE STOCKER
      * @param sectionAccessJson
      * @return
-     * Read whether the user has access to each section in the json
+     *         Read whether the user has access to each section in the json
      */
     private static HashMap<String, Boolean> parseSectionAccess(JSONObject sectionAccessJson) {
         HashMap<String, Boolean> sectionAccess = new HashMap<>();
@@ -497,34 +497,30 @@ private static User createUser(String userID, String username, String password,
         UUID wordID = UUID.fromString((String) obj.get("wordUUID"));
 
         int timesPresented;
-        if(obj.get("timesPresented") == null) {
+        if (obj.get("timesPresented") == null) {
             timesPresented = 0;
-        }
-        else {
+        } else {
             timesPresented = ((Long) obj.get("timesPresented")).intValue();
         }
 
         int points;
-        if(obj.get("points") == null) {
+        if (obj.get("points") == null) {
             points = 0;
-        }
-        else {
+        } else {
             points = ((Long) obj.get("points")).intValue();
         }
 
         int timesCorrect;
-        if(obj.get("timesCorrect") == null) {
+        if (obj.get("timesCorrect") == null) {
             timesCorrect = 0;
-        }
-        else {
+        } else {
             timesCorrect = ((Long) obj.get("timesCorrect")).intValue();
         }
 
         double userUnderstanding;
-        if(obj.get("userUnderstanding") == null) {
+        if (obj.get("userUnderstanding") == null) {
             userUnderstanding = 0;
-        }
-        else {
+        } else {
             userUnderstanding = (double) obj.get("userUnderstanding");
         }
 
