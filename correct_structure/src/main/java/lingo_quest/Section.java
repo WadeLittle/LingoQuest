@@ -3,29 +3,41 @@ package lingo_quest;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * Represents a section within a course, containing multiple lessons and tracking user progress and achievements.
+ */
 public class Section {
-    private ArrayList<Lesson> lessons;
-    private boolean userAccess;
-    private double sectionProgress;
-    private int pointsEarned;
-    private int totalPoints;
-    private int coinValue;
-    private String sectionName;
-    private boolean sectionComplete;
-    private UUID ID;
-    private int pointRequirement;
+    private ArrayList<Lesson> lessons;   // List of lessons within this section.
+    private boolean userAccess;          // Indicates if the user has access to this section.
+    private double sectionProgress;      // Percentage of the section completed by the user.
+    private int pointsEarned;            // Points earned by the user in this section.
+    private int totalPoints;             // Total points available in this section.
+    private int coinValue;               // Coins awarded upon completing this section.
+    private String sectionName;          // Name of the section.
+    private boolean sectionComplete;     // Indicates if the section has been completed.
+    private UUID ID;                     // Unique identifier for the section.
+    private int pointRequirement;        // Points required to unlock the next section or reward.
 
-    // Constructors
+    /**
+     * Default constructor initializes a new section with default values.
+     */
     public Section() {
-        lessons = new ArrayList<Lesson>();
-        // userAccess = false;
-        sectionProgress = 0;
-        pointsEarned = 0;
-        totalPoints = 0;
-        coinValue = 0;
+        lessons = new ArrayList<>();
+        userAccess = false;   // Default access is false until specified.
+        sectionProgress = 0;  // Initial progress is 0%.
+        pointsEarned = 0;     // No points earned at initialization.
+        totalPoints = 0;      // Total points are calculated based on lessons.
+        coinValue = 0;        // No coins initially assigned.
         // sectionComplete = false;
     }
-
+    /**
+     * Constructs a section with a specified name, UUID, and a list of lessons.
+     * Initializes section-specific details and calculates initial values based on the provided lessons.
+     *
+     * @param sectionName The name of the section.
+     * @param sectionUUID The unique identifier for the section.
+     * @param lessons The list of lessons that will be part of this section.
+     */
     public Section(String sectionName, UUID sectionUUID, ArrayList<Lesson> lessons) {
         this.sectionName = sectionName;
         this.lessons = lessons;
@@ -35,7 +47,11 @@ public class Section {
         this.totalPoints = getTotalPoints();
         this.coinValue = 1000;
     }
-
+    /**
+     * Calculates the total points that can be earned from all lessons in the section.
+     *
+     * @return The sum of points from all lessons within the section.
+     */
     public int getTotalPoints() {
         int totalPoints = 0;
         for (Lesson lesson : lessons) {
