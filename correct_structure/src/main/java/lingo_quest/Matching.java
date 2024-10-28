@@ -36,7 +36,7 @@ public class Matching extends Question {
 
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append("Match the English word" + words.get(answerIndex).getEnglishVersion() + " to one of the following words\n");
+        result.append("Match the English word " + words.get(answerIndex).getEnglishVersion() + " to one of the following words\n");
         for(int i = 0; i < words.size();i++) {
             result.append(i+1).append(". ").append(words.get(i).getWordinLanguage()).append("\n");
         }

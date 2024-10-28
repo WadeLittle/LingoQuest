@@ -32,12 +32,13 @@ public class Lesson {
     }
 
     public void setTopicWordsByList(ArrayList<Word> w) {
+        ArrayList<Word> fin = new ArrayList();
         if(w != null) {
             for(Word word : w) {
-                if(word.getTimesPresented() == 0)
-                    w.remove(word);
+                if(word.getTimesPresented() > 0)
+                    fin.add(word);
             }
-            this.topicWords = w;
+            this.topicWords = fin;
         }
     }
 

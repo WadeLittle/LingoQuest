@@ -100,7 +100,7 @@ public class UI {
         // load the material
         lg.practiceLowUnderstanding();
         // generate questions
-        for(int i =0; i< 5;i++) {
+        for(int i =0; i< 1;i++) {
             lg.getAQuestion();
             lg.answerQuestion(keyboard);
         }

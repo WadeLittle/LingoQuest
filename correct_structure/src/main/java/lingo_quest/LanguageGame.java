@@ -144,7 +144,7 @@ class LanguageGame {
      */
     public void login(String username, String password) {
         this.user = userList.getUser(username, password);
-        
+
         // attempt to set topic words TODO move to individual class
         for (Language l : languageManager.getLanguages()) {
             for (Section sec : l.getSections()) {
@@ -160,6 +160,7 @@ class LanguageGame {
      *         Saves the users and sets the user to null
      */
     public void logout() {
+        System.out.println("in logout");
         this.userList.saveUsers();
         this.dictionaryMan.saveDictionary();
         this.languageManager.saveLanguages();

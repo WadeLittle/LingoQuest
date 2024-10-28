@@ -1,9 +1,9 @@
 Word Details:
 ------------------------
-Word: Agua (SPANISH)
-English Version: Water
+Word: Jugo (SPANISH)
+English Version: Juice
 Points: 0
-Times Presented: 1
+Times Presented: 2
 Times Correct: 0
 User Understanding: 0.00%
 ------------------------
@@ -18,8 +18,8 @@ User Understanding: 0.00%
 ------------------------
 Word Details:
 ------------------------
-Word: Vino (SPANISH)
-English Version: Wine
+Word: Cerveza (SPANISH)
+English Version: Beer
 Points: 0
 Times Presented: 1
 Times Correct: 0
@@ -27,10 +27,37 @@ User Understanding: 0.00%
 ------------------------
 Word Details:
 ------------------------
-Word: Durazno (SPANISH)
-English Version: Peach
+Word: Vino (SPANISH)
+English Version: Wine
+Points: 0
+Times Presented: 5
+Times Correct: 1
+User Understanding: 20.00%
+------------------------
+Word Details:
+------------------------
+Word: Uva (SPANISH)
+English Version: Grape
+Points: 0
+Times Presented: 3
+Times Correct: 0
+User Understanding: 0.00%
+------------------------
+Word Details:
+------------------------
+Word: Fresa (SPANISH)
+English Version: Strawberry
 Points: 0
 Times Presented: 1
 Times Correct: 0
 User Understanding: 0.00%
+------------------------
+Word Details:
+------------------------
+Word: Pera (SPANISH)
+English Version: Pear
+Points: 0
+Times Presented: 3
+Times Correct: 1
+User Understanding: 33.33%
 ------------------------

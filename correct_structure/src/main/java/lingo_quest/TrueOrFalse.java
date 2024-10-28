@@ -53,8 +53,9 @@ public class TrueOrFalse extends Question {
      */
     @Override
     public String toString() {
-        return "Is " + displayedWord.getWordinLanguage() + " the " + "Spanish" + " word for "
-                + correctWord.getEnglishVersion() + "? (true/false)";
+        String s = ("Is " + displayedWord.getWordinLanguage() + " the " + "Spanish" + " word for "
+                + correctWord.getEnglishVersion() + "? (true/false)");
+        return s;
     }
 
     /**
