@@ -2,10 +2,16 @@ package lingo_quest;
 
 import java.util.Scanner;
 import java.util.UUID;
-
+/**
+ * This class serves as a user interface for the LanguageGame, handling user input
+ * and facilitating user interactions such as logging in, creating accounts, and performing
+ * language learning activities.
+ */
 public class UI {
     private static LanguageGame lg;
-
+    /**
+     * Handles user login by prompting for username and password.
+     */
     public static void login() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter Username: ");
@@ -17,11 +23,15 @@ public class UI {
             lg.getUser().setCoinsEarned(40);
 
     }
-
+    /**
+     * Handles user logout.
+     */
     public static void logout() {
         lg.logout();
     }
-
+    /**
+     * Facilitates the creation of a new user account by interacting with the user to get a valid username and password.
+     */
     public static void createAccount() {
         String username;
         String password;
@@ -43,7 +53,14 @@ public class UI {
         lg.startLanguage(Languages.SPANISH);
         lg.getUser().getUserDictionary().getWordByString("Galleta").setPoints(100);
     }
-
+    /**
+     * The main method to simulate various user interactions and operations of the LanguageGame.
+     * This includes creating user accounts, logging in, picking languages, and more, based on
+     * pre-defined scenarios and command line interactions.
+     *
+     * @param args Command line arguments, not used in this implementation.
+     * @throws Exception General exception catch for simplicity, should ideally handle specific exceptions.
+     */
     public static void main(String[] args) throws Exception {
         // CODE FOR OUR SCENARIO
         Scanner keyboard = new Scanner(System.in);
