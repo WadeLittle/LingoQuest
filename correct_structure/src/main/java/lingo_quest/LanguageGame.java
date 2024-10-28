@@ -252,46 +252,70 @@ class LanguageGame {
         itemShop.displayItemShop();
         ;
     }
-
+    /**
+     * Selects a language for the user based on a UUID. Sets the user's current language to the one identified by the UUID.
+     * @param languageUUID The UUID of the language to be set as the current language.
+     */
     public void pickALanguageByUUID(UUID languageUUID) {
         user.setCurrentLangauge(languageManager.getInstance().getLanguageByID(languageUUID));
     }
-
+    /**
+     * Generates a study sheet for the user based on words they are less familiar with.
+     * This method targets words where the user's understanding is below 50%.
+     */
     public void makeStudySheet() {
         // Write all words that aren't understood well to the study sheet
         DataWriter.writeStudySheet(user.getUserDictionary().getWordsByUnderstanding(50.0));
     }
-
+    /**
+     * Uses the narrator to play a sound for a given string. This is typically used to
+     * pronounce words or sentences in the language learning context.
+     * @param s The string to be spoken.
+     */
     public void speak(String s) {
         Narriator.playSound(s);
 
     }
-
+    /**
+     * Selects a section for the user based on a UUID. Updates the user's current section.
+     * @param sectionUUID The UUID of the section to be set as the current section.
+     */
     public void pickASection(UUID sectionUUID) {
         user.currentSection = languageManager.getSectionByID(sectionUUID);
         System.out.println("You switched to section " + user.currentSection.getName());
     }
-
+    /**
+     * Selects a lesson for the user based on a UUID. Updates the user's current lesson.
+     * @param lessonUUID The UUID of the lesson to be set as the current lesson.
+     */
     public void pickALesson(UUID lessonUUID) {
         user.currentLesson = languageManager.getLessonByID(lessonUUID, user);
         
         System.out.println("You switched to lesson " + user.currentLesson.getLessonName());
     }
-
+    /**
+     * Generates and displays a question from the current lesson.
+     */
     public void getAQuestion() {
         Question question = questionCreator.createQuestion(user.currentLesson);
         user.currentLesson.currentQuestion = question;
         System.out.println(question.toString());
         speak(question.toString());
     }
-
+    /**
+     * Collects the user's answer from the console and checks if it is correct.
+     * @param k The scanner to read the user's input.
+     */
     public void answerQuestion(Scanner k) {
         System.out.println("Please enter your answer");
         String userAnswer = k.nextLine().toLowerCase().trim();
         user.currentLesson.currentQuestion.setUserAnswer(userAnswer);
         user.currentLesson.currentQuestion.isCorrect(user);
     }
-
+    /**
+     * Displays the progress of the user for the current lesson. Shows the percentage of the lesson completed
+     * and details about words learned.
+     */
     public void getProgressScreen() {
         System.out.println("Here is your progress on the words in the current lesson");
         System.out.println("The lesson you are currently working on is " + user.currentLesson.getLessonName());
