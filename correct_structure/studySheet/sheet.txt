@@ -3,25 +3,25 @@ Word Details:
 Word: Limonada (SPANISH)
 English Version: Lemonade
 Points: 0
-Times Presented: 6
+Times Presented: 7
 Times Correct: 1
-User Understanding: 16.67%
+User Understanding: 14.29%
 ------------------------
 Word Details:
 ------------------------
 Word: Sandía (SPANISH)
 English Version: Watermelon
 Points: 0
-Times Presented: 6
+Times Presented: 10
 Times Correct: 1
-User Understanding: 16.67%
+User Understanding: 10.00%
 ------------------------
 Word Details:
 ------------------------
 Word: Durazno (SPANISH)
 English Version: Peach
 Points: 0
-Times Presented: 4
+Times Presented: 9
 Times Correct: 0
 User Understanding: 0.00%
 ------------------------

@@ -87,9 +87,11 @@ class LanguageGame {
      * practice lesson that targets these words specifically to enhance learning.
      */
     public void practiceLowUnderstanding() {
+        // ERROR HAPPENING HERE WHEN A USER DOESNT HAVE ENOUGH LOW-UNDERSTANDING WORDS
+        // CREATES AN INFINITE LOOP TODO
         Lesson practice = new Lesson();
         practice.setLanguageID(this.user.getCurrentLanguage().getLanguageID());
-        practice.setTopicWordsByList(this.user.getUserDictionary().getWordsByUnderstanding(50.0));
+        practice.setTopicWordsByList(this.user.getUserDictionary().getWordsByUnderstanding(70.0));
         user.currentLesson = practice;
     }
 
@@ -177,7 +179,7 @@ class LanguageGame {
      * Saves the users and sets the user to null
      */
     public void logout() {
-        System.out.println("in logout");
+        //System.out.println("in logout");
         this.userList.saveUsers();
         this.dictionaryMan.saveDictionary();
         this.languageManager.saveLanguages();
