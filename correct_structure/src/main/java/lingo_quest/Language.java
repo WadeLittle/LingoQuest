@@ -86,7 +86,7 @@ public class Language {
      * @author Cade Stocker
      * @param UUID that will be added to the language
      * UUID will be used to access the user who owns this object of
-     * Language
+     * language
      * UUID should be used to find the user in the Users class
      */
     public void setLanguageID(UUID id) {
@@ -285,7 +285,7 @@ public class Language {
     /**
      * @author Cade Stocker
      * Finds the current progress by dividing the points earned
-     * By the total amount of points of the language
+     * by the total amount of points of the language
      */
     private void updateProgress() {
         if (this.totalPoints == 0)
@@ -314,7 +314,7 @@ public class Language {
     /**
      * @author CADE STOCKER
      * Goes through sections and adds them to completed if they need to be
-     * Also returns if either of the lists hasn't been initialized.
+     * also returns if either of the lists hasn't been initialized.
      */
     public void setSectionsComplete() {
         if (this.sections == null || this.sectionsComplete == null) {
