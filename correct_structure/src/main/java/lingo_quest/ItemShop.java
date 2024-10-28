@@ -38,7 +38,7 @@ public class ItemShop {
      * @param user The user that is attempting to buy the item
      * @param item The item the user wants to buy
      * @return True if the user successfully purchases the item. False if they
-     * Already own it or don't have enough coins.
+     *         already own it or don't have enough coins.
      */
     public boolean purchaseItem(User user, UUID item) {
         return user.buyItem(item);
@@ -81,7 +81,7 @@ public class ItemShop {
      * @author CADE STOCKER
      * @param item
      * Once the item gets removed, return so that multiple
-     * Aren't accidentally removed
+     * aren't accidentally removed
      */
     private void removeItem(Item item) {
         for (Item it : this.items) {
@@ -95,7 +95,7 @@ public class ItemShop {
     /**
      * @author Wade Little
      * Iterates over the item shop and displays all of the items into the
-     * Console.
+     * console.
      */
     public void displayItemShop() {
         for (Item item : items) {
