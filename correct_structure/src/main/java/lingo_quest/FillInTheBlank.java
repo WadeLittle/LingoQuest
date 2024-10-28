@@ -32,8 +32,7 @@ public class FillInTheBlank extends Question {
      * @return the question and its answer choices as a string
      */
     public String toString() {
-        StringBuilder result = new StringBuilder("The " + language + " word for " + correctAnswer.getEnglishVersion()
-                + " is ______" + "\nType your answer below\n");
+        StringBuilder result = new StringBuilder("What is the spanish version of " + correctAnswer.getEnglishVersion() + "\nType your answer below\n");
         return result.toString();
     }
 
