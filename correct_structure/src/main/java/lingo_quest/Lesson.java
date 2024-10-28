@@ -3,7 +3,9 @@ package lingo_quest;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
-
+/**
+ * Represents a lesson in a language learning application, containing a collection of words and managing progress.
+ */
 public class Lesson {
     private UUID languageUUID;
     private int pointsEarned;
@@ -15,7 +17,9 @@ public class Lesson {
     private UUID lessonUUID;
     public Question currentQuestion;
     private String languageName;
-
+    /**
+     * Default constructor initializing fields with default values and setting the language to Spanish.
+     */
     public Lesson() {
         languageName = "Spanish";
         languageUUID = null;
@@ -26,11 +30,19 @@ public class Lesson {
         lessonName = "";
         lessonUUID = null;
     }
-
+    /**
+     * Sets the topic words for this lesson based on the user's dictionary and the lesson's UUID.
+     * 
+     * @param u The user from whose dictionary the words will be fetched.
+     */
     public void setTopicWords(User u) {
         this.topicWords = u.getUserDictionary().getWordsByTopicID(this.lessonUUID);
     }
-
+    /**
+     * Sets the topic words for the lesson from a specified list, filtering out words presented more than once.
+     * 
+     * @param w List of words to be set as topic words.
+     */
     public void setTopicWordsByList(ArrayList<Word> w) {
         ArrayList<Word> fin = new ArrayList();
         if(w != null) {
@@ -41,7 +53,10 @@ public class Lesson {
             this.topicWords = fin;
         }
     }
-
+    /**
+     * Updates the lesson's progress by calculating the ratio of points earned to total points.
+     * Progress is updated based on the words' individual points contributing to the lesson's total points.
+     */
     public void updateProgress() {
         // set to 0 before running the sum
         this.pointsEarned = 0;
