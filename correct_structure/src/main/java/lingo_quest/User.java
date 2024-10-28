@@ -35,14 +35,14 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Default constructor for the User class.
-     *         Initializes a new User object with default values:
-     *         - Generates a new UUID for the user.
-     *         - Initializes the user's dictionary, friends list, items, bookmarked
-     *         lessons, and language progress.
-     *         - Sets coins earned and balance to 0.
-     *         - Sets username and password to empty strings.
-     *         - Sets currentLanguage and wordOfTheDay to null.
+     * Default constructor for the User class.
+     * Initializes a new User object with default values:
+     * - Generates a new UUID for the user.
+     * - Initializes the user's dictionary, friends list, items, bookmarked
+     *   lessons, and language progress.
+     * - Sets coins earned and balance to 0.
+     * - Sets username and password to empty strings.
+     * - Sets currentLanguage and wordOfTheDay to null.
      */
     public User() {
         userID = Users.getInstance().generateUUID();
@@ -64,8 +64,8 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Pararamaterized constructor that throws an error if there isn't a
-     *         valid username or password
+     * Pararamaterized constructor that throws an error if there isn't a
+     * valid username or password
      * @param username Desired users username
      * @param password Desired users password
      */
@@ -175,9 +175,9 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Adds the bookmarked lesson to the bookmarked lessons array list if it
-     *         isn't there. Removes the lesson if it's already added. This creates a
-     *         toggle feature to easily add and remove bookmarked lessons.
+     * Adds the bookmarked lesson to the bookmarked lessons array list if it
+     * isn't there. Removes the lesson if it's already added. This creates a
+     * toggle feature to easily add and remove bookmarked lessons.
      * @param lesson The lesson you want to add/remove from the bookmarked lessons
      *               list
      */
@@ -198,7 +198,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Gets the Word of the day
+     * Gets the Word of the day
      * @return Word of the Day
      */
     public Word getWordOfTheDay() {
@@ -207,7 +207,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Gets the amount of coins earned
+     * Gets the amount of coins earned
      * @return The users amount of coins earned
      */
     public int getCoinsEarned() {
@@ -216,7 +216,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Gets the users coin balance
+     * Gets the users coin balance
      * @return The users coin balance
      */
     public int getCoinBalance() {
@@ -251,8 +251,8 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Searches the users friends list and returns the friend if they are on
-     *         the list or null if the user can't be found
+     * Searches the users friends list and returns the friend if they are on
+     * the list or null if the user can't be found
      * @param username The user you are searching for's username
      * @return The user with the username if they are on the list or null if the
      *         username can't be found
@@ -281,7 +281,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Gets the User ID
+     * Gets the User ID
      * @return the User ID
      */
     public UUID getUUID() {
@@ -290,7 +290,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Sets the coin balance to the paramater entered;
+     * Sets the coin balance to the paramater entered;
      * @param coins The coin balance you want to set the users coin balance to
      */
     public void setCoinBalance(int coins) {
@@ -299,8 +299,8 @@ public class User {
 
     /**
      * @author Wade Little
-     *         This adds the parameters coins to the coin balance and coins earned
-     *         user variables
+     * This adds the parameters coins to the coin balance and coins earned
+     * user variables
      * @param coins The amount of coins you are adding
      */
     public void addCoins(int coins) {
@@ -310,7 +310,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         This spends coins from the coin balance
+     * This spends coins from the coin balance
      * @param coins the amount of coins you are spending
      */
     public void spendCoins(int coins) {
@@ -319,7 +319,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Gets the Users username
+     * Gets the Users username
      * @return The username as a string
      */
     public String getUsername() {
@@ -328,9 +328,9 @@ public class User {
 
     /**
      * @author Wade Little
-     *         The desired username is checked against the userList to ensure there
-     *         isn't 2 people with the same username. If the username is valid then
-     *         the Users username is changed.
+     * The desired username is checked against the userList to ensure there
+     * isn't 2 people with the same username. If the username is valid then
+     * the Users username is changed.
      * @param username The desired username
      * @return Whether or not the username goes through/is set
      */
@@ -351,7 +351,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Gets the users password
+     * Gets the users password
      * @return The users password as a string
      */
     public String getPassword() {
@@ -360,7 +360,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Sets the password if it is longer than 8 characters
+     * Sets the password if it is longer than 8 characters
      * @param password The desired user password
      * @return Whether or not the password is set
      */
@@ -379,7 +379,7 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Sets the current language to a new language
+     * Sets the current language to a new language
      * @param UUID The current language the user wants to switch to
      *             changed to param UUID - cade 10/24
      */
@@ -389,9 +389,9 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Gets the users current langauge
+     * Gets the users current langauge
      * @return The users current language
-     *         Changed to return Language object - cade 10/24
+     * Changed to return Language object - cade 10/24
      */
     public Language getCurrentLanguage() {
         return currentLanguage;
@@ -404,8 +404,6 @@ public class User {
      *         This method allows us to see if a user has already purchased an item,
      *         and removes
      *         the need for the "owned" variable inside of class Item
-     * 
-     * 
      *         CHANGED TO WORK WITH UUID - 10/24
      */
     public boolean ownsItem(UUID item) {
@@ -414,8 +412,8 @@ public class User {
 
     /**
      * @author Wade Little
-     *         Allows the user to buy an item if they don't already own it and they
-     *         have enough coins to buy it
+     * Allows the user to buy an item if they don't already own it and they
+     * have enough coins to buy it
      * @param item The item the user wants to purchase
      * @return true if the user successfully buys the item, false if they already
      *         own it or they don't have enough coins to purchase it
@@ -438,7 +436,7 @@ public class User {
 
     /**
      * @author CADE STOCKER
-     *         created this method to test my dataloader for users
+     * Created this method to test my dataloader for users
      * @return String of all the user's variables
      */
     public String toString() {
@@ -459,11 +457,11 @@ public class User {
 
     /**
      * @author Cade Stocker
-     *         setID method will take in a string, turn it into a UUID,
-     *         then will set it if there isn't already a UUID.
+     * SetID method will take in a string, turn it into a UUID,
+     * then will set it if there isn't already a UUID.
      * 
-     *         CHANGED TO SET THE ID REGARDLESS IF ONE ALREADY EXISTS
-     *         NEEDED THIS CHANGE FOR DATALOADER
+     * CHANGED TO SET THE ID REGARDLESS IF ONE ALREADY EXISTS
+     * NEEDED THIS CHANGE FOR DATALOADER
      * @param UUID
      */
     public void setID(UUID id) {
@@ -481,7 +479,7 @@ public class User {
     /**
      * @author CADE STOCKER
      * @param list
-     *             used for dataloader purposes
+     * Used for dataloader purposes
      */
     public void setFriendsList(ArrayList<String> list) {
         ArrayList<UUID> friends = new ArrayList<UUID>();
@@ -498,7 +496,7 @@ public class User {
     /**
      * @author CADE STOCKER
      * @param ArrayList<Item>
-     *                        used for dataloader
+     * Used for dataloader
      */
     public void setItems(ArrayList<UUID> items) {
         if (items != null)
@@ -508,9 +506,9 @@ public class User {
     /**
      * @author CADE STOCKER
      * @param HashMap<Languages,int>
-     *                               used for dataloader
-     *                               Had to do some parsing to get this method
-     *                               right.
+     * Used for dataloader
+     * Had to do some parsing to get this method
+     * right.
      */
     public void setUserProgress(HashMap<Languages, Double> progress) {
         this.userProgress = progress;
@@ -519,7 +517,7 @@ public class User {
     /**
      * @author CADE STOCKER
      * @param word
-     *             used for dataloader
+     * Used for dataloader
      */
     public void setWordOfTheDay(Word word) {
         this.wordOfTheDay = word;
@@ -528,8 +526,8 @@ public class User {
     /**
      * @author CADE STOCKER
      * @param list
-     *             used for dataloader
-     *             changed languages to be stored as uuid
+     * Used for dataloader
+     * Changed languages to be stored as uuid
      */
     public void setLanguages(ArrayList<UUID> list) {
         for (UUID id : list)

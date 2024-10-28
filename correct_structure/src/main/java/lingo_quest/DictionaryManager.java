@@ -6,14 +6,16 @@ import java.util.UUID;
 
 import org.json.simple.parser.ParseException;
 
+/**
+ * Manages dictionaries within the application, implementing singleton pattern to ensure a single instance.
+ */
 public class DictionaryManager {
-    private ArrayList<Dictionary> dictionaries;
-    private static DictionaryManager managerObject;
-    private final UUID spanishDictionary = UUID.fromString("eeaaed42-a1be-4477-bc7c-2f6f2be2993b");
+    private ArrayList<Dictionary> dictionaries; // List of dictionaries managed by this class.
+    private static DictionaryManager managerObject; // Singleton instance of DictionaryManager.
+    private final UUID spanishDictionary = UUID.fromString("eeaaed42-a1be-4477-bc7c-2f6f2be2993b"); // UUID for the master Spanish dictionary.
 
     /**
-     * @author cade
-     *         private constructor for singleton
+     * Private constructor to prevent instantiation from outside the class and loads dictionaries.
      */
     private DictionaryManager() {
         this.dictionaries = new ArrayList<>();
@@ -21,28 +23,27 @@ public class DictionaryManager {
     }
 
     /**
-     * @author cade
-     * @return the instance of the class
+     * Provides access to the singleton instance of the DictionaryManager.
+     * @return The singleton instance of DictionaryManager.
      */
     public static DictionaryManager getInstance() {
         if (managerObject == null) {
-            managerObject = new DictionaryManager(); // Assign the instance to the static field
+            managerObject = new DictionaryManager(); // Initialize the singleton instance if it doesn't exist.
         }
         return managerObject;
     }
 
     /**
-     * @author cade
-     * @param d
-     *          add a dictionary to the arraylist
+     * Adds a dictionary to the list of managed dictionaries.
+     * @param d The dictionary to add.
      */
     public void addDictionary(Dictionary d) {
         dictionaries.add(d);
     }
 
     /**
-     * @author cade
-     * @return the uuid of the master spanish dictionary
+     * Retrieves the UUID of the master Spanish dictionary.
+     * @return UUID of the Spanish dictionary.
      */
     public UUID getSpanishDictionary() {
         return this.spanishDictionary;
@@ -77,15 +78,17 @@ public class DictionaryManager {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Saves all managed dictionaries to a data file.
+     */
     public void saveDictionary() {
         DataWriter.writeDictionaries(dictionaries, DataWriter.getDictionaryFile());
     }
 
     /**
-     * @author cade
-     * @param id
-     * @return
+     * Retrieves a dictionary by its UUID.
+     * @param id UUID of the dictionary to retrieve.
+     * @return The dictionary with the specified UUID or null if it doesn't exist.
      */
     public Dictionary getDictionaryByID(UUID id) {
         for (Dictionary d : this.dictionaries) {
@@ -97,13 +100,19 @@ public class DictionaryManager {
     }
 
     /**
-     * @author cade
-     * @param u
-     * @return the user's dictionary
+     * Retrieves a dictionary associated with a specific user.
+     * @param u The user whose dictionary is to be retrieved.
+     * @return The dictionary associated with the user.
      */
     public Dictionary getDictionaryByUser(User u) {
         return getDictionaryByID(u.getUserDictionaryID());
     }
+
+    /**
+     * Duplicates a dictionary identified by UUID.
+     * @param id UUID of the dictionary to duplicate.
+     * @return The duplicated dictionary or null if the original dictionary isn't found.
+     */
 
     /**
      * @author cade

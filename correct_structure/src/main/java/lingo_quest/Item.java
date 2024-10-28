@@ -2,28 +2,29 @@ package lingo_quest;
 
 import java.util.UUID;
 
+/**
+ * Represents an item with a name, description, price, and a unique identifier.
+ */
 public class Item {
 
-    private String name;
-    private String description;
-    private int price;
-    private UUID id;
+    private String name; // The name of the item.
+    private String description; // The description of the item.
+    private int price; // The price of the item.
+    private UUID id; // The unique identifier for the item.
 
     /**
-     * @author Cade Stocker
-     *         default constructor doesn't need to do anything specific
+     * Default constructor that initializes the item with a unique identifier.
      */
     public Item() {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID(); // Assigns a new unique UUID upon creation.
     }
 
     /**
-     * parameterized constructor
+     * Constructs an item with specified name, description, and price.
      * 
-     * @author Cade Stocker
-     * @param name        of the item
-     * @param description of the item
-     * @param price       of the item
+     * @param name        The name of the item.
+     * @param description The description of the item, detailing its features or usage.
+     * @param price       The price of the item in integer format.
      */
     public Item(String name, String description, int price) {
         this.name = name;
@@ -32,50 +33,57 @@ public class Item {
     }
 
     /**
-     * @author Cade Stocker
-     * @return name
+     * Returns the name of the item.
+     * 
+     * @return The current name of this item.
      */
     public String getName() {
         return this.name;
     }
 
     /**
-     * @author Cade Stocker
-     * @return the description of the item
+     * Returns the description of the item.
+     * 
+     * @return The current description of this item.
      */
     public String getDescription() {
         return this.description;
     }
 
     /**
-     * @author Cade Stocker
-     * @return price of the item
+     * Returns the price of the item.
+     * 
+     * @return The current price of this item in integer format.
      */
     public int getPrice() {
         return this.price;
     }
 
     /**
-     * @author cade
-     * @param id
+     * Sets a new unique identifier for the item.
+     * 
+     * @param id The UUID to set as the identifier for this item.
      */
     public void setID(UUID id) {
         this.id = id;
     }
 
     /**
-     * @author cade
-     * @return
+     * Returns the unique identifier of the item.
+     * 
+     * @return The UUID of this item.
      */
     public UUID getID() {
         return this.id;
     }
 
     /**
-     * @author Cade Stocker
-     * @return a string containing the name, description, and price of the item
+     * Returns a string representation of the item, including its name, description, and price.
+     * 
+     * @return A formatted string with the item's details.
      */
+    @Override
     public String toString() {
-        return "Name: " + name + " Description: " + description + " Price: " + price;
+        return "Name: " + name + ", Description: " + description + ", Price: " + price;
     }
 }

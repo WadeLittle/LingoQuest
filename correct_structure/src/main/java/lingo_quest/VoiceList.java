@@ -12,17 +12,33 @@ import software.amazon.awssdk.services.polly.model.DescribeVoicesRequest;
 import software.amazon.awssdk.services.polly.model.DescribeVoicesResponse;
 import software.amazon.awssdk.services.polly.model.PollyException;
 import software.amazon.awssdk.services.polly.model.Voice;
-
+/**
+ * Demonstrates how to list all voices available from Amazon Polly in a specific AWS region.
+ * This class uses the Amazon Polly client to fetch and display voice details.
+ */
 public class VoiceList {
+
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     */
     private VoiceList(){};
 
+    /**
+     * Displays the list of available voices in a specified AWS region using Amazon Polly.
+     * 
+     * @param region The AWS region whose Polly voices are to be listed.
+     */
     public static void showVoices(Region region){
         PollyClient polly = PollyClient.builder().region(region).build();
 
         displayVoices(polly);
         polly.close();
     }
-
+    /**
+     * Internal helper method to fetch and display voices from Amazon Polly.
+     * 
+     * @param polly The initialized Polly client used to fetch voice information.
+     */
     private static void displayVoices(PollyClient polly) {
         try {
             DescribeVoicesRequest describeVoiceRequest = DescribeVoicesRequest.builder()
@@ -46,7 +62,11 @@ public class VoiceList {
             System.exit(1);
         }
     }
-
+    /**
+     * Main method to execute the function.
+     * 
+     * @param args Program arguments (not used).
+     */
     public static void main(String[] args){
         VoiceList.showVoices(Region.EU_WEST_3);
     }
