@@ -79,8 +79,8 @@ public class DataLoader {
      * @throws IOException
      * @throws ParseException
      * @throws org.json.simple.parser.ParseException
-     *                                               REFACTORED VERSION OF COMMENTED
-     *                                               CODE ABOVE
+     * REFACTORED VERSION OF COMMENTED
+     * CODE ABOVE
      */
     public static ArrayList<User> loadUsers(String file)
             throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
@@ -141,7 +141,7 @@ public class DataLoader {
      * @author CADE STOCKER
      * @param jsonArray
      * @return
-     *         helper method
+     * Helper method
      */
     private static ArrayList<String> extractStringList(JSONArray jsonArray) {
         ArrayList<String> list = new ArrayList<>();
@@ -155,7 +155,7 @@ public class DataLoader {
      * @author CADE STOCKER
      * @param itemsJson
      * @return
-     *         helper method
+     * Helper method
      */
     private static ArrayList<Item> extractItems(JSONArray itemsJson) {
         ArrayList<Item> items = new ArrayList<>();
@@ -173,7 +173,7 @@ public class DataLoader {
      * @author CADE STOCKER
      * @param language
      * @return
-     *         helper method
+     * Helper method
      */
     private static Languages mapLanguage(String language) {
         if (language == null)
@@ -210,8 +210,8 @@ public class DataLoader {
      * @param languages
      * @param currentLanguage
      * @return
-     *         helper method for creating the user once you've found all of their
-     *         data
+     * Helper method for creating the user once you've found all of their
+     * data
      */
     private static User createUser(String userID, String username, String password,
             long coinsEarned, long coinBalance, ArrayList<String> friendsList,
@@ -253,7 +253,7 @@ public class DataLoader {
      * @author CADE STOCKER
      * @return arraylist of items
      * @param String of the file's name
-     *               loads all items into the item shop
+     * loads all items into the item shop
      */
     public static ArrayList<Item> loadItemShop(String file)
             throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
@@ -290,8 +290,8 @@ public class DataLoader {
      * @throws IOException
      * @throws ParseException
      * @throws org.json.simple.parser.ParseException
-     *                                               read multiple words and turn
-     *                                               them into an arraylist
+     * Read multiple words and turn
+     * them into an arraylist
      */
     public static ArrayList<Word> loadWords(String file)
             throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
@@ -351,7 +351,7 @@ public class DataLoader {
      * @param languageJson
      * @param languageName
      * @return language object
-     *         read a single language object
+     * Read a single language object
      */
     private static Language parseLanguage(JSONObject languageJson) {
         UUID userID = UUID.fromString((String) languageJson.get("userID"));
