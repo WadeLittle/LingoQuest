@@ -113,11 +113,17 @@ public class LanguageManager {
         return null;
     }
 
-    public Lesson getLessonByID(UUID lessonId) {
+    public Lesson getLessonByID(UUID lessonId, User u) {
         if (this.currentSection != null && this.currentSection.getAllLessons() != null) {
+            
+            for(Lesson l : this.currentSection.getAllLessons()) {
+                l.setTopicWords(u);
+            }
+
+
             for (Lesson lesson : this.currentSection.getAllLessons()) {
                 if (lesson.getLessonID().equals(lessonId)) {
-                    this.currentLesson = lesson;  
+                    this.currentLesson = lesson; 
                     return lesson;  
                 }
             }

@@ -24,8 +24,8 @@ public class Language {
 
     /**
      * @author Cade Stocker
-     *         Default constructor for language
-     *         initializes all of the ArrayLists and HashMaps
+     * Default constructor for language
+     * Initializes all of the ArrayLists and HashMaps
      */
     public Language() {
         this.sections = new ArrayList<Section>();
@@ -57,9 +57,9 @@ public class Language {
      * @author CADE STOCKER
      * @param section
      * @return whether or not the user has access to a specific section
-     *         sections should be locked based on points (a user must have
-     *         accumulated a certain amount
-     *         of points to gain access to a section)
+     * Sections should be locked based on points (a user must have
+     * accumulated a certain amount
+     * of points to gain access to a section)
      */
     public boolean hasAccessToSection(Section section) {
         return sectionAccess.get(section);
@@ -85,9 +85,9 @@ public class Language {
     /**
      * @author Cade Stocker
      * @param UUID that will be added to the language
-     *             UUID will be used to access the user who owns this object of
-     *             language
-     *             UUID should be used to find the user in the Users class
+     * UUID will be used to access the user who owns this object of
+     * language
+     * UUID should be used to find the user in the Users class
      */
     public void setLanguageID(UUID id) {
         this.languageID = id;
@@ -115,7 +115,7 @@ public class Language {
     /**
      * @author cade
      * @param l language type
-     *          used for dataloader
+     * Used for dataloader
      */
     public void setLanguageName(Languages l) {
         if (l != null) {
@@ -200,7 +200,7 @@ public class Language {
     /**
      * @author Cade Stocker
      * @return String of the Language's UUID
-     *         UUID is the unique identifier of this object of language
+     * UUID is the unique identifier of this object of language
      */
     public UUID getLanguageID() {
         return this.languageID;
@@ -251,7 +251,7 @@ public class Language {
 
     /**
      * @author Cade Stocker
-     *         increase the user's answer streak if they get a problem correct.
+     * Increase the user's answer streak if they get a problem correct.
      */
     public void increaseAnswerStreak() {
         this.answerStreak++;
@@ -268,7 +268,7 @@ public class Language {
 
     /**
      * @author Cade Stocker
-     *         Set the answer streak to 0 if the user gets a problem wrong.
+     * Set the answer streak to 0 if the user gets a problem wrong.
      */
     public void resetAnswerStreak() {
         this.answerStreak = 0;
@@ -284,8 +284,8 @@ public class Language {
 
     /**
      * @author Cade Stocker
-     *         finds the current progress by dividing the points earned
-     *         by the total amount of points of the language
+     * Finds the current progress by dividing the points earned
+     * by the total amount of points of the language
      */
     private void updateProgress() {
         if (this.totalPoints == 0)
@@ -313,8 +313,8 @@ public class Language {
 
     /**
      * @author CADE STOCKER
-     *         goes through sections and adds them to completed if they need to be
-     *         Also returns if either of the lists hasn't been initialized.
+     * Goes through sections and adds them to completed if they need to be
+     * also returns if either of the lists hasn't been initialized.
      */
     public void setSectionsComplete() {
         if (this.sections == null || this.sectionsComplete == null) {
@@ -343,8 +343,8 @@ public class Language {
     /**
      * @author CADE STOCKER
      * @return arraylist of lessons
-     *         goes through to see available sections
-     *         goest through each available section and adds each available lesson
+     * Goes through to see available sections
+     * Goes through each available section and adds each available lesson
      */
     public ArrayList<Lesson> getAvailableLessons() {
         ArrayList<Lesson> lessons = new ArrayList();

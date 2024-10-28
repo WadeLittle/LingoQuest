@@ -16,12 +16,12 @@ class DataWriter {
     private ItemShop itemShop;
     private Users users;
     private LanguageManager languageManager;
-    public static String userFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Users.json";
-    public static String itemFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/ItemShop.json";
-    public static String placementFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/PlacementTest.json";
-    public static String wordFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Word.json";
-    public static String dictionaryFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Dictionaries.json";
-    public static String languageFile = "/Users/cadestocker/Desktop/Fall 24/247/Group Project/LingoQuest/correct_structure/src/json/Languages2.json";
+    public static String userFile = "correct_structure/src/json/Users.json";
+    public static String itemFile = "correct_structure/src/json/ItemShop.json";
+    public static String placementFile = "correct_structure/src/json/PlacementTest.json";
+    public static String wordFile = "correct_structure/src/json/Word.json";
+    public static String dictionaryFile = "correct_structure/src/json/Dictionaries.json";
+    public static String languageFile = "correct_structure/src/json/Languages2.json";
 
     /**
      * @author cade
@@ -240,7 +240,10 @@ class DataWriter {
         root.put("totalPoints", l.getTotalPoints());
         root.put("progress", l.getProgress());
         root.put("answerStreak", l.getAnswerStreak());
-        root.put("languageName", l.getLanguageName().toString());
+        if(l.getLanguageName() == null)
+        root.put("languageName", "Spanish");
+        else
+            root.put("languageName", l.getLanguageName().toString());
         root.put("languageID", l.getLanguageID().toString());
         // will implement placement test later
         root.put("PlacementTest", "c8d23cf7-c643-4988-ab6c-8f0fff97b934");
@@ -331,6 +334,22 @@ class DataWriter {
         // put the array into the dictionary object
         root.put("words", wordArray);
         return root;
+    }
+
+    public static void writeStudySheet(ArrayList<Word> words) {
+        try {
+            FileWriter myWriter = new FileWriter("correct_structure/studySheet/sheet.txt");
+            myWriter.write("");
+            for(Word w : words) {
+                if(w.getTimesPresented() > 0) {
+                myWriter.append(w.toString());
+                myWriter.append("\n");
+                }
+            }
+            myWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

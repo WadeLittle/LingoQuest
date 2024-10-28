@@ -16,12 +16,12 @@ public class DataLoader {
     public final static ItemShop itemShop = ItemShop.getInstance();
     public final static Users userList = Users.getInstance();
     public final static LanguageManager languageManager = LanguageManager.getInstance();
-    public final static String userFile = "correct_structure\\src\\json\\Users.json";
-    public final static String itemFile = "correct_structure\\src\\json\\ItemShop.json";
-    public final static String placementFile = "correct_structure\\src\\json\\PlacementTest.json";
-    public final static String wordFile = "correct_structure\\src\\json\\Word.json";
-    public final static String dictionaryFile = "correct_structure\\src\\json\\Dictionaries.json";
-    public final static String languageFile = "correct_structure\\src\\json\\Languages2.json";
+    public final static String userFile = "correct_structure/src/json/Users.json";
+    public final static String itemFile = "correct_structure/src/json/ItemShop.json";
+    public final static String placementFile = "correct_structure/src/json/PlacementTest.json";
+    public final static String wordFile = "correct_structure/src/json/Word.json";
+    public final static String dictionaryFile = "correct_structure/src/json/Dictionaries.json";
+    public final static String languageFile = "correct_structure/src/json/Languages2.json";
 
     /**
      * @author cade
@@ -402,9 +402,9 @@ public class DataLoader {
             l.setLessonID(UUID.fromString((String) objJson.get("lessonUUID")));
             l.setLanguageID(UUID.fromString((String) objJson.get("languageID")));
             les.add(l);
-            System.out.println(l.getLessonName());
+            //System.out.println(l.getLessonName());
         }
-        System.out.println("TESTSDLKFJDSL:KGJ   " + (les == null));
+        //System.out.println("TESTSDLKFJDSL:KGJ   " + (les == null));
         return les;
     }
 
@@ -439,6 +439,7 @@ public class DataLoader {
             JSONObject wordObj = (JSONObject) o;
             Word w = makeWord(wordObj);
             dictionary.add(w);
+            //System.out.println(w.toString());
         }
 
         int numWords;
@@ -463,14 +464,14 @@ public class DataLoader {
      *         read an individual media object
      */
 
-    private static Media parseMedia(JSONObject media) {
+    /*private static Media parseMedia(JSONObject media) {
         String name = (String) media.get("name");
         String description = (String) media.get("description");
         String fileName = (String) media.get("fileName");
         // Media med = new Media();
         // return med;
         return null;
-    }
+    }*/
 
     /**
      * @author CADE STOCKER

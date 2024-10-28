@@ -75,10 +75,10 @@ class Dictionary {
      * @return list of words that are equal to or below the specified number
      *         of points
      */
-    public ArrayList<Word> getWordsByUnderstanding(int maxPointsInclusive) {
+    public ArrayList<Word> getWordsByUnderstanding(double maxUnderstandingInclusive) {
         ArrayList<Word> words = new ArrayList<>();
         for (Word w : this.words) {
-            if (w.getPoints() <= maxPointsInclusive)
+            if (w.getPoints() <= maxUnderstandingInclusive)
                 words.add(w);
         }
         return words;

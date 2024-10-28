@@ -14,8 +14,8 @@ public class ItemShop {
 
     /**
      * @author Cade Stocker
-     *         private because ItemShop is a singleton
-     *         creates the arraylist of type item
+     * Private because ItemShop is a singleton
+     * Creates the arraylist of type item
      */
     private ItemShop() {
         items = new ArrayList<Item>();
@@ -34,7 +34,7 @@ public class ItemShop {
 
     /**
      * @author Wade Little
-     *         Calls on the user.buyItem(Item item) method/
+     * Calls on the user.buyItem(Item item) method/
      * @param user The user that is attempting to buy the item
      * @param item The item the user wants to buy
      * @return True if the user successfully purchases the item. False if they
@@ -46,7 +46,7 @@ public class ItemShop {
 
     /**
      * @author Wade Little
-     *         Gets the selected items information in a String
+     * Gets the selected items information in a String
      * @param item The item the user wants to view.
      * @return The items properties in a String
      */
@@ -70,7 +70,7 @@ public class ItemShop {
 
     /**
      * @author Wade Little
-     *         Gives the items in the item shop
+     * Gives the items in the item shop
      * @return The array list of items in the itemshop
      */
     public ArrayList<Item> getItems() {
@@ -80,8 +80,8 @@ public class ItemShop {
     /**
      * @author CADE STOCKER
      * @param item
-     *             once the item gets removed, return so that multiple
-     *             aren't accidentally removed
+     * Once the item gets removed, return so that multiple
+     * aren't accidentally removed
      */
     private void removeItem(Item item) {
         for (Item it : this.items) {
@@ -94,8 +94,8 @@ public class ItemShop {
 
     /**
      * @author Wade Little
-     *         Iterates over the item shop and displays all of the items into the
-     *         console.
+     * Iterates over the item shop and displays all of the items into the
+     * console.
      */
     public void displayItemShop() {
         for (Item item : items) {
@@ -105,7 +105,7 @@ public class ItemShop {
 
     /**
      * @author cade stocker
-     *         calls the dataloader
+     * Calls the dataloader
      */
     public void loadItems() {
         try {

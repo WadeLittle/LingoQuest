@@ -17,7 +17,7 @@ public class Users {
 
     /**
      * @author Wade Little
-     *         Returns the single instance of the Users class (Singleton)
+     * Returns the single instance of the Users class (Singleton)
      * @return the Users class
      */
     public static Users getInstance() {
@@ -29,8 +29,8 @@ public class Users {
 
     /**
      * @author Wade Little
-     *         This returns the user that has the matching username and password. If
-     *         there is no match then it returns null and prints an error message.
+     * This returns the user that has the matching username and password. If
+     * There is no match then it returns null and prints an error message.
      * @param username The username of the user you are getting
      * @param password The password of the user you are getting
      * @return The user with the matching username and password. Or null if the user
@@ -40,7 +40,7 @@ public class Users {
         // changed to a for-each loop - CADE
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                System.out.println("Successfully Logged In");
+                System.out.println("Successfully Logged In, " + username+".");
                 return user;
             }
         }
@@ -66,7 +66,7 @@ public class Users {
 
     /**
      * @author Wade Little
-     *         Searches through the userlist for the specified UUID
+     * Searches through the userlist for the specified UUID
      * @param userId the userid you are looking for
      * @return Null if the user isn't found, or the user with the matching UUID
      */
@@ -83,8 +83,8 @@ public class Users {
 
     /**
      * @author Wade Little
-     *         Creates a user if they provide a valid username and password and adds
-     *         it to the user list
+     * Creates a user if they provide a valid username and password and adds
+     * it to the user list
      * @param username The users desired username
      * @param password The users desired password
      * @return True if the user is created and added to userlist. False if the user
@@ -102,14 +102,13 @@ public class Users {
 
     /**
      * @author Wade Little
-     *         Checks the userlist and returns true if the username is contained,
-     *         false if the username isn't there.
+     * Checks the userlist and returns true if the username is contained,
+     * false if the username isn't there.
      * @param username The username you are checking for
      * @param password Added this too - cade
      * @return User
-     *         changed return type from boolean to User for create account purposes
-     *         - CADE
-     *         changed back to boolean - cade 10/24
+     * Changed return type from boolean to User for create account purposes
+     * Changed back to boolean 
      */
     public boolean containsUsername(String username) {
         for (User user : users) {
@@ -124,7 +123,7 @@ public class Users {
     /**
      * @author Cade
      * @param user
-     *             save all users
+     * Save all users
      */
     public void saveUsers() {
         for (User u : users) {
@@ -153,9 +152,9 @@ public class Users {
     /**
      * @author Cade Stocker
      * @return a UUID
-     *         Originally debated between turning the UUID into a string,
-     *         but decided that the UUID class offers a lot of methods that may
-     *         be useful.
+     * Originally debated between turning the UUID into a string,
+     * but decided that the UUID class offers a lot of methods that may
+     * be useful.
      */
     public UUID generateUUID() {
         return UUID.randomUUID();

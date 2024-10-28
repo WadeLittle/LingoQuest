@@ -14,8 +14,10 @@ public class Lesson {
     private String lessonName;
     private UUID lessonUUID;
     public Question currentQuestion;
+    private String languageName;
 
     public Lesson() {
+        languageName = "Spanish";
         languageUUID = null;
         pointsEarned = 0;
         totalPoints = 0;
@@ -27,6 +29,17 @@ public class Lesson {
 
     public void setTopicWords(User u) {
         this.topicWords = u.getUserDictionary().getWordsByTopicID(this.lessonUUID);
+    }
+
+    public void setTopicWordsByList(ArrayList<Word> w) {
+        ArrayList<Word> fin = new ArrayList();
+        if(w != null) {
+            for(Word word : w) {
+                if(word.getTimesPresented() > 0)
+                    fin.add(word);
+            }
+            this.topicWords = fin;
+        }
     }
 
     public void updateProgress() {
