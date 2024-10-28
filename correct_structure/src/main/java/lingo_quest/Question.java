@@ -8,12 +8,11 @@ abstract class Question {
   protected Word correctAnswer;
 
   public Question(String language) {
-    this.language = language;
+    if(language == null)
+      this.language = "Spanish";
+    else
+      this.language = language;
   }
-
-  public abstract boolean isCorrect(User user);
-
-  public abstract String toString();
 
   /**
    * @author cade
@@ -31,19 +30,7 @@ abstract class Question {
     this.userAnswer = userAnswer;
   }
 
-<<<<<<< HEAD
-
-  public Question(String language) {
-    if(language == null)
-      this.language = "Spanish";
-    else
-      this.language = language;
-  }
-
   public abstract boolean isCorrect(User user);
 
   public abstract String toString();
-   
-=======
->>>>>>> db21abb0812c7f447acaaa10f9ad40d3ff824548
 }

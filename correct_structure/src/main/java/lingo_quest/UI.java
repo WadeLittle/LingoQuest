@@ -45,95 +45,68 @@ public class UI {
     }
 
     public static void main(String[] args) throws Exception {
-        lg = new LanguageGame();
+        // CODE FOR OUR SCENARIO
         Scanner keyboard = new Scanner(System.in);
+        // start the facade
+        lg = new LanguageGame();
 
-        lg.createUser("JimJimJimJimJimmy", "jimiscool23");
-        lg.logout();
+        // SETTING UP TAMMY'S ACCOUNT
 
-        lg.login("JimJimJimJimJimmy", "jimiscool23");
-
+        /*lg.createUser("TTomacka", "securePassword");
+        lg.login(("TTomacka"), "securePassword");
         lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
         lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
         lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
-<<<<<<< HEAD
-        lg.getProgressScreen();
+        // generate questions from the current lesson
         for(int i =0; i< 5;i++) {
-=======
-        for (int i = 0; i < 5; i++) {
->>>>>>> db21abb0812c7f447acaaa10f9ad40d3ff824548
             lg.getAQuestion();
             lg.answerQuestion(keyboard);
         }
+        lg.logout();*/
+        //System.exit(0);
 
-        lg.getProgressScreen();
 
-        lg.pickALesson(UUID.fromString("c2e6b17a-5f04-4f9d-8cb7-bddedc6c1782"));
-        for (int i = 0; i < 5; i++) {
+        // tammy tomacka already exists in the json
+        // attempt to make account with existing username
+        lg.createUser("TTomacka", "Password1234");
+        // make actual account
+        lg.createUser("TTomacka445", "PASSWORDPASSWORD333");
+        // set the language and pick a section
+        // will be moved to work in the Facade instead of UI
+        lg.login("TTomacka445","PASSWORDPASSWORD333");
+        lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
+        lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
+        lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
+        // generate questions from the current lesson
+        for(int i =0; i< 1;i++) {
             lg.getAQuestion();
             lg.answerQuestion(keyboard);
         }
+        // display the performance from the lesson
         lg.getProgressScreen();
+        // log out
         lg.logout();
-        lg.login("JimJimJimJimJimmy", "jimiscool23");
-        lg.getAQuestion();
-        lg.answerQuestion(keyboard);
-<<<<<<< HEAD
-        System.out.println("Let's practice your words with low understanding.\n");
+        // tammy logs in
+        lg.login("TTomacka", "securePassword");
+        // set the language, section, and lesson
+        lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
+        lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
+        lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
+        // she checks her progress
+        lg.getProgressScreen();
+        // tammy creates a txt file study sheet
+        lg.makeStudySheet();
+        // tammy chooses to answer some questions on material she needs to review
+        // load the material
         lg.practiceLowUnderstanding();
-        for(int i=0; i < 4;i++) {
+        // generate questions
+        for(int i =0; i< 5;i++) {
             lg.getAQuestion();
             lg.answerQuestion(keyboard);
         }
-        lg.makeStudySheet();
-        
-
-        
-
-
-
-        //System.out.println(lg.getAllLanguages().get(0).toString());
-        boolean quit = false;
-        //for(User u : Users.getInstance().getUsers()) {
-        //    System.out.println("TESTTTTTT" +u.getUUID());
-        //}
-
-
-
-        // while(!quit) {
-        //     System.out.println("Select 1 to Login\nSelect 2 to Logout\nSelect 3 to Create Account\nSelect 9 to Quit\n");
-        //     int userChoice = keyboard.nextInt();
-        //     keyboard.nextLine();
-        //     switch (userChoice) {
-        //         case 1:
-        //             if(lg.hasCurrentUser() == false)
-        //                 login();
-        //             //System.out.println("Hello " +lg.getUser().getUsername());
-        //             break;
-        //         case 2:
-        //             if(lg.hasCurrentUser() == true)
-        //                 logout();
-        //             break;
-        //         case 3:
-        //             if(lg.hasCurrentUser()) {
-        //                 System.out.println("Cannot create account when logged in.");
-        //                 break;
-        //             }
-        //             createAccount();
-        //             break;
-        //         case 9:
-        //             logout();
-        //             quit = true;
-        //             break;
-        //         default:
-        //             break;
-        
-            keyboard.close();
-            System.exit(0);
-=======
-
-        keyboard.close();
-        System.exit(0);
->>>>>>> db21abb0812c7f447acaaa10f9ad40d3ff824548
+        // see results
+        lg.getProgressScreen();
+        // tammy logs out
+        lg.logout();
     }
 }

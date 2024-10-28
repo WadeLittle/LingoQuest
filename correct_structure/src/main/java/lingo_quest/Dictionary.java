@@ -77,15 +77,8 @@ class Dictionary {
      */
     public ArrayList<Word> getWordsByUnderstanding(double maxUnderstandingInclusive) {
         ArrayList<Word> words = new ArrayList<>();
-<<<<<<< HEAD
-        for(Word w : this.words) {
-            // if the word has less than a certain understanding, and has been presented
-            // then add it to list
-            if(w.getUserUnderstanding() <= maxUnderstandingInclusive && w.getTimesPresented() > 0)
-=======
         for (Word w : this.words) {
-            if (w.getPoints() <= maxPointsInclusive)
->>>>>>> db21abb0812c7f447acaaa10f9ad40d3ff824548
+            if (w.getPoints() <= maxUnderstandingInclusive)
                 words.add(w);
         }
         return words;
