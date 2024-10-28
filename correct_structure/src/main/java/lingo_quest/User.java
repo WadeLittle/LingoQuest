@@ -240,8 +240,11 @@ public class User {
             System.out.println("null language sent to addLanguage.");
             return;
         }
+        if(DictionaryManager.getInstance().getDictionaryByUser(this) == null) {
+            
+        }
         this.languages.add(l.getLanguageID());
-        this.currentLanguage = l;
+        //this.currentLanguage = l;
     }
 
 

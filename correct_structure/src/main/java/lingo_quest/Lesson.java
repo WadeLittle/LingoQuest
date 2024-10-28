@@ -17,6 +17,7 @@ public class Lesson {
     private String languageName;
 
     public Lesson() {
+        languageName = "Spanish";
         languageUUID = null;
         pointsEarned = 0;
         totalPoints = 0;
@@ -32,6 +33,10 @@ public class Lesson {
 
     public void setTopicWordsByList(ArrayList<Word> w) {
         if(w != null) {
+            for(Word word : w) {
+                if(word.getTimesPresented() == 0)
+                    w.remove(word);
+            }
             this.topicWords = w;
         }
     }
@@ -109,35 +114,6 @@ public class Lesson {
     public String getLanguageName() {
         // hardcoded TODO
         return "Spanish";
-<<<<<<< HEAD
-        //return LanguageManager.getInstance().getLanguageByID(languageUUID).getLanguageName().toString();
-    }
-
-    /**
-     * @author cade
-     * @param n
-     */
-    public void setLanguageName(String n) {
-        if(n != null)
-            this.languageName = n;
-    }
-
-    /**
-     * @author Wade Little
-     * Gets the question at the specified question number from the questions list
-     * @param questionNum The question number you want to get
-     * @return A question
-     */
-    public Question getQuestion() {
-        Question question = questions.get(questionNum);
-        this.questionNum++;
-        return question;
-    }
-
-    public void halfwayCompleteReward() {
-
-=======
->>>>>>> db21abb0812c7f447acaaa10f9ad40d3ff824548
     }
 
     /**

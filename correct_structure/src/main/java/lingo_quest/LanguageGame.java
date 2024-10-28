@@ -58,13 +58,26 @@ class LanguageGame {
         languageManager.loadLanguages();
         itemShop.loadItems();
 
+
         // load object the user needs by their UUIDs
         for (User u : userList.getUsers()) {
             // use the UUID's to access the language from languagemanager
             u.setCurrentLanguage(languageManager.getLanguageByID(u.getCurrentLanguageID()));
+            // figure out how to expand this for when we have multiple dictionaries - cade
             u.setUserDictionary(dictionaryMan.getDictionaryByID(u.getUserDictionaryID()));
         }
 
+    }
+
+    /**
+     * @author cade
+     * generate quesetions based on low understanding words
+     */
+    public void practiceLowUnderstanding() {
+        Lesson practice = new Lesson();
+        practice.setLanguageID(this.user.getCurrentLanguage().getLanguageID());
+        practice.setTopicWordsByList(this.user.getUserDictionary().getWordsByUnderstanding(50.0));
+        user.currentLesson = practice;
     }
 
     /**
@@ -82,8 +95,10 @@ class LanguageGame {
      */
     public Language startLanguage(Languages lang) {
         // make sure there's a user logged in
-        if (this.getUser() == null)
+        if (this.getUser() == null) {
+            System.out.println("Cannot start language without user.");
             return null;
+        }
         Language l = new Language();
         // add the new language to the singleton
         languageManager.addLanguage(l);
@@ -91,13 +106,20 @@ class LanguageGame {
         l.setUserID(this.getUser().getUUID());
         // put the language's id into user
         this.getUser().addLanguage(l);
+        this.getUser().setCurrentLangauge(l);
+        // make a duplicate of spanish dictionary to track the user's progress
+        this.getUser().setUserDictionary(DictionaryManager.getInstance().duplicateDictionary(DictionaryManager.getInstance().getSpanishDictionary()));
+        l.setDictionary(this.user.getUserDictionaryID());
+        l.setDictionaryID(this.user.getUserDictionaryID());
         // return the language
         // set the type of language it is (this assigns the master dictionary to the
         // language object)
-        if (lang == null)
-            if (lang != null)
-                l.setLanguageName(lang);
+        if (lang == null) 
+            l.setLanguageName(Languages.SPANISH);
+        else
+            l.setLanguageName(lang);
 
+        this.currentLanguage = l;
         return l;
     }
 
@@ -122,7 +144,8 @@ class LanguageGame {
      */
     public void login(String username, String password) {
         this.user = userList.getUser(username, password);
-
+        
+        // attempt to set topic words TODO move to individual class
         for (Language l : languageManager.getLanguages()) {
             for (Section sec : l.getSections()) {
                 for (Lesson les : sec.getAllLessons()) {
@@ -236,20 +259,11 @@ class LanguageGame {
     }
 
     public void pickALesson(UUID lessonUUID) {
-        user.currentLesson = languageManager.getLessonByID(lessonUUID);
+        user.currentLesson = languageManager.getLessonByID(lessonUUID, user);
+        
         System.out.println("You switched to lesson " + user.currentLesson.getLessonName());
     }
 
-<<<<<<< HEAD
-    public void practiceLowUnderstanding() {
-        Lesson practice = new Lesson();
-        practice.setLanguageID(this.user.getCurrentLanguage().getLanguageID());
-        practice.setTopicWordsByList(this.user.getUserDictionary().getWordsByUnderstanding(50.0));
-        user.currentLesson = practice;
-    }
-
-=======
->>>>>>> db21abb0812c7f447acaaa10f9ad40d3ff824548
     public void getAQuestion() {
         Question question = questionCreator.createQuestion(user.currentLesson);
         user.currentLesson.currentQuestion = question;

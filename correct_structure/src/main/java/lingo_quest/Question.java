@@ -11,6 +11,31 @@ abstract class Question {
     protected String userAnswer;   // The answer provided by the user.
     protected Word correctAnswer;  // The correct answer to the question.
 
+<<<<<<< HEAD
+  public Question(String language) {
+    if(language == null)
+      this.language = "Spanish";
+    else
+      this.language = language;
+  }
+
+  /**
+   * @author cade
+   * @return the correct answer
+   */
+  public Word getCorrectAnswer() {
+    return this.correctAnswer;
+  }
+
+  /**
+   * @author
+   * @param w word
+   */
+  public void setUserAnswer(String userAnswer) {
+    this.userAnswer = userAnswer;
+  }
+
+=======
     /**
      * Constructor to initialize a Question with a specific language.
      *
@@ -63,10 +88,8 @@ abstract class Question {
       this.language = language;
   }
 
+>>>>>>> f2065de5c43c6be5a1bbe898ec17631746a83b63
   public abstract boolean isCorrect(User user);
 
   public abstract String toString();
-   
-=======
->>>>>>> db21abb0812c7f447acaaa10f9ad40d3ff824548
 }

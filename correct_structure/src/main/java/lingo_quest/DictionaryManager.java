@@ -126,7 +126,7 @@ public class DictionaryManager {
                 ret.addWord(w);
             }
             dictionaries.add(ret);
-            System.out.println("\n\n\nTEST added dictionary\n\n\n");
+            //System.out.println("\n\n\nTEST added dictionary\n\n\n");
             return ret;
         }
         System.out.println("Dictionary not found");
