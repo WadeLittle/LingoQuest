@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.HashMap;
-
+/**
+ * The main class that drives the language learning game, handling user interactions, 
+ * language sessions, and resource management.
+ */
 class LanguageGame {
     private Users userList;
     private User user;
@@ -16,8 +19,12 @@ class LanguageGame {
     private LeaderBoard leaderboard;
     private Word userAnswer;
     private QuestionCreator questionCreator;
-
-    // test comment
+    /**
+     * Initializes the game, setting up necessary components and loading all necessary data.
+     * Outputs an initial message to the terminal.
+     * 
+     * @throws Exception if an error occurs during initialization.
+     */
     public LanguageGame() throws Exception {
         // Speak prints out a message to terminal when connected, so we call it here to display
         // it before our questions get displayed
@@ -29,7 +36,13 @@ class LanguageGame {
         this.questionCreator = new QuestionCreator();
         this.loadAll();
     }
-
+    /**
+     * Creates a new user account, logs them in, and sets their initial language to Spanish.
+     * If a user is already logged in or the username exists, it outputs an error.
+     * 
+     * @param username The desired username.
+     * @param password The desired password.
+     */
     public void createUser(String username, String password) {
         if (this.user != null) {
             System.out.println("Someone is already logged in");
@@ -47,11 +60,11 @@ class LanguageGame {
 
         System.out.println("Successfully Created Account");
     }
-
+    
     /**
-     * @author cade
-     *         load all of our singletons
-     * @throws Exception
+     * Loads all configurations and user-related data when the game starts.
+     * This includes user profiles, language settings, and item shop data.
+     * @throws Exception if there is an issue loading any data
      */
     public void loadAll() throws Exception {
         userList.loadUsers();
@@ -68,10 +81,10 @@ class LanguageGame {
         }
 
     }
-
+    
     /**
-     * @author cade
-     * generate quesetions based on low understanding words
+     * Practices words with a user understanding below a specific threshold. It sets up a
+     * practice lesson that targets these words specifically to enhance learning.
      */
     public void practiceLowUnderstanding() {
         Lesson practice = new Lesson();
@@ -125,8 +138,8 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     *         Sets the language games current language as well as the
-     *         languagemanagers
+     * Sets the language games current language as well as the
+     * languagemanagers
      * @param language THe language you want to work on
      */
     public void setCurrentLanguage(Language language) {
@@ -136,8 +149,8 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     *         Checks the userlist for the entered username and password and returns
-     *         a valid user or null user
+     * Checks the userlist for the entered username and password and returns
+     * a valid user or null user
      * @param username The username that the user is trying to login with
      * @param password The password the user is trying to login with
      * @return A valid User or null if it isn't a valid user
@@ -157,7 +170,7 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     *         Saves the users and sets the user to null
+     * Saves the users and sets the user to null
      */
     public void logout() {
         System.out.println("in logout");
@@ -233,7 +246,7 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     *         This class runs itemshop.displayItemShop() to view the item shop.
+     * This class runs itemshop.displayItemShop() to view the item shop.
      */
     public void checkItemShop() {
         itemShop.displayItemShop();
