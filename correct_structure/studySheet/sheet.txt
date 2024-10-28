@@ -1,63 +1,63 @@
 Word Details:
 ------------------------
-Word: Jugo (SPANISH)
-English Version: Juice
+Word: Té (SPANISH)
+English Version: Tea
 Points: 0
-Times Presented: 2
-Times Correct: 0
-User Understanding: 0.00%
-------------------------
-Word Details:
-------------------------
-Word: Refresco (SPANISH)
-English Version: Soda
-Points: 0
-Times Presented: 1
-Times Correct: 0
-User Understanding: 0.00%
+Times Presented: 7
+Times Correct: 3
+User Understanding: 42.86%
 ------------------------
 Word Details:
 ------------------------
 Word: Cerveza (SPANISH)
 English Version: Beer
 Points: 0
-Times Presented: 1
-Times Correct: 0
-User Understanding: 0.00%
+Times Presented: 6
+Times Correct: 2
+User Understanding: 33.33%
 ------------------------
 Word Details:
 ------------------------
 Word: Vino (SPANISH)
 English Version: Wine
 Points: 0
-Times Presented: 5
+Times Presented: 7
+Times Correct: 3
+User Understanding: 42.86%
+------------------------
+Word Details:
+------------------------
+Word: Limonada (SPANISH)
+English Version: Lemonade
+Points: 0
+Times Presented: 4
 Times Correct: 1
-User Understanding: 20.00%
+User Understanding: 25.00%
 ------------------------
 Word Details:
 ------------------------
-Word: Uva (SPANISH)
-English Version: Grape
+Word: Piña (SPANISH)
+English Version: Pineapple
 Points: 0
-Times Presented: 3
-Times Correct: 0
-User Understanding: 0.00%
+Times Presented: 4
+Times Correct: 1
+User Understanding: 25.00%
 ------------------------
 Word Details:
 ------------------------
-Word: Fresa (SPANISH)
-English Version: Strawberry
-Points: 0
-Times Presented: 1
-Times Correct: 0
-User Understanding: 0.00%
-------------------------
-Word Details:
-------------------------
-Word: Pera (SPANISH)
-English Version: Pear
+Word: Sandía (SPANISH)
+English Version: Watermelon
 Points: 0
 Times Presented: 3
 Times Correct: 1
 User Understanding: 33.33%
+------------------------
+Word Details:
+------------------------
+Word: Durazno (SPANISH)
+English Version: Peach
+Points: 0
+Times Presented: 2
+Times Correct: 0
+User Understanding: 0.00%
 ------------------------

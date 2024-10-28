@@ -44,8 +44,16 @@ public class Users {
                 return user;
             }
         }
-        System.out.println("Invalid Username or Password");
+        System.out.println("User not found");
         return null;
+    }
+
+    public boolean containsDictionary(UUID id) {
+        for(User u : users) {
+            if(u.getUserDictionaryID().equals(id))
+                return true;
+        }
+        return false;
     }
 
     /**

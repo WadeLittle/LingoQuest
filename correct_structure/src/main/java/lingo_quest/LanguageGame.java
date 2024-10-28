@@ -143,6 +143,10 @@ class LanguageGame {
      * @return A valid User or null if it isn't a valid user
      */
     public void login(String username, String password) {
+        if(userList.getUser(username, password) == null) {
+            System.out.println("Null user" + username + " " + password);
+            return;
+        }
         this.user = userList.getUser(username, password);
 
         // attempt to set topic words TODO move to individual class

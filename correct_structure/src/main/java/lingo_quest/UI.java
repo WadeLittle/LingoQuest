@@ -70,10 +70,10 @@ public class UI {
         // attempt to make account with existing username
         lg.createUser("TTomacka", "Password1234");
         // make actual account
-        lg.createUser("TTomacka445", "PASSWORDPASSWORD333");
+        lg.createUser("TTomacka4456", "PASSWORDPASSWORD333");
         // set the language and pick a section
         // will be moved to work in the Facade instead of UI
-        lg.login("TTomacka445","PASSWORDPASSWORD333");
+        //lg.login("TTomacka445","PASSWORDPASSWORD333");
         lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
         lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
         lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
@@ -87,7 +87,7 @@ public class UI {
         // log out
         lg.logout();
         // tammy logs in
-        lg.login("TTomacka", "securePassword");
+        lg.login("TTomacka", "Password1234");
         // set the language, section, and lesson
         lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
         lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));

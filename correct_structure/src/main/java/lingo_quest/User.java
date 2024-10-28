@@ -241,7 +241,7 @@ public class User {
             return;
         }
         if(DictionaryManager.getInstance().getDictionaryByUser(this) == null) {
-            
+             
         }
         this.languages.add(l.getLanguageID());
         //this.currentLanguage = l;
