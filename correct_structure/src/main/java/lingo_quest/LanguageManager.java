@@ -90,10 +90,10 @@ public class LanguageManager {
                     return l;
                 }
             }
-            System.out.println("Language not found.");
+            //System.out.println("Language not found.");
             return null;
         }
-        System.out.println("List of languages is empty in LanguageManager");
+        //System.out.println("List of languages is empty in LanguageManager");
         this.languages = new ArrayList<Language>();
         return null;
     }

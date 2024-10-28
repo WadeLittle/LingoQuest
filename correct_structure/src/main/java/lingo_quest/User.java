@@ -100,7 +100,7 @@ public class User {
             this.userDictionaryID = d.getID();
             return;
         }
-        System.out.println("null dictionary attempted to be added setUserDictionary in User.java");
+        //System.out.println("null dictionary attempted to be added setUserDictionary in User.java");
     }
 
     public double getCurrentLanguageProgress() {
@@ -112,7 +112,7 @@ public class User {
             System.out.println(sum + " " + this.userDictionary.getNumberOfWords());
             return sum / (double)this.userDictionary.getNumberOfWords();
         }
-        System.out.println("null dictionary");
+        //System.out.println("null dictionary");
         return 0.0;
     }
 
@@ -237,7 +237,7 @@ public class User {
      */
     public void addLanguage(Language l) {
         if (l == null) {
-            System.out.println("null language sent to addLanguage.");
+            //System.out.println("null language sent to addLanguage.");
             return;
         }
         if(DictionaryManager.getInstance().getDictionaryByUser(this) == null) {

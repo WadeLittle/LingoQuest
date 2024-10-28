@@ -69,43 +69,58 @@ public class UI {
         // tammy tomacka already exists in the json
         // attempt to make account with existing username
         lg.createUser("TTomacka", "Password1234");
+
         // make actual account
-        lg.createUser("TTomacka4456", "PASSWORDPASSWORD333");
+        lg.createUser("TTomacka34343345", "PASSWORDPASSWORD333");
+
         // set the language and pick a section
         // will be moved to work in the Facade instead of UI
-        //lg.login("TTomacka445","PASSWORDPASSWORD333");
+        // lg.login("TTomacka445","PASSWORDPASSWORD333");
+        // needs to deny attempts to do stuff if create user fails TODO
         lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
         lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
         lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
+
         // generate questions from the current lesson
-        for(int i =0; i< 1;i++) {
+        for(int i =0; i< 5;i++) {
             lg.getAQuestion();
             lg.answerQuestion(keyboard);
         }
+        // end cade speaking
+
         // display the performance from the lesson
         lg.getProgressScreen();
+
         // log out
         lg.logout();
+
         // tammy logs in
         lg.login("TTomacka", "Password1234");
+
         // set the language, section, and lesson
         lg.pickALanguageByUUID(UUID.fromString("b2657c2b-56ef-45b1-a794-97eda7a32bd4"));
         lg.pickASection(UUID.fromString("bb8832c1-3f9c-4796-84e2-d8a41ff22d14"));
         lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
+
         // she checks her progress
         lg.getProgressScreen();
+
         // tammy creates a txt file study sheet
         lg.makeStudySheet();
+
         // tammy chooses to answer some questions on material she needs to review
         // load the material
         lg.practiceLowUnderstanding();
+
         // generate questions
-        for(int i =0; i< 1;i++) {
+        for(int i =0; i< 5;i++) {
             lg.getAQuestion();
             lg.answerQuestion(keyboard);
         }
+
         // see results
         lg.getProgressScreen();
+
         // tammy logs out
         lg.logout();
     }
