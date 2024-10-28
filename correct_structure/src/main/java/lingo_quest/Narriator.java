@@ -19,16 +19,32 @@ import java.io.InputStream;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 import javazoom.jl.player.advanced.PlaybackListener;
 
+/**
+ * Utility class that leverages Amazon Polly to synthesize speech from text and play it aloud.
+ */
 public class Narriator {
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     */
     private Narriator() {
     };
-
+    
+    /**
+     * Plays the given text as synthesized speech using Amazon Polly and the default region.
+     *
+     * @param text The text to be synthesized and played.
+     */
     public static void playSound(String text) {
         PollyClient polly = PollyClient.builder().region(Region.EU_WEST_3).build();
         talkPolly(polly, text);
         polly.close();
     }
-
+    /**
+     * Internal method that handles the interaction with Amazon Polly to fetch and play the speech.
+     *
+     * @param polly The PollyClient instance configured for requests.
+     * @param text The text to synthesize into speech.
+     */
     private static void talkPolly(PollyClient polly, String text) {
         try {
             DescribeVoicesRequest describeVoiceRequest = DescribeVoicesRequest.builder()
@@ -55,6 +71,16 @@ public class Narriator {
             System.exit(1);
         }
     }
+    /**
+     * Synthesizes speech from the given text using a specified voice and output format, returning the audio stream.
+     *
+     * @param polly The PollyClient used to synthesize speech.
+     * @param text The text to be synthesized.
+     * @param voice The Voice to be used for synthesis.
+     * @param format The output format of the synthesized speech.
+     * @return InputStream of the synthesized audio data.
+     * @throws IOException If an input/output exception occurs during speech synthesis.
+     */
 
     public static InputStream synthesize(PollyClient polly, String text, Voice voice, OutputFormat format)
             throws IOException {
