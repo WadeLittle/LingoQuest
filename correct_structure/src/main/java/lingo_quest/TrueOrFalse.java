@@ -14,6 +14,9 @@ public class TrueOrFalse extends Question {
     private int pointValue = 100;   // The point value awarded for a correct answer.
     public String userAnswer;       // The user's answer to the question.
 
+    public TrueOrFalse() {
+        super("spanish");
+    }
     /**
      * Constructs a TrueOrFalse question that randomly decides the truth value of the translation provided.
      *
