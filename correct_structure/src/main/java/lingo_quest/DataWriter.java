@@ -250,7 +250,7 @@ class DataWriter {
         JSONArray sections = new JSONArray();
 
         for (Object s : l.getSections()) {
-            System.out.println(s.getClass().getName());
+            //System.out.println(s.getClass().getName());
         }
 
         for (Section s : l.getSections()) {

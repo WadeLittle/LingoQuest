@@ -23,6 +23,11 @@ public class QuestionCreator {
      */
     public Question createQuestion(Lesson lesson) {
         Word word = lesson.getRandomWord();  // Retrieve a random word from the lesson.
+        // attempt to fix issue with practicelowunderstanding
+        if(word == null) {
+            System.out.println("No further questions");
+            return null;
+        }
         int wordPoint = word.getPoints();    // Get the point value of the word.
         
         // Determine the type of question to create based on the word's point value.

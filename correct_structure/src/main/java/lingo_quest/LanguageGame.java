@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.HashMap;
-
+/**
+ * The main class that drives the language learning game, handling user interactions, 
+ * language sessions, and resource management.
+ */
 class LanguageGame {
     private Users userList;
     private User user;
@@ -16,8 +19,12 @@ class LanguageGame {
     private LeaderBoard leaderboard;
     private Word userAnswer;
     private QuestionCreator questionCreator;
-
-    // test comment
+    /**
+     * Initializes the game, setting up necessary components and loading all necessary data.
+     * Outputs an initial message to the terminal.
+     * 
+     * @throws Exception if an error occurs during initialization.
+     */
     public LanguageGame() throws Exception {
         // Speak prints out a message to terminal when connected, so we call it here to display
         // it before our questions get displayed
@@ -29,7 +36,13 @@ class LanguageGame {
         this.questionCreator = new QuestionCreator();
         this.loadAll();
     }
-
+    /**
+     * Creates a new user account, logs them in, and sets their initial language to Spanish.
+     * If a user is already logged in or the username exists, it outputs an error.
+     * 
+     * @param username The desired username.
+     * @param password The desired password.
+     */
     public void createUser(String username, String password) {
         if (this.user != null) {
             System.out.println("Someone is already logged in");
@@ -47,11 +60,11 @@ class LanguageGame {
 
         System.out.println("Successfully Created Account");
     }
-
+    
     /**
-     * @author cade
-     *         load all of our singletons
-     * @throws Exception
+     * Loads all configurations and user-related data when the game starts.
+     * This includes user profiles, language settings, and item shop data.
+     * @throws Exception if there is an issue loading any data
      */
     public void loadAll() throws Exception {
         userList.loadUsers();
@@ -68,15 +81,17 @@ class LanguageGame {
         }
 
     }
-
+    
     /**
-     * @author cade
-     * generate quesetions based on low understanding words
+     * Practices words with a user understanding below a specific threshold. It sets up a
+     * practice lesson that targets these words specifically to enhance learning.
      */
     public void practiceLowUnderstanding() {
+        // ERROR HAPPENING HERE WHEN A USER DOESNT HAVE ENOUGH LOW-UNDERSTANDING WORDS
+        // CREATES AN INFINITE LOOP TODO
         Lesson practice = new Lesson();
         practice.setLanguageID(this.user.getCurrentLanguage().getLanguageID());
-        practice.setTopicWordsByList(this.user.getUserDictionary().getWordsByUnderstanding(50.0));
+        practice.setTopicWordsByList(this.user.getUserDictionary().getWordsByUnderstanding(70.0));
         user.currentLesson = practice;
     }
 
@@ -125,8 +140,8 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     *         Sets the language games current language as well as the
-     *         languagemanagers
+     * Sets the language games current language as well as the
+     * languagemanagers
      * @param language THe language you want to work on
      */
     public void setCurrentLanguage(Language language) {
@@ -136,13 +151,17 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     *         Checks the userlist for the entered username and password and returns
-     *         a valid user or null user
+     * Checks the userlist for the entered username and password and returns
+     * a valid user or null user
      * @param username The username that the user is trying to login with
      * @param password The password the user is trying to login with
      * @return A valid User or null if it isn't a valid user
      */
     public void login(String username, String password) {
+        if(userList.getUser(username, password) == null) {
+            System.out.println("Null user" + username + " " + password);
+            return;
+        }
         this.user = userList.getUser(username, password);
 
         // attempt to set topic words TODO move to individual class
@@ -157,10 +176,10 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     *         Saves the users and sets the user to null
+     * Saves the users and sets the user to null
      */
     public void logout() {
-        System.out.println("in logout");
+        //System.out.println("in logout");
         this.userList.saveUsers();
         this.dictionaryMan.saveDictionary();
         this.languageManager.saveLanguages();
@@ -233,52 +252,76 @@ class LanguageGame {
 
     /**
      * @author Wade Little
-     *         This class runs itemshop.displayItemShop() to view the item shop.
+     * This class runs itemshop.displayItemShop() to view the item shop.
      */
     public void checkItemShop() {
         itemShop.displayItemShop();
         ;
     }
-
+    /**
+     * Selects a language for the user based on a UUID. Sets the user's current language to the one identified by the UUID.
+     * @param languageUUID The UUID of the language to be set as the current language.
+     */
     public void pickALanguageByUUID(UUID languageUUID) {
         user.setCurrentLangauge(languageManager.getInstance().getLanguageByID(languageUUID));
     }
-
+    /**
+     * Generates a study sheet for the user based on words they are less familiar with.
+     * This method targets words where the user's understanding is below 50%.
+     */
     public void makeStudySheet() {
         // Write all words that aren't understood well to the study sheet
         DataWriter.writeStudySheet(user.getUserDictionary().getWordsByUnderstanding(50.0));
     }
-
+    /**
+     * Uses the narrator to play a sound for a given string. This is typically used to
+     * pronounce words or sentences in the language learning context.
+     * @param s The string to be spoken.
+     */
     public void speak(String s) {
         Narriator.playSound(s);
 
     }
-
+    /**
+     * Selects a section for the user based on a UUID. Updates the user's current section.
+     * @param sectionUUID The UUID of the section to be set as the current section.
+     */
     public void pickASection(UUID sectionUUID) {
         user.currentSection = languageManager.getSectionByID(sectionUUID);
         System.out.println("You switched to section " + user.currentSection.getName());
     }
-
+    /**
+     * Selects a lesson for the user based on a UUID. Updates the user's current lesson.
+     * @param lessonUUID The UUID of the lesson to be set as the current lesson.
+     */
     public void pickALesson(UUID lessonUUID) {
         user.currentLesson = languageManager.getLessonByID(lessonUUID, user);
         
         System.out.println("You switched to lesson " + user.currentLesson.getLessonName());
     }
-
+    /**
+     * Generates and displays a question from the current lesson.
+     */
     public void getAQuestion() {
         Question question = questionCreator.createQuestion(user.currentLesson);
         user.currentLesson.currentQuestion = question;
         System.out.println(question.toString());
         speak(question.toString());
     }
-
+    /**
+     * Collects the user's answer from the console and checks if it is correct.
+     * @param k The scanner to read the user's input.
+     */
     public void answerQuestion(Scanner k) {
         System.out.println("Please enter your answer");
         String userAnswer = k.nextLine().toLowerCase().trim();
         user.currentLesson.currentQuestion.setUserAnswer(userAnswer);
         user.currentLesson.currentQuestion.isCorrect(user);
     }
-
+    /**
+     * Displays the progress of the user for the current lesson. Shows the percentage of the lesson completed
+     * and details about words learned.
+     */
     public void getProgressScreen() {
         System.out.println("Here is your progress on the words in the current lesson");
         System.out.println("The lesson you are currently working on is " + user.currentLesson.getLessonName());

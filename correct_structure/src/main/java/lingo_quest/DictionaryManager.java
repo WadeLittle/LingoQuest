@@ -82,7 +82,13 @@ public class DictionaryManager {
      * Saves all managed dictionaries to a data file.
      */
     public void saveDictionary() {
-        DataWriter.writeDictionaries(dictionaries, DataWriter.getDictionaryFile());
+        ArrayList<Dictionary> saveList = new ArrayList();
+        for(Dictionary d : dictionaries) {
+            if(Users.getInstance().containsDictionary(d.getID()) || d.getID().equals(spanishDictionary)) {
+                saveList.add(d);
+            }
+        }
+        DataWriter.writeDictionaries(saveList, DataWriter.getDictionaryFile());
     }
 
     /**
