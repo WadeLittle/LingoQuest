@@ -39,7 +39,7 @@ public class VoiceList {
      * 
      * @param polly The initialized Polly client used to fetch voice information.
      */
-    private static void displayVoices(PollyClient polly) {
+    public static void displayVoices(PollyClient polly) {
         try {
             DescribeVoicesRequest describeVoiceRequest = DescribeVoicesRequest.builder()
                     .engine("standard")
