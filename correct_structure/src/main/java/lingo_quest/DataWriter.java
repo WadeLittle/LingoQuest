@@ -3,20 +3,23 @@ package lingo_quest;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory;
+import com.google.gson.JsonObject;
+
 
 class DataWriter {
     private String filePath;
     private ItemShop itemShop;
     private Users users;
     private LanguageManager languageManager;
-    public static String userFile = "/data/Users.json";
+    //public static String userFile = "/data/Users.json";
+    public static String userFile = "/data/usertest.json";
     public static String itemFile = "/data/ItemShop.json";
     public static String placementFile = "/data/PlacementTest.json";
     public static String wordFile = "/data/Word.json";
@@ -86,10 +89,23 @@ class DataWriter {
         root.put("users", usersArray);
 
         // write the whole user json file
-        try (FileWriter writer = new FileWriter(file)) {
+        /*try (FileWriter writer = new FileWriter(file)) {
             writer.write(root.toJSONString());
             writer.flush();
         } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+        // NEW VERSION OF WRITING SHOWN IN JUNIT VIDEO
+        try {
+            URI url = DataWriter.class.getResource(userFile).toURI();
+            FileWriter writer = new FileWriter(url.getPath());
+
+            writer.write(root.toJSONString());
+            writer.flush();
+            // close the writer
+            writer.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -140,17 +156,28 @@ class DataWriter {
     public static void writeWords(ArrayList<Word> words, String file) {
         JSONObject root = new JSONObject();
         JSONArray wordsArray = new JSONArray();
-
+        // turn all the words into json objects
         for (Word word : words) {
             wordsArray.add(serializeWord(word));
         }
 
         root.put("words", wordsArray);
 
-        try (FileWriter writer = new FileWriter(file)) {
+        /*try (FileWriter writer = new FileWriter(file)) {
             writer.write(root.toJSONString());
             writer.flush();
         } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+        try {
+            URI url = DataWriter.class.getResource(wordFile).toURI();
+            FileWriter writer = new FileWriter(url.getPath());
+
+            writer.write(root.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -193,21 +220,35 @@ class DataWriter {
     }
 
     public static void writeItems(ArrayList<Item> items, String file) {
+        JSONObject root = new JSONObject();
         JSONArray itemsArray = new JSONArray();
+        // turn each item into an object and add to jsonarray
         for (Item item : items) {
             JSONObject itemJson = new JSONObject();
             itemJson.put("name", item.getName());
             itemJson.put("description", item.getDescription());
             itemJson.put("price", item.getPrice());
             itemsArray.add(itemJson);
-
-            try (FileWriter writer = new FileWriter(file)) {
+        }
+        root.put("items",itemsArray);
+            /*try (FileWriter writer = new FileWriter(file)) {
                 writer.write(itemsArray.toJSONString());
                 writer.flush();
             } catch (IOException e) {
                 e.printStackTrace();
+            }*/
+
+            try {
+                URI url = DataWriter.class.getResource(itemFile).toURI();
+                FileWriter writer = new FileWriter(url.getPath());
+    
+                writer.write(root.toJSONString());
+                writer.flush();
+                writer.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
+        
     }
 
     public static void writeLanguages(ArrayList<Language> languages, String file) {
@@ -225,10 +266,21 @@ class DataWriter {
         root.put("languages", langArray);
 
         // write the whole user json file
-        try (FileWriter writer = new FileWriter(file)) {
+        /*try (FileWriter writer = new FileWriter(file)) {
             writer.write(root.toJSONString());
             writer.flush();
         } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+        try {
+            URI url = DataWriter.class.getResource(languageFile).toURI();
+            FileWriter writer = new FileWriter(url.getPath());
+
+            writer.write(root.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -307,10 +359,21 @@ class DataWriter {
         // put the array in root
         root.put("dictionaries", jsonDictionaries);
         // write to the file
-        try (FileWriter writer = new FileWriter(file)) {
+        /*try (FileWriter writer = new FileWriter(file)) {
             writer.write(root.toJSONString());
             writer.flush();
         } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+        try {
+            URI url = DataWriter.class.getResource(dictionaryFile).toURI();
+            FileWriter writer = new FileWriter(url.getPath());
+
+            writer.write(root.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

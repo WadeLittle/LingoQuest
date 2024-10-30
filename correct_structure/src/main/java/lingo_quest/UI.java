@@ -88,7 +88,7 @@ public class UI {
         lg.createUser("TTomacka", "Password1234");
 
         // make actual account
-        lg.createUser("TTT1313131313d", "PASSWORDPASSWORD333");
+        lg.createUser("TTT1313y1d31313d", "PASSWORDPASSWORD333");
 
         // set the language and pick a section
         // will be moved to work in the Facade instead of UI
@@ -99,7 +99,7 @@ public class UI {
         lg.pickALesson(UUID.fromString("a5d8b523-68e9-46c0-ba96-63a244127868"));
 
         // generate questions from the current lesson
-        for(int i =0; i< 5;i++) {
+        for(int i =0; i< 1;i++) {
             lg.getAQuestion();
             lg.answerQuestion(keyboard);
         }
@@ -127,6 +127,8 @@ public class UI {
 
         // tammy chooses to answer some questions on material she needs to review
         // load the material
+        lg.logout();
+        System.exit(0);
         lg.practiceLowUnderstanding();
 
         // generate questions
