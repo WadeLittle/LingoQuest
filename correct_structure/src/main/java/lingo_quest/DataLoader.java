@@ -1,8 +1,11 @@
 package lingo_quest;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,12 +19,12 @@ public class DataLoader {
     public final static ItemShop itemShop = ItemShop.getInstance();
     public final static Users userList = Users.getInstance();
     public final static LanguageManager languageManager = LanguageManager.getInstance();
-    public final static String userFile = "correct_structure/src/json/Users.json";
-    public final static String itemFile = "correct_structure/src/json/ItemShop.json";
-    public final static String placementFile = "correct_structure/src/json/PlacementTest.json";
-    public final static String wordFile = "correct_structure/src/json/Word.json";
-    public final static String dictionaryFile = "correct_structure/src/json/Dictionaries.json";
-    public final static String languageFile = "correct_structure/src/json/Languages2.json";
+    public final static String userFile = "/data/Users.json";
+    public final static String itemFile = "/data/ItemShop.json";
+    public final static String placementFile = "/data/PlacementTest.json";
+    public final static String wordFile = "/data/Word.json";
+    public final static String dictionaryFile = "/data/Dictionaries.json";
+    public final static String languageFile = "/data/Languages2.json";
 
     /**
      * @author cade
@@ -88,9 +91,21 @@ public class DataLoader {
         ArrayList<User> users = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
 
-        // Parse the JSON file
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+        // PORTIA SHOWS THIS WAY ON THE YOUTUBE VIDEO FOR JUNIT
+        InputStream inputStream = DataLoader.class.getResourceAsStream(userFile);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+        JSONObject jsonObject = (JSONObject) new JSONParser().parse(reader);
+        // get the array from the object
         JSONArray usersArray = (JSONArray) jsonObject.get("users");
+
+        // Parse the JSON file
+        //JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+
+        // COMMENTED THIS OUT IN ATTEMPT TO GET JUNIT WORKING
+        //JSONArray usersArray = (JSONArray) jsonObject.get("users");
+        //JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+
 
         // Iterate through each user object in the JSON array
         for (Object obj : usersArray) {
@@ -259,11 +274,18 @@ public class DataLoader {
             throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
         ArrayList<Item> items = new ArrayList<>();
-        JSONParser jsonParser = new JSONParser();
+        // JSONParser jsonParser = new JSONParser();
 
         // Parse the JSON file
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
-        JSONArray itemsArray = (JSONArray) jsonObject.get("items");
+        //JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+        //JSONArray itemsArray = (JSONArray) jsonObject.get("items");
+
+        InputStream inputStream = DataLoader.class.getResourceAsStream(itemFile);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+        JSONObject root = (JSONObject) new JSONParser().parse(reader);
+        JSONArray itemsArray = (JSONArray) root.get("items");
+        //JSONArray itemsArray = (JSONArray) new JSONParser().parse(reader);
 
         // Iterate through each user object in the JSON array
         for (Object obj : itemsArray) {
@@ -297,11 +319,17 @@ public class DataLoader {
             throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
         ArrayList<Word> words = new ArrayList<>();
-        JSONParser jsonParser = new JSONParser();
+        //JSONParser jsonParser = new JSONParser();
 
         // Parse the JSON file
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
-        JSONArray wordsArray = (JSONArray) jsonObject.get("words");
+        //JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+        //JSONArray wordsArray = (JSONArray) jsonObject.get("words");
+
+        InputStream inputStream = DataLoader.class.getResourceAsStream(wordFile);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+        JSONArray wordsArray = (JSONArray) new JSONParser().parse(reader);
+
 
         // Iterate through each user object in the JSON array
         for (Object obj : wordsArray) {
@@ -338,8 +366,18 @@ public class DataLoader {
     public static ArrayList<Language> loadLanguages(String file) throws Exception {
         ArrayList<Language> languages = new ArrayList<Language>();
         JSONParser parser = new JSONParser();
-        JSONObject root = (JSONObject) parser.parse(new FileReader(file));
+        //JSONObject root = (JSONObject) parser.parse(new FileReader(file));
+        //JSONArray list = (JSONArray) root.get("languages");
+
+        // NEW WAY THAT SHOULD WORK WITH JUNIT
+        InputStream inputStream = DataLoader.class.getResourceAsStream(languageFile);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+        JSONObject root = (JSONObject) new JSONParser().parse(reader);
+        // get the array from the object
         JSONArray list = (JSONArray) root.get("languages");
+        //JSONArray list = (JSONArray) new JSONParser().parse(reader);
+
         for (Object key : list) {
             languages.add(parseLanguage((JSONObject) key));
         }
@@ -410,12 +448,20 @@ public class DataLoader {
 
     public static ArrayList<Dictionary> loadDictionaries(String file)
             throws FileNotFoundException, IOException, org.json.simple.parser.ParseException {
+        
         ArrayList<Dictionary> dictionaries = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();
 
         // Parse the JSON file
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
-        JSONArray dictionaryArray = (JSONArray) jsonObject.get("dictionaries");
+        //JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
+        //JSONArray dictionaryArray = (JSONArray) jsonObject.get("dictionaries");
+
+        // NEW WAY TO WORK WITH JUNIT
+        InputStream inputStream = DataLoader.class.getResourceAsStream(dictionaryFile);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+        JSONObject root = (JSONObject) new JSONParser().parse(reader);
+        JSONArray dictionaryArray = (JSONArray) root.get("dictionaries");
 
         for (Object o : dictionaryArray) {
             JSONObject obj = (JSONObject) o;
