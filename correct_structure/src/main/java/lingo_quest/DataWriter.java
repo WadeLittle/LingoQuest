@@ -16,12 +16,12 @@ class DataWriter {
     private ItemShop itemShop;
     private Users users;
     private LanguageManager languageManager;
-    public static String userFile = "correct_structure/src/json/Users.json";
-    public static String itemFile = "correct_structure/src/json/ItemShop.json";
-    public static String placementFile = "correct_structure/src/json/PlacementTest.json";
-    public static String wordFile = "correct_structure/src/json/Word.json";
-    public static String dictionaryFile = "correct_structure/src/json/Dictionaries.json";
-    public static String languageFile = "correct_structure/src/json/Languages2.json";
+    public static String userFile = "/data/Users.json";
+    public static String itemFile = "/data/ItemShop.json";
+    public static String placementFile = "/data/PlacementTest.json";
+    public static String wordFile = "/data/Word.json";
+    public static String dictionaryFile = "/data/Dictionaries.json";
+    public static String languageFile = "/data/Languages2.json";
 
     /**
      * @author cade
