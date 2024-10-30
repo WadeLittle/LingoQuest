@@ -3,7 +3,38 @@ Word Details:
 Word: Limonada (SPANISH)
 English Version: Lemonade
 Points: 0
+<<<<<<< HEAD
+Times Presented: 2
+Times Correct: 0
+User Understanding: 0.00%
+------------------------
+Word Details:
+------------------------
+Word: Refresco (SPANISH)
+English Version: Soda
+Points: 0
+Times Presented: 2
+Times Correct: 0
+User Understanding: 0.00%
+------------------------
+Word Details:
+------------------------
+Word: Cerveza (SPANISH)
+English Version: Beer
+Points: 0
+Times Presented: 1
+Times Correct: 0
+User Understanding: 0.00%
+------------------------
+Word Details:
+------------------------
+Word: Vino (SPANISH)
+English Version: Wine
+Points: 0
+Times Presented: 5
+=======
 Times Presented: 7
+>>>>>>> dfa5cc336e3adf10c77ef4940759100bc6f43c40
 Times Correct: 1
 User Understanding: 14.29%
 ------------------------
@@ -12,6 +43,18 @@ Word Details:
 Word: Sandía (SPANISH)
 English Version: Watermelon
 Points: 0
+<<<<<<< HEAD
+Times Presented: 3
+Times Correct: 0
+User Understanding: 0.00%
+------------------------
+Word Details:
+------------------------
+Word: Fresa (SPANISH)
+English Version: Strawberry
+Points: 0
+Times Presented: 1
+=======
 Times Presented: 10
 Times Correct: 1
 User Understanding: 10.00%
@@ -22,6 +65,7 @@ Word: Durazno (SPANISH)
 English Version: Peach
 Points: 0
 Times Presented: 9
+>>>>>>> dfa5cc336e3adf10c77ef4940759100bc6f43c40
 Times Correct: 0
 User Understanding: 0.00%
 ------------------------
