@@ -44,6 +44,7 @@ public class DictionaryManager {
     /**
      * Retrieves the UUID of the master Spanish dictionary.
      * @return UUID of the Spanish dictionary.
+     *  - I think we can remove this ~ cade
      */
     public UUID getSpanishDictionary() {
         return this.spanishDictionary;

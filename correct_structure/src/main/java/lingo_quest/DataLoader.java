@@ -181,7 +181,7 @@ public class DataLoader {
 
             users.add(user); // Add the fully created user to the list
         }
-
+        reader.close();
         return users;
     }
 
@@ -334,7 +334,7 @@ public class DataLoader {
             Item item = new Item(name, description, (int) price);
             items.add(item); // Add the fully created user to the list
         }
-
+        reader.close();
         return items;
     }
 
@@ -389,6 +389,7 @@ public class DataLoader {
 
             words.add(createdWord); // Add the fully created user to the list
         }
+        reader.close();
         return words;
     }
 
@@ -417,6 +418,7 @@ public class DataLoader {
         for (Object key : list) {
             languages.add(parseLanguage((JSONObject) key));
         }
+        reader.close();
         return languages;
     }
 
@@ -505,7 +507,7 @@ public class DataLoader {
             Dictionary d = parseDictionary(obj);
             dictionaries.add(d);
         }
-
+        reader.close();
         return dictionaries;
     }
 
