@@ -49,6 +49,10 @@ public class DictionaryManager {
         return this.spanishDictionary;
     }
 
+    public ArrayList<Dictionary> getDictionaries() {
+        return this.dictionaries;
+    }
+
     /**
      * @author cade
      * @param id

@@ -19,12 +19,20 @@ class DataWriter {
     private Users users;
     private LanguageManager languageManager;
     //public static String userFile = "/data/Users.json";
-    public static String userFile = "/data/usertest.json";
-    public static String itemFile = "/data/ItemShop.json";
-    public static String placementFile = "/data/PlacementTest.json";
-    public static String wordFile = "/data/Word.json";
-    public static String dictionaryFile = "/data/Dictionaries.json";
-    public static String languageFile = "/data/Languages2.json";
+    public static String userFileJunit = "/data/Users.json";
+    public static String userFile = "correct_structure/src/main/resources/data/Users.json";
+    public static String itemFileJunit = "/data/ItemShop.json";
+    public static String itemFile = "correct_structure/src/main/resources/data/ItemShop.json";
+    public static String placementFileJunit = "/data/PlacementTest.json";
+    public static String placementFile = "correct_structure/src/main/resources/data/PlacementTest.json";
+    public static String wordFileJunit = "/data/Word.json";
+    public static String wordFile = "correct_structure/src/main/resources/data/Word.json";
+    public static String dictionaryFileJunit = "/data/Dictionaries.json";
+    public static String dictionaryFile = "correct_structure/src/main/resources/data/Dictionaries.json";
+    public static String languageFileJunit = "/data/Languages2.json";
+    public static String languageFile = "correct_structure/src/main/resources/data/Languages2.json";
+    public static String studySheetFile = "correct_structure/studySheet/sheet.txt";
+    public static String studySheetFileJunit = "/studySheet/sheet.txt";
 
     /**
      * @author cade
@@ -32,6 +40,29 @@ class DataWriter {
      */
     public static String getUserFile() {
         return userFile;
+    }
+
+    private static String getFileWritingPath(String pathName, String junitPathName) {
+        try {
+            if(isJUnitTest()) {
+                URI url = DataWriter.class.getResource(junitPathName).toURI();
+                return url.getPath();
+            } else {
+                return pathName;
+            }
+        } catch (Exception e) {
+            System.out.println("Difficulty getting resource path");
+            return "";
+        }
+    }
+
+    public static boolean isJUnitTest() {
+        for(StackTraceElement element : Thread.currentThread().getStackTrace()) {
+            if(element.getClassName().startsWith("org.junit.")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -97,13 +128,24 @@ class DataWriter {
         }*/
 
         // NEW VERSION OF WRITING SHOWN IN JUNIT VIDEO
-        try {
+        /*try {
             URI url = DataWriter.class.getResource(userFile).toURI();
             FileWriter writer = new FileWriter(url.getPath());
 
             writer.write(root.toJSONString());
             writer.flush();
             // close the writer
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+        // VERSION 3
+        try {
+            String path = getFileWritingPath(userFile, userFileJunit);
+            FileWriter writer = new FileWriter(path);
+
+            writer.write(root.toJSONString());
+            writer.flush();
             writer.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -170,9 +212,22 @@ class DataWriter {
             e.printStackTrace();
         }*/
 
-        try {
+        /*try {
             URI url = DataWriter.class.getResource(wordFile).toURI();
             FileWriter writer = new FileWriter(url.getPath());
+
+            writer.write(root.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
+        // version 3
+
+        try {
+            String path = getFileWritingPath(userFile, userFileJunit);
+            FileWriter writer = new FileWriter(path);
 
             writer.write(root.toJSONString());
             writer.flush();
@@ -238,9 +293,20 @@ class DataWriter {
                 e.printStackTrace();
             }*/
 
-            try {
+            /*try {
                 URI url = DataWriter.class.getResource(itemFile).toURI();
                 FileWriter writer = new FileWriter(url.getPath());
+    
+                writer.write(root.toJSONString());
+                writer.flush();
+                writer.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }*/
+
+            try {
+                String path = getFileWritingPath(userFile, userFileJunit);
+                FileWriter writer = new FileWriter(path);
     
                 writer.write(root.toJSONString());
                 writer.flush();
@@ -273,9 +339,19 @@ class DataWriter {
             e.printStackTrace();
         }*/
 
-        try {
+        /*try {
             URI url = DataWriter.class.getResource(languageFile).toURI();
             FileWriter writer = new FileWriter(url.getPath());
+
+            writer.write(root.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+        try {
+            String path = getFileWritingPath(userFile, userFileJunit);
+            FileWriter writer = new FileWriter(path);
 
             writer.write(root.toJSONString());
             writer.flush();
@@ -366,9 +442,19 @@ class DataWriter {
             e.printStackTrace();
         }*/
 
-        try {
+        /*try {
             URI url = DataWriter.class.getResource(dictionaryFile).toURI();
             FileWriter writer = new FileWriter(url.getPath());
+
+            writer.write(root.toJSONString());
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+        try {
+            String path = getFileWritingPath(userFile, userFileJunit);
+            FileWriter writer = new FileWriter(path);
 
             writer.write(root.toJSONString());
             writer.flush();
@@ -400,7 +486,7 @@ class DataWriter {
     }
 
     public static void writeStudySheet(ArrayList<Word> words) {
-        try {
+        /*try {
             FileWriter myWriter = new FileWriter("correct_structure/studySheet/sheet.txt");
             myWriter.write("");
             for(Word w : words) {
@@ -411,6 +497,21 @@ class DataWriter {
             }
             myWriter.close();
         } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+        try {
+            String path = getFileWritingPath(studySheetFile, studySheetFileJunit);
+            FileWriter writer = new FileWriter(path);
+            writer.write("");
+            for(Word w : words) {
+                if(w.getTimesPresented() > 0) {
+                    writer.append(w.toString());
+                    writer.append("\n");
+                }
+            }
+            writer.flush();
+            writer.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

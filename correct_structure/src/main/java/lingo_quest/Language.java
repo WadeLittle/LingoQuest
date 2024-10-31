@@ -346,7 +346,7 @@ public class Language {
      * Goes through to see available sections
      * Goes through each available section and adds each available lesson
      */
-    public ArrayList<Lesson> getAvailableLessons() {
+    /*public ArrayList<Lesson> getAvailableLessons() {
         ArrayList<Lesson> lessons = new ArrayList();
 
         for (Section sec : this.getAvailableSections()) {
@@ -354,7 +354,7 @@ public class Language {
                 lessons.add(lesson);
         }
         return lessons;
-    }
+    }*/
 
     /**
      * @author CADE STOCKER

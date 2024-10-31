@@ -88,7 +88,7 @@ public class UI {
         lg.createUser("TTomacka", "Password1234");
 
         // make actual account
-        lg.createUser("TTT1313y1d31313d", "PASSWORDPASSWORD333");
+        lg.createUser("TTT131j3yk1d31313d", "PASSWORDPASSWORD333");
 
         // set the language and pick a section
         // will be moved to work in the Facade instead of UI
