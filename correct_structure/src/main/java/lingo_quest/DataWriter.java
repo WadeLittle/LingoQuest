@@ -361,6 +361,11 @@ class DataWriter {
         }
     }
 
+    /**
+     * @author cade
+     * @param language to be serialized
+     * @return json object of the language
+     */
     public static JSONObject serializeLanguage(Language l) {
         JSONObject root = new JSONObject();
         root.put("userID", l.getUserID().toString());
@@ -389,9 +394,9 @@ class DataWriter {
     }
 
     /**
-     * @author
-     * @param s
-     * @return
+     * @author cade
+     * @param section
+     * @return object version of the section
      */
     public static JSONObject serializeSection(Section s) {
         JSONObject root = new JSONObject();
@@ -485,6 +490,10 @@ class DataWriter {
         return root;
     }
 
+    /**
+     * @author cade
+     * @param words
+     */
     public static void writeStudySheet(ArrayList<Word> words) {
         /*try {
             FileWriter myWriter = new FileWriter("correct_structure/studySheet/sheet.txt");
@@ -506,6 +515,7 @@ class DataWriter {
             for(Word w : words) {
                 if(w.getTimesPresented() > 0) {
                     writer.append(w.toString());
+                    // go to next line for readability
                     writer.append("\n");
                 }
             }
