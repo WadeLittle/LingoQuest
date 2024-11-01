@@ -21,6 +21,12 @@ public class ItemShop {
         items = new ArrayList<Item>();
     }
 
+    public void addItem(Item i) {
+        if(i != null && items.contains(i) == false) {
+            items.add(i);
+        }
+    }
+
     /**
      * @author Cade Stocker
      * @return the instance of itemShop
