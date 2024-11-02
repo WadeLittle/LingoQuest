@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class FillInTheBlank extends Question {
     private String language;
-    private Word correctAnswer;
+    Word correctAnswer;
     private int coinValue;
     private int pointValue;
     public String userAnswer;
@@ -21,10 +21,40 @@ public class FillInTheBlank extends Question {
      */
     public FillInTheBlank(String language, Word correctAnswer) {
         super(language);
-        this.language = language;
+        this.setLanguage(language);
         this.correctAnswer = correctAnswer;
-        coinValue = 100;  // Default coin value for correct answers.
-        pointValue = 100; // Default point value for correct answers.
+        setCoinValue(100);  // Default coin value for correct answers.
+        setPointValue(100); // Default point value for correct answers.
+    }
+
+    public String getLanguage() {
+        return language;
+        
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+        
+    }
+
+    public int getPointValue() {
+        return pointValue;
+        
+    }
+
+    public void setPointValue(int pointValue) {
+        this.pointValue = pointValue;
+        
+    }
+
+    public int getCoinValue() {
+        return coinValue;
+        
+    }
+
+    public void setCoinValue(int coinValue) {
+        this.coinValue = coinValue;
+        
     }
 
     /**
