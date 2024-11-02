@@ -73,6 +73,15 @@ public class Users {
     }
 
     /**
+     * @author cade
+     * @param user that will be added if not already in list
+     */
+    public void addUser(User u) {
+        if(u != null && users.contains(u) == false) {
+            users.add(u);
+        }
+    }
+    /**
      * @author Wade Little
      * Searches through the userlist for the specified UUID
      * @param userId the userid you are looking for
