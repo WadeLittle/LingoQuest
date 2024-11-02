@@ -41,7 +41,7 @@ public class MultipleChoice extends Question {
      * @return The index (1-based) of the correct answer within the answer choices.
      */
 
-    private int getCorrectAnswerIndexPlusOne() {
+    public int getCorrectAnswerIndexPlusOne() {
         for (int i = 0; i < answerChoices.size(); i++) {
             if (answerChoices.get(i).wordUUID.equals(correctAnswer.wordUUID)) {
                 return i + 1;
