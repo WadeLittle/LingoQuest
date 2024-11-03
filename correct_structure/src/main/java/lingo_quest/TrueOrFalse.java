@@ -7,8 +7,8 @@ import java.util.Random;
  */
 public class TrueOrFalse extends Question {
     private String language;        // The language of the question.
-    private Word displayedWord;     // The word displayed in the question.
-    private String answer;          // The correct answer ("true" or "false").
+    public Word displayedWord;     // The word displayed in the question.
+    public String answer;          // The correct answer ("true" or "false").
     private Word correctWord;       // The word that is actually correct.
     private int coinValue = 100;    // The coin value awarded for a correct answer.
     private int pointValue = 100;   // The point value awarded for a correct answer.
