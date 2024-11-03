@@ -139,7 +139,7 @@ public class DataLoader {
         //JSONArray usersArray = (JSONArray) jsonObject.get("users");
         //JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
 
-
+        if(usersArray != null) {
         // Iterate through each user object in the JSON array
         for (Object obj : usersArray) {
             JSONObject userJson = (JSONObject) obj;
@@ -183,6 +183,8 @@ public class DataLoader {
         }
         reader.close();
         return users;
+        }
+        return null;
     }
 
     /**

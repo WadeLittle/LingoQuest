@@ -152,6 +152,8 @@ public class Users {
     public void loadUsers() {
         if (this.users != null)
             try {
+                if(DataLoader.loadUsers(DataLoader.getUserFile()) == null)
+                    return;
                 this.users = DataLoader.loadUsers(DataLoader.getUserFile());
                 for (User u : this.users) {
                     // the user's dicionary has been loaded into dictionaryManager already, but this
