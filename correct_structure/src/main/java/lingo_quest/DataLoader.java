@@ -363,8 +363,8 @@ public class DataLoader {
         //InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         //BufferedReader reader = new BufferedReader(inputStreamReader);
         BufferedReader reader = getReaderFromFile(wordFile, wordFileJunit);
-        JSONArray wordsArray = (JSONArray) new JSONParser().parse(reader);
-
+        JSONObject object = (JSONObject) new JSONParser().parse(reader);
+        JSONArray wordsArray = (JSONArray) object.get("words");
 
         // Iterate through each user object in the JSON array
         for (Object obj : wordsArray) {
