@@ -39,7 +39,7 @@ public class QuestionCreator {
             return new FillInTheBlank(lesson.getLanguageName(), word);
         } else if (wordPoint == 100) {
             // Lower complexity word generates a MultipleChoice question.
-            return new MultipleChoiceTest(lesson.getLanguageName(), lesson.getWords(word, 4), word);
+            return new MultipleChoice(lesson.getLanguageName(), lesson.getWords(word, 4), word);
         } else if (wordPoint <= 0) {
             // No points or negative points generate a TrueOrFalse question.
             Word anotherWord;
