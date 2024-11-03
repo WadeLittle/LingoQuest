@@ -21,7 +21,6 @@ public class QuestionCreatorTest {
         mockLesson = mock(Lesson.class);
         mockWord = mock(Word.class);
         
-        // Mock a list of words for questions like Matching and MultipleChoice
         mockWordList = new ArrayList<>();
         mockWordList.add(mock(Word.class));
         mockWordList.add(mock(Word.class));
@@ -31,7 +30,6 @@ public class QuestionCreatorTest {
 
     @Test
     public void testCreateMatchingQuestion() {
-        // Word point value >= 300 should create a Matching question
         when(mockWord.getPoints()).thenReturn(300);
         when(mockLesson.getRandomWord()).thenReturn(mockWord);
         when(mockLesson.getLanguageName()).thenReturn("Spanish");
@@ -44,7 +42,6 @@ public class QuestionCreatorTest {
 
     @Test
     public void testCreateFillInTheBlankQuestion() {
-        // Word point value >= 200 but less than 300 should create a FillInTheBlank question
         when(mockWord.getPoints()).thenReturn(200);
         when(mockLesson.getRandomWord()).thenReturn(mockWord);
         when(mockLesson.getLanguageName()).thenReturn("Spanish");
@@ -56,7 +53,6 @@ public class QuestionCreatorTest {
 
     @Test
     public void testCreateMultipleChoiceQuestion() {
-        // Word point value == 100 should create a MultipleChoice question
         when(mockWord.getPoints()).thenReturn(100);
         when(mockLesson.getRandomWord()).thenReturn(mockWord);
         when(mockLesson.getLanguageName()).thenReturn("Spanish");
@@ -69,9 +65,8 @@ public class QuestionCreatorTest {
 
     @Test
     public void testCreateTrueOrFalseQuestion() {
-        // Word point value <= 0 should create a TrueOrFalse question
         when(mockWord.getPoints()).thenReturn(0);
-        when(mockLesson.getRandomWord()).thenReturn(mockWord).thenReturn(mockWordList.get(1));  // Ensure different second word
+        when(mockLesson.getRandomWord()).thenReturn(mockWord).thenReturn(mockWordList.get(1));  
         when(mockLesson.getLanguageName()).thenReturn("Spanish");
 
         Question question = questionCreator.createQuestion(mockLesson);
@@ -81,7 +76,6 @@ public class QuestionCreatorTest {
 
     @Test
     public void testCreateQuestionWithNullWord() {
-        // When lesson provides null word, createQuestion should return null
         when(mockLesson.getRandomWord()).thenReturn(null);
 
         Question question = questionCreator.createQuestion(mockLesson);
@@ -91,8 +85,7 @@ public class QuestionCreatorTest {
 
     @Test
     public void testCreateQuestionWithInvalidPointValue() {
-        // If the word's point value does not match any defined threshold, an exception should be thrown
-        when(mockWord.getPoints()).thenReturn(50);  // Arbitrary value outside defined ranges
+        when(mockWord.getPoints()).thenReturn(50);  
         when(mockLesson.getRandomWord()).thenReturn(mockWord);
 
         assertThrows(IllegalArgumentException.class, () -> questionCreator.createQuestion(mockLesson), 
