@@ -18,6 +18,9 @@ import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+/**
+ * @author CADE
+ */
 public class DataWriterTest {
     DataWriter writer = new DataWriter();
     private Users users = Users.getInstance();

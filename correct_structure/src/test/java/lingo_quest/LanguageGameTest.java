@@ -12,6 +12,9 @@ import java.util.List;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+/**
+ * @author CADE
+ */
 public class LanguageGameTest {
     // create user
     @Test

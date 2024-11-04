@@ -15,6 +15,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * @author CADE
+ */
 public class DictionaryManagerTest {
     private DictionaryManager dictionaryManager = DictionaryManager.getInstance();
     private Dictionary testDictionary = new Dictionary();
