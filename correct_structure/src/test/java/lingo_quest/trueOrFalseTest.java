@@ -12,7 +12,7 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TrueOrFalseTest {
+public class trueOrFalseTest {
     private TrueOrFalse question;
     private Word correctWord;
     private Word incorrectWord;
