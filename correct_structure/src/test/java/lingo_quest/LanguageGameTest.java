@@ -44,7 +44,7 @@ public class LanguageGameTest {
     public void testCreateUserDefaultLanguageSetToSpanish() throws Exception {
         LanguageGame game = createInitializedGame();
         game.createUser("newUser1111", "password123");
-        
+
         assertEquals(Languages.SPANISH, game.getUser().getCurrentLanguage().getLanguageName());
     }
 
@@ -56,6 +56,7 @@ public class LanguageGameTest {
     }
 
     // practice low understanding
+    // BUG WHERE CREATED USER HAS NULL CURRENT LANGUAGE
     @Test
     public void testPracticeLowUnderstandingSetsLesson() throws Exception {
         LanguageGame game = createInitializedGame();
