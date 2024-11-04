@@ -13,6 +13,9 @@ import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+/**
+ * @author CADE
+ */
 public class UserTest {
     private User defaultUser = new User();
     private User parameterizedUser = new User();

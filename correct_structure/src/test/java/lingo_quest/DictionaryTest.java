@@ -14,6 +14,9 @@ import org.junit.internal.matchers.Each;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+/**
+ * @author CADE
+ */
 public class DictionaryTest {
     private Dictionary dictionary = new Dictionary();
     private ArrayList<Word> testWords = new ArrayList();

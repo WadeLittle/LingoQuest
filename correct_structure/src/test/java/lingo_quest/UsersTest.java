@@ -6,6 +6,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * @author CADE
+ */
 public class UsersTest {
 
     private Users usersInstance;
