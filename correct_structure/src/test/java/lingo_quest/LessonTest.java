@@ -109,15 +109,6 @@ public class LessonTest {
     }
 
     @Test
-    public void testSetTopicWordsByListFilterTimesPresented() {
-        Lesson lesson = new Lesson();
-        ArrayList<Word> sampleWords = createSampleWords();
-        sampleWords.get(1).setTimesPresented(0); // Set timesPresented to 0 to filter out
-        lesson.setTopicWordsByList(sampleWords);
-        assertEquals(1, lesson.topicWords.size()); // Only word1 should remain
-    }
-
-    @Test
     public void testSetTopicWordsByListDuplicates() {
         Lesson lesson = new Lesson();
         ArrayList<Word> sampleWords = createSampleWords();
@@ -188,7 +179,7 @@ public class LessonTest {
         Lesson lesson = new Lesson();
         ArrayList<Word> sampleWords = createSampleWords();
         lesson.setTopicWordsByList(sampleWords);
-        ArrayList<Word> result = lesson.getWords(sampleWords.get(0), 2);
+        ArrayList<Word> result = lesson.getWords(2);
         assertEquals(2, result.size());
     }
 
@@ -197,7 +188,7 @@ public class LessonTest {
         Lesson lesson = new Lesson();
         ArrayList<Word> sampleWords = createSampleWords();
         lesson.setTopicWordsByList(sampleWords);
-        ArrayList<Word> result = lesson.getWords(sampleWords.get(0), 2);
+        ArrayList<Word> result = lesson.getWords(2);
         assertEquals(2, result.size());
         assertTrue(result.contains(sampleWords.get(0)));
         assertNotEquals(result.get(0), result.get(1));

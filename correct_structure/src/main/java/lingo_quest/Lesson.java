@@ -51,6 +51,7 @@ public class Lesson {
                 fin.add(word);
             }
             this.topicWords = fin;
+            this.getTotalPoints();
         }
     }
     /**
@@ -72,7 +73,7 @@ public class Lesson {
 
         this.pointsEarned = 0;
         if (topicWords.size() > 0) {
-            setTotalPoints(topicWords.size() * 300);
+            this.getTotalPoints();
         }
         for (Word w : topicWords) {
             this.pointsEarned += w.getPoints();
@@ -114,6 +115,9 @@ public class Lesson {
     }
 
     public int getTotalPoints() {
+        if(this.topicWords != null && this.topicWords.isEmpty() == false) {
+            this.totalPoints = this.topicWords.size() * 100;
+        }
         return this.totalPoints;
     }
 
@@ -214,7 +218,7 @@ public class Lesson {
         return words;
     }*/
     // REWRITING THE ABOVE METHOD -CADE
-    public ArrayList<Word> getWords(int numOfWords) {
+    public ArrayList<Word> getWords(Word word, int numOfWords) {
         if(this.topicWords == null || this.topicWords.isEmpty()) {
             System.out.println("Attempting to get words when there are no words in the lesson");
             return null;
@@ -225,11 +229,13 @@ public class Lesson {
             return this.topicWords;
         }
         ArrayList<Word> words = new ArrayList<>();
+        if(word != null) {
+            words.add(word);
+        }
         Random randomNum = new Random();
         while(words.size() < numOfWords) {
-            int randomIndex = randomNum.nextInt(this.topicWords.size());
+            //int randomIndex = randomNum.nextInt(this.topicWords.size());
             Word w = this.getRandomWord();
-
             if(!words.contains(w)) {
                 words.add(w);
             }
