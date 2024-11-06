@@ -10,8 +10,11 @@ import java.util.Random;
  */
 public class Matching extends Question {
     String language;
-    ArrayList<Word> words;
-    int answerIndex;
+    //private HashMap<Word,Word> answerMap;
+    private ArrayList<Word> choices;
+    private ArrayList<Word> shuffledChoices;
+    private Word userAnswer;
+   
     /**
      * Constructs a Matching question with a specific language and a list of possible answer choices.
      * 
@@ -21,34 +24,35 @@ public class Matching extends Question {
 
     public Matching(String language, ArrayList<Word> answerChoices) {
         super(language);
-        this.words = answerChoices;
-        this.generateQuestion();
+        this.choices = answerChoices;
+        shuffledChoices = shuffle(answerChoices);
     }
-    /**
-     * Generates a random index to select the correct answer from the list of words, simulating the selection of a word to be matched.
-     */
-    void generateQuestion() {
-        Random r = new Random();
-        this.answerIndex = r.nextInt(words.size());
+   
+    private ArrayList<Word> shuffle(ArrayList<Word> answerChoices) {
+        shuffledChoices = new ArrayList<Word>();
+        for(Word w : answerChoices) {
+            shuffledChoices.add(w);
+        }
+        Collections.shuffle(shuffledChoices);
+        return shuffledChoices;
     }
-    /**
-     * Checks if the answer provided by the user is correct based on the index they selected.
-     * 
-     * @param i The index of the word chosen by the user, adjusted to be zero-based.
-     * @param user The user object to which the game progress is attributed.
-     * @return true if the selected word is the correct answer, false otherwise.
-     */
-    public boolean isCorrect(int i, User user) {
-       boolean isCorrect = answerIndex == (i-1);
-       if(isCorrect) {
-        user.getUserDictionary().getWordByUUID(words.get(answerIndex).getWordUUID()).wordPresented(true);
-        System.out.println("You are Correct");
-       } else {
-        user.getUserDictionary().getWordByUUID(words.get(answerIndex).getWordUUID()).wordPresented(false);
-        System.out.println("You are incorrect");
-       }
-       return isCorrect;
+
+
+    public void setUserAnswer(Word userAnswer) {
+        this.userAnswer = userAnswer;
     }
+
+    public boolean isMatchCorrect(Word aWord, User user) {
+        if(aWord.equals(userAnswer)) {
+            user.getUserDictionary().getWordByUUID(aWord.getWordUUID()).wordPresented(true);
+            return true;
+        } else {
+            user.getUserDictionary().getWordByUUID(aWord.getWordUUID()).wordPresented(false);
+            return false;
+        }
+    }
+
+   
     /**
      * Provides a formatted string representing the question and its choices.
      * 
@@ -75,19 +79,5 @@ public class Matching extends Question {
      * @param user The user object to which the game progress is attributed.
      * @return Always returns true in the current implementation.
      */
-    @Override
-    public boolean isCorrect(User user) {
-        /*try {
-            int userAnswerIndex = Integer.parseInt(userAnswer.trim());
-            boolean isCorrect = (userAnswerIndex == correctAnswerIndex);
-
-            user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(isCorrect);
-            return isCorrect;
-        } catch (NumberFormatException e) {
-            // Handle invalid user input
-            user.getUserDictionary().getWordByUUID(correctAnswer.getWordUUID()).wordPresented(false);
-            return false;
-        }*/
-        return true;
-    }
+   
 }

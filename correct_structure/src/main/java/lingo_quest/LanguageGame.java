@@ -233,7 +233,7 @@ class LanguageGame {
      */
     public void setCurrentLanguage(Language language) {
         this.currentLanguage = language;
-        languageManager.setCurrentLangauge(language);
+        languageManager.setCurrentLanguage(language);
     }
 
     /**
