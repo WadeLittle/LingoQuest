@@ -177,6 +177,11 @@ class LanguageGame {
         // ERROR HAPPENING HERE WHEN A USER DOESNT HAVE ENOUGH LOW-UNDERSTANDING WORDS
         // CREATES AN INFINITE LOOP TODO
         Lesson practice = new Lesson();
+        
+        if(this.user.getCurrentLanguage() == null) {
+            System.out.println("User's current language is null in practiceLowUnderstanding in LanguageGame");
+            return;
+        }
         practice.setLanguageID(this.user.getCurrentLanguage().getLanguageID());
         practice.setTopicWordsByList(this.user.getUserDictionary().getWordsByUnderstanding(70.0));
         user.currentLesson = practice;
