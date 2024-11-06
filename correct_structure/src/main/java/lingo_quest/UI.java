@@ -21,7 +21,6 @@ public class UI {
         lg.login(username, password);
         if (lg.getUser() != null)
             lg.getUser().setCoinsEarned(40);
-
     }
     /**
      * Handles user logout.
