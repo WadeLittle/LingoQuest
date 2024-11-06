@@ -534,4 +534,9 @@ public class User {
             this.languages.add(id);
     }
 
+    public ArrayList<Item> getInventory() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getInventory'");
+    }
+
 }

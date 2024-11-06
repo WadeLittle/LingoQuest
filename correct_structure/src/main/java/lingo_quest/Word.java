@@ -1,6 +1,7 @@
 package lingo_quest;
 
 import java.util.UUID;
+import java.util.function.BooleanSupplier;
 
 /**
  * The {@code Word} class represents a word and tracks how many times it has
@@ -265,5 +266,10 @@ public class Word {
 
     public void setLanguage(Languages language) {
         this.language = language;
+    }
+
+    public BooleanSupplier isWordPresented() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isWordPresented'");
     }
 }
