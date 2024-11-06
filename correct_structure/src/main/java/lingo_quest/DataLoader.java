@@ -46,11 +46,23 @@ public class DataLoader {
             if(isJUnitTest()) {
                 InputStream inputStream = DataLoader.class.getResourceAsStream(jsonFileName);
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                return new BufferedReader(inputStreamReader);
+                BufferedReader ret = new BufferedReader(inputStreamReader);
+                if(ret == null) {
+                    System.out.println("Invalid file");
+                    return null;
+                }
+                return ret;
+                //return new BufferedReader(inputStreamReader);
             }
             else {
                 FileReader reader = new FileReader(fileName);
-                return new BufferedReader(reader);
+                BufferedReader ret = new BufferedReader(reader);
+                if(ret == null) {
+                    System.out.println("Invalid file");
+                    return null;
+                }
+                return ret;
+                //return new BufferedReader(reader);
             }
         } catch(Exception e) {
             System.out.println("Can't load");
@@ -117,7 +129,7 @@ public class DataLoader {
      * REFACTORED VERSION OF COMMENTED
      * CODE ABOVE
      */
-    public static ArrayList<User> loadUsers(String file)
+    public static ArrayList<User> loadUsers()
             throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
         ArrayList<User> users = new ArrayList<>();
