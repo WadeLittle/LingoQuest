@@ -66,7 +66,7 @@ public class TrueOrFalseTest {
         question.setUserAnswer(question.answer); // Set user's answer to match the correct answer
 
         boolean result = question.isCorrect(user);
-        assertTrue(result);
+        assertTrue("The user's answer should be correct when it matches the expected answer.", result);
       
     }
 
