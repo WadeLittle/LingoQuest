@@ -18,6 +18,9 @@ import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+/**
+ * @author CADE
+ */
 public class DataWriterTest {
     DataWriter writer = new DataWriter();
     private Users users = Users.getInstance();
@@ -69,11 +72,11 @@ public class DataWriterTest {
     }
 
     @Test
-    void testWriteUsersHandlesSpecialCharactersInUsername() {
+    public void testWriteUsersHandlesSpecialCharactersInUsername() {
         User specialCharUser = new User("usérñåme", "specialPass456");
         specialCharUser.addCoins(50);
-        users.createUser("usérñåme", "specialPass456");
-        assertDoesNotThrow(() -> DataWriter.writeUsers(users, DataWriter.getUserFile()));
+        users.addUser(specialCharUser);
+        assertDoesNotThrow(() -> DataWriter.writeUsers(users.getUsers(), DataWriter.getUserFile()));
     }
 
 
@@ -92,11 +95,17 @@ public class DataWriterTest {
     // writewords
     @Test
     public void testWriteWordsNonNull() {
+        words = new ArrayList<Word>();
+        word = new Word(Languages.SPANISH, "perro", "dog", UUID.randomUUID(), UUID.randomUUID());
+        words.add(word);
         assertDoesNotThrow(() -> DataWriter.writeWords(words, DataWriter.getWordFile()));
     }
 
     @Test
     public void testWriteWordsCreatesValidJSON() {
+        words = new ArrayList<Word>();
+        word = new Word(Languages.SPANISH, "perro", "dog", UUID.randomUUID(), UUID.randomUUID());
+        words.add(word);
         DataWriter.writeWords(words, DataWriter.getWordFile());
         assertEquals("perro", words.get(0).getWordinLanguage());
     }
@@ -109,11 +118,17 @@ public class DataWriterTest {
 
     @Test
     public void testWriteWordsInvalidFilePath() {
+        words = new ArrayList<Word>();
+        word = new Word(Languages.SPANISH, "perro", "dog", UUID.randomUUID(), UUID.randomUUID());
+        words.add(word);
         assertDoesNotThrow(() -> DataWriter.writeWords(words, "invalid/path.json"));
     }
 
     @Test
     public void testSerializeWordContainsLanguage() throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
+        words = new ArrayList<Word>();
+        word = new Word(Languages.SPANISH, "perro", "dog", UUID.randomUUID(), UUID.randomUUID());
+        words.add(word);
         DataWriter.writeWords(words, DataWriter.getWordFile());
         ArrayList<Word> wordList = DataLoader.loadWords(DataLoader.getWordFile());
         assertEquals(wordList.get(0).getLanguage(), Languages.SPANISH);
@@ -122,6 +137,9 @@ public class DataWriterTest {
     // writeItems
     @Test
     public void testWriteItemsCreatesValidJSON() {
+        items = new ArrayList<>();
+        item = new Item("Sword", "A sharp weapon", 150);
+        items.add(item);
         DataWriter.writeItems(items, DataWriter.getItemFile());
         JSONObject serializedItem = new JSONObject();
         serializedItem.put("name", item.getName());
@@ -143,6 +161,9 @@ public class DataWriterTest {
 
     @Test
     public void testWriteItemsContainsPrice() {
+        items = new ArrayList<>();
+        item = new Item("Sword", "A sharp weapon", 150);
+        items.add(item);
         JSONObject jsonItem = new JSONObject();
         jsonItem.put("price", item.getPrice());
         assertEquals(150, jsonItem.get("price"));

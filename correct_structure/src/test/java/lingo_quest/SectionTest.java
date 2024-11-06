@@ -11,6 +11,9 @@ import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+/**
+ * @author CADE
+ */
 public class SectionTest {
     private Section section = new Section();
     private ArrayList<Lesson> lessons;

@@ -46,11 +46,23 @@ public class DataLoader {
             if(isJUnitTest()) {
                 InputStream inputStream = DataLoader.class.getResourceAsStream(jsonFileName);
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                return new BufferedReader(inputStreamReader);
+                BufferedReader ret = new BufferedReader(inputStreamReader);
+                if(ret == null) {
+                    System.out.println("Invalid file");
+                    return null;
+                }
+                return ret;
+                //return new BufferedReader(inputStreamReader);
             }
             else {
                 FileReader reader = new FileReader(fileName);
-                return new BufferedReader(reader);
+                BufferedReader ret = new BufferedReader(reader);
+                if(ret == null) {
+                    System.out.println("Invalid file");
+                    return null;
+                }
+                return ret;
+                //return new BufferedReader(reader);
             }
         } catch(Exception e) {
             System.out.println("Can't load");
@@ -139,7 +151,7 @@ public class DataLoader {
         //JSONArray usersArray = (JSONArray) jsonObject.get("users");
         //JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader(file));
 
-
+        if(usersArray != null) {
         // Iterate through each user object in the JSON array
         for (Object obj : usersArray) {
             JSONObject userJson = (JSONObject) obj;
@@ -183,6 +195,8 @@ public class DataLoader {
         }
         reader.close();
         return users;
+        }
+        return null;
     }
 
     /**
@@ -363,8 +377,8 @@ public class DataLoader {
         //InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         //BufferedReader reader = new BufferedReader(inputStreamReader);
         BufferedReader reader = getReaderFromFile(wordFile, wordFileJunit);
-        JSONArray wordsArray = (JSONArray) new JSONParser().parse(reader);
-
+        JSONObject object = (JSONObject) new JSONParser().parse(reader);
+        JSONArray wordsArray = (JSONArray) object.get("words");
 
         // Iterate through each user object in the JSON array
         for (Object obj : wordsArray) {
@@ -575,46 +589,62 @@ public class DataLoader {
     }
 
     public static Word makeWord(JSONObject obj) {
-        Languages language = mapLanguage((String) obj.get("language"));
-        String word = (String) obj.get("word");
-        String englishVersion = (String) obj.get("englishVersion");
-        UUID lessonID = UUID.fromString((String) obj.get("lessonUUID"));
+        // language
+    Languages language = mapLanguage((String) obj.get("language"));
+    if (language == null) {
+        language = Languages.SPANISH;
+    }
 
-        UUID wordID = UUID.fromString((String) obj.get("wordUUID"));
+    // word
+    String word = (String) obj.get("word");
+    if (word == null) {
+        word = null;
+    }
 
-        int timesPresented;
-        if (obj.get("timesPresented") == null) {
-            timesPresented = 0;
-        } else {
-            timesPresented = ((Long) obj.get("timesPresented")).intValue();
-        }
+    // Check englishVersion
+    String englishVersion = (String) obj.get("englishVersion");
+    if (englishVersion == null) {
+        englishVersion = null;
+    }
 
-        int points;
-        if (obj.get("points") == null) {
-            points = 0;
-        } else {
-            points = ((Long) obj.get("points")).intValue();
-        }
+    // lessonUUID
+    UUID lessonID;
+    if (obj.get("lessonUUID") != null) {
+        lessonID = UUID.fromString((String) obj.get("lessonUUID"));
+    } else {
+        lessonID = UUID.randomUUID(); // Default value if needed
+    }
 
-        int timesCorrect;
-        if (obj.get("timesCorrect") == null) {
-            timesCorrect = 0;
-        } else {
-            timesCorrect = ((Long) obj.get("timesCorrect")).intValue();
-        }
+    //  wordUUID
+    UUID wordID;
+    if (obj.get("wordUUID") != null) {
+        wordID = UUID.fromString((String) obj.get("wordUUID"));
+    } else {
+        wordID = UUID.randomUUID(); // Default value if needed
+    }
 
-        double userUnderstanding;
-        if (obj.get("userUnderstanding") == null) {
-            userUnderstanding = 0;
-        } else {
-            userUnderstanding = (double) obj.get("userUnderstanding");
-        }
+    // timesPresented
+    int timesPresented = obj.get("timesPresented") != null ? ((Long) obj.get("timesPresented")).intValue() : 0;
 
-        Word w = new Word(language, word, englishVersion, lessonID, wordID);
-        w.setTimesCorrect(timesCorrect);
-        w.setPoints(points);
-        w.setTimesPresented(timesPresented);
-        w.setUserUnderstanding(userUnderstanding);
-        return w;
+    // points
+    int points = obj.get("points") != null ? ((Long) obj.get("points")).intValue() : 0;
+
+    // timesCorrect
+    int timesCorrect = obj.get("timesCorrect") != null ? ((Long) obj.get("timesCorrect")).intValue() : 0;
+
+    // userUnderstanding
+    double userUnderstanding = obj.get("userUnderstanding") != null ? (double) obj.get("userUnderstanding") : 0.0;
+
+    // make the word
+    Word w = new Word(language, word, englishVersion, lessonID, wordID);
+    w.setTimesCorrect(timesCorrect);
+    w.setPoints(points);
+    w.setTimesPresented(timesPresented);
+    w.setUserUnderstanding(userUnderstanding);
+
+    if(w == null) {
+        return null;
+    }
+    return w;
     }
 }

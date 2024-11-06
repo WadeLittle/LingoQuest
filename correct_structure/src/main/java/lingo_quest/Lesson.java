@@ -40,15 +40,15 @@ public class Lesson {
     }
     /**
      * Sets the topic words for the lesson from a specified list, filtering out words presented more than once.
-     * 
+     * HOW SHOULD I HANDLE AMOUNT OF TIMES PRESENTED? NEEDS TO BE > 0 WHEN MAKING PRACTICELOWUNDERSTANDING
      * @param w List of words to be set as topic words.
      */
     public void setTopicWordsByList(ArrayList<Word> w) {
         ArrayList<Word> fin = new ArrayList();
         if(w != null) {
             for(Word word : w) {
-                if(word.getTimesPresented() > 0)
-                    fin.add(word);
+                //if(word.getTimesPresented() >= 0)
+                fin.add(word);
             }
             this.topicWords = fin;
         }
@@ -59,6 +59,17 @@ public class Lesson {
      */
     public void updateProgress() {
         // set to 0 before running the sum
+
+        // tests to prevent errors
+        if(this.totalPoints <= 0) {
+            System.out.println("Cannot update progress in lesson when total points <= 0");
+            return;
+        }
+        if(this.topicWords.isEmpty() || this.topicWords == null) {
+            System.out.println("Cannot update progress when there are no words in lesson");
+            return;
+        }
+
         this.pointsEarned = 0;
         if (topicWords.size() > 0) {
             setTotalPoints(topicWords.size() * 300);
@@ -178,12 +189,16 @@ public class Lesson {
     }
 
     public Word getRandomWord() {
+        if(this.topicWords.isEmpty() || this.topicWords == null) {
+            System.out.println("Cannot get random word from empty list");
+            return null;
+        }
         Random randomNum = new Random();
         int randomIndex = randomNum.nextInt(this.topicWords.size());
         return this.topicWords.get(randomIndex);
     }
 
-    public ArrayList<Word> getWords(Word word, int numOfWords) {
+    /*public ArrayList<Word> getWords(Word word, int numOfWords) {
         ArrayList<Word> words = new ArrayList<>();
         words.add(word);
 
@@ -194,6 +209,29 @@ public class Lesson {
 
             if (!words.contains(aWord)) {
                 words.add(aWord);
+            }
+        }
+        return words;
+    }*/
+    // REWRITING THE ABOVE METHOD -CADE
+    public ArrayList<Word> getWords(int numOfWords) {
+        if(this.topicWords == null || this.topicWords.isEmpty()) {
+            System.out.println("Attempting to get words when there are no words in the lesson");
+            return null;
+        }
+        // make sure you're getting a valid amount of words
+        if(numOfWords > this.topicWords.size()) {
+            System.out.println("You're requesting to get more words than the lesson has. Returning lesson's entirewords");
+            return this.topicWords;
+        }
+        ArrayList<Word> words = new ArrayList<>();
+        Random randomNum = new Random();
+        while(words.size() < numOfWords) {
+            int randomIndex = randomNum.nextInt(this.topicWords.size());
+            Word w = this.getRandomWord();
+
+            if(!words.contains(w)) {
+                words.add(w);
             }
         }
         return words;

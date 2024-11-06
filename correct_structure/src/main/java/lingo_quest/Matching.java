@@ -27,7 +27,7 @@ public class Matching extends Question {
     /**
      * Generates a random index to select the correct answer from the list of words, simulating the selection of a word to be matched.
      */
-    private void generateQuestion() {
+    void generateQuestion() {
         Random r = new Random();
         this.answerIndex = r.nextInt(words.size());
     }

@@ -39,7 +39,7 @@ public class LanguageManager {
      * @param language The Language object to set as the current language.
      */
     // THIS PROBABLY ISN'T RIGHT AND SHOULD BE FIXED
-    public void setCurrentLangauge(Language language) {
+    public void setCurrentLanguage(Language language) {
         this.currentLanguage = getLanguageByID(language.getLanguageID());
     }
     /**

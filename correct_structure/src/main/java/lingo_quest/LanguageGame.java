@@ -19,6 +19,7 @@ class LanguageGame {
     private LeaderBoard leaderboard;
     private Word userAnswer;
     private QuestionCreator questionCreator;
+
     /**
      * Initializes the game, setting up necessary components and loading all necessary data.
      * Outputs an initial message to the terminal.
@@ -36,6 +37,81 @@ class LanguageGame {
         this.questionCreator = new QuestionCreator();
         this.loadAll();
     }
+
+    /**
+     * @author cade
+     * @return users singleton
+     */
+    public Users getUsers() {
+        return this.userList;
+    }
+
+    public void setUsers(Users u) {
+        if(u != null) {
+            this.userList = u;
+        }
+    }
+
+    /**
+     * @author cade
+     * @return the dictionary singleton
+     */
+    public DictionaryManager getDictionaryManager() {
+        return this.dictionaryMan;
+    }
+
+    /**
+     * @author cade
+     * @param dm (dictionarymanager to be assigned)
+     */
+    public void setDictionaryManager(DictionaryManager dm) {
+        if(dm != null) {
+            this.dictionaryMan = dm;
+        }
+    }
+
+    /**
+     * @author cade
+     * @return item singleton
+     */
+    public ItemShop getItemShop() {
+        return this.itemShop;
+    }
+
+    /**
+     * @author cade
+     * @param iS (item shop to be assigned)
+     */
+    public void setItemShop(ItemShop iS) {
+        if(iS != null) {
+            this.itemShop = iS;
+        }
+    }
+
+    /**
+     * @author cade
+     * @return question creator
+     */
+    public QuestionCreator getQuestionCreator() {
+        return this.questionCreator;
+    }
+
+    /**
+     * @author cade
+     * @param qC (question creator to be assigned)
+     */
+    public void setQuestionCreator(QuestionCreator qC) {
+        if(qC != null) {
+            this.questionCreator = qC;
+        }
+    }
+
+    public void setLanguageManager(LanguageManager lm) {
+        if(lm != null) {
+            this.languageManager = lm;
+        }
+    }
+
     /**
      * Creates a new user account, logs them in, and sets their initial language to Spanish.
      * If a user is already logged in or the username exists, it outputs an error.
@@ -56,9 +132,18 @@ class LanguageGame {
         this.user = createdUser;
         userList.createUser(username, password);
 
-        this.startLanguage(Languages.SPANISH);
+        //this.startLanguage(Languages.SPANISH);
+        // attempt to fix bug with practice low understanding
+        this.user.setCurrentLangauge(this.startLanguage(Languages.SPANISH));
 
         System.out.println("Successfully Created Account");
+    }
+
+    public void setUser(User u) {
+        if(u != null) {
+            this.logout();
+            this.user = u;
+        }
     }
     
     /**
@@ -73,11 +158,13 @@ class LanguageGame {
 
 
         // load object the user needs by their UUIDs
+        if(userList != null && userList.getUsers().isEmpty() == false) {
         for (User u : userList.getUsers()) {
             // use the UUID's to access the language from languagemanager
             u.setCurrentLanguage(languageManager.getLanguageByID(u.getCurrentLanguageID()));
             // figure out how to expand this for when we have multiple dictionaries - cade
             u.setUserDictionary(dictionaryMan.getDictionaryByID(u.getUserDictionaryID()));
+        }
         }
 
     }
