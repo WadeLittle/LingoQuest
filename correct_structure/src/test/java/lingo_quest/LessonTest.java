@@ -176,7 +176,7 @@ public class LessonTest {
         Lesson lesson = new Lesson();
         ArrayList<Word> largeWordList = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            largeWordList.add(new Word(Languages.SPANISH, "word" + i, "word" + i, UUID.randomUUID(), UUID.randomUUID()));
+            largeWordList.add(new Word(Languages.SPANISH, "word" + ((Integer)i).toString(i), "word" + ((Integer)i).toString(i), UUID.randomUUID(), UUID.randomUUID()));
         }
         lesson.setTopicWordsByList(largeWordList);
         assertNotNull(lesson.getRandomWord());

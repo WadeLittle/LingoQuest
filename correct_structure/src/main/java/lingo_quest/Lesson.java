@@ -40,15 +40,15 @@ public class Lesson {
     }
     /**
      * Sets the topic words for the lesson from a specified list, filtering out words presented more than once.
-     * 
+     * HOW SHOULD I HANDLE AMOUNT OF TIMES PRESENTED? NEEDS TO BE > 0 WHEN MAKING PRACTICELOWUNDERSTANDING
      * @param w List of words to be set as topic words.
      */
     public void setTopicWordsByList(ArrayList<Word> w) {
         ArrayList<Word> fin = new ArrayList();
         if(w != null) {
             for(Word word : w) {
-                if(word.getTimesPresented() > 0)
-                    fin.add(word);
+                //if(word.getTimesPresented() >= 0)
+                fin.add(word);
             }
             this.topicWords = fin;
         }
@@ -59,6 +59,17 @@ public class Lesson {
      */
     public void updateProgress() {
         // set to 0 before running the sum
+
+        // tests to prevent errors
+        if(this.totalPoints <= 0) {
+            System.out.println("Cannot update progress in lesson when total points <= 0");
+            return;
+        }
+        if(this.topicWords.isEmpty() || this.topicWords == null) {
+            System.out.println("Cannot update progress when there are no words in lesson");
+            return;
+        }
+
         this.pointsEarned = 0;
         if (topicWords.size() > 0) {
             setTotalPoints(topicWords.size() * 300);
@@ -178,6 +189,10 @@ public class Lesson {
     }
 
     public Word getRandomWord() {
+        if(this.topicWords.isEmpty() || this.topicWords == null) {
+            System.out.println("Cannot get random word from empty list");
+            return null;
+        }
         Random randomNum = new Random();
         int randomIndex = randomNum.nextInt(this.topicWords.size());
         return this.topicWords.get(randomIndex);
