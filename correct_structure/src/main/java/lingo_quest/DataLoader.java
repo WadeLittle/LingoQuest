@@ -129,7 +129,7 @@ public class DataLoader {
      * REFACTORED VERSION OF COMMENTED
      * CODE ABOVE
      */
-    public static ArrayList<User> loadUsers()
+    public static ArrayList<User> loadUsers(String file)
             throws FileNotFoundException, IOException, ParseException, org.json.simple.parser.ParseException {
 
         ArrayList<User> users = new ArrayList<>();
