@@ -198,7 +198,7 @@ public class Lesson {
         return this.topicWords.get(randomIndex);
     }
 
-    public ArrayList<Word> getWords(Word word, int numOfWords) {
+    /*public ArrayList<Word> getWords(Word word, int numOfWords) {
         ArrayList<Word> words = new ArrayList<>();
         words.add(word);
 
@@ -209,6 +209,29 @@ public class Lesson {
 
             if (!words.contains(aWord)) {
                 words.add(aWord);
+            }
+        }
+        return words;
+    }*/
+    // REWRITING THE ABOVE METHOD -CADE
+    public ArrayList<Word> getWords(int numOfWords) {
+        if(this.topicWords == null || this.topicWords.isEmpty()) {
+            System.out.println("Attempting to get words when there are no words in the lesson");
+            return null;
+        }
+        // make sure you're getting a valid amount of words
+        if(numOfWords > this.topicWords.size()) {
+            System.out.println("You're requesting to get more words than the lesson has. Returning lesson's entirewords");
+            return this.topicWords;
+        }
+        ArrayList<Word> words = new ArrayList<>();
+        Random randomNum = new Random();
+        while(words.size() < numOfWords) {
+            int randomIndex = randomNum.nextInt(this.topicWords.size());
+            Word w = this.getRandomWord();
+
+            if(!words.contains(w)) {
+                words.add(w);
             }
         }
         return words;

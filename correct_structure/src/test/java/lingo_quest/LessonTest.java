@@ -212,7 +212,7 @@ public class LessonTest {
         ArrayList<Word> singleWordList = new ArrayList<>();
         singleWordList.add(word1);
         lesson.setTopicWordsByList(singleWordList);
-        ArrayList<Word> result = lesson.getWords(word1, 2);
+        ArrayList<Word> result = lesson.getWords(2);
         assertEquals(1, result.size());  
     }
 
@@ -221,7 +221,7 @@ public class LessonTest {
         Lesson lesson = new Lesson();
         ArrayList<Word> sampleWords = createSampleWords();
         lesson.setTopicWordsByList(sampleWords);
-        ArrayList<Word> result = lesson.getWords(sampleWords.get(0), 2);
+        ArrayList<Word> result = lesson.getWords( 2);
         assertEquals(2, result.size());
         assertTrue(result.stream().distinct().count() == result.size()); 
     }
@@ -232,7 +232,7 @@ public class LessonTest {
         Lesson lesson = new Lesson();
         ArrayList<Word> sampleWords = createSampleWords();
         lesson.setTopicWordsByList(sampleWords);
-        ArrayList<Word> result = lesson.getWords(sampleWords.get(0), 5);
+        ArrayList<Word> result = lesson.getWords(5);
         assertEquals(2, result.size()); 
     }
 
