@@ -14,3 +14,5 @@ This project is a language learning platform that allows users to practice vario
 **Leaderboard and Social Features:** Users can compete on leaderboards and connect with friends to compare their progress.
 
 **Language Placement Test:** A placement test helps users start at the right level based on their current knowledge of the language.
+
+**Color Pallette:** #FAF9F9, #002642, #FABD00, #169873, #AD1519
