@@ -184,4 +184,11 @@ public class Users {
             System.out.println(u.toString());
         }
     }
+
+    public void sendFriendRequest(UUID sender, UUID receiver) {
+        if(sender != null && receiver != null &&
+         getUserByUUID(receiver) != null && getUserByUUID(sender) != null) {
+            
+        }
+    }
 }

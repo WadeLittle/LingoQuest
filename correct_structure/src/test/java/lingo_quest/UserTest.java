@@ -219,20 +219,28 @@ public class UserTest {
 
     @Test
     public void testBuyItemNonexistentItem() {
+        User defaultUser = new User();
         UUID randomID = UUID.randomUUID();
         assertFalse(defaultUser.buyItem(randomID));
     }
 
     @Test
     public void testBuyItemNullID() {
+        User defaultUser = new User();
         assertFalse(defaultUser.buyItem(null));
     }
 
     // search friends
     @Test
     public void testSearchFriendsExistingFriend() {
-        defaultUser.getFriendsList().add(testFriendID);
+        User testFriend = new User();
+        UUID testFriendID = testFriend.getUUID();
+        User defaultUser = new User();
+        Users.getInstance().addUser(testFriend);
+        Users.getInstance().addUser(defaultUser);
+        defaultUser.addFriend(testFriendID);
         assertNotNull(defaultUser.searchFriends(testFriendID));
+        Users.getInstance().getUsers().clear();
     }
 
     @Test
@@ -248,15 +256,190 @@ public class UserTest {
 
     @Test
     public void testSearchFriendsMultipleFriends() {
-        UUID friend2 = UUID.randomUUID();
-        defaultUser.getFriendsList().add(testFriendID);
-        defaultUser.getFriendsList().add(friend2);
-        assertNotNull(defaultUser.searchFriends(friend2));
+        User defaultUser = new User();
+        User friend2 = new User();
+        UUID friend2ID = friend2.getUUID();
+        User testFriend = new User();
+        UUID testFriendID = testFriend.getUUID();
+        Users.getInstance().addUser(defaultUser);
+        Users.getInstance().addUser(testFriend);
+        Users.getInstance().addUser(friend2);
+
+        defaultUser.addFriend(testFriendID);
+        defaultUser.addFriend(friend2ID);
+        assertNotNull(defaultUser.searchFriends(friend2ID));
+
+        Users.getInstance().getUsers().clear();
     }
 
     @Test
     public void testSearchFriendsEmptyFriendsList() {
         defaultUser.getFriendsList().clear();
         assertNull(defaultUser.searchFriends(testFriendID));
+    }
+
+    @Test
+    public void testSendFriendRequest_successful() {
+        User sender = new User("sender1111", "password1111");
+        User recipient = new User("recipient1111", "password1111");
+        Users.getInstance().addUser(recipient);
+        Users.getInstance().addUser(sender);
+        
+        sender.sendFriendRequest(recipient.getUUID());
+        
+        assertTrue(recipient.getFriendRequests().contains(sender.getUUID()), "Recipient should have sender in friend requests");
+    
+        Users.getInstance().getUsers().clear();
+    }
+    
+    @Test
+    public void testSendFriendRequest_alreadyFriends() {
+        User sender = new User("sender1111", "password1111");
+        User recipient = new User("recipient1111", "password1111");
+        Users.getInstance().addUser(recipient);
+        Users.getInstance().addUser(sender);
+        
+        sender.addFriend(recipient.getUUID());
+        sender.sendFriendRequest(recipient.getUUID());
+        
+        assertFalse(recipient.getFriendRequests().contains(sender.getUUID()), "Friend request should not be added if already friends");
+        Users.getInstance().getUsers().clear();
+    }
+    
+    @Test
+    public void testSendFriendRequest_alreadySentRequest() {
+        User sender = new User("sender1111", "password1111");
+        User recipient = new User("recipient1111", "password1111");
+        Users.getInstance().addUser(recipient);
+        Users.getInstance().addUser(sender);
+        
+        sender.sendFriendRequest(recipient.getUUID());
+        sender.sendFriendRequest(recipient.getUUID());
+        
+        assertEquals(1, recipient.getFriendRequests().size(), "Friend request should not duplicate if already sent");
+        Users.getInstance().getUsers().clear();
+    }
+    
+    @Test
+    public void testSendFriendRequest_selfRequest() {
+        User sender = new User("sender1111", "password1111");
+        
+        sender.sendFriendRequest(sender.getUUID());
+        
+        assertFalse(sender.getFriendRequests().contains(sender.getUUID()), "User should not be able to send a friend request to themselves");
+    }
+    
+    @Test
+    public void testSendFriendRequest_invalidUUID() {
+        User sender = new User("sender1111", "password1111");
+        
+        sender.sendFriendRequest(UUID.randomUUID()); // Send to a non-existent UUID
+        
+        // Assuming recipient user does not exist, no friend request should be made.
+        assertTrue(sender.getFriendRequests().isEmpty(), "Friend request should not be added for an invalid UUID");
+    }
+    
+    @Test
+    public void testAcceptFriendRequest_successful() {
+        User sender = new User("sender1111", "password1111");
+        User recipient = new User("recipient1111", "password1111");
+        Users.getInstance().addUser(recipient);
+        Users.getInstance().addUser(sender);
+        
+        sender.sendFriendRequest(recipient.getUUID());
+        recipient.acceptFriendRequest(sender.getUUID());
+        
+        assertTrue(recipient.getFriendsList().contains(sender.getUUID()), "Recipient should have sender in friends list after accepting request");
+        assertTrue(sender.getFriendsList().contains(recipient.getUUID()), "Sender should have recipient in friends list after request is accepted");
+        Users.getInstance().getUsers().clear();
+    }
+    
+    @Test
+    public void testAcceptFriendRequest_noRequestExists() {
+        User sender = new User("sender1111", "password1111");
+        User recipient = new User("recipient1111", "password1111");
+        
+        recipient.acceptFriendRequest(sender.getUUID());
+        
+        assertFalse(recipient.getFriendsList().contains(sender.getUUID()), "Recipient should not have sender in friends list if no request exists");
+    }
+    
+    @Test
+    public void testAcceptFriendRequest_selfAccept() {
+        User sender = new User("sender1111", "password1111");
+        
+        sender.acceptFriendRequest(sender.getUUID());
+        
+        assertFalse(sender.getFriendsList().contains(sender.getUUID()), "User should not be able to accept a friend request from themselves");
+    }
+    
+    @Test
+    public void testRejectFriendRequest_successful() {
+        User sender = new User("sender1111", "password1111");
+        User recipient = new User("recipient1111", "password1111");
+        
+        sender.sendFriendRequest(recipient.getUUID());
+        recipient.rejectFriendRequest(sender.getUUID());
+        
+        assertFalse(recipient.getFriendRequests().contains(sender.getUUID()), "Friend request should be removed after rejection");
+        assertFalse(recipient.getFriendsList().contains(sender.getUUID()), "Recipient should not have sender in friends list after rejecting request");
+    }
+    
+    @Test
+    public void testRejectFriendRequest_noRequestExists() {
+        User sender = new User("sender1111", "password1111");
+        User recipient = new User("recipient1111", "password1111");
+        
+        recipient.rejectFriendRequest(sender.getUUID());
+        
+        assertFalse(recipient.getFriendRequests().contains(sender.getUUID()), "Friend request list should remain unaffected if no request exists");
+    }
+    
+    @Test
+    public void testRejectFriendRequest_selfReject() {
+        User sender = new User("sender1111", "password1111");
+        
+        sender.rejectFriendRequest(sender.getUUID());
+        
+        assertFalse(sender.getFriendRequests().contains(sender.getUUID()), "User should not be able to reject a friend request from themselves");
+    }
+    
+    @Test
+    public void testAddFriend_successful() {
+        User user1 = new User("user1111", "password1111");
+        User user2 = new User("user2222", "password1111");
+        
+        user1.addFriend(user2.getUUID());
+        
+        assertTrue(user1.getFriendsList().contains(user2.getUUID()), "User should successfully add another user to friends list");
+    }
+    
+    @Test
+    public void testAddFriend_alreadyFriends() {
+        User user1 = new User("user1111", "password1111");
+        User user2 = new User("user2222", "password1111");
+        
+        user1.addFriend(user2.getUUID());
+        user1.addFriend(user2.getUUID()); // Add again
+        
+        assertEquals(1, user1.getFriendsList().size(), "Friends list should not contain duplicates");
+    }
+    
+    @Test
+    public void testAddFriend_nullUUID() {
+        User user = new User("user1111", "password");
+        
+        user.addFriend(null);
+        
+        assertTrue(user.getFriendsList().isEmpty(), "Friends list should not add a null UUID");
+    }
+    
+    @Test
+    public void testAddFriend_selfFriend() {
+        User user = new User("user", "password");
+        
+        user.addFriend(user.getUUID());
+        
+        assertFalse(user.getFriendsList().contains(user.getUUID()), "User should not be able to add themselves to their friends list");
     }
 }

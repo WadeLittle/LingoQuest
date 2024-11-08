@@ -13,6 +13,7 @@ public class User {
 
     // changed to UUID because you can access friend by their uuid
     private ArrayList<UUID> friendsList;
+    private ArrayList<UUID> friendRequests;
     private String username;
     private String password;
     // changed to UUID - cade (please dont change)
@@ -52,6 +53,7 @@ public class User {
         coinsEarned = 0;
         coinBalance = 0;
         friendsList = new ArrayList<UUID>();
+        friendRequests = new ArrayList<UUID>();
         username = null;
         password = null;
         items = new ArrayList<UUID>();
@@ -82,6 +84,7 @@ public class User {
         this.coinsEarned = 0;
         this.coinBalance = 0;
         this.friendsList = new ArrayList<>();
+        this.friendRequests = new ArrayList<>();
         this.items = new ArrayList<>();
         this.bookmarkedLessons = new ArrayList<>();
         this.userProgress = new HashMap<>();
@@ -122,6 +125,71 @@ public class User {
      */
     public Dictionary getUserDictionary() {
         return this.userDictionary;
+    }
+
+    /**
+     * @author cade
+     * @param list
+     */
+    public void setFriendRequests(ArrayList<UUID> list) {
+        if(list.isEmpty() == false && list != null) {
+            this.friendRequests = list;
+        }
+    }
+    
+    /**
+     * @author cade
+     * @return the list of users who have sent a friend request
+     */
+    public ArrayList<UUID> getFriendRequests() {
+        return this.friendRequests;
+    }
+
+    public void acceptFriendRequest(UUID id) {
+        if (id == null || !this.friendRequests.contains(id) || id.equals(this.userID)) return;
+        
+        User sender = Users.getInstance().getUserByUUID(id);
+        if (sender != null && !this.friendsList.contains(id)) {
+            this.friendRequests.remove(id);
+            this.addFriend(id);
+            sender.addFriend(this.userID);
+        }
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void rejectFriendRequest(UUID id) {
+        if (id == null || !this.friendRequests.contains(id) || id.equals(this.userID)) return;
+        
+        this.friendRequests.remove(id);
+    }
+    
+    /**
+     * @author cade
+     * @param id to be added to friends list
+     */
+    public void addFriend(UUID id) {
+        if (id == null || id.equals(this.userID) || this.friendsList.contains(id)) return;
+        
+        this.friendsList.add(id);
+    }
+
+    /**
+     * @author cade
+     * @param id
+     */
+    public void sendFriendRequest(UUID id) {
+        if (id == null || id.equals(this.userID)) return;
+        
+        User recipient = Users.getInstance().getUserByUUID(id);
+        if (recipient != null && 
+            !recipient.getFriendsList().contains(this.userID) && 
+            !recipient.getFriendRequests().contains(this.userID)) {
+            
+            recipient.getFriendRequests().add(this.userID);
+        }
     }
 
     public UUID getCurrentLanguageID() {
@@ -258,9 +326,11 @@ public class User {
      *         username can't be found
      */
     public User searchFriends(UUID id) {
-        for (int i = 0; i < friendsList.size(); i++) {
-            if (friendsList.get(i).equals(id)) {
-                return Users.getInstance().getUserByUUID(friendsList.get(i));
+        if(this.friendsList != null && this.friendsList.isEmpty() == false) {
+            for (int i = 0; i < friendsList.size(); i++) {
+                if (friendsList.get(i).equals(id)) {
+                    return Users.getInstance().getUserByUUID(friendsList.get(i));
+                }
             }
         }
         return null;
