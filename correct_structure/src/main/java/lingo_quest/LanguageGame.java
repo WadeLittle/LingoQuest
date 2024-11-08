@@ -30,6 +30,7 @@ class LanguageGame {
         // Speak prints out a message to terminal when connected, so we call it here to display
         // it before our questions get displayed
         speak("");
+        this.leaderboard = LeaderBoard.getInstance();
         this.userList = Users.getInstance();
         this.dictionaryMan = DictionaryManager.getInstance();
         this.itemShop = ItemShop.getInstance();
@@ -68,6 +69,32 @@ class LanguageGame {
         if(dm != null) {
             this.dictionaryMan = dm;
         }
+    }
+
+    /**
+     * @author cade
+     * @param lb leaderboard
+     */
+    public void setLeaderboard(LeaderBoard lb) {
+        if(lb != null)
+            this.leaderboard = lb;
+    }
+
+    /**
+     * @author cade
+     * @return the leaderboard object
+     */
+    public LeaderBoard getLeaderBoard() {
+        return this.leaderboard;
+    }
+
+    /**
+     * @author cade
+     * @return sorted list of users
+     * easy way to get the list of users that have been sorted
+     */
+    public ArrayList<User> getLeaderboardUsers() {
+        return this.leaderboard.getUsers();
     }
 
     /**
@@ -164,6 +191,8 @@ class LanguageGame {
             u.setCurrentLanguage(languageManager.getLanguageByID(u.getCurrentLanguageID()));
             // figure out how to expand this for when we have multiple dictionaries - cade
             u.setUserDictionary(dictionaryMan.getDictionaryByID(u.getUserDictionaryID()));
+            // load all the users into the leaderboard
+            leaderboard.addUser(u);
         }
         }
 

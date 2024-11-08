@@ -47,6 +47,29 @@ public class LeaderBoardTest {
     }
 
     @Test
+    public void testSortUsersByCoinsEarnedAscendingOrder() {
+        LeaderBoard leaderboard = LeaderBoard.getInstance();
+        leaderboard.getUsers().clear();
+        User user1 = new User("User1111", "password11");
+        User user2 = new User("User2222", "password11");
+        User user3 = new User("User3333", "password11");
+
+        user1.setCoinsEarned(300);
+        user2.setCoinsEarned(100);
+        user3.setCoinsEarned(200);
+
+        leaderboard.addUser(user1);
+        leaderboard.addUser(user2);
+        leaderboard.addUser(user3);
+
+        leaderboard.sortUsers();
+
+        assertEquals(user2, leaderboard.getUsers().get(0), "Users should be sorted by coins earned in ascending order.");
+        assertEquals(user3, leaderboard.getUsers().get(1));
+        assertEquals(user1, leaderboard.getUsers().get(2));
+    }
+
+    @Test
     public void testAddUser_addNullUser() {
         leaderboard.addUser(null);
         assertEquals(3, leaderboard.getUsers().size()); // Null should not be added

@@ -39,9 +39,14 @@ public class LeaderBoard {
      * Adds a user to the leaderboard.
      *
      * @param user The user to be added to the leaderboard.
+     * 
+     * this method will be called from languagegame to avoid confusion - cade
      */
     public void addUser(User user) {
-        users.add(user);
+        if(user != null) {
+            users.add(user);
+            sortUsers();
+        }
     }
 
     /**
@@ -50,22 +55,64 @@ public class LeaderBoard {
      * @param user The user to be removed from the leaderboard.
      */
     public void removeUser(User user) {
-        users.remove(user);
+        if(user != null && users.contains(user)) {
+            users.remove(user);
+            sortUsers();
+        }
     }
 
-   
+    /**
+     * @author cade
+     * @param list
+     */
+    public void setUsers(ArrayList<User> list) {
+        if(list.isEmpty() == false && list != null) {
+            this.users = list;
+            sortUsers();
+        }
+    }
+
+    /**
+     * @author cade
+     * method to sort the users in the list by the amount of coins they've earned on the app
+     * tested and working - cade
+     */
+    public void sortUsers() {
+        for (int i = 0; i < users.size() - 1; i++) {
+            boolean swapped = false;
+    
+            for (int j = 0; j < users.size() - i - 1; j++) {
+                if (users.get(j).getCoinsEarned() > users.get(j + 1).getCoinsEarned()) {
+                    // Swap users based on coinsEarned
+                    User temp = users.get(j);
+                    users.set(j, users.get(j + 1));
+                    users.set(j + 1, temp);
+                    swapped = true;
+                }
+            }
+    
+            if (!swapped) {
+                break;
+            }
+        }
+    }
+
 
     /**
      * Prints the leaderboard in a formatted way, showing the username and total
-     * points of each user.
+     * coins earned of each user.
      */
     public void printLeaderboard() {
         System.out.println("Leaderboard:");
-        for (int i = 0; i < users.size(); i++) {
-            System.out.println(
-                    (i + 1) + ". " + users.get(i).getUsername() + " - " + users.get(i).getCoinsEarned() + " points");
+        if(users.isEmpty() == false && users != null) {
+            for (int i = 0; i < users.size(); i++) {
+                System.out.println(
+                        (i + 1) + ". " + users.get(i).getUsername() + " - " + users.get(i).getCoinsEarned() + " Total Coins Earned");
+            }
         }
     }
+
+    // TODO - PORTIA SAID IT WOULD BE COOL IF YOU CAN SEE YOURSELF RISE OR FALL ON THE LEADERBOARD ONCE YOU OPEN IT
 
     /**
      * Gets the list of users in the leaderboard.
@@ -73,6 +120,7 @@ public class LeaderBoard {
      * @return The list of users in the leaderboard.
      */
     public ArrayList<User> getUsers() {
+        sortUsers();
         return users;
     }
 }
